@@ -1,0 +1,161 @@
+---
+---
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <p class="footer-logo-main">小澤鶏卵</p>
+        <p class="footer-logo-sub">OZAWA KEIRAN</p>
+        <p class="footer-tagline">新鮮で安心なたまごを、毎日の食卓へ</p>
+      </div>
+
+      <nav class="footer-nav" aria-label="フッターナビゲーション">
+        <div class="footer-nav-col">
+          <p class="footer-nav-label">サイトマップ</p>
+          <ul>
+            <li><a href="/">トップページ</a></li>
+            <li><a href="/products">商品案内</a></li>
+            <li><a href="/quality">品質へのこだわり</a></li>
+            <li><a href="/company">会社概要</a></li>
+            <li><a href="/contact">お問い合わせ</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-col">
+          <p class="footer-nav-label">お問い合わせ</p>
+          <ul>
+            <li>
+              <a href="tel:0000-00-0000">TEL: 0000-00-0000</a>
+            </li>
+            <li>
+              <a href="mailto:info@kozawa-keiran.com">info@kozawa-keiran.com</a>
+            </li>
+            <li class="footer-hours">
+              <span>受付時間：月〜土 8:00〜17:00</span>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="copyright">&copy; {new Date().getFullYear()} 小澤鶏卵 All Rights Reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background-color: var(--color-dark-brown);
+    color: rgba(250, 247, 242, 0.75);
+    margin-top: 0;
+  }
+
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .footer-top {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 4rem;
+    padding: 4rem 0 3rem;
+    border-bottom: 1px solid rgba(250, 247, 242, 0.1);
+  }
+
+  .footer-logo-main {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--color-ivory);
+    letter-spacing: 0.05em;
+    margin-bottom: 0.25rem;
+  }
+
+  .footer-logo-sub {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    color: rgba(250, 247, 242, 0.45);
+    margin-bottom: 1.25rem;
+  }
+
+  .footer-tagline {
+    font-size: 0.85rem;
+    line-height: 1.7;
+    color: rgba(250, 247, 242, 0.6);
+  }
+
+  .footer-nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .footer-nav-label {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    color: var(--color-egg-yellow);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+
+  .footer-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+  }
+
+  .footer-nav a {
+    font-size: 0.875rem;
+    color: rgba(250, 247, 242, 0.65);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .footer-nav a:hover {
+    color: var(--color-ivory);
+  }
+
+  .footer-hours span {
+    font-size: 0.8rem;
+    color: rgba(250, 247, 242, 0.45);
+  }
+
+  .footer-bottom {
+    padding: 1.5rem 0;
+    text-align: center;
+  }
+
+  .copyright {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    color: rgba(250, 247, 242, 0.35);
+  }
+
+  @media (max-width: 768px) {
+    .footer-top {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      padding: 3rem 0 2rem;
+    }
+
+    .footer-nav {
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .footer-nav {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

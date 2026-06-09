@@ -1,0 +1,475 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout
+  title="品質へのこだわり｜小澤鶏卵"
+  description="小澤鶏卵の品質へのこだわりをご紹介します。鮮度管理・安全管理・衛生管理・生産者との連携で、安心・安全なたまごをお届けします。"
+>
+  <Header />
+  <main>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+      <div class="page-hero-inner">
+        <span class="section-label">Quality</span>
+        <h1 class="page-title">品質へのこだわり</h1>
+        <p class="page-subtitle">産地から食卓まで、妥協しない品質管理</p>
+      </div>
+    </section>
+
+    <!-- Intro -->
+    <section class="quality-intro">
+      <div class="container">
+        <div class="intro-inner">
+          <div class="intro-text">
+            <p class="intro-lead">
+              たまごの品質は、産地から食卓に届くまでの過程すべてにかかっています。
+            </p>
+            <p>
+              小澤鶏卵では、鮮度・安全・衛生の三本柱を軸に、毎日の管理を徹底しています。
+              信頼できる生産者との長年の連携と、厳格な自社基準が、私たちの品質を支えています。
+            </p>
+          </div>
+          <div class="intro-stat-grid">
+            <div class="stat-item">
+              <span class="stat-num">60<span class="stat-unit">年</span></span>
+              <p>創業からの<br />実績と信頼</p>
+            </div>
+            <div class="stat-item">
+              <span class="stat-num">365<span class="stat-unit">日</span></span>
+              <p>休まず続ける<br />品質管理</p>
+            </div>
+            <div class="stat-item">
+              <span class="stat-num">当日<span class="stat-unit">入荷</span></span>
+              <p>産地直送の<br />新鮮さ</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quality 01: Freshness -->
+    <section class="quality-detail">
+      <div class="container">
+        <div class="quality-block">
+          <div class="quality-num-large" aria-hidden="true">01</div>
+          <div class="quality-content">
+            <span class="section-label">Freshness</span>
+            <h2 class="section-title">鮮度へのこだわり</h2>
+            <div class="divider"></div>
+            <p>
+              たまごの美味しさは、何よりも鮮度にあります。小澤鶏卵では産地との直接取引により、採卵から最短での配送を実現しています。
+            </p>
+            <p>
+              入荷したたまごはその日のうちに出荷・納品するサイクルを維持し、保管中も適切な温度・湿度環境を徹底的に管理しています。
+            </p>
+            <ul class="quality-checklist">
+              <li>産地直送・当日入荷にこだわった仕入れ体制</li>
+              <li>適切な温度・湿度での保管管理</li>
+              <li>先入れ先出し原則の厳守</li>
+              <li>配送時の保冷管理</li>
+            </ul>
+          </div>
+          <div class="quality-visual-side" aria-hidden="true">
+            <div class="quality-card">
+              <svg viewBox="0 0 200 220" xmlns="http://www.w3.org/2000/svg" class="quality-card-egg">
+                <defs>
+                  <linearGradient id="freshG" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#FAF7F2"/>
+                    <stop offset="100%" stop-color="#EDE8DF"/>
+                  </linearGradient>
+                </defs>
+                <ellipse cx="100" cy="125" rx="72" ry="92" fill="url(#freshG)" stroke="#D4A017" stroke-width="1"/>
+                <ellipse cx="100" cy="132" rx="38" ry="48" fill="#F2C94C" opacity="0.42"/>
+                <ellipse cx="82" cy="105" rx="16" ry="10" fill="white" opacity="0.38" transform="rotate(-22,82,105)"/>
+              </svg>
+              <p class="quality-card-label">鮮度管理</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quality 02: Safety -->
+    <section class="quality-detail quality-detail--alt">
+      <div class="container">
+        <div class="quality-block quality-block--reverse">
+          <div class="quality-num-large" aria-hidden="true">02</div>
+          <div class="quality-visual-side" aria-hidden="true">
+            <div class="quality-card">
+              <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="quality-card-icon">
+                <path d="M100 20L170 55V105C170 143 140 176 100 188C60 176 30 143 30 105V55L100 20Z" fill="none" stroke="#4A7C59" stroke-width="1.5"/>
+                <path d="M68 105L88 125L132 81" stroke="#4A7C59" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <p class="quality-card-label">安全管理</p>
+            </div>
+          </div>
+          <div class="quality-content">
+            <span class="section-label">Safety</span>
+            <h2 class="section-title">安全管理</h2>
+            <div class="divider"></div>
+            <p>
+              信頼できる生産者との長年の取引関係を基盤に、食の安全を守るための取り組みを徹底しています。
+            </p>
+            <p>
+              仕入れ先農場の衛生管理状況を定期的に確認し、問題が発生した際には迅速な対応ができる体制を整えています。安全なたまごを届けることが、私たちの最も重要な使命です。
+            </p>
+            <ul class="quality-checklist">
+              <li>仕入れ先農場の定期的な衛生確認</li>
+              <li>トレーサビリティの確保</li>
+              <li>異常発生時の迅速対応体制</li>
+              <li>食品衛生法に基づく適切な管理</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quality 03: Hygiene -->
+    <section class="quality-detail">
+      <div class="container">
+        <div class="quality-block">
+          <div class="quality-num-large" aria-hidden="true">03</div>
+          <div class="quality-content">
+            <span class="section-label">Hygiene</span>
+            <h2 class="section-title">衛生管理</h2>
+            <div class="divider"></div>
+            <p>
+              保管・仕分け・配送の全工程において、徹底した衛生基準を設けています。
+            </p>
+            <p>
+              作業員の手洗い・消毒の徹底、保管・配送車両の定期清掃・消毒を実施。清潔な環境でたまごを扱うことが、品質維持の基本と考えています。
+            </p>
+            <ul class="quality-checklist">
+              <li>作業員の手洗い・消毒の徹底</li>
+              <li>保管庫・作業場の定期清掃・消毒</li>
+              <li>配送車両の衛生管理</li>
+              <li>仕分け・包装工程の清潔管理</li>
+            </ul>
+          </div>
+          <div class="quality-visual-side" aria-hidden="true">
+            <div class="quality-card">
+              <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="quality-card-icon">
+                <circle cx="100" cy="100" r="65" fill="none" stroke="#4A7C59" stroke-width="1.5"/>
+                <path d="M60 100 C60 80 80 65 100 65 C120 65 140 80 140 100" fill="none" stroke="#4A7C59" stroke-width="1.5"/>
+                <circle cx="100" cy="100" r="20" fill="#4A7C59" opacity="0.15"/>
+                <circle cx="100" cy="100" r="8" fill="#4A7C59" opacity="0.4"/>
+                <path d="M75 125 C80 135 90 140 100 140 C110 140 120 135 125 125" fill="none" stroke="#4A7C59" stroke-width="1.5"/>
+              </svg>
+              <p class="quality-card-label">衛生管理</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quality 04: Partnership -->
+    <section class="quality-detail quality-detail--alt">
+      <div class="container">
+        <div class="quality-block quality-block--reverse">
+          <div class="quality-num-large" aria-hidden="true">04</div>
+          <div class="quality-visual-side" aria-hidden="true">
+            <div class="quality-card">
+              <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="quality-card-icon">
+                <circle cx="70" cy="80" r="25" fill="none" stroke="#4A7C59" stroke-width="1.5"/>
+                <circle cx="130" cy="80" r="25" fill="none" stroke="#4A7C59" stroke-width="1.5"/>
+                <path d="M45 150 C45 125 55 115 70 115 C85 115 95 125 100 135 C105 125 115 115 130 115 C145 115 155 125 155 150" fill="none" stroke="#4A7C59" stroke-width="1.5"/>
+                <path d="M90 92 L100 100 L110 88" stroke="#4A7C59" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+              <p class="quality-card-label">生産者との連携</p>
+            </div>
+          </div>
+          <div class="quality-content">
+            <span class="section-label">Partnership</span>
+            <h2 class="section-title">生産者との連携</h2>
+            <div class="divider"></div>
+            <p>
+              長年にわたって信頼関係を築いてきた生産者との密な連携が、小澤鶏卵の品質の根幹を支えています。
+            </p>
+            <p>
+              飼料・飼育環境・管理方法を把握したうえで仕入れを行い、生産者と共に品質向上に取り組んでいます。顔の見える仕入れ体制が、安心の源です。
+            </p>
+            <ul class="quality-checklist">
+              <li>生産者との定期的な情報共有・訪問</li>
+              <li>飼育環境・飼料内容の把握</li>
+              <li>品質課題の共同改善</li>
+              <li>長期的なパートナーシップの構築</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="quality-cta">
+      <div class="container">
+        <div class="cta-inner">
+          <span class="section-label">Contact</span>
+          <h2 class="section-title">品質について、お気軽にご相談ください</h2>
+          <p>業務用でのご利用や、品質・安全性についてのご質問はお気軽にどうぞ。</p>
+          <a href="/contact" class="btn-primary">お問い合わせ</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .page-hero {
+    background-color: var(--color-cream);
+    padding: 9rem 0 5rem;
+    border-bottom: 1px solid rgba(61, 43, 31, 0.07);
+  }
+
+  .page-hero-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .page-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 300;
+    color: var(--color-dark-brown);
+    letter-spacing: 0.04em;
+    margin-bottom: 0.5rem;
+  }
+
+  .page-subtitle {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    letter-spacing: 0.05em;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .quality-intro {
+    padding: 6rem 0;
+    background-color: var(--color-ivory);
+  }
+
+  .intro-inner {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  .intro-lead {
+    font-size: 1.15rem;
+    color: var(--color-dark-brown);
+    font-weight: 400;
+    line-height: 1.7;
+    margin-bottom: 1.25rem;
+    letter-spacing: 0.02em;
+  }
+
+  .intro-text p {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    line-height: 1.9;
+    margin: 0;
+  }
+
+  .intro-stat-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  .stat-item {
+    text-align: center;
+    padding: 1.75rem 1rem;
+    background-color: var(--color-cream);
+    border-top: 2px solid var(--color-egg-yellow);
+  }
+
+  .stat-num {
+    display: block;
+    font-family: 'Lato', sans-serif;
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--color-dark-brown);
+    letter-spacing: -0.02em;
+    margin-bottom: 0.5rem;
+  }
+
+  .stat-unit {
+    font-size: 1rem;
+  }
+
+  .stat-item p {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  /* Quality detail sections */
+  .quality-detail {
+    padding: 7rem 0;
+    background-color: var(--color-ivory);
+    position: relative;
+  }
+
+  .quality-detail--alt {
+    background-color: var(--color-cream);
+  }
+
+  .quality-block {
+    display: grid;
+    grid-template-columns: 80px 1fr 280px;
+    gap: 3rem;
+    align-items: center;
+    position: relative;
+  }
+
+  .quality-block--reverse {
+    grid-template-columns: 80px 280px 1fr;
+  }
+
+  .quality-num-large {
+    font-family: 'Lato', sans-serif;
+    font-size: 4rem;
+    font-weight: 300;
+    color: rgba(212, 160, 23, 0.2);
+    letter-spacing: -0.05em;
+    line-height: 1;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    align-self: flex-start;
+    padding-top: 0.5rem;
+  }
+
+  .quality-content p {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    line-height: 1.9;
+    margin-bottom: 1.25rem;
+  }
+
+  .quality-checklist {
+    list-style: none;
+    margin: 1.5rem 0 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+  }
+
+  .quality-checklist li {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    padding-left: 0;
+  }
+
+  .quality-checklist li::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--color-egg-yellow);
+    flex-shrink: 0;
+  }
+
+  .quality-visual-side {
+    display: flex;
+    justify-content: center;
+  }
+
+  .quality-card {
+    width: 220px;
+    height: 260px;
+    background-color: var(--color-ivory);
+    border: 1px solid rgba(61, 43, 31, 0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.25rem;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(61, 43, 31, 0.05);
+  }
+
+  .quality-detail--alt .quality-card {
+    background-color: var(--color-cream);
+  }
+
+  .quality-card-egg,
+  .quality-card-icon {
+    width: 130px;
+    height: 130px;
+  }
+
+  .quality-card-label {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    color: var(--color-natural-green);
+    margin: 0;
+  }
+
+  /* CTA */
+  .quality-cta {
+    padding: 7rem 0;
+    background-color: var(--color-green-light);
+  }
+
+  .cta-inner {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .cta-inner p {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    margin-bottom: 2.5rem;
+    line-height: 1.7;
+  }
+
+  @media (max-width: 1000px) {
+    .quality-block,
+    .quality-block--reverse {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .quality-num-large {
+      writing-mode: horizontal-tb;
+      font-size: 2.5rem;
+    }
+
+    .quality-visual-side {
+      display: none;
+    }
+
+    .intro-inner {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    .intro-stat-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .intro-stat-grid {
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+    }
+  }
+</style>
