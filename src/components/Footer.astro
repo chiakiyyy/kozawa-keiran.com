@@ -1,215 +1,166 @@
 ---
+const navLinks = [
+  { label: '私たちについて', href: '/company' },
+  { label: '商品案内', href: '/products' },
+  { label: 'こだわり', href: '/quality' },
+  { label: 'よくある質問', href: '/qa' },
+  { label: 'お知らせ', href: '/news' },
+  { label: 'お問い合わせ', href: '/contact' },
+];
 ---
 
 <footer class="site-footer">
-  <!-- 山形の区切り -->
-  <div class="footer-mountain" aria-hidden="true">
-    <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0 80 L0 60 Q180 0 360 40 Q540 80 720 30 Q900 0 1080 45 Q1260 80 1440 35 L1440 80 Z" fill="#2d6a18"/>
-      <path d="M0 80 L0 70 Q200 20 400 55 Q600 80 800 45 Q1000 10 1200 55 Q1350 80 1440 50 L1440 80 Z" fill="#3d7a25"/>
-      <path d="M0 80 L0 78 Q360 50 720 68 Q1080 80 1440 62 L1440 80 Z" fill="#4a8c2e"/>
+  <!-- Wave top -->
+  <div class="footer-wave" aria-hidden="true">
+    <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0,40 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,80 L0,80 Z" fill="#3D7A34"/>
     </svg>
   </div>
 
   <div class="footer-body">
     <div class="footer-inner">
-      <!-- Brand -->
+      <!-- ロゴ・コピー -->
       <div class="footer-brand">
-        <div class="footer-egg" aria-hidden="true">
-          <svg viewBox="0 0 64 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <ellipse cx="32" cy="46" rx="22" ry="28" fill="#f1e16d" stroke="#e8d340" stroke-width="1.5"/>
-            <ellipse cx="32" cy="49" rx="12" ry="15" fill="#f5c842" opacity="0.6"/>
-            <ellipse cx="26" cy="40" rx="6" ry="4" fill="white" opacity="0.4" transform="rotate(-20,26,40)"/>
+        <div class="footer-logo">
+          <svg width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="26" cy="26" r="25" fill="rgba(255,248,192,0.15)" stroke="rgba(242,201,76,0.4)" stroke-width="1.5"/>
+            <ellipse cx="26" cy="30" rx="11" ry="14" fill="rgba(250,245,236,0.9)" stroke="rgba(242,201,76,0.5)" stroke-width="1"/>
+            <ellipse cx="26" cy="33" rx="6" ry="8" fill="#F2C94C" opacity="0.5"/>
+            <circle cx="26" cy="18" r="6" fill="rgba(245,232,192,0.9)" stroke="rgba(200,160,96,0.5)" stroke-width="1"/>
+            <ellipse cx="26" cy="22" rx="3.5" ry="1.8" fill="#F4A020" opacity="0.8"/>
+            <ellipse cx="26" cy="13.5" rx="3.5" ry="2.2" fill="#E04040" opacity="0.8"/>
           </svg>
+          <div>
+            <p class="footer-logo-jp">小澤鶏卵</p>
+            <p class="footer-logo-en">OZAWA KEIRAN</p>
+          </div>
         </div>
-        <p class="footer-brand-name">小澤鶏卵</p>
-        <p class="footer-brand-en">OZAWA KEIRAN</p>
-        <p class="footer-tagline">新鮮で安心なたまごを、<br />毎日の食卓へ</p>
+        <p class="footer-copy">
+          新鮮で安心なたまごを、<br />毎日の食卓へ。
+        </p>
         <a href="tel:0000-00-0000" class="footer-tel">0000-00-0000</a>
-        <p class="footer-hours">月〜土 8:00〜17:00</p>
+        <p class="footer-hours">月〜土曜 8:00〜17:00（日祝休業）</p>
       </div>
 
-      <!-- Nav columns -->
+      <!-- ナビ -->
       <nav class="footer-nav" aria-label="フッターナビゲーション">
-        <div class="footer-nav-col">
-          <p class="footer-nav-heading">小澤鶏卵について</p>
-          <ul>
-            <li><a href="/company">会社概要</a></li>
-            <li><a href="/quality">品質へのこだわり</a></li>
-          </ul>
-        </div>
-        <div class="footer-nav-col">
-          <p class="footer-nav-heading">商品・サービス</p>
-          <ul>
-            <li><a href="/products">商品案内</a></li>
-            <li><a href="/products#delivery">定期納品サービス</a></li>
-          </ul>
-        </div>
-        <div class="footer-nav-col">
-          <p class="footer-nav-heading">サポート</p>
-          <ul>
-            <li><a href="/contact">お問い合わせ</a></li>
-            <li><a href="/faq">よくある質問</a></li>
-          </ul>
-        </div>
+        <ul>
+          {navLinks.map(link => (
+            <li><a href={link.href}>{link.label}</a></li>
+          ))}
+        </ul>
       </nav>
+
+      <!-- イラスト -->
+      <div class="footer-illust" aria-hidden="true">
+        <svg viewBox="0 0 240 200" xmlns="http://www.w3.org/2000/svg">
+          <!-- 大きな卵 -->
+          <ellipse cx="120" cy="115" rx="70" ry="88" fill="rgba(250,245,236,0.15)" stroke="rgba(242,201,76,0.3)" stroke-width="1.5"/>
+          <ellipse cx="120" cy="124" rx="38" ry="48" fill="#F2C94C" opacity="0.25"/>
+          <!-- ニワトリ(左) -->
+          <g transform="translate(40,150)">
+            <ellipse cx="0" cy="0" rx="22" ry="16" fill="rgba(245,232,192,0.8)"/>
+            <circle cx="17" cy="-11" r="12" fill="rgba(245,232,192,0.8)"/>
+            <polygon points="23,-11 30,-7 23,-5" fill="#F4A020" opacity="0.8"/>
+            <ellipse cx="15" cy="-20" rx="5" ry="3" fill="#E04040" opacity="0.7"/>
+            <line x1="-4" y1="16" x2="-9" y2="34" stroke="#F4A020" stroke-width="2" stroke-linecap="round" opacity="0.8"/>
+            <line x1="7" y1="16" x2="2" y2="34" stroke="#F4A020" stroke-width="2" stroke-linecap="round" opacity="0.8"/>
+          </g>
+          <!-- ニワトリ(右) -->
+          <g transform="translate(200,155)">
+            <ellipse cx="0" cy="0" rx="20" ry="14" fill="rgba(255,255,255,0.7)"/>
+            <circle cx="-15" cy="-10" r="11" fill="rgba(255,255,255,0.7)"/>
+            <polygon points="-21,-10 -29,-7 -21,-5" fill="#F4A020" opacity="0.8"/>
+            <ellipse cx="-13" cy="-18" rx="5" ry="3" fill="#E04040" opacity="0.7"/>
+            <line x1="-4" y1="14" x2="-9" y2="30" stroke="#F4A020" stroke-width="2" stroke-linecap="round" opacity="0.8"/>
+            <line x1="6" y1="14" x2="2" y2="30" stroke="#F4A020" stroke-width="2" stroke-linecap="round" opacity="0.8"/>
+          </g>
+          <!-- ひよこ -->
+          <g transform="translate(118,168)">
+            <ellipse cx="0" cy="0" rx="14" ry="12" fill="rgba(255,220,80,0.7)"/>
+            <circle cx="0" cy="-13" r="9" fill="rgba(255,220,80,0.7)"/>
+            <polygon points="5,-13 10,-11 5,-9" fill="#F4A020" opacity="0.7"/>
+            <line x1="-5" y1="12" x2="-7" y2="24" stroke="#F4A020" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
+            <line x1="3" y1="12" x2="2" y2="24" stroke="#F4A020" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
+          </g>
+        </svg>
+      </div>
     </div>
 
     <div class="footer-bottom">
-      <p class="copyright">&copy; {new Date().getFullYear()} 小澤鶏卵 All Rights Reserved.</p>
+      <p>&copy; {new Date().getFullYear()} 小澤鶏卵 All rights reserved.</p>
+      <p class="footer-address">〒000-0000 ○○県○○市○○町 0-0-0</p>
     </div>
   </div>
 </footer>
 
 <style>
-  .footer-mountain {
-    display: block;
-    line-height: 0;
-    overflow: hidden;
-    background-color: white;
-  }
-  .footer-mountain svg {
-    display: block;
-    width: 100%;
-    height: 80px;
-  }
-
-  .footer-body {
-    background-color: #3d7a25;
-    color: rgba(255,255,255,0.85);
-  }
-
-  .footer-inner {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 4rem 2rem 2.5rem;
-    display: grid;
-    grid-template-columns: 260px 1fr;
-    gap: 5rem;
-  }
-
-  .footer-brand { }
-
-  .footer-egg {
-    width: 52px;
-    height: 64px;
-    margin-bottom: 0.75rem;
-    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
-  }
-  .footer-egg svg { width: 100%; height: 100%; }
-
-  .footer-brand-name {
-    font-size: 1.3rem;
-    font-weight: 700;
-    color: white;
-    letter-spacing: 0.08em;
-    margin-bottom: 2px;
-  }
-
-  .footer-brand-en {
-    font-family: 'Lato', sans-serif;
-    font-size: 0.6rem;
-    letter-spacing: 0.22em;
-    color: rgba(255,255,255,0.55);
-    margin-bottom: 1rem;
-  }
-
-  .footer-tagline {
-    font-size: 0.875rem;
-    line-height: 1.7;
-    color: rgba(255,255,255,0.75);
-    margin-bottom: 1.25rem;
-  }
-
-  .footer-tel {
-    display: block;
-    font-family: 'Lato', sans-serif;
-    font-size: 1.3rem;
-    font-weight: 400;
-    color: var(--color-yellow);
-    text-decoration: none;
-    letter-spacing: 0.06em;
-    margin-bottom: 0.2rem;
-  }
-
-  .footer-hours {
-    font-size: 0.775rem;
-    color: rgba(255,255,255,0.5);
-    margin: 0;
-  }
-
-  .footer-nav {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    align-self: start;
-    padding-top: 0.5rem;
-  }
-
-  .footer-nav-heading {
-    font-size: 0.8rem;
-    font-weight: 700;
-    color: var(--color-yellow);
-    letter-spacing: 0.06em;
-    margin-bottom: 1rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid rgba(255,255,255,0.15);
-  }
-
-  .footer-nav ul {
-    list-style: none;
-    margin: 0; padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 0.625rem;
-  }
-
-  .footer-nav a {
-    font-size: 0.85rem;
-    color: rgba(255,255,255,0.7);
-    text-decoration: none;
-    transition: color 0.2s;
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-  }
-  .footer-nav a::before {
-    content: '▶';
-    font-size: 0.5rem;
-    color: var(--color-yellow);
-    opacity: 0.7;
-  }
-  .footer-nav a:hover { color: white; }
-
-  .footer-bottom {
-    border-top: 1px solid rgba(255,255,255,0.12);
-    padding: 1.25rem 2rem;
-    text-align: center;
-    max-width: 1280px;
-    margin: 0 auto;
-  }
-
-  .copyright {
-    font-family: 'Lato', sans-serif;
-    font-size: 0.72rem;
-    letter-spacing: 0.08em;
-    color: rgba(255,255,255,0.4);
-    margin: 0;
-  }
-
-  @media (max-width: 900px) {
-    .footer-inner {
-      grid-template-columns: 1fr;
-      gap: 2.5rem;
-    }
-    .footer-nav {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-
-  @media (max-width: 480px) {
-    .footer-nav {
-      grid-template-columns: 1fr;
-    }
-  }
+.site-footer { margin-top: 0; }
+.footer-wave { display: block; line-height: 0; background-color: var(--color-yellow-pale); }
+.footer-wave svg { display: block; width: 100%; height: 60px; }
+.footer-body { background-color: #3D7A34; color: white; padding: 3.5rem 0 1.5rem; }
+.footer-inner {
+  max-width: 1200px; margin: 0 auto; padding: 0 2rem;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 0.8fr;
+  gap: 4rem;
+  margin-bottom: 2.5rem;
+}
+.footer-logo {
+  display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;
+}
+.footer-logo-jp {
+  font-family: 'Zen Maru Gothic', sans-serif;
+  font-size: 1.15rem; font-weight: 700;
+  color: white; letter-spacing: 0.06em; margin: 0;
+}
+.footer-logo-en {
+  font-family: 'Lato', sans-serif;
+  font-size: 0.55rem; letter-spacing: 0.22em;
+  color: rgba(255,255,255,0.6); margin: 0;
+}
+.footer-copy {
+  font-size: 0.9rem; line-height: 1.8;
+  color: rgba(255,255,255,0.8); margin-bottom: 1.25rem;
+}
+.footer-tel {
+  display: block;
+  font-family: 'Lato', sans-serif;
+  font-size: 1.35rem; font-weight: 300;
+  color: #F2C94C; text-decoration: none;
+  letter-spacing: 0.05em; margin-bottom: 0.25rem;
+}
+.footer-hours { font-size: 0.75rem; color: rgba(255,255,255,0.55); margin: 0; }
+.footer-nav ul {
+  list-style: none; margin: 0; padding: 0;
+  display: flex; flex-direction: column; gap: 0;
+}
+.footer-nav a {
+  display: block; padding: 0.55rem 0;
+  font-size: 0.875rem; font-weight: 500;
+  color: rgba(255,255,255,0.8); text-decoration: none;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  transition: color 0.15s, padding-left 0.2s;
+}
+.footer-nav a:hover { color: #F2C94C; padding-left: 0.5rem; }
+.footer-illust { display: flex; align-items: flex-end; justify-content: center; }
+.footer-illust svg { width: 200px; height: auto; }
+.footer-bottom {
+  max-width: 1200px; margin: 0 auto; padding: 1.5rem 2rem 0;
+  border-top: 1px solid rgba(255,255,255,0.15);
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 0.5rem;
+}
+.footer-bottom p {
+  font-size: 0.75rem; color: rgba(255,255,255,0.5); margin: 0;
+}
+.footer-address { font-size: 0.75rem; color: rgba(255,255,255,0.45); }
+@media (max-width: 900px) {
+  .footer-inner { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+  .footer-illust { display: none; }
+}
+@media (max-width: 600px) {
+  .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+}
 </style>

@@ -3,385 +3,376 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
-const news = [
-  { tag: 'お知らせ', tagType: 'info', date: '2026.06.01', title: '夏季の配送スケジュールについてのご案内' },
-  { tag: 'お知らせ', tagType: 'info', date: '2026.05.15', title: '業務用定期納品サービスをリニューアルしました' },
-  { tag: 'お知らせ', tagType: 'farm', date: '2026.04.20', title: '新しい取引農場との連携を開始しました' },
-  { tag: 'お知らせ', tagType: 'info', date: '2026.03.10', title: '春の新商品「春のたまごセット」販売開始' },
-  { tag: 'お知らせ', tagType: 'info', date: '2026.02.01', title: '年始営業のご案内' },
+const heroSlides = [
+  { src: '/images/hero1.svg', alt: '農場の風景' },
+  { src: '/images/hero2.svg', alt: 'たまごのビジュアル' },
+  { src: '/images/hero3.svg', alt: '朝の農場' },
+  { src: '/images/hero4.svg', alt: '山と農場' },
 ];
 
 const products = [
-  {
-    img: '/images/product1.png',
-    badge: '人気No.1',
-    name: '新鮮たまご',
-    desc: '産地直送で毎朝入荷。ふっくらとした黄身と締まった白身が自慢の、地域で一番愛されるたまごです。',
-    href: '/products#fresh',
-  },
-  {
-    img: '/images/product2.png',
-    badge: '業務用人気！',
-    name: '業務用たまご',
-    desc: '飲食店・給食・製菓など大量のご要望に。規格・サイズ別に安定供給いたします。定期納品対応。',
-    href: '/products#business',
-  },
-  {
-    img: '/images/product3.png',
-    badge: 'とろとろ食感',
-    name: '温泉卵・加工品',
-    desc: 'こだわりの温度管理で仕上げた温泉卵。黄身がとろりとやわらかく、飲食店でそのままお使いいただけます。',
-    href: '/products#processed',
-  },
+  { src: '/images/product1.svg', name: '新鮮たまご', badge: '人気 No.1', desc: '産地直送で毎朝入荷。ふっくらとした黄身と締まった白身が自慢の一品です。', href: '/products#fresh' },
+  { src: '/images/product2.svg', name: '業務用たまご', badge: '安定供給！', desc: '飲食店・給食・製菓など大量のご要望に。定期納品サービスも充実しています。', href: '/products#business' },
+  { src: '/images/product3.svg', name: '温泉卵・加工品', badge: 'とろ〜り食感', desc: 'こだわりの温度管理で仕上げた温泉卵。そのままお使いいただける便利な加工品。', href: '/products#processed' },
+];
+
+const features = [
+  { src: '/images/feature1.svg', title: 'たまご物語', desc: '産地から食卓まで', href: '/quality#story' },
+  { src: '/images/feature2.svg', title: '産地紹介', desc: '信頼できる農場から', href: '/quality#area' },
+  { src: '/images/feature3.svg', title: '環境への取り組み', desc: '自然と共に歩む', href: '/quality#env' },
+];
+
+const news = [
+  { date: '2025.04.01', cat: 'お知らせ', title: '春のたまごフェア開催のお知らせ', href: '#' },
+  { date: '2025.03.15', cat: 'お知らせ', title: '業務用定期納品サービスをリニューアルしました', href: '#' },
+  { date: '2025.02.28', cat: 'お知らせ', title: '温泉卵の新パッケージ販売開始', href: '#' },
+  { date: '2025.01.10', cat: 'お知らせ', title: '年始の営業開始のご案内', href: '#' },
 ];
 ---
 
 <Layout
   title="小澤鶏卵｜新鮮で安心なたまごを地域へ"
-  description="小澤鶏卵は地域の飲食店・施設・ご家庭へ、安全で高品質なたまごをお届けします。新鮮・安全・安定供給を大切にした卵の販売・卸売。"
+  description="小澤鶏卵は地域の飲食店・施設・ご家庭へ、安全で高品質なたまごをお届けします。"
 >
   <Header />
   <main>
 
-    <!-- ========== HERO SLIDER ========== -->
-    <section class="hero" aria-label="ヒーローセクション">
+    <!-- ===== HERO SLIDER ===== -->
+    <section class="hero" aria-label="ヒーロー">
       <div class="hero-slider" id="hero-slider">
-        {['hero1','hero2','hero3','hero4'].map((name, i) => (
-          <div class={`hero-slide ${i===0?'active':''}`} style={`background-image:url('/images/${name}.png')`}>
-            <div class="hero-slide-overlay"></div>
+        {heroSlides.map((slide, i) => (
+          <div class={`hero-slide ${i === 0 ? 'active' : ''}`} aria-hidden={i !== 0}>
+            <img src={slide.src} alt={slide.alt} loading={i === 0 ? 'eager' : 'lazy'} />
           </div>
         ))}
-      </div>
-
-      <!-- コピー -->
-      <div class="hero-content">
-        <div class="hero-cloud" aria-hidden="true">
-          <svg viewBox="0 0 300 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <ellipse cx="100" cy="55" rx="95" ry="42" fill="white" opacity="0.92"/>
-            <ellipse cx="160" cy="42" rx="75" ry="38" fill="white" opacity="0.9"/>
-            <ellipse cx="215" cy="58" rx="70" ry="35" fill="white" opacity="0.88"/>
-            <ellipse cx="60"  cy="62" rx="55" ry="28" fill="white" opacity="0.85"/>
-          </svg>
+        <!-- オーバーレイコンテンツ -->
+        <div class="hero-overlay">
+          <div class="hero-content">
+            <p class="hero-eyebrow">Since 1965 — 地域とともに</p>
+            <h1 class="hero-title">
+              新鮮で安心な<br />
+              <span class="hero-title-accent">たまご</span>を、<br />
+              毎日の食卓へ。
+            </h1>
+            <p class="hero-sub">
+              小澤鶏卵は産地と食卓をつなぐ、<br class="sp-br"/>地域密着の鶏卵専門店です。
+            </p>
+            <div class="hero-btns">
+              <a href="/products" class="btn-yellow">
+                商品を見る
+                <svg width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M9 1l4 4-4 4M1 5h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </a>
+              <a href="/contact" class="btn-outline" style="background:white;">
+                お問い合わせ
+              </a>
+            </div>
+          </div>
+          <!-- 雲の装飾 -->
+          <div class="hero-cloud hero-cloud--left" aria-hidden="true">
+            <svg viewBox="0 0 200 110" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="100" cy="65" rx="95" ry="50" fill="white" opacity="0.9"/>
+              <ellipse cx="60" cy="75" rx="65" ry="44" fill="white" opacity="0.9"/>
+              <ellipse cx="145" cy="70" rx="70" ry="42" fill="white" opacity="0.9"/>
+            </svg>
+          </div>
+          <div class="hero-cloud hero-cloud--right" aria-hidden="true">
+            <svg viewBox="0 0 180 100" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="90" cy="60" rx="85" ry="46" fill="white" opacity="0.85"/>
+              <ellipse cx="52" cy="68" rx="58" ry="38" fill="white" opacity="0.85"/>
+              <ellipse cx="132" cy="64" rx="62" ry="36" fill="white" opacity="0.85"/>
+            </svg>
+          </div>
         </div>
-        <h1 class="hero-title">
-          新鮮で安心な<br />
-          <em>たまご</em>を、<br />
-          毎日の食卓へ。
-        </h1>
-        <p class="hero-sub">地域の飲食店・施設・ご家庭へ<br />安全で高品質なたまごをお届けします</p>
-        <div class="hero-btns">
-          <a href="/products" class="btn-yellow">商品案内を見る</a>
-          <a href="/contact" class="btn-outline-green-hero">お問い合わせ</a>
+        <!-- ドット -->
+        <div class="hero-dots" role="tablist" aria-label="スライド選択">
+          {heroSlides.map((_, i) => (
+            <button class={`hero-dot ${i === 0 ? 'active' : ''}`} role="tab" aria-selected={i === 0} data-index={i} aria-label={`スライド${i+1}`}></button>
+          ))}
         </div>
       </div>
 
-      <!-- スライダードット -->
-      <div class="hero-dots" aria-label="スライダーコントロール">
-        {[0,1,2,3].map(i => (
-          <button class={`hero-dot ${i===0?'active':''}`} data-index={i} aria-label={`スライド${i+1}`}></button>
-        ))}
-      </div>
-
-      <!-- 山の装飾 -->
-      <div class="hero-mountain" aria-hidden="true">
-        <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0 120 L0 90 Q180 20 360 65 Q540 110 720 50 Q900 10 1080 70 Q1260 110 1440 55 L1440 120 Z" fill="rgba(255,255,255,0.3)"/>
-          <path d="M0 120 L0 100 Q240 50 480 85 Q720 115 960 70 Q1200 30 1440 80 L1440 120 Z" fill="white"/>
+      <!-- 山の波形 -->
+      <div class="hero-wave" aria-hidden="true">
+        <svg viewBox="0 0 1440 100" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+          <path d="M0,60 C180,100 360,20 540,60 C720,100 900,20 1080,60 C1260,100 1350,40 1440,60 L1440,100 L0,100 Z" fill="#FFFCE8"/>
         </svg>
       </div>
     </section>
 
-    <!-- ========== ABOUT ========== -->
+    <!-- ===== ABOUT ===== -->
     <section class="about-section" id="about">
-      <!-- 雲の装飾 -->
-      <div class="cloud-deco cloud-deco--left" aria-hidden="true">
-        <svg viewBox="0 0 200 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <ellipse cx="80" cy="50" rx="75" ry="38" fill="white" opacity="0.7"/>
-          <ellipse cx="120" cy="38" rx="55" ry="30" fill="white" opacity="0.65"/>
-          <ellipse cx="40"  cy="55" rx="38" ry="22" fill="white" opacity="0.6"/>
-        </svg>
-      </div>
-      <div class="cloud-deco cloud-deco--right" aria-hidden="true">
-        <svg viewBox="0 0 180 70" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <ellipse cx="100" cy="45" rx="75" ry="35" fill="white" opacity="0.65"/>
-          <ellipse cx="55"  cy="35" rx="50" ry="28" fill="white" opacity="0.6"/>
-          <ellipse cx="145" cy="48" rx="35" ry="20" fill="white" opacity="0.55"/>
-        </svg>
+      <!-- 山のイラスト背景 -->
+      <div class="about-mountain" aria-hidden="true">
+        <img src="/images/about_bg.svg" alt="" loading="lazy" />
       </div>
 
-      <div class="about-bg-img" aria-hidden="true"></div>
+      <div class="about-inner">
+        <div class="about-illust" aria-hidden="true">
+          <!-- 大きなたまご＋鶏 -->
+          <svg viewBox="0 0 340 420" xmlns="http://www.w3.org/2000/svg" class="about-egg-svg">
+            <defs>
+              <radialGradient id="aeg" cx="38%" cy="32%" r="58%">
+                <stop offset="0%" stop-color="#FFFEF5"/>
+                <stop offset="100%" stop-color="#E8DFC8"/>
+              </radialGradient>
+              <radialGradient id="ayk" cx="40%" cy="38%" r="55%">
+                <stop offset="0%" stop-color="#FFD840"/>
+                <stop offset="100%" stop-color="#C08010"/>
+              </radialGradient>
+            </defs>
+            <!-- 卵 -->
+            <ellipse cx="170" cy="230" rx="120" ry="155" fill="url(#aeg)" stroke="#D4C080" stroke-width="2"/>
+            <ellipse cx="170" cy="245" rx="65" ry="82" fill="url(#ayk)" opacity="0.52"/>
+            <ellipse cx="140" cy="198" rx="30" ry="19" fill="white" opacity="0.42" transform="rotate(-22,140,198)"/>
+            <!-- ニワトリ(上に乗ってる感じ) -->
+            <g transform="translate(170,82)">
+              <ellipse cx="0" cy="18" rx="40" ry="28" fill="#F5E8C0" stroke="#D4B880" stroke-width="1.5"/>
+              <circle cx="0" cy="-8" r="22" fill="#F5E8C0" stroke="#D4B880" stroke-width="1.5"/>
+              <polygon points="15,-8 26,-3 15,0" fill="#F4A020"/>
+              <ellipse cx="-2" cy="-26" rx="9" ry="5.5" fill="#E04040"/>
+              <circle cx="10" cy="-12" r="5" fill="#333"/>
+              <circle cx="11" cy="-13" r="2" fill="white"/>
+              <!-- 羽 -->
+              <ellipse cx="-32" cy="12" rx="20" ry="10" fill="#E8D8A0" stroke="#C8B870" stroke-width="1" transform="rotate(-25,-32,12)"/>
+              <ellipse cx="32" cy="12" rx="20" ry="10" fill="#E8D8A0" stroke="#C8B870" stroke-width="1" transform="rotate(25,32,12)"/>
+              <!-- 足 -->
+              <line x1="-12" y1="46" x2="-18" y2="70" stroke="#F4A020" stroke-width="3" stroke-linecap="round"/>
+              <line x1="12" y1="46" x2="8" y2="70" stroke="#F4A020" stroke-width="3" stroke-linecap="round"/>
+            </g>
+            <!-- 小さいひよこ -->
+            <g transform="translate(48,348)">
+              <ellipse cx="0" cy="0" rx="18" ry="14" fill="#FFD840" opacity="0.9"/>
+              <circle cx="0" cy="-16" r="12" fill="#FFD840" opacity="0.9"/>
+              <polygon points="7,-16 14,-12 7,-10" fill="#F4A020"/>
+              <line x1="-6" y1="14" x2="-9" y2="30" stroke="#F4A020" stroke-width="2.5" stroke-linecap="round"/>
+              <line x1="5" y1="14" x2="3" y2="30" stroke="#F4A020" stroke-width="2.5" stroke-linecap="round"/>
+            </g>
+            <g transform="translate(290,340)">
+              <ellipse cx="0" cy="0" rx="16" ry="12" fill="#FFD840" opacity="0.85"/>
+              <circle cx="0" cy="-14" r="10" fill="#FFD840" opacity="0.85"/>
+              <polygon points="6,-14 12,-10 6,-8" fill="#F4A020"/>
+              <line x1="-5" y1="12" x2="-8" y2="26" stroke="#F4A020" stroke-width="2" stroke-linecap="round"/>
+              <line x1="4" y1="12" x2="2" y2="26" stroke="#F4A020" stroke-width="2" stroke-linecap="round"/>
+            </g>
+          </svg>
+        </div>
 
-      <div class="container">
-        <div class="about-inner">
-          <!-- イラスト群 -->
-          <div class="about-illust" aria-hidden="true">
-            <!-- 大きな卵 -->
-            <div class="illust-egg illust-egg--main">
-              <svg viewBox="0 0 180 220" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <ellipse cx="90" cy="120" rx="70" ry="90" fill="#f5f0e0" stroke="#e8d340" stroke-width="1.5"/>
-                <ellipse cx="90" cy="128" rx="38" ry="50" fill="#f2c94c" opacity="0.55"/>
-                <ellipse cx="72" cy="100" rx="18" ry="12" fill="white" opacity="0.45" transform="rotate(-22,72,100)"/>
-              </svg>
-            </div>
-            <!-- ひよこ -->
-            <div class="illust-chick">
-              <svg viewBox="0 0 80 90" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <!-- 体 -->
-                <ellipse cx="40" cy="60" rx="28" ry="24" fill="#f5c842"/>
-                <!-- 頭 -->
-                <circle cx="40" cy="34" r="18" fill="#f5c842"/>
-                <!-- 目 -->
-                <circle cx="34" cy="32" r="3" fill="#333"/>
-                <circle cx="35" cy="31" r="1" fill="white"/>
-                <!-- くちばし -->
-                <path d="M40 37 L44 40 L40 42 Z" fill="#e88c20"/>
-                <!-- 羽 -->
-                <ellipse cx="18" cy="58" rx="10" ry="7" fill="#f0b830" transform="rotate(-20,18,58)"/>
-                <ellipse cx="62" cy="58" rx="10" ry="7" fill="#f0b830" transform="rotate(20,62,58)"/>
-                <!-- 足 -->
-                <path d="M30 82 L27 90 M30 82 L33 90 M30 82 L36 88" stroke="#e88c20" stroke-width="2" stroke-linecap="round"/>
-                <path d="M50 82 L47 90 M50 82 L53 90 M50 82 L56 88" stroke="#e88c20" stroke-width="2" stroke-linecap="round"/>
-              </svg>
-            </div>
-            <!-- 小さい卵たち -->
-            <div class="illust-egg illust-egg--sm1">
-              <svg viewBox="0 0 80 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <ellipse cx="40" cy="56" rx="30" ry="38" fill="#faf7f0" stroke="#e8d340" stroke-width="1"/>
-                <ellipse cx="40" cy="60" rx="16" ry="22" fill="#f2c94c" opacity="0.45"/>
-              </svg>
-            </div>
-            <div class="illust-egg illust-egg--sm2">
-              <svg viewBox="0 0 60 76" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <ellipse cx="30" cy="42" rx="22" ry="28" fill="#faf7f0" stroke="#e8d340" stroke-width="1"/>
-                <ellipse cx="30" cy="45" rx="12" ry="16" fill="#f2c94c" opacity="0.4"/>
-              </svg>
-            </div>
+        <div class="about-text">
+          <span class="section-en">About Us</span>
+          <h2 class="section-title">
+            幸せは、<br />
+            自然のなかにある。
+          </h2>
+          <div class="about-body">
+            <p>
+              おひさまを浴びる幸せ。<br />
+              気持ちのいい風にあたる幸せ。<br />
+              新鮮なものを食べる幸せ。
+            </p>
+            <p>
+              自然がくれるのは、そんなふとした贈り物のような幸せ。
+              地域の食卓に寄り添い続けて60年、小澤鶏卵は産地との信頼関係を大切に、毎日新鮮で安心なたまごをお届けしてきました。
+            </p>
+            <p>
+              これからも、安全・安心・おいしいたまごを通じて、皆さまの日々の幸せに貢献し続けます。
+            </p>
           </div>
 
-          <div class="about-text">
-            <span class="sec-en">About Us</span>
-            <h2 class="about-catch">
-              幸せは、<br />
-              新鮮なたまごのなかにある。
-            </h2>
-            <div class="about-body-text">
-              <p>
-                おひさまを浴びる幸せ。<br />
-                気持ちのいい風にあたる幸せ。<br />
-                新鮮なものを食べる幸せ。
-              </p>
-              <p>
-                自然がくれるのは、そんなふとした贈り物のような幸せ。
-                小澤鶏卵は1965年の創業以来、地域の食卓にそんな幸せをお届けしてきました。
-              </p>
-              <p>
-                信頼できる生産者との連携のもと、毎日の品質管理を徹底し、
-                飲食店・施設・ご家庭に安全で新鮮なたまごをお届けし続けています。
-              </p>
-            </div>
-
-            <div class="about-links">
-              <a href="/company" class="btn-yellow">
-                小澤鶏卵について
-                <svg width="16" height="12" viewBox="0 0 16 12" fill="none"><path d="M10 1l5 5-5 5M1 6h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-              </a>
-            </div>
-
+          <div class="about-links">
+            <a href="/company" class="btn-yellow">
+              私たちについて
+              <svg width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M9 1l4 4-4 4M1 5h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </a>
             <ul class="about-sub-links">
+              <li><a href="/company#philosophy">小澤鶏卵の想い</a></li>
+              <li><a href="/company#history">歩み</a></li>
               <li><a href="/company">会社概要</a></li>
-              <li><a href="/quality">品質へのこだわり</a></li>
-              <li><a href="/company#access">アクセス</a></li>
             </ul>
           </div>
         </div>
       </div>
 
-      <!-- 山形区切り（下） -->
-      <div class="about-mountain-bottom" aria-hidden="true">
-        <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0 0 L0 40 Q360 80 720 30 Q1080 0 1440 50 L1440 0 Z" fill="white"/>
+      <!-- 波形下 -->
+      <div class="section-wave-bottom" aria-hidden="true">
+        <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+          <path d="M0,40 C360,80 720,0 1080,40 C1260,60 1380,20 1440,40 L1440,80 L0,80 Z" fill="white"/>
         </svg>
       </div>
     </section>
 
-    <!-- ========== NEWS ========== -->
+    <!-- ===== NEWS ===== -->
     <section class="news-section">
-      <!-- 山形区切り（上） -->
-      <div class="news-mountain-top" aria-hidden="true">
-        <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0 80 L0 55 Q360 10 720 50 Q1080 80 1440 35 L1440 80 Z" fill="white"/>
+      <div class="news-mountain" aria-hidden="true">
+        <svg viewBox="0 0 1440 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+          <path d="M0,60 C180,10 360,100 540,50 C720,0 900,90 1080,45 C1260,0 1380,70 1440,50 L1440,0 L0,0 Z" fill="white"/>
         </svg>
       </div>
 
-      <div class="container">
+      <div class="news-inner">
         <div class="news-header">
           <div>
-            <span class="sec-en">News</span>
-            <h2 class="sec-ja">お知らせ</h2>
+            <span class="section-en">News</span>
+            <h2 class="section-title">お知らせ</h2>
           </div>
-          <a href="/news" class="btn-outline-green">一覧を見る</a>
+          <a href="/news" class="btn-outline">お知らせ一覧</a>
         </div>
 
         <ul class="news-list">
           {news.map(item => (
-            <li class="news-item">
-              <a href="/news">
-                <span class={`news-tag news-tag--${item.tagType}`}>{item.tag}</span>
-                <time class="news-date">{item.date}</time>
+            <li>
+              <a href={item.href} class="news-item">
+                <span class="news-date">{item.date}</span>
+                <span class="news-cat">{item.cat}</span>
                 <span class="news-title">{item.title}</span>
+                <svg class="news-arrow" width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M9 1l4 4-4 4M1 5h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
               </a>
             </li>
           ))}
         </ul>
       </div>
-    </section>
 
-    <!-- ========== PRODUCTS LINE UP ========== -->
-    <section class="lineup-section">
-      <!-- 区切り -->
-      <div class="lineup-mountain-top" aria-hidden="true">
-        <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0 0 L0 50 Q480 80 720 40 Q960 10 1440 60 L1440 0 Z" fill="#fffde8"/>
+      <div class="section-wave-bottom" aria-hidden="true">
+        <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+          <path d="M0,30 C240,80 480,10 720,50 C960,90 1200,10 1440,50 L1440,80 L0,80 Z" fill="#FFFCE8"/>
         </svg>
       </div>
+    </section>
 
-      <div class="container">
-        <div class="lineup-header">
-          <span class="sec-en">Line Up</span>
-          <h2 class="sec-ja">商品案内</h2>
-          <p class="lineup-lead">
-            小澤鶏卵の技術と誠実さが詰まった、<br />
+    <!-- ===== PRODUCTS ===== -->
+    <section class="products-section">
+      <div class="products-inner">
+        <div class="products-header">
+          <span class="section-en">Products</span>
+          <h2 class="section-title">小澤鶏卵のたまご</h2>
+          <p class="products-lead">
+            60年のノウハウが詰まった<br />
             自慢のたまごをご紹介します。
           </p>
         </div>
 
-        <div class="lineup-slider">
+        <!-- スライダー風カード -->
+        <div class="products-slider" id="products-slider">
           {products.map((p, i) => (
-            <article class="lineup-card">
-              <div class="lineup-card-img">
-                <img src={p.img} alt={p.name} loading={i===0?'eager':'lazy'} />
-                <span class="lineup-badge">{p.badge}</span>
+            <article class={`product-card ${i === 0 ? 'active' : ''}`}>
+              <div class="product-img-wrap">
+                <img src={p.src} alt={p.name} loading="lazy" />
+                <span class="product-badge">{p.badge}</span>
               </div>
-              <div class="lineup-card-body">
+              <div class="product-card-body">
                 <h3>{p.name}</h3>
                 <p>{p.desc}</p>
-                <a href={p.href} class="lineup-card-link">
+                <a href={p.href} class="btn-yellow">
                   商品詳細
-                  <svg width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M9 1l4 4-4 4M1 5h12" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+                  <svg width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M9 1l4 4-4 4M1 5h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
                 </a>
               </div>
             </article>
           ))}
         </div>
 
-        <div class="lineup-cta">
-          <a href="/products" class="btn-yellow">
+        <!-- スライダードット -->
+        <div class="products-dots">
+          {products.map((_, i) => (
+            <button class={`products-dot ${i === 0 ? 'active' : ''}`} data-index={i} aria-label={`商品${i+1}`}></button>
+          ))}
+        </div>
+
+        <div class="products-cta">
+          <a href="/products" class="btn-green">
             すべての商品を見る
-            <svg width="16" height="12" viewBox="0 0 16 12" fill="none"><path d="M10 1l5 5-5 5M1 6h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            <svg width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M9 1l4 4-4 4M1 5h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
           </a>
         </div>
       </div>
     </section>
 
-    <!-- ========== QUALITY FEATURE ========== -->
-    <section class="feature-section">
-      <div class="feature-mountain-top" aria-hidden="true">
-        <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0 80 L0 50 Q360 10 720 55 Q1080 90 1440 40 L1440 80 Z" fill="#fffde8"/>
+    <!-- ===== FEATURES ===== -->
+    <section class="features-section">
+      <div class="features-mountain-top" aria-hidden="true">
+        <svg viewBox="0 0 1440 100" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+          <path d="M0,50 C360,100 720,0 1080,50 C1260,75 1380,25 1440,50 L1440,100 L0,100 Z" fill="#FFFCE8"/>
         </svg>
       </div>
 
-      <div class="container">
-        <div class="feature-header">
-          <span class="sec-en">Feature</span>
-          <h2 class="sec-ja">品質へのこだわり</h2>
-          <p class="feature-lead">
-            全ては美味しいたまごを<br />
-            食卓へ届けるために。<br />
+      <div class="features-inner">
+        <div class="features-header">
+          <span class="section-en" style="color:rgba(255,255,255,0.7)">Quality</span>
+          <h2 class="section-title" style="color:white">
+            たまごへのこだわり
+          </h2>
+          <p style="color:rgba(255,255,255,0.75);font-size:0.9rem;line-height:1.8;max-width:480px;margin:0 auto;">
+            全ては美味しいたまごを食卓へ届けるために。<br />
             小澤鶏卵のこだわりをお伝えします。
           </p>
         </div>
 
-        <div class="feature-grid">
-          <div class="feature-card">
-            <div class="feature-card-img">
-              <img src="/images/feature1.png" alt="鮮度管理" loading="lazy" />
-              <div class="feature-card-overlay">
-                <h3>鮮度管理</h3>
-                <p>産地直送・当日入荷にこだわり、常に新鮮なたまごをお届けします。</p>
+        <div class="features-grid">
+          {features.map(f => (
+            <a href={f.href} class="feature-card">
+              <div class="feature-img">
+                <img src={f.src} alt={f.title} loading="lazy" />
               </div>
-            </div>
-          </div>
-          <div class="feature-card">
-            <div class="feature-card-img">
-              <img src="/images/feature2.png" alt="衛生管理" loading="lazy" />
-              <div class="feature-card-overlay">
-                <h3>衛生管理</h3>
-                <p>保管・配送の全工程で温度・衛生基準を厳守しています。</p>
+              <div class="feature-info">
+                <h3>{f.title}</h3>
+                <p>{f.desc}</p>
+                <span class="feature-link">
+                  詳しく見る →
+                </span>
               </div>
-            </div>
-          </div>
-          <div class="feature-card">
-            <div class="feature-card-img">
-              <img src="/images/feature3.png" alt="生産者連携" loading="lazy" />
-              <div class="feature-card-overlay">
-                <h3>生産者との連携</h3>
-                <p>顔の見える仕入れ体制で安心・安全を確保しています。</p>
-              </div>
-            </div>
-          </div>
+            </a>
+          ))}
         </div>
 
-        <div class="feature-cta">
+        <div style="text-align:center;margin-top:3rem">
           <a href="/quality" class="btn-yellow">
-            品質へのこだわりを知る
-            <svg width="16" height="12" viewBox="0 0 16 12" fill="none"><path d="M10 1l5 5-5 5M1 6h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            こだわりをすべて見る
+            <svg width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M9 1l4 4-4 4M1 5h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
           </a>
         </div>
       </div>
-    </section>
 
-    <!-- ========== CONTACT CTA ========== -->
-    <section class="cta-section">
-      <div class="cta-mountain-top" aria-hidden="true">
-        <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0 0 L0 45 Q480 80 720 35 Q960 5 1440 55 L1440 0 Z" fill="white"/>
+      <div class="features-mountain-bottom" aria-hidden="true">
+        <svg viewBox="0 0 1440 100" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+          <path d="M0,50 C360,0 720,100 1080,50 C1260,25 1380,75 1440,50 L1440,0 L0,0 Z" fill="#FFFCE8"/>
         </svg>
       </div>
-      <div class="container">
-        <div class="cta-inner">
-          <span class="sec-en" style="color:rgba(255,255,255,0.7)">Contact</span>
-          <h2 class="cta-title">ご注文・お問い合わせ</h2>
-          <p class="cta-text">業務用のご注文から個人のお客様まで、お気軽にご相談ください。</p>
-          <div class="cta-methods">
-            <div class="cta-method">
-              <div class="cta-method-icon">
-                <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-                  <path d="M5 4h5l2 5-2.5 1.5c1 2 2.5 3.5 4.5 4.5L15.5 13l5 2v5c0 .8-.7 1.5-1.5 1.5C8 21 4.5 13.5 4.5 7.5 4.5 5.7 5.2 5 5 4z" stroke="#f1e16d" stroke-width="1.5" fill="none"/>
-                </svg>
-              </div>
-              <div>
-                <p class="cta-method-label">お電話</p>
-                <a href="tel:0000-00-0000" class="cta-phone">0000-00-0000</a>
-                <p class="cta-method-note">月〜土 8:00〜17:00</p>
-              </div>
-            </div>
-            <div class="cta-divider"></div>
-            <div class="cta-method">
-              <div class="cta-method-icon">
-                <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-                  <rect x="3" y="7" width="22" height="15" rx="2" stroke="#f1e16d" stroke-width="1.5"/>
-                  <path d="M3 9l11 7.5L25 9" stroke="#f1e16d" stroke-width="1.5" stroke-linecap="round"/>
-                </svg>
-              </div>
-              <div>
-                <p class="cta-method-label">フォーム・メール</p>
-                <a href="/contact" class="cta-form-link">お問い合わせフォームへ</a>
-                <p class="cta-method-note">24時間受付・翌営業日ご返信</p>
-              </div>
-            </div>
+    </section>
+
+    <!-- ===== CONTACT CTA ===== -->
+    <section class="cta-section">
+      <div class="cta-inner">
+        <!-- たまごのイラスト -->
+        <div class="cta-illust" aria-hidden="true">
+          <svg viewBox="0 0 180 220" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="90" cy="120" rx="72" ry="92" fill="#FFF8C0" stroke="#F2C94C" stroke-width="2"/>
+            <ellipse cx="90" cy="130" rx="38" ry="48" fill="#F2C94C" opacity="0.5"/>
+            <ellipse cx="72" cy="98" rx="20" ry="13" fill="white" opacity="0.4" transform="rotate(-22,72,98)"/>
+          </svg>
+        </div>
+        <div class="cta-text">
+          <span class="section-en">Contact</span>
+          <h2 class="section-title">ご注文・お問い合わせ</h2>
+          <p>
+            業務用のご注文から個人のお客様まで、<br />
+            お気軽にご相談ください。
+          </p>
+          <div class="cta-btns">
+            <a href="/contact" class="btn-yellow">
+              お問い合わせはこちら
+              <svg width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M9 1l4 4-4 4M1 5h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </a>
+            <a href="tel:0000-00-0000" class="cta-tel">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M4 3h4l2 4-2 1.5c.8 1.6 2 2.8 3.5 3.5L13 10l4 2v4a1.5 1.5 0 01-1.5 1.5C5 16.5 1.5 10 1.5 4.5A1.5 1.5 0 013 3h1z" stroke="#5A9A50" stroke-width="1.5" fill="none"/></svg>
+              0000-00-0000
+            </a>
           </div>
-          <a href="/contact" class="cta-btn">お問い合わせはこちら</a>
+        </div>
+        <div class="cta-illust cta-illust--right" aria-hidden="true">
+          <svg viewBox="0 0 160 200" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="80" cy="108" rx="62" ry="80" fill="#FFF8C0" stroke="#F2C94C" stroke-width="2"/>
+            <ellipse cx="80" cy="116" rx="32" ry="40" fill="#F2C94C" opacity="0.45"/>
+            <ellipse cx="64" cy="88" rx="18" ry="11" fill="white" opacity="0.38" transform="rotate(-22,64,88)"/>
+          </svg>
         </div>
       </div>
     </section>
@@ -392,677 +383,446 @@ const products = [
 
 <style>
 /* ===== HERO ===== */
-.hero {
+.hero { position: relative; }
+.hero-slider {
   position: relative;
   height: 100svh;
   min-height: 560px;
   overflow: hidden;
 }
-
-.hero-slider {
-  position: absolute;
-  inset: 0;
-}
-
 .hero-slide {
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center;
+  position: absolute; inset: 0;
   opacity: 0;
-  transition: opacity 1s ease;
+  transition: opacity 0.8s ease;
 }
 .hero-slide.active { opacity: 1; }
-
-.hero-slide-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(0,0,0,0.15) 0%,
-    rgba(0,0,0,0.1) 50%,
-    rgba(255,255,255,0) 100%
-  );
+.hero-slide img {
+  width: 100%; height: 100%;
+  object-fit: cover;
 }
-
-.hero-content {
-  position: relative;
-  z-index: 2;
+.hero-overlay {
+  position: absolute; inset: 0;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  height: 100%;
-  text-align: center;
-  padding: 70px 2rem 120px;
-  gap: 1.25rem;
+  justify-content: flex-start;
+  padding: 0 8vw;
+  padding-top: 72px;
+  background: linear-gradient(to right, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.15) 60%, transparent 100%);
 }
-
-.hero-cloud {
-  width: min(360px, 80vw);
-  margin-bottom: 0.5rem;
-  animation: cloudFloat 8s ease-in-out infinite;
+.hero-content { max-width: 560px; }
+.hero-eyebrow {
+  font-family: 'Lato', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.26em;
+  color: #F2C94C;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
 }
-
-@keyframes cloudFloat {
-  0%,100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
+.hero-eyebrow::before {
+  content: '';
+  display: block;
+  width: 2rem;
+  height: 1px;
+  background-color: #F2C94C;
+  opacity: 0.7;
 }
-
 .hero-title {
+  font-family: 'Zen Maru Gothic', sans-serif;
   font-size: clamp(2rem, 5vw, 3.5rem);
   font-weight: 700;
-  color: #333;
-  line-height: 1.5;
-  letter-spacing: 0.06em;
-  text-shadow: 0 2px 20px rgba(255,255,255,0.8);
-}
-
-.hero-title em {
-  font-style: normal;
-  color: var(--color-green-d);
-}
-
-.hero-sub {
-  font-size: clamp(0.875rem, 1.5vw, 1.05rem);
-  color: #444;
-  line-height: 1.8;
-  text-shadow: 0 1px 8px rgba(255,255,255,0.9);
-}
-
-.hero-btns {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-top: 0.5rem;
-}
-
-.btn-outline-green-hero {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.875rem 2.25rem;
-  border: 2px solid var(--color-green);
-  color: var(--color-green);
-  font-size: 0.9rem;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  border-radius: 50px;
-  text-decoration: none;
-  background: rgba(255,255,255,0.85);
-  backdrop-filter: blur(4px);
-  transition: all 0.2s;
-}
-.btn-outline-green-hero:hover {
-  background: var(--color-green);
   color: white;
+  line-height: 1.45;
+  letter-spacing: 0.04em;
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.3);
 }
+.hero-title-accent {
+  color: #F2C94C;
+}
+.hero-sub {
+  font-size: clamp(0.875rem, 1.5vw, 1rem);
+  color: rgba(255,255,255,0.85);
+  line-height: 1.8;
+  margin-bottom: 2.25rem;
+}
+.hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
 
+/* 雲 */
+.hero-cloud {
+  position: absolute;
+  bottom: 80px;
+  opacity: 0.92;
+}
+.hero-cloud--left { left: -20px; width: 220px; }
+.hero-cloud--right { right: 5%; width: 180px; }
+
+/* ドット */
 .hero-dots {
   position: absolute;
-  bottom: 100px;
+  bottom: 28px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
-  gap: 0.625rem;
-  z-index: 3;
+  gap: 10px;
+  z-index: 10;
 }
-
 .hero-dot {
   width: 10px; height: 10px;
   border-radius: 50%;
-  border: 2px solid white;
-  background: transparent;
-  cursor: pointer;
-  transition: background 0.2s;
+  background: rgba(255,255,255,0.5);
+  border: none; cursor: pointer;
+  transition: all 0.3s;
   padding: 0;
 }
-.hero-dot.active { background: white; }
+.hero-dot.active {
+  background: #F2C94C;
+  transform: scale(1.25);
+}
 
-.hero-mountain {
+/* Wave */
+.hero-wave {
   position: absolute;
-  bottom: 0; left: 0; right: 0;
-  z-index: 2;
+  bottom: -1px; left: 0; right: 0;
   line-height: 0;
 }
-.hero-mountain svg { display: block; width: 100%; }
+.hero-wave svg { display: block; width: 100%; height: 70px; }
 
 /* ===== ABOUT ===== */
 .about-section {
+  background: #FFFCE8;
+  padding: 6rem 0 0;
   position: relative;
-  background: linear-gradient(to bottom, #eaf6ff 0%, #d4eef8 40%, #c8e8a0 100%);
-  padding: 5rem 0 0;
   overflow: hidden;
 }
-
-.about-bg-img {
-  position: absolute;
-  inset: 0;
-  background-image: url('/images/about_bg.png');
-  background-size: cover;
-  background-position: center top;
-  opacity: 0.3;
+.about-mountain {
+  position: absolute; inset: 0;
+  z-index: 0;
 }
-
-.cloud-deco {
-  position: absolute;
+.about-mountain img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  opacity: 0.25;
+}
+.about-inner {
+  position: relative;
   z-index: 1;
-  pointer-events: none;
-  animation: cloudFloat 10s ease-in-out infinite;
-}
-.cloud-deco--left { top: 80px; left: -30px; width: 200px; }
-.cloud-deco--right { top: 120px; right: -20px; width: 180px; animation-delay: -4s; }
-.cloud-deco svg { width: 100%; }
-
-.container {
-  max-width: 1280px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
-  position: relative;
-  z-index: 2;
-}
-
-.about-inner {
   display: grid;
-  grid-template-columns: 1fr 1.2fr;
+  grid-template-columns: 1fr 1.1fr;
   gap: 5rem;
   align-items: center;
   padding-bottom: 5rem;
 }
-
-/* Illustrations */
-.about-illust {
-  position: relative;
-  height: 400px;
+.about-egg-svg {
+  width: 100%;
+  max-width: 340px;
+  margin: 0 auto;
+  display: block;
+  filter: drop-shadow(0 12px 32px rgba(212,192,100,0.22));
+  animation: floatEgg 7s ease-in-out infinite;
 }
-
-.illust-egg { position: absolute; }
-.illust-egg--main {
-  width: 160px;
-  top: 60px; left: 50%;
-  transform: translateX(-50%);
-  filter: drop-shadow(0 8px 24px rgba(0,0,0,0.1));
-  animation: eggFloat 6s ease-in-out infinite;
-}
-.illust-chick {
-  position: absolute;
-  width: 90px;
-  bottom: 30px; right: 20px;
-  animation: eggFloat 5s ease-in-out infinite;
-  animation-delay: -2s;
-}
-.illust-chick svg { width: 100%; }
-
-.illust-egg--sm1 {
-  width: 90px;
-  bottom: 50px; left: 10px;
-  animation: eggFloat 7s ease-in-out infinite;
-  animation-delay: -1s;
-}
-.illust-egg--sm2 {
-  width: 68px;
-  top: 40px; right: 40px;
-  animation: eggFloat 8s ease-in-out infinite;
-  animation-delay: -3s;
-}
-.illust-egg svg, .illust-egg--sm1 svg, .illust-egg--sm2 svg { width: 100%; }
-
-@keyframes eggFloat {
-  0%,100% { transform: translateY(0) translateX(-50%); }
-  50% { transform: translateY(-12px) translateX(-50%); }
-}
-.illust-egg--sm1, .illust-egg--sm2, .illust-chick {
-  animation-name: eggFloatSimple;
-}
-@keyframes eggFloatSimple {
+@keyframes floatEgg {
   0%,100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+  50% { transform: translateY(-16px); }
 }
-
-/* About text */
-.about-catch {
-  font-size: clamp(1.6rem, 3vw, 2.4rem);
-  font-weight: 700;
-  color: #2d4a1e;
-  line-height: 1.6;
-  letter-spacing: 0.04em;
-  margin: 0.5rem 0 1.5rem;
-}
-
-.about-body-text p {
-  font-size: 0.95rem;
-  color: #444;
-  line-height: 1.9;
+.about-text .section-title { font-size: clamp(1.8rem, 3.5vw, 2.6rem); }
+.about-body p {
+  font-size: 0.9rem;
+  color: #7A6040;
+  line-height: 2;
   margin-bottom: 1rem;
 }
-
-.about-links { margin: 2rem 0 1rem; }
-
+.about-links { margin-top: 2rem; display: flex; flex-direction: column; gap: 1.25rem; }
 .about-sub-links {
-  list-style: none;
-  margin: 0; padding: 0;
-  display: flex;
-  gap: 0;
-  flex-wrap: wrap;
+  list-style: none; margin: 0; padding: 0;
+  display: flex; flex-wrap: wrap; gap: 0.5rem;
 }
-
-.about-sub-links li + li::before {
-  content: '|';
-  color: #ccc;
-  padding: 0 0.75rem;
-}
-
 .about-sub-links a {
-  font-size: 0.85rem;
-  color: var(--color-green-d);
+  font-size: 0.8rem;
+  color: #5A9A50;
   text-decoration: none;
-  font-weight: 700;
-  transition: opacity 0.2s;
+  padding: 0.3rem 0.75rem;
+  border: 1px solid #5A9A50;
+  border-radius: 999px;
+  transition: all 0.2s;
 }
-.about-sub-links a:hover { opacity: 0.7; }
-
-.about-mountain-bottom {
-  line-height: 0;
-  margin-top: -2px;
-}
-.about-mountain-bottom svg { display: block; width: 100%; }
+.about-sub-links a:hover { background: #5A9A50; color: white; }
+.section-wave-bottom { line-height: 0; }
+.section-wave-bottom svg { display: block; width: 100%; height: 60px; }
 
 /* ===== NEWS ===== */
 .news-section {
-  background-color: white;
-  padding: 0 0 5rem;
+  background: white;
+  position: relative;
 }
-
-.news-mountain-top {
-  line-height: 0;
-  background: linear-gradient(to bottom, #c8e8a0, white);
+.news-mountain { line-height: 0; }
+.news-mountain svg { display: block; width: 100%; height: 80px; }
+.news-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 2rem 5rem;
 }
-.news-mountain-top svg { display: block; width: 100%; }
-
 .news-header {
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
   margin-bottom: 2rem;
-  padding-top: 4rem;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
-
-.news-list {
-  list-style: none;
-  margin: 0; padding: 0;
-  border-top: 2px solid var(--color-yellow);
-}
-
+.news-list { list-style: none; margin: 0; padding: 0; }
 .news-item {
-  border-bottom: 1px solid #f0f0f0;
-}
-
-.news-item a {
   display: flex;
   align-items: center;
   gap: 1rem;
-  padding: 1.125rem 0.5rem;
+  padding: 1.1rem 1rem;
+  border-bottom: 1px solid rgba(242,201,76,0.25);
   text-decoration: none;
+  color: #3A2A1A;
+  border-radius: 8px;
   transition: background-color 0.15s;
+  flex-wrap: wrap;
 }
-.news-item a:hover { background-color: #fffde8; }
-
+.news-item:hover { background-color: rgba(242,201,76,0.08); }
 .news-date {
   font-family: 'Lato', sans-serif;
   font-size: 0.8rem;
-  color: #999;
-  letter-spacing: 0.06em;
+  color: #7A6040;
+  white-space: nowrap;
+  min-width: 6rem;
+}
+.news-cat {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: white;
+  background: #5A9A50;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
   white-space: nowrap;
 }
+.news-title { flex: 1; font-size: 0.9rem; font-weight: 500; }
+.news-arrow { color: #F2C94C; flex-shrink: 0; }
 
-.news-title {
-  font-size: 0.925rem;
-  color: #333;
-  font-weight: 500;
-  line-height: 1.5;
-  flex: 1;
+/* ===== PRODUCTS ===== */
+.products-section {
+  background: #FFFCE8;
+  padding: 5rem 0 6rem;
 }
-
-.news-item a:hover .news-title { color: var(--color-green-d); }
-
-/* ===== LINEUP ===== */
-.lineup-section {
-  background-color: #fffde8;
-  padding: 0 0 5rem;
-}
-
-.lineup-mountain-top {
-  line-height: 0;
-  background-color: white;
-}
-.lineup-mountain-top svg { display: block; width: 100%; }
-
-.lineup-header {
-  text-align: center;
-  padding-top: 4rem;
-  margin-bottom: 3rem;
-}
-
-.lineup-lead {
+.products-inner { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+.products-header { text-align: center; margin-bottom: 3rem; }
+.products-lead {
   font-size: 0.95rem;
-  color: #555;
+  color: #7A6040;
   line-height: 1.9;
-  margin-top: 0.875rem;
+  margin-top: 0.5rem;
 }
 
-.lineup-slider {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-  margin-bottom: 2.5rem;
-}
-
-.lineup-card {
-  background: white;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-  transition: transform 0.25s, box-shadow 0.25s;
-}
-.lineup-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 40px rgba(0,0,0,0.12);
-}
-
-.lineup-card-img {
-  position: relative;
-  height: 220px;
-  overflow: hidden;
-  background-color: #fafaf2;
-}
-
-.lineup-card-img img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  transition: transform 0.4s;
-}
-.lineup-card:hover .lineup-card-img img { transform: scale(1.04); }
-
-.lineup-badge {
-  position: absolute;
-  top: 12px; left: 12px;
-  background-color: var(--color-yellow);
-  color: #333;
-  font-size: 0.72rem;
-  font-weight: 700;
-  padding: 0.3rem 0.75rem;
-  border-radius: 50px;
-  letter-spacing: 0.04em;
-  box-shadow: 0 2px 8px rgba(241,225,109,0.5);
-}
-
-.lineup-card-body {
-  padding: 1.5rem;
-}
-
-.lineup-card-body h3 {
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: #333;
-  margin-bottom: 0.625rem;
-  letter-spacing: 0.03em;
-}
-
-.lineup-card-body p {
-  font-size: 0.85rem;
-  color: #666;
-  line-height: 1.75;
-  margin-bottom: 1.25rem;
-}
-
-.lineup-card-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  font-size: 0.82rem;
-  font-weight: 700;
-  color: var(--color-green-d);
-  text-decoration: none;
-  transition: gap 0.2s;
-}
-.lineup-card-link:hover { gap: 0.65rem; }
-
-.lineup-cta { text-align: center; }
-
-/* ===== FEATURE ===== */
-.feature-section {
-  background-color: white;
-  padding: 0 0 5rem;
-}
-
-.feature-mountain-top {
-  line-height: 0;
-  background-color: #fffde8;
-}
-.feature-mountain-top svg { display: block; width: 100%; }
-
-.feature-header {
-  text-align: center;
-  padding-top: 4rem;
-  margin-bottom: 3rem;
-}
-
-.feature-lead {
-  font-size: 0.95rem;
-  color: #555;
-  line-height: 1.9;
-  margin-top: 0.875rem;
-}
-
-.feature-grid {
+/* Products slider */
+.products-slider {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
-  margin-bottom: 2.5rem;
 }
-
-.feature-card { border-radius: 12px; overflow: hidden; }
-
-.feature-card-img {
-  position: relative;
-  height: 240px;
+.product-card {
+  background: white;
+  border-radius: 16px;
   overflow: hidden;
+  box-shadow: 0 4px 20px rgba(90,154,80,0.1);
+  transition: transform 0.25s, box-shadow 0.25s;
 }
-
-.feature-card-img img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  transition: transform 0.4s;
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 36px rgba(90,154,80,0.18);
 }
-.feature-card:hover .feature-card-img img { transform: scale(1.06); }
-
-.feature-card-overlay {
+.product-img-wrap {
+  position: relative;
+  background: #FFF8E0;
+}
+.product-img-wrap img { width: 100%; height: 260px; object-fit: cover; display: block; }
+.product-badge {
   position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.1) 60%, transparent 100%);
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 1.5rem;
-}
-
-.feature-card-overlay h3 {
-  font-size: 1.05rem;
+  top: 12px; left: 12px;
+  background: #F2C94C;
+  color: #3A2A1A;
+  font-size: 0.7rem;
   font-weight: 700;
-  color: white;
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+  box-shadow: 0 2px 8px rgba(242,201,76,0.4);
+}
+.product-card-body { padding: 1.5rem; }
+.product-card-body h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #3A2A1A;
+  margin-bottom: 0.5rem;
+}
+.product-card-body p {
+  font-size: 0.85rem;
+  color: #7A6040;
+  line-height: 1.75;
+  margin-bottom: 1.25rem;
+}
+.products-dots {
+  display: none;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 1.5rem;
+}
+.products-dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: rgba(90,154,80,0.25);
+  border: none; cursor: pointer; padding: 0;
+  transition: all 0.25s;
+}
+.products-dot.active { background: #5A9A50; transform: scale(1.3); }
+.products-cta { text-align: center; margin-top: 3rem; }
+
+/* ===== FEATURES ===== */
+.features-section {
+  background: #5A9A50;
+  position: relative;
+}
+.features-mountain-top { line-height: 0; }
+.features-mountain-top svg { display: block; width: 100%; height: 70px; }
+.features-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 2rem 5rem;
+}
+.features-header { text-align: center; margin-bottom: 3rem; }
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+.feature-card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  text-decoration: none;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+.feature-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 40px rgba(0,0,0,0.2);
+}
+.feature-img img { width: 100%; height: 220px; object-fit: cover; display: block; }
+.feature-info { padding: 1.25rem 1.25rem 1.5rem; }
+.feature-info h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #3A2A1A;
   margin-bottom: 0.3rem;
 }
-
-.feature-card-overlay p {
+.feature-info p {
   font-size: 0.8rem;
-  color: rgba(255,255,255,0.85);
-  line-height: 1.6;
-  margin: 0;
+  color: #7A6040;
+  margin-bottom: 0.75rem;
 }
-
-.feature-cta { text-align: center; }
+.feature-link {
+  font-family: 'Lato', sans-serif;
+  font-size: 0.78rem;
+  color: #5A9A50;
+  font-weight: 700;
+}
+.features-mountain-bottom { line-height: 0; }
+.features-mountain-bottom svg { display: block; width: 100%; height: 70px; }
 
 /* ===== CTA ===== */
 .cta-section {
-  background-color: var(--color-green-d);
-  padding: 0 0 5rem;
+  background: #FFFCE8;
+  padding: 5rem 0 6rem;
 }
-
-.cta-mountain-top {
-  line-height: 0;
-  background-color: white;
-}
-.cta-mountain-top svg { display: block; width: 100%; }
-
 .cta-inner {
-  text-align: center;
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
-  padding-top: 4rem;
-}
-
-.cta-title {
-  font-size: clamp(1.6rem, 3vw, 2.25rem);
-  font-weight: 700;
-  color: white;
-  letter-spacing: 0.04em;
-  margin-bottom: 0.75rem;
-}
-
-.cta-text {
-  font-size: 0.95rem;
-  color: rgba(255,255,255,0.75);
-  line-height: 1.8;
-  margin-bottom: 2.5rem;
-}
-
-.cta-methods {
+  padding: 0 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0;
-  margin-bottom: 2.5rem;
+  gap: 2.5rem;
   flex-wrap: wrap;
 }
-
-.cta-method {
+.cta-illust { flex-shrink: 0; }
+.cta-illust svg { width: 120px; animation: floatEgg 6s ease-in-out infinite; }
+.cta-illust--right svg { animation-delay: -3s; }
+.cta-text { text-align: center; flex: 1; min-width: 240px; }
+.cta-text p { font-size: 0.9rem; color: #7A6040; line-height: 1.8; margin-bottom: 1.75rem; }
+.cta-btns { display: flex; flex-direction: column; align-items: center; gap: 0.875rem; }
+.cta-tel {
   display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-  padding: 1rem 2.5rem;
-  text-align: left;
-}
-
-.cta-divider {
-  width: 1px; height: 70px;
-  background: rgba(255,255,255,0.2);
-}
-
-.cta-method-label {
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  color: var(--color-yellow);
-  margin-bottom: 0.3rem;
-}
-
-.cta-phone {
-  display: block;
-  font-family: 'Lato', sans-serif;
-  font-size: 1.5rem;
-  font-weight: 400;
-  color: white;
-  text-decoration: none;
-  letter-spacing: 0.05em;
-  margin-bottom: 0.2rem;
-}
-
-.cta-form-link {
-  display: block;
-  font-size: 0.9rem;
-  font-weight: 700;
-  color: white;
-  text-decoration: none;
-  margin-bottom: 0.2rem;
-  transition: opacity 0.2s;
-}
-.cta-form-link:hover { opacity: 0.75; }
-
-.cta-method-note {
-  font-size: 0.75rem;
-  color: rgba(255,255,255,0.5);
-  margin: 0;
-}
-
-.cta-btn {
-  display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 1rem 3rem;
-  background-color: var(--color-yellow);
-  color: #333;
-  font-size: 0.95rem;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  border-radius: 50px;
+  font-family: 'Lato', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 300;
+  color: #5A9A50;
   text-decoration: none;
-  transition: all 0.2s;
-  box-shadow: 0 4px 16px rgba(241,225,109,0.4);
+  letter-spacing: 0.06em;
+  transition: color 0.2s;
 }
-.cta-btn:hover {
-  background-color: var(--color-yellow-d);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(241,225,109,0.5);
-}
+.cta-tel:hover { color: #3D7A34; }
 
 /* ===== RESPONSIVE ===== */
+.sp-br { display: none; }
 @media (max-width: 900px) {
-  .about-inner {
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
-  }
-  .about-illust { height: 260px; }
-
-  .lineup-slider,
-  .feature-grid {
-    grid-template-columns: 1fr;
-  }
+  .about-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+  .about-illust { order: -1; }
+  .about-egg-svg { max-width: 260px; }
+  .products-slider { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
+  .products-dots { display: flex; }
+  .features-grid { grid-template-columns: 1fr; max-width: 500px; margin: 0 auto; }
+  .hero-cloud--right { display: none; }
 }
-
 @media (max-width: 640px) {
-  .hero-title { font-size: 1.9rem; }
-
-  .news-item a {
-    flex-wrap: wrap;
-    gap: 0.5rem;
-  }
-
-  .cta-methods { flex-direction: column; gap: 1.5rem; }
-  .cta-divider { display: none; }
-  .cta-method { padding: 0 1rem; }
+  .sp-br { display: block; }
+  .hero-cloud { display: none; }
+  .cta-illust { display: none; }
+  .news-item { gap: 0.5rem; }
 }
 </style>
 
 <script>
-  // Hero slider
-  const slides = document.querySelectorAll('.hero-slide');
-  const dots = document.querySelectorAll('.hero-dot');
-  let current = 0;
+// Hero slider
+const heroSlides = document.querySelectorAll('.hero-slide');
+const heroDots = document.querySelectorAll('.hero-dot');
+let currentHero = 0;
 
-  const go = (n: number) => {
-    slides[current].classList.remove('active');
-    dots[current].classList.remove('active');
-    current = (n + slides.length) % slides.length;
-    slides[current].classList.add('active');
-    dots[current].classList.add('active');
-  };
+function goToHero(n: number) {
+  heroSlides[currentHero].classList.remove('active');
+  heroDots[currentHero].classList.remove('active');
+  currentHero = (n + heroSlides.length) % heroSlides.length;
+  heroSlides[currentHero].classList.add('active');
+  heroDots[currentHero].classList.add('active');
+}
 
-  dots.forEach((dot, i) => dot.addEventListener('click', () => go(i)));
+heroDots.forEach((dot, i) => dot.addEventListener('click', () => goToHero(i)));
+let heroTimer = setInterval(() => goToHero(currentHero + 1), 4500);
+document.querySelector('.hero-slider')?.addEventListener('mouseenter', () => clearInterval(heroTimer));
+document.querySelector('.hero-slider')?.addEventListener('mouseleave', () => {
+  heroTimer = setInterval(() => goToHero(currentHero + 1), 4500);
+});
 
-  let timer = setInterval(() => go(current + 1), 4500);
-  document.querySelector('.hero-slider')?.addEventListener('mouseenter', () => clearInterval(timer));
-  document.querySelector('.hero-slider')?.addEventListener('mouseleave', () => {
-    timer = setInterval(() => go(current + 1), 4500);
-  });
+// Products slider (mobile)
+const prodCards = document.querySelectorAll('.product-card');
+const prodDots = document.querySelectorAll('.products-dot');
+let currentProd = 0;
+
+function goToProd(n: number) {
+  if (window.innerWidth > 900) return;
+  prodCards[currentProd].classList.remove('active');
+  prodDots[currentProd].classList.remove('active');
+  currentProd = (n + prodCards.length) % prodCards.length;
+  prodCards[currentProd].classList.add('active');
+  prodDots[currentProd].classList.add('active');
+}
+prodDots.forEach((dot, i) => dot.addEventListener('click', () => goToProd(i)));
 </script>

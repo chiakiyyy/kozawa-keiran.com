@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700">
+  <defs>
+    <linearGradient id="evening" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#A8D8EA"/>
+      <stop offset="50%" stop-color="#D4ECC8"/>
+      <stop offset="100%" stop-color="#8ABF80"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="700" fill="url(#evening)"/>
+  <!-- 山 -->
+  <polygon points="0,500 250,280 500,500" fill="#5A8A58" opacity="0.7"/>
+  <polygon points="200,500 480,220 760,500" fill="#4A7A48" opacity="0.8"/>
+  <polygon points="600,500 900,240 1200,500" fill="#5A8A58" opacity="0.7"/>
+  <polygon points="800,500 1050,260 1300,500" fill="#3A6A38" opacity="0.6"/>
+  <!-- 雪山の頂 -->
+  <polygon points="480,220 520,195 560,220" fill="white" opacity="0.8"/>
+  <!-- 川 -->
+  <path d="M0 580 Q300 560 600 575 Q900 590 1200 565" fill="none" stroke="#7BBCDC" stroke-width="20" opacity="0.5"/>
+  <!-- 農場 -->
+  <rect x="520" y="420" width="160" height="100" fill="#E8B870" rx="3"/>
+  <polygon points="480,420 600,360 720,420" fill="#C8983A"/>
+  <rect x="574" y="460" width="52" height="60" fill="#8B6040"/>
+  <!-- 雲 -->
+  <g opacity="0.88">
+    <ellipse cx="160" cy="160" rx="85" ry="46" fill="white"/>
+    <ellipse cx="118" cy="176" rx="58" ry="38" fill="white"/>
+    <ellipse cx="206" cy="172" rx="64" ry="36" fill="white"/>
+  </g>
+  <g opacity="0.85">
+    <ellipse cx="1000" cy="140" rx="95" ry="52" fill="white"/>
+    <ellipse cx="960" cy="158" rx="65" ry="44" fill="white"/>
+    <ellipse cx="1048" cy="152" rx="70" ry="40" fill="white"/>
+  </g>
+  <!-- 鳥 -->
+  <g fill="none" stroke="#4A6A6A" stroke-width="2.5" opacity="0.5">
+    <path d="M350 200 Q360 190 370 200"/>
+    <path d="M385 188 Q397 177 409 188"/>
+    <path d="M820 220 Q832 208 844 220"/>
+  </g>
+</svg>

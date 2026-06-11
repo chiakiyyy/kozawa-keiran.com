@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 540">
+  <defs>
+    <linearGradient id="fbg3" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#B8E0D8"/>
+      <stop offset="100%" stop-color="#6AB870"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="540" fill="url(#fbg3)"/>
+  <!-- 太陽光パネル(イメージ) -->
+  <rect x="200" y="220" width="400" height="220" rx="8" fill="#4A8A9A" opacity="0.7"/>
+  <g stroke="white" stroke-width="1.5" opacity="0.5">
+    <line x1="200" y1="293" x2="600" y2="293"/>
+    <line x1="200" y1="366" x2="600" y2="366"/>
+    <line x1="333" y1="220" x2="333" y2="440"/>
+    <line x1="466" y1="220" x2="466" y2="440"/>
+  </g>
+  <!-- 太陽 -->
+  <circle cx="400" cy="100" r="60" fill="#FFE840" opacity="0.8"/>
+  <!-- 光の矢印 -->
+  <g fill="#FFE840" opacity="0.6">
+    <polygon points="400,170 394,155 406,155"/>
+    <polygon points="340,145 335,130 342,138"/>
+    <polygon points="460,145 465,130 458,138"/>
+  </g>
+  <!-- 植物 -->
+  <ellipse cx="150" cy="400" rx="70" ry="45" fill="#5AA855" opacity="0.7" transform="rotate(-20,150,400)"/>
+  <ellipse cx="650" cy="390" rx="65" ry="42" fill="#5AA855" opacity="0.65" transform="rotate(15,650,390)"/>
+  <!-- 循環矢印 -->
+  <path d="M280 460 Q300 420 340 410 Q380 400 420 410 Q460 420 480 460" fill="none" stroke="#4A7C59" stroke-width="3" stroke-dasharray="8,4" opacity="0.7"/>
+  <!-- 雲 -->
+  <g opacity="0.8">
+    <ellipse cx="130" cy="140" rx="70" ry="38" fill="white"/>
+    <ellipse cx="96" cy="154" rx="48" ry="32" fill="white"/>
+    <ellipse cx="168" cy="148" rx="52" ry="30" fill="white"/>
+  </g>
+  <rect width="800" height="540" fill="rgba(0,0,0,0.1)"/>
+  <text x="400" y="510" font-family="serif" font-size="20" fill="white" text-anchor="middle" opacity="0.9" font-weight="bold">環境への取り組み</text>
+</svg>

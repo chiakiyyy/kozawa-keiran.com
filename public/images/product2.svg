@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600">
+  <defs>
+    <radialGradient id="pbg2" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#F0F8F0"/>
+      <stop offset="100%" stop-color="#E0F0E0"/>
+    </radialGradient>
+    <radialGradient id="pegg2" cx="38%" cy="32%" r="58%">
+      <stop offset="0%" stop-color="#FFFEF5"/>
+      <stop offset="100%" stop-color="#E8DFC8"/>
+    </radialGradient>
+  </defs>
+  <rect width="600" height="600" fill="url(#pbg2)"/>
+  <!-- 箱 (業務用パレット感) -->
+  <rect x="80" y="280" width="440" height="220" rx="6" fill="#E8D8B8" stroke="#C8B890" stroke-width="2"/>
+  <rect x="80" y="280" width="440" height="50" rx="6" fill="#D8C8A8"/>
+  <!-- 仕切り線 -->
+  <line x1="227" y1="280" x2="227" y2="500" stroke="#C8B890" stroke-width="1.5"/>
+  <line x1="373" y1="280" x2="373" y2="500" stroke="#C8B890" stroke-width="1.5"/>
+  <line x1="80" y1="380" x2="520" y2="380" stroke="#C8B890" stroke-width="1.5"/>
+  <!-- たまご (3x2=6個) -->
+  <g transform="translate(153,330)"><ellipse cx="0" cy="0" rx="36" ry="44" fill="#FAF5EC" stroke="#D8C890" stroke-width="1"/><ellipse cx="0" cy="4" rx="18" ry="22" fill="#F5D060" opacity="0.45"/></g>
+  <g transform="translate(300,330)"><ellipse cx="0" cy="0" rx="36" ry="44" fill="#FAF5EC" stroke="#D8C890" stroke-width="1"/><ellipse cx="0" cy="4" rx="18" ry="22" fill="#F5D060" opacity="0.45"/></g>
+  <g transform="translate(447,330)"><ellipse cx="0" cy="0" rx="36" ry="44" fill="#FAF5EC" stroke="#D8C890" stroke-width="1"/><ellipse cx="0" cy="4" rx="18" ry="22" fill="#F5D060" opacity="0.45"/></g>
+  <g transform="translate(153,440)"><ellipse cx="0" cy="0" rx="36" ry="44" fill="#FAF5EC" stroke="#D8C890" stroke-width="1"/><ellipse cx="0" cy="4" rx="18" ry="22" fill="#F5D060" opacity="0.45"/></g>
+  <g transform="translate(300,440)"><ellipse cx="0" cy="0" rx="36" ry="44" fill="#FAF5EC" stroke="#D8C890" stroke-width="1"/><ellipse cx="0" cy="4" rx="18" ry="22" fill="#F5D060" opacity="0.45"/></g>
+  <g transform="translate(447,440)"><ellipse cx="0" cy="0" rx="36" ry="44" fill="#FAF5EC" stroke="#D8C890" stroke-width="1"/><ellipse cx="0" cy="4" rx="18" ry="22" fill="#F5D060" opacity="0.45"/></g>
+  <!-- 大きなたまご (左上装飾) -->
+  <g transform="translate(160,170)" opacity="0.9">
+    <ellipse cx="0" cy="0" rx="68" ry="86" fill="url(#pegg2)" stroke="#D8C890" stroke-width="1.5"/>
+    <ellipse cx="0" cy="8" rx="36" ry="46" fill="#F5D060" opacity="0.48"/>
+    <ellipse cx="-14" cy="-26" rx="14" ry="9" fill="white" opacity="0.4" transform="rotate(-22,-14,-26)"/>
+  </g>
+  <g transform="translate(440,175)" opacity="0.85">
+    <ellipse cx="0" cy="0" rx="62" ry="78" fill="url(#pegg2)" stroke="#D8C890" stroke-width="1.5"/>
+    <ellipse cx="0" cy="7" rx="32" ry="40" fill="#F5D060" opacity="0.45"/>
+  </g>
+  <!-- ラベル -->
+  <rect x="205" y="100" width="190" height="58" rx="8" fill="#4A7C59" opacity="0.9"/>
+  <text x="300" y="132" font-family="serif" font-size="15" fill="white" text-anchor="middle" font-weight="bold">業務用たまご</text>
+  <text x="300" y="148" font-family="sans-serif" font-size="10" fill="rgba(255,255,255,0.8)" text-anchor="middle">Business Use</text>
+</svg>

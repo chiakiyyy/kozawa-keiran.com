@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700">
+  <defs>
+    <radialGradient id="yolkbg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFF8E0"/>
+      <stop offset="100%" stop-color="#F5E8C0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="700" fill="url(#yolkbg)"/>
+  <!-- 大きなたまごたち -->
+  <g transform="translate(600,350)">
+    <ellipse cx="0" cy="0" rx="180" ry="220" fill="#FAF5EC" stroke="#E8C870" stroke-width="2"/>
+    <ellipse cx="0" cy="20" rx="95" ry="115" fill="#F5D060" opacity="0.6"/>
+    <ellipse cx="-35" cy="-50" rx="38" ry="24" fill="white" opacity="0.45" transform="rotate(-22,-35,-50)"/>
+  </g>
+  <g transform="translate(200,380)" opacity="0.8">
+    <ellipse cx="0" cy="0" rx="110" ry="138" fill="#FAF5EC" stroke="#E8C870" stroke-width="1.5"/>
+    <ellipse cx="0" cy="14" rx="58" ry="72" fill="#F5D060" opacity="0.5"/>
+    <ellipse cx="-22" cy="-32" rx="24" ry="15" fill="white" opacity="0.4" transform="rotate(-22,-22,-32)"/>
+  </g>
+  <g transform="translate(1000,360)" opacity="0.8">
+    <ellipse cx="0" cy="0" rx="120" ry="150" fill="#FAF5EC" stroke="#E8C870" stroke-width="1.5"/>
+    <ellipse cx="0" cy="16" rx="62" ry="78" fill="#F5D060" opacity="0.5"/>
+    <ellipse cx="-24" cy="-36" rx="26" ry="16" fill="white" opacity="0.4" transform="rotate(-22,-24,-36)"/>
+  </g>
+  <!-- 小さい装飾たまご -->
+  <g transform="translate(80,200)" opacity="0.5">
+    <ellipse cx="0" cy="0" rx="55" ry="70" fill="#FAF5EC" stroke="#E8C870" stroke-width="1"/>
+  </g>
+  <g transform="translate(1120,180)" opacity="0.5">
+    <ellipse cx="0" cy="0" rx="60" ry="75" fill="#FAF5EC" stroke="#E8C870" stroke-width="1"/>
+  </g>
+  <!-- 葉っぱ装飾 -->
+  <ellipse cx="50" cy="600" rx="100" ry="60" fill="#8CC870" opacity="0.4" transform="rotate(-30,50,600)"/>
+  <ellipse cx="1150" cy="580" rx="90" ry="55" fill="#8CC870" opacity="0.35" transform="rotate(25,1150,580)"/>
+</svg>

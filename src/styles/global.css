@@ -2,45 +2,36 @@
 
 @layer base {
   :root {
-    /* 八千代カラー完全再現 */
-    --color-yellow:   #f1e16d;   /* テーマイエロー */
-    --color-yellow-d: #e8d340;   /* やや濃いイエロー */
-    --color-sky:      #eaf6ff;   /* 空色背景 */
-    --color-sky-mid:  #c8e8f8;   /* 少し濃い空色 */
-    --color-green:    #5a9e3a;   /* 草・山の緑 */
-    --color-green-d:  #3d7a25;   /* 濃い緑 */
-    --color-brown:    #7a4e2d;   /* ブラウン */
-    --color-text:     #333333;
-    --color-text-mid: #666666;
-    --color-text-light:#999999;
-    --color-white:    #ffffff;
-    --color-cream:    #fdfaf0;
-    --color-border:   rgba(0,0,0,0.08);
+    --color-yellow: #F2C94C;
+    --color-yellow-light: #FFF8C0;
+    --color-yellow-pale: #FFFCE8;
+    --color-yellow-bg: #FFFAE0;
+    --color-green: #5A9A50;
+    --color-green-dark: #3D7A34;
+    --color-green-light: #E8F5E0;
+    --color-brown: #6B4226;
+    --color-text: #3A2A1A;
+    --color-text-muted: #7A6040;
+    --color-white: #FFFFFF;
+    --color-cream: #FFFCE8;
   }
 
   html {
-    font-family: 'Zen Maru Gothic', 'M PLUS Rounded 1c', 'Hiragino Maru Gothic ProN', 'Rounded Mplus 1c', sans-serif;
+    font-family: 'Zen Maru Gothic', 'M PLUS Rounded 1c', 'Hiragino Maru Gothic ProN', sans-serif;
     scroll-behavior: smooth;
-    background-color: var(--color-white);
+    background-color: var(--color-cream);
     color: var(--color-text);
   }
 
-  body {
-    -webkit-font-smoothing: antialiased;
-  }
+  body { -webkit-font-smoothing: antialiased; }
 
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Zen Maru Gothic', 'M PLUS Rounded 1c', 'Hiragino Maru Gothic ProN', sans-serif;
+  h1, h2, h3 {
+    font-family: 'Zen Maru Gothic', 'M PLUS Rounded 1c', sans-serif;
     line-height: 1.5;
   }
-
-  p { line-height: 1.9; }
-
-  img { max-width: 100%; height: auto; }
 }
 
 @layer components {
-  /* 八千代風ボタン */
   .btn-yellow {
     display: inline-flex;
     align-items: center;
@@ -50,19 +41,39 @@
     color: var(--color-text);
     font-size: 0.9rem;
     font-weight: 700;
-    letter-spacing: 0.05em;
-    border-radius: 50px;
+    letter-spacing: 0.08em;
+    border-radius: 999px;
     text-decoration: none;
-    transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
-    box-shadow: 0 4px 12px rgba(241,225,109,0.4);
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba(242,201,76,0.4);
   }
   .btn-yellow:hover {
-    background-color: var(--color-yellow-d);
+    background-color: #E8B830;
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(241,225,109,0.5);
+    box-shadow: 0 8px 20px rgba(242,201,76,0.5);
   }
 
-  .btn-outline-green {
+  .btn-green {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.875rem 2.25rem;
+    background-color: var(--color-green);
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    border-radius: 999px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba(90,154,80,0.35);
+  }
+  .btn-green:hover {
+    background-color: var(--color-green-dark);
+    transform: translateY(-2px);
+  }
+
+  .btn-outline {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
@@ -71,52 +82,39 @@
     color: var(--color-green);
     font-size: 0.875rem;
     font-weight: 700;
-    letter-spacing: 0.05em;
-    border-radius: 50px;
+    letter-spacing: 0.06em;
+    border-radius: 999px;
     text-decoration: none;
-    transition: all 0.2s;
+    transition: all 0.2s ease;
+    background-color: white;
   }
-  .btn-outline-green:hover {
+  .btn-outline:hover {
     background-color: var(--color-green);
-    color: var(--color-white);
+    color: white;
   }
 
-  /* セクションタイトル（八千代風） */
-  .sec-en {
-    font-size: 0.72rem;
-    letter-spacing: 0.22em;
-    font-weight: 700;
+  .section-en {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.28em;
     color: var(--color-green);
     text-transform: uppercase;
     display: block;
     margin-bottom: 0.5rem;
   }
 
-  .sec-ja {
-    font-size: clamp(1.5rem, 3vw, 2.2rem);
+  .section-title {
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
     font-weight: 700;
     color: var(--color-text);
-    letter-spacing: 0.04em;
+    margin-bottom: 1.25rem;
+    letter-spacing: 0.02em;
     line-height: 1.5;
   }
 
-  /* 山形区切り（SVGで実装） */
-  .mountain-divider {
-    display: block;
+  .wave-divider {
     width: 100%;
     overflow: hidden;
     line-height: 0;
   }
-
-  /* ニュースタグ */
-  .news-tag {
-    display: inline-block;
-    padding: 0.2rem 0.75rem;
-    border-radius: 50px;
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-  }
-  .news-tag--info { background-color: var(--color-yellow); color: var(--color-text); }
-  .news-tag--farm { background-color: var(--color-green); color: white; }
 }

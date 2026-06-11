@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600">
+  <defs>
+    <radialGradient id="pbg3" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFF8F0"/>
+      <stop offset="100%" stop-color="#FFE8D0"/>
+    </radialGradient>
+    <radialGradient id="onsen3" cx="40%" cy="38%" r="55%">
+      <stop offset="0%" stop-color="#F5D060"/>
+      <stop offset="100%" stop-color="#C88010"/>
+    </radialGradient>
+  </defs>
+  <rect width="600" height="600" fill="url(#pbg3)"/>
+  <!-- 湯気 -->
+  <g stroke="#C8A870" stroke-width="2" fill="none" opacity="0.5">
+    <path d="M250 220 Q240 200 250 180 Q260 160 250 140"/>
+    <path d="M290 215 Q280 195 290 175 Q300 155 290 135"/>
+    <path d="M330 220 Q320 200 330 180 Q340 160 330 140"/>
+  </g>
+  <!-- 鉢 -->
+  <ellipse cx="300" cy="400" rx="180" ry="55" fill="#D4956A"/>
+  <path d="M120 370 Q150 480 300 490 Q450 480 480 370 Z" fill="#C07850"/>
+  <ellipse cx="300" cy="370" rx="180" ry="55" fill="#D8A880"/>
+  <!-- 温泉卵 (割れた状態) -->
+  <!-- 白身 -->
+  <ellipse cx="300" cy="355" rx="140" ry="70" fill="white" opacity="0.95"/>
+  <ellipse cx="300" cy="350" rx="125" ry="60" fill="white"/>
+  <!-- とろ~り黄身 -->
+  <circle cx="300" cy="345" r="55" fill="url(#onsen3)"/>
+  <circle cx="300" cy="343" r="50" fill="#F5D060"/>
+  <ellipse cx="278" cy="325" rx="16" ry="10" fill="white" opacity="0.45" transform="rotate(-22,278,325)"/>
+  <!-- 殻の破片 -->
+  <path d="M175 355 Q185 340 195 355 Q190 360 175 355Z" fill="#F0E8D0" stroke="#D8C8A0" stroke-width="1"/>
+  <path d="M405 355 Q415 342 425 358 Q420 363 405 355Z" fill="#F0E8D0" stroke="#D8C8A0" stroke-width="1"/>
+  <!-- ラベル -->
+  <rect x="205" y="460" width="190" height="60" rx="8" fill="#C8780A" opacity="0.9"/>
+  <text x="300" y="493" font-family="serif" font-size="14" fill="white" text-anchor="middle" font-weight="bold">温泉卵・加工品</text>
+  <text x="300" y="510" font-family="sans-serif" font-size="10" fill="rgba(255,255,255,0.8)" text-anchor="middle">Onsen Tamago</text>
+  <!-- 葉っぱ -->
+  <ellipse cx="100" cy="180" rx="50" ry="30" fill="#8CC870" opacity="0.45" transform="rotate(-35,100,180)"/>
+  <ellipse cx="500" cy="170" rx="46" ry="28" fill="#8CC870" opacity="0.4" transform="rotate(30,500,170)"/>
+</svg>

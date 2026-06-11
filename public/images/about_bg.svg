@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800">
+  <defs>
+    <linearGradient id="aboutbg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFFCE8"/>
+      <stop offset="100%" stop-color="#FFF5C0"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#aboutbg)"/>
+  <!-- 山シルエット -->
+  <ellipse cx="600" cy="900" rx="900" ry="400" fill="#F5E88A" opacity="0.5"/>
+  <polygon points="0,700 300,400 600,700" fill="#EED850" opacity="0.3"/>
+  <polygon points="400,700 700,350 1000,700" fill="#F0E060" opacity="0.35"/>
+  <polygon points="700,700 1000,420 1300,700" fill="#EED850" opacity="0.3"/>
+  <!-- 太陽 -->
+  <circle cx="960" cy="160" r="70" fill="#FFE840" opacity="0.5"/>
+  <!-- 雲 -->
+  <g opacity="0.6">
+    <ellipse cx="200" cy="200" rx="90" ry="48" fill="white"/>
+    <ellipse cx="158" cy="218" rx="62" ry="40" fill="white"/>
+    <ellipse cx="248" cy="212" rx="68" ry="38" fill="white"/>
+  </g>
+  <!-- 鶏イラスト (大きめ) -->
+  <g transform="translate(180,560)">
+    <ellipse cx="0" cy="0" rx="55" ry="40" fill="white" stroke="#DDD" stroke-width="1.5"/>
+    <circle cx="42" cy="-28" r="30" fill="white" stroke="#DDD" stroke-width="1.5"/>
+    <polygon points="60,-28 75,-22 60,-18" fill="#F4A020"/>
+    <ellipse cx="38" cy="-50" rx="12" ry="8" fill="#E04040"/>
+    <circle cx="50" cy="-32" r="4" fill="#333"/>
+    <line x1="-10" y1="40" x2="-18" y2="65" stroke="#F4A020" stroke-width="3" stroke-linecap="round"/>
+    <line x1="10" y1="40" x2="4" y2="65" stroke="#F4A020" stroke-width="3" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(1020,550)">
+    <ellipse cx="0" cy="0" rx="50" ry="36" fill="#F5E8C0" stroke="#DDD" stroke-width="1.5"/>
+    <circle cx="38" cy="-26" r="27" fill="#F5E8C0" stroke="#DDD" stroke-width="1.5"/>
+    <polygon points="54,-26 68,-20 54,-17" fill="#F4A020"/>
+    <ellipse cx="34" cy="-46" rx="10" ry="7" fill="#E04040"/>
+    <circle cx="46" cy="-29" r="3.5" fill="#333"/>
+    <line x1="-8" y1="36" x2="-15" y2="58" stroke="#F4A020" stroke-width="3" stroke-linecap="round"/>
+    <line x1="8" y1="36" x2="2" y2="58" stroke="#F4A020" stroke-width="3" stroke-linecap="round"/>
+  </g>
+</svg>

@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700">
+  <defs>
+    <linearGradient id="sky1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#87CEEB"/>
+      <stop offset="60%" stop-color="#C8E8F5"/>
+      <stop offset="100%" stop-color="#E8F4E8"/>
+    </linearGradient>
+    <linearGradient id="field1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#7CB87A"/>
+      <stop offset="100%" stop-color="#4A8A48"/>
+    </linearGradient>
+  </defs>
+  <!-- 空 -->
+  <rect width="1200" height="700" fill="url(#sky1)"/>
+  <!-- 遠景の山 -->
+  <ellipse cx="200" cy="520" rx="280" ry="200" fill="#5A8A5A" opacity="0.4"/>
+  <ellipse cx="1000" cy="530" rx="320" ry="180" fill="#4A7A4A" opacity="0.35"/>
+  <!-- 近景の丘 -->
+  <ellipse cx="600" cy="650" rx="800" ry="280" fill="url(#field1)"/>
+  <!-- 雲 -->
+  <g opacity="0.9">
+    <ellipse cx="200" cy="150" rx="80" ry="45" fill="white"/>
+    <ellipse cx="160" cy="165" rx="55" ry="38" fill="white"/>
+    <ellipse cx="245" cy="160" rx="60" ry="35" fill="white"/>
+  </g>
+  <g opacity="0.85">
+    <ellipse cx="900" cy="120" rx="100" ry="50" fill="white"/>
+    <ellipse cx="860" cy="138" rx="65" ry="40" fill="white"/>
+    <ellipse cx="945" cy="132" rx="70" ry="38" fill="white"/>
+  </g>
+  <!-- 農場の建物 -->
+  <rect x="480" y="380" width="240" height="140" fill="#D4A050" rx="4"/>
+  <polygon points="420,380 600,300 780,380" fill="#C08840"/>
+  <rect x="560" y="430" width="80" height="90" fill="#8B5E3C"/>
+  <!-- 窓 -->
+  <rect x="500" y="400" width="40" height="40" fill="#87CEEB" rx="3"/>
+  <rect x="660" y="400" width="40" height="40" fill="#87CEEB" rx="3"/>
+  <!-- 鶏たち -->
+  <g transform="translate(300,500)">
+    <ellipse cx="0" cy="0" rx="22" ry="16" fill="white"/>
+    <circle cx="18" cy="-10" r="12" fill="white"/>
+    <polygon points="24,-10 32,-6 24,-4" fill="#F4A020"/>
+    <ellipse cx="16" cy="-18" rx="5" ry="3" fill="#E04040"/>
+  </g>
+  <g transform="translate(370,510)">
+    <ellipse cx="0" cy="0" rx="20" ry="14" fill="#F5E8C0"/>
+    <circle cx="16" cy="-8" r="11" fill="#F5E8C0"/>
+    <polygon points="22,-8 29,-5 22,-3" fill="#F4A020"/>
+  </g>
+  <g transform="translate(840,495)">
+    <ellipse cx="0" cy="0" rx="22" ry="16" fill="white"/>
+    <circle cx="18" cy="-10" r="12" fill="white"/>
+    <polygon points="24,-10 32,-6 24,-4" fill="#F4A020"/>
+    <ellipse cx="16" cy="-18" rx="5" ry="3" fill="#E04040"/>
+  </g>
+  <!-- 太陽 -->
+  <circle cx="960" cy="120" r="55" fill="#FFD700" opacity="0.85"/>
+  <circle cx="960" cy="120" r="42" fill="#FFE840"/>
+  <!-- テキスト領域のグラデーション -->
+  <rect x="0" y="0" width="1200" height="700" fill="rgba(0,0,0,0.08)"/>
+</svg>

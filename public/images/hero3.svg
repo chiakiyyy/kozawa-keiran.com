@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700">
+  <defs>
+    <linearGradient id="morning" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFD580"/>
+      <stop offset="40%" stop-color="#FFF0C0"/>
+      <stop offset="100%" stop-color="#E8F5E0"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="700" fill="url(#morning)"/>
+  <!-- 太陽 -->
+  <circle cx="600" cy="80" r="90" fill="#FFE840" opacity="0.7"/>
+  <circle cx="600" cy="80" r="65" fill="#FFD700"/>
+  <!-- 光の放射線 -->
+  <g stroke="#FFE840" stroke-width="3" opacity="0.4">
+    <line x1="600" y1="-10" x2="600" y2="170"/>
+    <line x1="470" y1="20" x2="540" y2="140"/>
+    <line x1="730" y1="20" x2="660" y2="140"/>
+    <line x1="420" y1="80" x2="535" y2="80"/>
+    <line x1="780" y1="80" x2="665" y2="80"/>
+  </g>
+  <!-- 緑の丘 -->
+  <ellipse cx="600" cy="720" rx="900" ry="350" fill="#7CB870"/>
+  <ellipse cx="0" cy="680" rx="350" ry="250" fill="#6AB060"/>
+  <ellipse cx="1200" cy="670" rx="320" ry="240" fill="#6AB060"/>
+  <!-- 木 -->
+  <g transform="translate(200,480)">
+    <rect x="-8" y="60" width="16" height="80" fill="#6B4226"/>
+    <ellipse cx="0" cy="40" rx="50" ry="65" fill="#5A9A50"/>
+    <ellipse cx="-15" cy="20" rx="38" ry="50" fill="#6AAA60"/>
+  </g>
+  <g transform="translate(980,490)">
+    <rect x="-7" y="55" width="14" height="70" fill="#6B4226"/>
+    <ellipse cx="0" cy="35" rx="45" ry="58" fill="#5A9A50"/>
+    <ellipse cx="12" cy="18" rx="34" ry="46" fill="#6AAA60"/>
+  </g>
+  <!-- 雲 -->
+  <g opacity="0.95">
+    <ellipse cx="300" cy="200" rx="90" ry="48" fill="white"/>
+    <ellipse cx="255" cy="218" rx="62" ry="42" fill="white"/>
+    <ellipse cx="350" cy="212" rx="68" ry="40" fill="white"/>
+  </g>
+  <g opacity="0.9">
+    <ellipse cx="850" cy="180" rx="80" ry="44" fill="white"/>
+    <ellipse cx="810" cy="196" rx="56" ry="38" fill="white"/>
+    <ellipse cx="895" cy="190" rx="62" ry="36" fill="white"/>
+  </g>
+  <!-- 小鳥 -->
+  <g fill="#4A7A4A" opacity="0.6">
+    <path d="M450 300 Q460 290 470 300 Q460 308 450 300"/>
+    <path d="M480 285 Q490 275 500 285 Q490 293 480 285"/>
+    <path d="M700 310 Q712 298 724 310 Q712 318 700 310"/>
+  </g>
+</svg>
