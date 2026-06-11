@@ -1,450 +1,383 @@
 ---
 const navItems = [
-  { label: '小澤鶏卵について', href: '/#about' },
-  { label: '商品案内', href: '/products' },
-  { label: '品質へのこだわり', href: '/quality' },
-  { label: '会社概要', href: '/company' },
-  { label: 'お問い合わせ', href: '/contact' },
+  { label: '小澤鶏卵について', labelEn: 'ABOUT US', href: '/company' },
+  { label: 'お知らせ',         labelEn: 'NEWS',     href: '/news' },
+  { label: '商品案内',         labelEn: 'LINE UP',  href: '/products' },
+  { label: '品質へのこだわり', labelEn: 'FEATURE',  href: '/quality' },
+  { label: 'よくある質問',     labelEn: 'Q&A',      href: '/faq' },
+  { label: 'お問い合わせ',     labelEn: 'CONTACT',  href: '/contact' },
 ];
 
 const currentPath = Astro.url.pathname;
-const isTop = currentPath === '/';
 ---
 
-<header class={`site-header ${isTop ? 'is-top' : 'is-page'}`} id="site-header">
+<header class="site-header" id="site-header">
   <div class="header-inner">
+    <!-- Logo -->
     <a href="/" class="site-logo" aria-label="小澤鶏卵 ホームへ">
-      <span class="logo-jp">小澤鶏卵</span>
-      <span class="logo-en">OZAWA KEIRAN</span>
+      <div class="logo-icon" aria-hidden="true">
+        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="24" cy="28" rx="14" ry="18" fill="#f1e16d" stroke="#e8d340" stroke-width="1.5"/>
+          <ellipse cx="24" cy="30" rx="8" ry="10" fill="#f5c842" opacity="0.7"/>
+          <ellipse cx="20" cy="23" rx="4" ry="2.5" fill="white" opacity="0.5" transform="rotate(-20,20,23)"/>
+        </svg>
+      </div>
+      <div class="logo-text">
+        <span class="logo-ja">小澤鶏卵</span>
+        <span class="logo-en">OZAWA KEIRAN</span>
+      </div>
     </a>
 
-    <nav class="site-nav" aria-label="メインナビゲーション">
+    <!-- Desktop Nav -->
+    <nav class="desktop-nav" aria-label="メインナビゲーション">
       <ul>
         {navItems.map((item) => (
           <li>
             <a
               href={item.href}
-              class={currentPath === item.href ? 'active' : ''}
+              class={currentPath.startsWith(item.href) && item.href !== '/' ? 'active' : ''}
             >
-              {item.label}
+              <span class="nav-ja">{item.label}</span>
+              <span class="nav-en">{item.labelEn}</span>
             </a>
           </li>
         ))}
       </ul>
     </nav>
 
-    <a href="/contact" class="header-cta">お問い合わせ</a>
+    <!-- Contact Button (right) -->
+    <a href="/contact" class="header-contact-btn" aria-label="お問合せ">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+        <rect x="2" y="4" width="14" height="10" rx="2" stroke="currentColor" stroke-width="1.4"/>
+        <path d="M2 6l7 5 7-5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+      </svg>
+      <span>お問合せ</span>
+    </a>
 
+    <!-- Hamburger -->
     <button class="hamburger" id="hamburger" aria-label="メニューを開く" aria-expanded="false">
-      <span></span>
-      <span></span>
-      <span></span>
+      <span></span><span></span><span></span>
     </button>
   </div>
-
-  <!-- Mobile Drawer -->
-  <div class="mobile-overlay" id="mobile-overlay" aria-hidden="true"></div>
-  <nav class="mobile-drawer" id="mobile-drawer" aria-hidden="true">
-    <div class="mobile-drawer-header">
-      <span class="mobile-logo-jp">小澤鶏卵</span>
-      <button class="mobile-close" id="mobile-close" aria-label="メニューを閉じる">
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-          <path d="M3 3l14 14M17 3L3 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-        </svg>
-      </button>
-    </div>
-    <ul>
-      {navItems.map((item) => (
-        <li>
-          <a href={item.href}>{item.label}</a>
-        </li>
-      ))}
-    </ul>
-    <div class="mobile-drawer-footer">
-      <a href="tel:0000-00-0000" class="mobile-tel">0000-00-0000</a>
-      <p class="mobile-hours">月〜土 8:00〜17:00</p>
-    </div>
-  </nav>
 </header>
+
+<!-- Mobile Overlay -->
+<div class="mob-overlay" id="mob-overlay"></div>
+
+<!-- Mobile Drawer -->
+<nav class="mob-drawer" id="mob-drawer" aria-hidden="true">
+  <div class="mob-drawer-top">
+    <a href="/" class="mob-logo">小澤鶏卵</a>
+    <button class="mob-close" id="mob-close" aria-label="閉じる">
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+        <path d="M3 3l16 16M19 3L3 19" stroke="#333" stroke-width="1.6" stroke-linecap="round"/>
+      </svg>
+    </button>
+  </div>
+  <ul>
+    {navItems.map(item => (
+      <li>
+        <a href={item.href}>
+          <span>{item.label}</span>
+          <span class="mob-nav-en">{item.labelEn}</span>
+        </a>
+      </li>
+    ))}
+  </ul>
+  <div class="mob-drawer-footer">
+    <a href="tel:0000-00-0000" class="mob-tel">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <path d="M3.5 2h3l1 3-1.5 1c.7 1.4 1.7 2.4 3.1 3.1L10.5 8l3 1v3c0 .8-.7 1.5-1.5 1.5C5.5 13.5 2 10 2 4c0-.8.7-1.5 1.5-1.5z" stroke="#5a9e3a" stroke-width="1.2" fill="none"/>
+      </svg>
+      0000-00-0000
+    </a>
+    <p class="mob-hours">月〜土 8:00〜17:00</p>
+  </div>
+</nav>
 
 <style>
   .site-header {
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
+    top: 0; left: 0; right: 0;
     z-index: 200;
-    transition: background-color 0.35s ease, box-shadow 0.35s ease;
-  }
-
-  /* トップページ: 最初は透明 */
-  .site-header.is-top {
-    background-color: transparent;
-  }
-
-  /* トップ以外のページ: 常に白背景 */
-  .site-header.is-page {
-    background-color: rgba(250, 247, 242, 0.97);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid rgba(61, 43, 31, 0.07);
-  }
-
-  /* スクロール後 */
-  .site-header.scrolled {
-    background-color: rgba(250, 247, 242, 0.97) !important;
-    backdrop-filter: blur(8px);
-    box-shadow: 0 1px 24px rgba(61, 43, 31, 0.07);
-    border-bottom: 1px solid rgba(61, 43, 31, 0.07);
+    background-color: white;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    transition: box-shadow 0.3s;
   }
 
   .header-inner {
     max-width: 1280px;
     margin: 0 auto;
-    padding: 0 2.5rem;
-    height: 76px;
+    padding: 0 2rem;
+    height: 70px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 2rem;
+    gap: 1.5rem;
   }
 
   /* Logo */
   .site-logo {
-    text-decoration: none;
     display: flex;
-    flex-direction: column;
-    line-height: 1.2;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
     flex-shrink: 0;
     transition: opacity 0.2s;
   }
-  .site-logo:hover { opacity: 0.75; }
+  .site-logo:hover { opacity: 0.8; }
 
-  .logo-jp {
-    font-family: 'Shippori Mincho', serif;
-    font-size: 1.3rem;
-    font-weight: 500;
-    color: var(--color-dark-brown);
-    letter-spacing: 0.08em;
-    transition: color 0.35s ease;
+  .logo-icon { width: 40px; height: 40px; }
+  .logo-icon svg { width: 100%; height: 100%; }
+
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+  }
+
+  .logo-ja {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #333;
+    letter-spacing: 0.06em;
   }
 
   .logo-en {
     font-family: 'Lato', sans-serif;
-    font-size: 0.58rem;
-    font-weight: 300;
-    color: var(--color-text-muted);
-    letter-spacing: 0.22em;
-    margin-top: 2px;
-    transition: color 0.35s ease;
+    font-size: 0.55rem;
+    letter-spacing: 0.2em;
+    color: #999;
+    margin-top: 1px;
   }
 
-  /* トップ・未スクロール時はロゴを白に */
-  .site-header.is-top:not(.scrolled) .logo-jp {
-    color: var(--color-ivory);
-  }
-  .site-header.is-top:not(.scrolled) .logo-en {
-    color: rgba(250, 247, 242, 0.6);
-  }
-
-  /* Nav */
-  .site-nav {
+  /* Desktop Nav */
+  .desktop-nav {
     flex: 1;
     display: flex;
     justify-content: center;
   }
 
-  .site-nav ul {
+  .desktop-nav ul {
     display: flex;
-    gap: 0.25rem;
+    gap: 0;
     list-style: none;
-    margin: 0;
-    padding: 0;
+    margin: 0; padding: 0;
   }
 
-  .site-nav a {
-    font-family: 'Shippori Mincho', serif;
+  .desktop-nav a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 0.9rem;
+    text-decoration: none;
+    transition: color 0.2s;
+    border-bottom: 3px solid transparent;
+    height: 70px;
+    justify-content: center;
+    gap: 2px;
+  }
+
+  .desktop-nav a:hover,
+  .desktop-nav a.active {
+    border-bottom-color: var(--color-yellow);
+  }
+
+  .nav-ja {
     font-size: 0.8rem;
-    color: var(--color-text-muted);
+    font-weight: 700;
+    color: #333;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+  }
+
+  .nav-en {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.55rem;
+    letter-spacing: 0.14em;
+    color: var(--color-green);
+    text-transform: uppercase;
+  }
+
+  .desktop-nav a:hover .nav-ja { color: var(--color-green); }
+
+  /* Contact Button */
+  .header-contact-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.55rem 1.25rem;
+    background-color: var(--color-yellow);
+    color: #333;
+    font-size: 0.8rem;
+    font-weight: 700;
+    border-radius: 50px;
     text-decoration: none;
-    letter-spacing: 0.06em;
-    padding: 0.4rem 0.75rem;
-    position: relative;
-    transition: color 0.2s ease;
-  }
-
-  .site-nav a::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0.75rem;
-    right: 0.75rem;
-    height: 1px;
-    background-color: var(--color-egg-yellow);
-    transform: scaleX(0);
-    transition: transform 0.25s ease;
-  }
-
-  .site-nav a:hover,
-  .site-nav a.active {
-    color: var(--color-dark-brown);
-  }
-
-  .site-nav a:hover::after,
-  .site-nav a.active::after {
-    transform: scaleX(1);
-  }
-
-  /* トップ未スクロール: ナビも白 */
-  .site-header.is-top:not(.scrolled) .site-nav a {
-    color: rgba(250, 247, 242, 0.75);
-  }
-  .site-header.is-top:not(.scrolled) .site-nav a:hover {
-    color: var(--color-ivory);
-  }
-
-  /* CTA button */
-  .header-cta {
-    font-family: 'Shippori Mincho', serif;
-    font-size: 0.78rem;
-    letter-spacing: 0.1em;
-    padding: 0.6rem 1.4rem;
-    border: 1px solid var(--color-dark-brown);
-    color: var(--color-dark-brown);
-    text-decoration: none;
-    transition: all 0.2s ease;
     white-space: nowrap;
     flex-shrink: 0;
+    transition: background-color 0.2s, transform 0.2s;
+    letter-spacing: 0.04em;
   }
-
-  .header-cta:hover {
-    background-color: var(--color-dark-brown);
-    color: var(--color-ivory);
-  }
-
-  /* トップ未スクロール: CTAも白枠 */
-  .site-header.is-top:not(.scrolled) .header-cta {
-    border-color: rgba(250, 247, 242, 0.6);
-    color: var(--color-ivory);
-  }
-  .site-header.is-top:not(.scrolled) .header-cta:hover {
-    background-color: rgba(250, 247, 242, 0.15);
-    border-color: var(--color-ivory);
+  .header-contact-btn:hover {
+    background-color: var(--color-yellow-d);
+    transform: translateY(-1px);
   }
 
   /* Hamburger */
   .hamburger {
     display: none;
     flex-direction: column;
-    gap: 6px;
+    gap: 5px;
     background: none;
     border: none;
     cursor: pointer;
-    padding: 4px;
+    padding: 6px;
     flex-shrink: 0;
   }
-
   .hamburger span {
     display: block;
-    width: 26px;
-    height: 1px;
-    background-color: var(--color-dark-brown);
-    transition: all 0.3s ease;
+    width: 24px; height: 2px;
+    background-color: #333;
+    border-radius: 2px;
+    transition: all 0.3s;
   }
-
-  .site-header.is-top:not(.scrolled) .hamburger span {
-    background-color: var(--color-ivory);
-  }
-
   .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-  .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
   .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
   /* Mobile Overlay */
-  .mobile-overlay {
+  .mob-overlay {
     display: none;
-    position: fixed;
-    inset: 0;
-    background-color: rgba(30, 21, 14, 0.5);
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,0.4);
     z-index: 300;
     backdrop-filter: blur(2px);
-    opacity: 0;
-    transition: opacity 0.3s ease;
   }
-
-  .mobile-overlay.open {
-    display: block;
-    opacity: 1;
-  }
+  .mob-overlay.open { display: block; }
 
   /* Mobile Drawer */
-  .mobile-drawer {
+  .mob-drawer {
     position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    width: min(320px, 85vw);
-    background-color: var(--color-ivory);
+    top: 0; right: 0; bottom: 0;
+    width: min(300px, 82vw);
+    background: white;
     z-index: 400;
     transform: translateX(100%);
-    transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: transform 0.32s cubic-bezier(0.25,0.46,0.45,0.94);
     display: flex;
     flex-direction: column;
     overflow-y: auto;
   }
+  .mob-drawer.open { transform: translateX(0); }
 
-  .mobile-drawer.open {
-    transform: translateX(0);
-  }
-
-  .mobile-drawer-header {
+  .mob-drawer-top {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1.5rem 1.75rem;
-    border-bottom: 1px solid rgba(61, 43, 31, 0.08);
+    padding: 1.25rem 1.5rem;
+    border-bottom: 2px solid var(--color-yellow);
   }
 
-  .mobile-logo-jp {
-    font-family: 'Shippori Mincho', serif;
-    font-size: 1.15rem;
-    font-weight: 500;
-    color: var(--color-dark-brown);
-    letter-spacing: 0.08em;
-  }
-
-  .mobile-close {
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: var(--color-text-muted);
-    padding: 4px;
-  }
-
-  .mobile-drawer ul {
-    list-style: none;
-    margin: 0;
-    padding: 1rem 0;
-    flex: 1;
-  }
-
-  .mobile-drawer li {
-    border-bottom: 1px solid rgba(61, 43, 31, 0.05);
-  }
-
-  .mobile-drawer a {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1rem 1.75rem;
-    font-family: 'Shippori Mincho', serif;
-    font-size: 0.95rem;
-    color: var(--color-text);
+  .mob-logo {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #333;
     text-decoration: none;
     letter-spacing: 0.06em;
-    transition: background-color 0.15s, padding-left 0.2s;
   }
 
-  .mobile-drawer a::after {
-    content: '→';
-    font-size: 0.75rem;
-    color: var(--color-text-muted);
-    opacity: 0;
-    transition: opacity 0.2s, transform 0.2s;
-    transform: translateX(-4px);
+  .mob-close {
+    background: none; border: none;
+    cursor: pointer; padding: 4px;
   }
 
-  .mobile-drawer a:hover {
-    background-color: rgba(61, 43, 31, 0.03);
-    padding-left: 2rem;
+  .mob-drawer ul {
+    list-style: none; margin: 0; padding: 0.5rem 0; flex: 1;
   }
 
-  .mobile-drawer a:hover::after {
-    opacity: 1;
-    transform: translateX(0);
-  }
+  .mob-drawer li { border-bottom: 1px solid #f0f0f0; }
 
-  .mobile-drawer-footer {
-    padding: 1.5rem 1.75rem;
-    border-top: 1px solid rgba(61, 43, 31, 0.08);
-    background-color: var(--color-cream);
-  }
-
-  .mobile-tel {
-    display: block;
-    font-family: 'Lato', sans-serif;
-    font-size: 1.35rem;
-    font-weight: 300;
-    color: var(--color-dark-brown);
+  .mob-drawer a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.5rem;
     text-decoration: none;
-    letter-spacing: 0.05em;
-    margin-bottom: 0.25rem;
+    transition: background-color 0.15s;
+  }
+  .mob-drawer a:hover { background-color: #fffde8; }
+
+  .mob-drawer a span:first-child {
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: #333;
   }
 
-  .mobile-hours {
+  .mob-nav-en {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.14em;
+    color: var(--color-green) !important;
+    font-weight: 400 !important;
+  }
+
+  .mob-drawer-footer {
+    padding: 1.25rem 1.5rem;
+    background-color: #fffde8;
+    border-top: 1px solid #f0f0f0;
+  }
+
+  .mob-tel {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #333;
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.2rem;
+  }
+
+  .mob-hours {
     font-size: 0.75rem;
-    color: var(--color-text-muted);
+    color: #999;
     margin: 0;
   }
 
-  /* Responsive */
-  @media (max-width: 1024px) {
-    .site-nav { display: none; }
-    .header-cta { display: none; }
+  @media (max-width: 1100px) {
+    .desktop-nav { display: none; }
+    .header-contact-btn { display: none; }
     .hamburger { display: flex; }
   }
 
-  @media (max-width: 640px) {
-    .header-inner {
-      padding: 0 1.25rem;
-      height: 64px;
-    }
+  @media (max-width: 480px) {
+    .header-inner { padding: 0 1rem; height: 60px; }
   }
 </style>
 
 <script>
-  const header = document.getElementById('site-header') as HTMLElement;
-  const hamburger = document.getElementById('hamburger') as HTMLButtonElement;
-  const drawer = document.getElementById('mobile-drawer') as HTMLElement;
-  const overlay = document.getElementById('mobile-overlay') as HTMLElement;
-  const closeBtn = document.getElementById('mobile-close') as HTMLButtonElement;
+  const hamburger = document.getElementById('hamburger')!;
+  const drawer = document.getElementById('mob-drawer')!;
+  const overlay = document.getElementById('mob-overlay')!;
+  const closeBtn = document.getElementById('mob-close')!;
 
-  // Scroll: transparent → solid
-  const handleScroll = () => {
-    if (window.scrollY > 60) {
-      header.classList.add('scrolled');
-    } else {
-      header.classList.remove('scrolled');
-    }
-  };
-  window.addEventListener('scroll', handleScroll, { passive: true });
-  handleScroll();
-
-  // Drawer open/close
-  const openDrawer = () => {
+  const open = () => {
     drawer.classList.add('open');
     overlay.classList.add('open');
     hamburger.classList.add('open');
-    hamburger.setAttribute('aria-expanded', 'true');
-    drawer.setAttribute('aria-hidden', 'false');
+    hamburger.setAttribute('aria-expanded','true');
     document.body.style.overflow = 'hidden';
   };
-
-  const closeDrawer = () => {
+  const close = () => {
     drawer.classList.remove('open');
     overlay.classList.remove('open');
     hamburger.classList.remove('open');
-    hamburger.setAttribute('aria-expanded', 'false');
-    drawer.setAttribute('aria-hidden', 'true');
+    hamburger.setAttribute('aria-expanded','false');
     document.body.style.overflow = '';
   };
 
-  hamburger.addEventListener('click', () => {
-    drawer.classList.contains('open') ? closeDrawer() : openDrawer();
-  });
-
-  closeBtn.addEventListener('click', closeDrawer);
-  overlay.addEventListener('click', closeDrawer);
-
-  // Close drawer on nav link click
-  drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', closeDrawer));
+  hamburger.addEventListener('click', () => drawer.classList.contains('open') ? close() : open());
+  closeBtn.addEventListener('click', close);
+  overlay.addEventListener('click', close);
+  drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
 </script>

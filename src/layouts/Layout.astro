@@ -15,7 +15,9 @@ const {
   canonical,
 } = Astro.props;
 
-const canonicalURL = canonical ? new URL(canonical, Astro.site) : new URL(Astro.url.pathname, Astro.site);
+const canonicalURL = canonical
+  ? new URL(canonical, Astro.site)
+  : new URL(Astro.url.pathname, Astro.site);
 ---
 
 <!doctype html>
@@ -25,13 +27,9 @@ const canonicalURL = canonical ? new URL(canonical, Astro.site) : new URL(Astro.
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-
-    <!-- SEO -->
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalURL} />
-
-    <!-- OGP -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
@@ -43,11 +41,10 @@ const canonicalURL = canonical ? new URL(canonical, Astro.site) : new URL(Astro.
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={new URL(ogImage, Astro.site)} />
-
-    <!-- Fonts: Shippori Mincho + Lato -->
+    <!-- 八千代風フォント: 丸ゴシック -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Noto+Serif+JP:wght@300;400;500&family=Lato:wght@300;400&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&family=M+PLUS+Rounded+1c:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
   </head>
   <body>
     <slot />
