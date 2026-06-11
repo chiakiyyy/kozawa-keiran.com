@@ -12,10 +12,13 @@
     --color-green-light: #E8F0EB;
     --color-text: #2D2017;
     --color-text-muted: #7A6355;
+    /* ダークセクション用 */
+    --color-deep: #1E150E;
+    --color-deep-2: #2A1C12;
   }
 
   html {
-    font-family: 'Noto Serif JP', 'Hiragino Mincho ProN', 'Yu Mincho', serif;
+    font-family: 'Shippori Mincho', 'Noto Serif JP', 'Hiragino Mincho ProN', serif;
     scroll-behavior: smooth;
     background-color: var(--color-ivory);
     color: var(--color-text);
@@ -26,7 +29,7 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Noto Serif JP', 'Hiragino Mincho ProN', serif;
+    font-family: 'Shippori Mincho', 'Noto Serif JP', 'Hiragino Mincho ProN', serif;
     line-height: 1.4;
   }
 
@@ -38,41 +41,65 @@
 @layer components {
   .btn-primary {
     display: inline-block;
-    padding: 0.875rem 2.5rem;
+    padding: 0.925rem 2.75rem;
     background-color: var(--color-dark-brown);
     color: var(--color-ivory);
-    font-size: 0.9rem;
-    letter-spacing: 0.1em;
-    transition: background-color 0.2s ease;
+    font-size: 0.875rem;
+    letter-spacing: 0.12em;
+    transition: background-color 0.25s ease, transform 0.2s ease;
     text-decoration: none;
+    font-family: 'Shippori Mincho', serif;
   }
   .btn-primary:hover {
     background-color: var(--color-brown);
+    transform: translateY(-1px);
   }
 
   .btn-outline {
     display: inline-block;
-    padding: 0.875rem 2.5rem;
+    padding: 0.925rem 2.75rem;
     border: 1px solid var(--color-dark-brown);
     color: var(--color-dark-brown);
-    font-size: 0.9rem;
-    letter-spacing: 0.1em;
-    transition: all 0.2s ease;
+    font-size: 0.875rem;
+    letter-spacing: 0.12em;
+    transition: all 0.25s ease;
     text-decoration: none;
+    font-family: 'Shippori Mincho', serif;
   }
   .btn-outline:hover {
     background-color: var(--color-dark-brown);
     color: var(--color-ivory);
   }
 
+  /* ダーク背景用ボタン */
+  .btn-outline-dark {
+    display: inline-block;
+    padding: 0.925rem 2.75rem;
+    border: 1px solid rgba(250, 247, 242, 0.5);
+    color: var(--color-ivory);
+    font-size: 0.875rem;
+    letter-spacing: 0.12em;
+    transition: all 0.25s ease;
+    text-decoration: none;
+    font-family: 'Shippori Mincho', serif;
+  }
+  .btn-outline-dark:hover {
+    background-color: rgba(250, 247, 242, 0.1);
+    border-color: var(--color-ivory);
+  }
+
   .section-label {
     font-family: 'Lato', sans-serif;
-    font-size: 0.75rem;
-    letter-spacing: 0.2em;
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
     color: var(--color-natural-green);
     text-transform: uppercase;
     display: block;
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.875rem;
+  }
+
+  .section-label--light {
+    color: rgba(242, 201, 76, 0.8);
   }
 
   .section-title {
@@ -80,6 +107,11 @@
     color: var(--color-dark-brown);
     font-weight: 400;
     margin-bottom: 1.5rem;
+    letter-spacing: 0.03em;
+  }
+
+  .section-title--light {
+    color: var(--color-ivory);
   }
 
   .divider {
@@ -87,5 +119,9 @@
     height: 1px;
     background-color: var(--color-egg-yellow);
     margin: 1.5rem 0;
+  }
+
+  .divider--light {
+    background-color: rgba(242, 201, 76, 0.5);
   }
 }

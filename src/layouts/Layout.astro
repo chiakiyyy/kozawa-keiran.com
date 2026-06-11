@@ -44,10 +44,10 @@ const canonicalURL = canonical ? new URL(canonical, Astro.site) : new URL(Astro.
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={new URL(ogImage, Astro.site)} />
 
-    <!-- Fonts -->
+    <!-- Fonts: Shippori Mincho + Lato -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&family=Lato:wght@300;400&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Noto+Serif+JP:wght@300;400;500&family=Lato:wght@300;400&display=swap" rel="stylesheet" />
   </head>
   <body>
     <slot />
