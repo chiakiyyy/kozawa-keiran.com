@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600">
+  <defs>
+    <linearGradient id="bbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2A4A20"/>
+      <stop offset="100%" stop-color="#1A3010"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="600" fill="url(#bbg)"/>
+  <!-- 格子模様 -->
+  <g stroke="rgba(255,255,255,0.04)" stroke-width="1">
+    <line x1="0" y1="100" x2="1200" y2="100"/>
+    <line x1="0" y1="200" x2="1200" y2="200"/>
+    <line x1="0" y1="300" x2="1200" y2="300"/>
+    <line x1="0" y1="400" x2="1200" y2="400"/>
+    <line x1="0" y1="500" x2="1200" y2="500"/>
+    <line x1="200" y1="0" x2="200" y2="600"/>
+    <line x1="400" y1="0" x2="400" y2="600"/>
+    <line x1="600" y1="0" x2="600" y2="600"/>
+    <line x1="800" y1="0" x2="800" y2="600"/>
+    <line x1="1000" y1="0" x2="1000" y2="600"/>
+  </g>
+  <!-- 大量の業務用たまご -->
+  <g>
+    <ellipse cx="700" cy="320" rx="42" ry="52" fill="#E8C880" stroke="#D0A850" stroke-width="1.5" opacity="0.9"/>
+    <ellipse cx="780" cy="310" rx="44" ry="55" fill="#F0D090" stroke="#D0A850" stroke-width="1.5" opacity="0.9"/>
+    <ellipse cx="860" cy="318" rx="41" ry="51" fill="#E4C078" stroke="#D0A850" stroke-width="1.5" opacity="0.9"/>
+    <ellipse cx="940" cy="312" rx="43" ry="54" fill="#ECC880" stroke="#D0A850" stroke-width="1.5" opacity="0.9"/>
+    <ellipse cx="1020" cy="320" rx="42" ry="52" fill="#E8C070" stroke="#D0A850" stroke-width="1.5" opacity="0.9"/>
+    <ellipse cx="740" cy="380" rx="42" ry="52" fill="#ECC880" stroke="#D0A850" stroke-width="1.5" opacity="0.85"/>
+    <ellipse cx="820" cy="372" rx="44" ry="55" fill="#F0D090" stroke="#D0A850" stroke-width="1.5" opacity="0.85"/>
+    <ellipse cx="900" cy="378" rx="41" ry="51" fill="#E8C880" stroke="#D0A850" stroke-width="1.5" opacity="0.85"/>
+    <ellipse cx="980" cy="374" rx="43" ry="53" fill="#E4C070" stroke="#D0A850" stroke-width="1.5" opacity="0.85"/>
+    <ellipse cx="760" cy="440" rx="42" ry="52" fill="#ECC880" stroke="#D0A850" stroke-width="1.5" opacity="0.8"/>
+    <ellipse cx="840" cy="432" rx="44" ry="55" fill="#F0D090" stroke="#D0A850" stroke-width="1.5" opacity="0.8"/>
+    <ellipse cx="920" cy="438" rx="42" ry="52" fill="#E8C880" stroke="#D0A850" stroke-width="1.5" opacity="0.8"/>
+  </g>
+  <!-- ケース -->
+  <rect x="680" y="490" width="380" height="50" rx="4" fill="#C89050" opacity="0.7"/>
+  <!-- 光 -->
+  <rect width="1200" height="600" fill="rgba(0,0,0,0.35)"/>
+</svg>

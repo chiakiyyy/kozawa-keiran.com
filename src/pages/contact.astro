@@ -2,505 +2,212 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+const faqs = [
+  { q:'営業時間を教えてください', a:'月曜〜土曜 8:00〜17:00です。日曜・祝日は休業しています。' },
+  { q:'業務用の最小発注量は？', a:'1ケース（約10kg）から承ります。お気軽にご相談ください。' },
+  { q:'配送エリアはどこですか？', a:'○○県全域および近隣県に対応しています。詳細はお問い合わせください。' },
+  { q:'ギフト包装はできますか？', a:'はい、化粧箱入りのギフトセットをご用意しています。詳しくはお問い合わせください。' },
+];
 ---
-
-<Layout
-  title="お問い合わせ｜小澤鶏卵"
-  description="小澤鶏卵へのご注文・ご相談・お問い合わせはこちらから。業務用のご注文から個人のお客様まで、お気軽にご連絡ください。"
->
-  <Header />
+<Layout title="お問い合わせ｜小澤鶏卵" description="小澤鶏卵へのご注文・ご相談はお気軽にどうぞ。法人取引・個人向け・ギフトなどあらゆるお問い合わせに対応します。">
+  <Header/>
   <main>
-
-    <!-- Page Hero -->
-    <section class="page-hero">
-      <div class="page-hero-inner">
-        <span class="section-label">Contact</span>
-        <h1 class="page-title">お問い合わせ</h1>
-        <p class="page-subtitle">ご注文・ご相談はお気軽にどうぞ</p>
+    <!-- Hero -->
+    <section class="contact-hero">
+      <div class="contact-hero-bg">
+        <img src="/images/contact_bg.svg" alt="" aria-hidden="true" loading="eager"/>
+        <div class="ch-ov"></div>
+      </div>
+      <div class="ch-content">
+        <span class="ch-en">CONTACT</span>
+        <h1 class="ch-title">お問い合わせ</h1>
+        <p class="ch-sub">ご注文・ご質問など、お気軽にお問い合わせください。</p>
       </div>
     </section>
 
-    <!-- Contact Methods -->
-    <section class="contact-methods">
+    <!-- 連絡先 -->
+    <section class="sec">
       <div class="container">
-        <div class="methods-grid">
+        <div class="contact-methods">
           <div class="method-card">
             <div class="method-icon">
-              <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M7 8h6l2.5 6-3 1.8c1.2 2.4 3 4.2 5.4 5.4L19.8 18l6 2.5v6c0 1.3-1.1 2.4-2.4 2.4C10.8 29 3 21.2 3 10.4 3 9.1 4.1 8 5.4 8H7z" stroke="#3D2B1F" stroke-width="1.5" stroke-linejoin="round" fill="none"/>
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                <path d="M6 5h5.5l3 7.5-3.5 2c1.5 3 3.5 5 6.5 6.5l2-3.5 7.5 3V26a2 2 0 01-2 2C9 28 2 14 2 5a2 2 0 012-2h2z" stroke="#6F8F3A" stroke-width="1.5" fill="none"/>
               </svg>
             </div>
             <h2>お電話</h2>
-            <a href="tel:0000-00-0000" class="method-phone">0000-00-0000</a>
-            <p class="method-hours">受付時間：月〜土 8:00〜17:00</p>
-            <p class="method-note">お急ぎの場合はお電話が便利です</p>
+            <a href="tel:0000-00-0000" class="method-tel">0000-00-0000</a>
+            <p>月〜土 8:00〜17:00</p>
           </div>
-
           <div class="method-card">
             <div class="method-icon">
-              <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect x="4" y="9" width="24" height="16" rx="2" stroke="#3D2B1F" stroke-width="1.5"/>
-                <path d="M4 12l12 8 12-8" stroke="#3D2B1F" stroke-width="1.5" stroke-linecap="round"/>
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                <rect x="2" y="5" width="24" height="18" rx="3" stroke="#6F8F3A" stroke-width="1.5"/>
+                <path d="M2 8l12 9 12-9" stroke="#6F8F3A" stroke-width="1.5" stroke-linecap="round"/>
               </svg>
             </div>
             <h2>メール</h2>
             <a href="mailto:info@kozawa-keiran.com" class="method-email">info@kozawa-keiran.com</a>
-            <p class="method-hours">24時間受付</p>
-            <p class="method-note">翌営業日中にご返信いたします</p>
+            <p>24時間受付・翌営業日返信</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Contact Form -->
-    <section class="form-section">
-      <div class="container">
-        <div class="form-wrap">
-          <div class="form-header">
-            <span class="section-label">Form</span>
-            <h2 class="section-title">お問い合わせフォーム</h2>
-            <div class="divider"></div>
-            <p class="form-note">
-              下記フォームにご記入のうえ送信してください。担当者より折り返しご連絡いたします。<br />
-              <span class="required-note"><span class="required-mark">*</span> は必須項目です</span>
-            </p>
-          </div>
-
-          <!--
-            TODO: フォームの送信処理は将来的にCloudflare Workers + Turnstileで実装予定。
-            現時点ではUIのみ実装。action属性・送信処理は後から追加してください。
-          -->
-          <form class="contact-form" id="contact-form" novalidate>
-
-            <div class="form-row">
-              <div class="form-group">
-                <label for="name">
-                  お名前 <span class="required-mark" aria-label="必須">*</span>
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  placeholder="山田 太郎"
-                  autocomplete="name"
-                  required
-                />
+    <!-- FAQ -->
+    <section class="sec sec--cream">
+      <div class="container faq-wrap">
+        <div class="center-head">
+          <span class="sec-en">FAQ</span>
+          <h2 class="sec-title mt">よくある質問</h2>
+        </div>
+        <div class="faq-list">
+          {faqs.map(f => (
+            <details class="faq-item">
+              <summary class="faq-q">
+                <span class="fq-icon">Q</span>{f.q}
+              </summary>
+              <div class="faq-a">
+                <span class="fq-icon fq-icon--a">A</span>
+                <p>{f.a}</p>
               </div>
-
-              <div class="form-group">
-                <label for="company">
-                  会社名・店舗名
-                </label>
-                <input
-                  type="text"
-                  id="company"
-                  name="company"
-                  placeholder="株式会社〇〇"
-                  autocomplete="organization"
-                />
-              </div>
-            </div>
-
-            <div class="form-row">
-              <div class="form-group">
-                <label for="email">
-                  メールアドレス <span class="required-mark" aria-label="必須">*</span>
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  placeholder="example@email.com"
-                  autocomplete="email"
-                  required
-                />
-              </div>
-
-              <div class="form-group">
-                <label for="tel">
-                  電話番号
-                </label>
-                <input
-                  type="tel"
-                  id="tel"
-                  name="tel"
-                  placeholder="00-0000-0000"
-                  autocomplete="tel"
-                />
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label for="inquiry-type">
-                お問い合わせ種別 <span class="required-mark" aria-label="必須">*</span>
-              </label>
-              <div class="select-wrap">
-                <select id="inquiry-type" name="inquiry_type" required>
-                  <option value="" disabled selected>選択してください</option>
-                  <option value="order-fresh">新鮮たまごのご注文</option>
-                  <option value="order-business">業務用たまごのご注文・お見積り</option>
-                  <option value="order-processed">温泉卵・加工品のご注文</option>
-                  <option value="delivery">定期納品サービスについて</option>
-                  <option value="quality">品質・安全性について</option>
-                  <option value="other">その他</option>
-                </select>
-                <span class="select-arrow" aria-hidden="true">
-                  <svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M1 1l6 6 6-6" stroke="#3D2B1F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </span>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label for="message">
-                お問い合わせ内容 <span class="required-mark" aria-label="必須">*</span>
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                rows="7"
-                placeholder="ご質問・ご要望をできるだけ具体的にご記入ください。&#10;（例：週3回、20kg程度の業務用たまごを定期納品してほしい）"
-                required
-              ></textarea>
-            </div>
-
-            <div class="form-privacy">
-              <label class="checkbox-label">
-                <input type="checkbox" name="privacy" required />
-                <span class="checkbox-custom" aria-hidden="true"></span>
-                <span>
-                  <a href="/company" class="privacy-link">プライバシーポリシー</a>に同意する
-                  <span class="required-mark" aria-label="必須">*</span>
-                </span>
-              </label>
-            </div>
-
-            <div class="form-submit">
-              <button type="submit" class="btn-submit">
-                送信する
-              </button>
-              <p class="submit-note">※現在、フォーム送信機能は準備中です。お急ぎの場合はお電話またはメールでお問い合わせください。</p>
-            </div>
-
-          </form>
+            </details>
+          ))}
         </div>
       </div>
     </section>
 
+    <!-- フォーム -->
+    <section class="sec" id="form">
+      <div class="container form-wrap">
+        <div class="center-head">
+          <span class="sec-en">Form</span>
+          <h2 class="sec-title mt">お問い合わせフォーム</h2>
+          <p class="form-note"><span class="req">*</span> は必須項目です。</p>
+        </div>
+
+        <!-- TODO: Cloudflare Workers + Turnstileで送信処理を実装予定 -->
+        <form class="form" id="contact-form" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="company">会社名・店舗名</label>
+              <input type="text" id="company" name="company" placeholder="株式会社〇〇" autocomplete="organization"/>
+            </div>
+            <div class="form-group">
+              <label for="name">お名前 <span class="req">*</span></label>
+              <input type="text" id="name" name="name" placeholder="山田 太郎" required autocomplete="name"/>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">メールアドレス <span class="req">*</span></label>
+              <input type="email" id="email" name="email" placeholder="example@email.com" required autocomplete="email"/>
+            </div>
+            <div class="form-group">
+              <label for="tel">電話番号</label>
+              <input type="tel" id="tel" name="tel" placeholder="00-0000-0000" autocomplete="tel"/>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="type">お問い合わせ種別 <span class="req">*</span></label>
+            <div class="select-wrap">
+              <select id="type" name="type" required>
+                <option value="" disabled selected>選択してください</option>
+                <option value="business">法人取引について</option>
+                <option value="product">商品について</option>
+                <option value="shop">通販・ギフトについて</option>
+                <option value="event">催事・イベント注文</option>
+                <option value="subscription">定期購入について</option>
+                <option value="other">その他</option>
+              </select>
+              <svg class="sel-arrow" width="14" height="8" viewBox="0 0 14 8" fill="none"><path d="M1 1l6 6 6-6" stroke="#3B321F" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="message">お問い合わせ内容 <span class="req">*</span></label>
+            <textarea id="message" name="message" rows="7" placeholder="ご質問・ご要望をご記入ください。&#10;（例：週3回、20kg程度の業務用たまごを定期納品してほしい）" required></textarea>
+          </div>
+          <div class="form-privacy">
+            <label class="check-label">
+              <input type="checkbox" name="privacy" required/>
+              <span class="check-box"></span>
+              <span><a href="/about" class="privacy-link">プライバシーポリシー</a>に同意する <span class="req">*</span></span>
+            </label>
+          </div>
+          <div class="form-submit">
+            <button type="submit" class="btn btn-primary submit-btn">送信する</button>
+            <p class="submit-note">※現在フォーム送信機能は準備中です。お急ぎの場合はお電話またはメールでご連絡ください。</p>
+          </div>
+        </form>
+      </div>
+    </section>
   </main>
-  <Footer />
+  <Footer/>
 </Layout>
-
 <style>
-  .page-hero {
-    background-color: var(--color-cream);
-    padding: 9rem 0 5rem;
-    border-bottom: 1px solid rgba(61, 43, 31, 0.07);
-  }
-
-  .page-hero-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
-  }
-
-  .page-title {
-    font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 300;
-    color: var(--color-dark-brown);
-    letter-spacing: 0.04em;
-    margin-bottom: 0.5rem;
-  }
-
-  .page-subtitle {
-    font-size: 0.9rem;
-    color: var(--color-text-muted);
-    letter-spacing: 0.05em;
-  }
-
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
-  }
-
-  .contact-methods {
-    padding: 6rem 0;
-    background-color: var(--color-ivory);
-  }
-
-  .methods-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    max-width: 800px;
-    margin: 0 auto;
-  }
-
-  .method-card {
-    padding: 2.5rem 2rem;
-    background-color: var(--color-cream);
-    border-top: 2px solid var(--color-egg-yellow);
-    text-align: center;
-  }
-
-  .method-icon {
-    width: 64px;
-    height: 64px;
-    background-color: var(--color-ivory);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 1.25rem;
-  }
-
-  .method-card h2 {
-    font-size: 1rem;
-    color: var(--color-dark-brown);
-    font-weight: 500;
-    margin-bottom: 0.75rem;
-    letter-spacing: 0.05em;
-  }
-
-  .method-phone {
-    display: block;
-    font-size: 1.75rem;
-    font-weight: 300;
-    color: var(--color-dark-brown);
-    text-decoration: none;
-    letter-spacing: 0.05em;
-    margin-bottom: 0.5rem;
-    font-family: 'Lato', sans-serif;
-  }
-
-  .method-email {
-    display: block;
-    font-size: 0.95rem;
-    color: var(--color-natural-green);
-    text-decoration: none;
-    margin-bottom: 0.5rem;
-    word-break: break-all;
-  }
-
-  .method-email:hover {
-    text-decoration: underline;
-  }
-
-  .method-hours {
-    font-size: 0.8rem;
-    color: var(--color-dark-brown);
-    margin-bottom: 0.25rem;
-    font-weight: 500;
-  }
-
-  .method-note {
-    font-size: 0.8rem;
-    color: var(--color-text-muted);
-    margin: 0;
-  }
-
-  /* Form section */
-  .form-section {
-    padding: 7rem 0;
-    background-color: var(--color-cream);
-  }
-
-  .form-wrap {
-    max-width: 760px;
-    margin: 0 auto;
-  }
-
-  .form-header {
-    margin-bottom: 3rem;
-  }
-
-  .form-note {
-    font-size: 0.875rem;
-    color: var(--color-text-muted);
-    line-height: 1.7;
-  }
-
-  .required-note {
-    display: block;
-    margin-top: 0.5rem;
-    font-size: 0.8rem;
-    opacity: 0.8;
-  }
-
-  .required-mark {
-    color: #C0392B;
-    font-size: 0.8em;
-    margin-left: 0.2em;
-  }
-
-  /* Form elements */
-  .contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1.75rem;
-  }
-
-  .form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-  }
-
-  .form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  .form-group label {
-    font-size: 0.85rem;
-    color: var(--color-dark-brown);
-    font-weight: 500;
-    letter-spacing: 0.03em;
-  }
-
-  .form-group input,
-  .form-group textarea,
-  .form-group select {
-    padding: 0.875rem 1rem;
-    background-color: var(--color-ivory);
-    border: 1px solid rgba(61, 43, 31, 0.15);
-    color: var(--color-text);
-    font-family: inherit;
-    font-size: 0.9rem;
-    transition: border-color 0.2s ease;
-    border-radius: 0;
-    appearance: none;
-    -webkit-appearance: none;
-    width: 100%;
-  }
-
-  .form-group input:focus,
-  .form-group textarea:focus,
-  .form-group select:focus {
-    outline: none;
-    border-color: var(--color-natural-green);
-    background-color: #fff;
-  }
-
-  .form-group input::placeholder,
-  .form-group textarea::placeholder {
-    color: rgba(122, 99, 85, 0.45);
-    font-size: 0.875rem;
-  }
-
-  .form-group textarea {
-    resize: vertical;
-    min-height: 160px;
-    line-height: 1.7;
-  }
-
-  .select-wrap {
-    position: relative;
-  }
-
-  .select-wrap select {
-    padding-right: 2.5rem;
-    cursor: pointer;
-  }
-
-  .select-arrow {
-    position: absolute;
-    right: 1rem;
-    top: 50%;
-    transform: translateY(-50%);
-    pointer-events: none;
-  }
-
-  /* Checkbox */
-  .form-privacy {
-    padding: 1.25rem 0;
-    border-top: 1px solid rgba(61, 43, 31, 0.07);
-    border-bottom: 1px solid rgba(61, 43, 31, 0.07);
-  }
-
-  .checkbox-label {
-    display: flex;
-    align-items: center;
-    gap: 0.875rem;
-    cursor: pointer;
-    font-size: 0.875rem;
-    color: var(--color-text-muted);
-  }
-
-  .checkbox-label input[type="checkbox"] {
-    position: absolute;
-    opacity: 0;
-    width: 0;
-    height: 0;
-  }
-
-  .checkbox-custom {
-    width: 18px;
-    height: 18px;
-    border: 1px solid rgba(61, 43, 31, 0.25);
-    background-color: var(--color-ivory);
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.15s ease;
-  }
-
-  .checkbox-label input:checked + .checkbox-custom {
-    background-color: var(--color-natural-green);
-    border-color: var(--color-natural-green);
-  }
-
-  .checkbox-label input:checked + .checkbox-custom::after {
-    content: '';
-    width: 10px;
-    height: 6px;
-    border-left: 1.5px solid white;
-    border-bottom: 1.5px solid white;
-    transform: rotate(-45deg) translateY(-1px);
-  }
-
-  .privacy-link {
-    color: var(--color-natural-green);
-    text-decoration: underline;
-  }
-
-  /* Submit */
-  .form-submit {
-    text-align: center;
-  }
-
-  .btn-submit {
-    display: inline-block;
-    padding: 1rem 4rem;
-    background-color: var(--color-dark-brown);
-    color: var(--color-ivory);
-    font-family: inherit;
-    font-size: 0.9rem;
-    letter-spacing: 0.12em;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-  }
-
-  .btn-submit:hover {
-    background-color: var(--color-brown);
-  }
-
-  .submit-note {
-    margin-top: 1.25rem;
-    font-size: 0.78rem;
-    color: var(--color-text-muted);
-    line-height: 1.6;
-  }
-
-  @media (max-width: 768px) {
-    .methods-grid,
-    .form-row {
-      grid-template-columns: 1fr;
-    }
-  }
+.container { max-width:1000px; margin:0 auto; padding:0 2rem; }
+.sec { padding:5.5rem 0; background:var(--bg); }
+.sec--cream { background:var(--bg2); }
+.mt { margin-top:.6rem; }
+.center-head { text-align:center; margin-bottom:2.5rem; }
+/* Hero */
+.contact-hero { position:relative; height:360px; display:flex; align-items:center; margin-top:70px; }
+.contact-hero-bg { position:absolute; inset:0; }
+.contact-hero-bg img { width:100%; height:100%; object-fit:cover; }
+.ch-ov { position:absolute; inset:0; background:linear-gradient(to right,rgba(42,74,32,.88),rgba(42,74,32,.55) 60%,rgba(42,74,32,.2)); }
+.ch-content { position:relative; z-index:1; max-width:1000px; margin:0 auto; padding:0 2rem; }
+.ch-en { font-family:'Lato',sans-serif; font-size:.7rem; letter-spacing:.25em; color:rgba(245,184,46,.8); text-transform:uppercase; display:block; margin-bottom:.5rem; }
+.ch-title { font-family:'Noto Serif JP',serif; font-size:clamp(1.8rem,4vw,2.8rem); font-weight:700; color:white; margin-bottom:.5rem; }
+.ch-sub { font-size:.9rem; color:rgba(255,255,255,.75); margin:0; }
+/* Methods */
+.contact-methods { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; max-width:680px; margin:0 auto; }
+.method-card { background:white; border-radius:16px; padding:2.5rem 2rem; text-align:center; box-shadow:0 4px 20px rgba(59,50,31,.08); border-top:3px solid var(--yellow); }
+.method-icon { width:60px; height:60px; background:var(--bg2); border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 1rem; }
+.method-card h2 { font-family:'Noto Serif JP',serif; font-size:1rem; font-weight:700; color:var(--brown); margin-bottom:.625rem; }
+.method-tel { display:block; font-family:'Lato',sans-serif; font-size:1.8rem; font-weight:300; color:var(--brown); text-decoration:none; letter-spacing:.05em; margin-bottom:.35rem; }
+.method-email { display:block; font-size:.9rem; color:var(--green); text-decoration:none; margin-bottom:.35rem; word-break:break-all; }
+.method-card p { font-size:.78rem; color:var(--muted); margin:0; }
+/* FAQ */
+.faq-wrap { max-width:720px; }
+.faq-list { display:flex; flex-direction:column; gap:.75rem; }
+.faq-item { background:white; border-radius:12px; border:1px solid rgba(245,184,46,.2); overflow:hidden; }
+.faq-q { display:flex; align-items:center; gap:1rem; padding:1.1rem 1.5rem; cursor:pointer; font-size:.9rem; font-weight:700; color:var(--brown); list-style:none; transition:background .15s; }
+.faq-q:hover { background:rgba(245,184,46,.06); }
+.faq-q::-webkit-details-marker { display:none; }
+.fq-icon { width:28px; height:28px; border-radius:50%; background:var(--yellow); color:var(--brown); font-size:.78rem; font-weight:700; display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; }
+.fq-icon--a { background:var(--green); color:white; }
+.faq-a { display:flex; align-items:flex-start; gap:1rem; padding:0 1.5rem 1.1rem; }
+.faq-a p { font-size:.875rem; color:var(--muted); line-height:1.8; margin:0; padding-top:.2rem; }
+/* Form */
+.form-wrap { max-width:720px; }
+.form-note { font-size:.8rem; color:var(--muted); margin-top:.5rem; }
+.req { color:#C02828; font-size:.85em; }
+.form { display:flex; flex-direction:column; gap:1.5rem; }
+.form-row { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; }
+.form-group { display:flex; flex-direction:column; gap:.45rem; }
+.form-group label { font-size:.85rem; font-weight:700; color:var(--brown); }
+.form-group input,.form-group select,.form-group textarea {
+  padding:.8rem 1rem; background:white; border:1.5px solid rgba(59,50,31,.15);
+  border-radius:10px; color:var(--brown); font-family:inherit; font-size:.9rem;
+  transition:border-color .2s; width:100%; appearance:none;
+}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus {
+  outline:none; border-color:var(--yellow);
+}
+.form-group textarea { resize:vertical; min-height:160px; line-height:1.7; }
+.select-wrap { position:relative; }
+.sel-arrow { position:absolute; right:1rem; top:50%; transform:translateY(-50%); pointer-events:none; }
+.form-privacy { padding:1rem 0; border-top:1px solid rgba(245,184,46,.2); border-bottom:1px solid rgba(245,184,46,.2); }
+.check-label { display:flex; align-items:center; gap:.875rem; cursor:pointer; font-size:.875rem; color:var(--muted); }
+.check-label input { position:absolute; opacity:0; width:0; height:0; }
+.check-box { width:18px; height:18px; border:1.5px solid rgba(59,50,31,.25); border-radius:4px; background:white; flex-shrink:0; display:flex; align-items:center; justify-content:center; transition:all .15s; }
+.check-label input:checked + .check-box { background:var(--green); border-color:var(--green); }
+.check-label input:checked + .check-box::after { content:''; width:10px; height:6px; border-left:1.5px solid white; border-bottom:1.5px solid white; transform:rotate(-45deg) translateY(-1px); }
+.privacy-link { color:var(--green); }
+.form-submit { text-align:center; display:flex; flex-direction:column; align-items:center; gap:1rem; }
+.submit-btn { padding:1rem 3.5rem; font-size:.95rem; }
+.submit-note { font-size:.78rem; color:var(--muted); }
+@media (max-width:640px) {
+  .contact-methods,.form-row { grid-template-columns:1fr; }
+}
 </style>

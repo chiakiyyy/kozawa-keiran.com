@@ -1,0 +1,59 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+---
+<Layout title="ゴールデンウィーク期間の営業について｜お知らせ｜小澤鶏卵">
+  <Header/>
+  <main>
+    <div class="page-hero">
+      <div class="container">
+        <span class="page-hero-en">NEWS</span>
+        <p class="page-hero-sub"><a href="/news">お知らせ一覧</a> &rsaquo; 記事詳細</p>
+      </div>
+    </div>
+    <section class="detail-sec">
+      <div class="container">
+        <article class="article">
+          <header class="art-header">
+            <div class="art-meta">
+              <span class="art-date">2024.05.01</span>
+              <span class="art-cat">営業日</span>
+            </div>
+            <h1 class="art-title">ゴールデンウィーク期間の営業について</h1>
+          </header>
+          <div class="art-body">
+            <p>平素より小澤鶏卵をご愛顧いただき、誠にありがとうございます。</p>
+            <p>ゴールデンウィーク期間中の営業につきまして、下記の通りご案内申し上げます。</p>
+            <h2>休業期間</h2>
+            <p>2024年5月3日（金）〜 5月6日（月）</p>
+            <h2>注意事項</h2>
+            <p>・休業期間中のお問い合わせへの回答は、5月7日（火）以降となります。<br/>・定期納品をご利用のお客様は、事前にご相談ください。</p>
+            <p>ご不便をおかけしますが、何卒ご理解のほどよろしくお願い申し上げます。</p>
+          </div>
+          <div class="art-nav">
+            <a href="/news" class="btn btn-outline">← お知らせ一覧へ戻る</a>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+  <Footer/>
+</Layout>
+<style>
+.container { max-width:760px; margin:0 auto; padding:0 2rem; }
+.page-hero { background:var(--bg2); padding:7rem 0 3rem; margin-top:70px; border-bottom:1px solid rgba(245,184,46,.2); }
+.page-hero-en { font-family:'Lato',sans-serif; font-size:.7rem; letter-spacing:.25em; color:var(--green); text-transform:uppercase; display:block; margin-bottom:.5rem; }
+.page-hero-sub { font-size:.85rem; color:var(--muted); margin:0; }
+.page-hero-sub a { color:var(--green); text-decoration:none; }
+.detail-sec { padding:4rem 0 6rem; background:var(--bg); }
+.art-header { margin-bottom:2rem; }
+.art-meta { display:flex; gap:.75rem; align-items:center; margin-bottom:1rem; }
+.art-date { font-family:'Lato',sans-serif; font-size:.85rem; color:var(--muted); }
+.art-cat { font-size:.7rem; font-weight:700; padding:.22rem .65rem; border-radius:999px; background:rgba(111,143,58,.12); color:var(--green); }
+.art-title { font-family:'Noto Serif JP',serif; font-size:clamp(1.3rem,3vw,1.9rem); font-weight:700; color:var(--brown); line-height:1.5; border-bottom:2px solid rgba(245,184,46,.3); padding-bottom:1.25rem; }
+.art-body { line-height:1.9; font-size:.95rem; color:var(--muted); }
+.art-body h2 { font-family:'Noto Serif JP',serif; font-size:1.1rem; font-weight:700; color:var(--brown); margin:2rem 0 .75rem; padding-left:.875rem; border-left:3px solid var(--yellow); }
+.art-body p { margin-bottom:1.1rem; }
+.art-nav { margin-top:3rem; padding-top:2rem; border-top:1px solid rgba(245,184,46,.2); }
+</style>

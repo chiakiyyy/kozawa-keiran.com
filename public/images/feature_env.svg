@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450">
+  <defs>
+    <linearGradient id="febg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#87CEEB"/>
+      <stop offset="55%" stop-color="#C8E8B0"/>
+      <stop offset="100%" stop-color="#7CB870"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="450" fill="url(#febg)"/>
+  <!-- 太陽 -->
+  <circle cx="500" cy="80" r="55" fill="#FFE840" opacity="0.78"/>
+  <!-- 農場 -->
+  <ellipse cx="300" cy="520" rx="500" ry="250" fill="#6AAA58"/>
+  <rect x="190" y="290" width="220" height="140" fill="#D4A050" rx="4"/>
+  <polygon points="155,290 300,205 445,290" fill="#B8883A"/>
+  <rect x="264" y="335" width="72" height="95" fill="#8B5E3C"/>
+  <rect x="200" y="308" width="50" height="50" fill="#A8D8EA" rx="3"/>
+  <rect x="350" y="308" width="50" height="50" fill="#A8D8EA" rx="3"/>
+  <!-- 風車 -->
+  <g transform="translate(80,200)">
+    <rect x="-5" y="-10" width="10" height="200" fill="#DDDDD0"/>
+    <g transform="rotate(0,0,0)">
+      <ellipse cx="0" cy="-55" rx="8" ry="52" fill="#F0F0E8" stroke="#CCCCBB" stroke-width="1" transform="rotate(0)"/>
+      <ellipse cx="0" cy="-55" rx="8" ry="52" fill="#F0F0E8" stroke="#CCCCBB" stroke-width="1" transform="rotate(120)"/>
+      <ellipse cx="0" cy="-55" rx="8" ry="52" fill="#F0F0E8" stroke="#CCCCBB" stroke-width="1" transform="rotate(240)"/>
+    </g>
+    <circle cx="0" cy="0" r="10" fill="#CCCCBB"/>
+  </g>
+  <!-- 雲 -->
+  <g opacity="0.9">
+    <ellipse cx="150" cy="120" rx="82" ry="44" fill="white"/>
+    <ellipse cx="110" cy="137" rx="56" ry="37" fill="white"/>
+    <ellipse cx="194" cy="131" rx="60" ry="35" fill="white"/>
+  </g>
+  <text x="300" y="430" font-family="serif" font-size="18" fill="white" text-anchor="middle" font-weight="bold">快適な飼育環境</text>
+  <rect width="600" height="450" fill="rgba(0,0,0,0.08)"/>
+</svg>

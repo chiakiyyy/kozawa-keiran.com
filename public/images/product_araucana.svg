@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+  <defs>
+    <radialGradient id="pabg" cx="50%" cy="50%" r="55%">
+      <stop offset="0%" stop-color="#F0FFF0"/>
+      <stop offset="100%" stop-color="#E0F0E0"/>
+    </radialGradient>
+  </defs>
+  <rect width="500" height="500" fill="url(#pabg)"/>
+  <!-- 竹かご -->
+  <ellipse cx="250" cy="350" rx="180" ry="50" fill="#C8A060"/>
+  <path d="M70,350 Q60,220 100,180 Q150,145 250,140 Q350,145 400,180 Q440,220 430,350 Z" fill="#D4B070" stroke="#B89050" stroke-width="2"/>
+  <g stroke="#B89050" stroke-width="1.5" fill="none" opacity="0.5">
+    <path d="M70,310 Q250,210 430,310"/>
+    <path d="M80,260 Q250,160 420,260"/>
+    <path d="M120,350 Q120,140 120,140"/>
+    <path d="M190,355 Q190,140 190,140"/>
+    <path d="M250,355 Q250,140 250,140"/>
+    <path d="M310,355 Q310,140 310,140"/>
+    <path d="M380,350 Q380,140 380,140"/>
+  </g>
+  <!-- 青緑のたまご（アローカナ特有） -->
+  <ellipse cx="190" cy="280" rx="52" ry="66" fill="#8EC8A0" stroke="#6AAA82" stroke-width="2"/>
+  <ellipse cx="310" cy="275" rx="55" ry="70" fill="#90CCA4" stroke="#6AAA82" stroke-width="2"/>
+  <ellipse cx="250" cy="260" rx="58" ry="74" fill="#8ECAA2" stroke="#6AAA82" stroke-width="2"/>
+  <ellipse cx="190" cy="315" rx="50" ry="62" fill="#88C49C" stroke="#6AAA82" stroke-width="2"/>
+  <ellipse cx="310" cy="310" rx="52" ry="66" fill="#8AC8A0" stroke="#6AAA82" stroke-width="2"/>
+  <!-- ハイライト -->
+  <ellipse cx="178" cy="262" rx="14" ry="9" fill="white" opacity="0.38" transform="rotate(-22,178,262)"/>
+  <ellipse cx="238" cy="242" rx="16" ry="10" fill="white" opacity="0.38" transform="rotate(-22,238,242)"/>
+  <text x="250" y="450" font-family="serif" font-size="18" fill="#3A7A4A" text-anchor="middle" font-weight="bold">アローカナのたまご</text>
+</svg>

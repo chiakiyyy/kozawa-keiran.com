@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+  <defs>
+    <radialGradient id="pkbg" cx="50%" cy="50%" r="55%">
+      <stop offset="0%" stop-color="#FFFEF5"/>
+      <stop offset="100%" stop-color="#F5EDD0"/>
+    </radialGradient>
+    <radialGradient id="pkyolk" cx="40%" cy="38%" r="55%">
+      <stop offset="0%" stop-color="#F5D060"/>
+      <stop offset="100%" stop-color="#C88010"/>
+    </radialGradient>
+  </defs>
+  <rect width="500" height="500" fill="url(#pkbg)"/>
+  <!-- パッケージ -->
+  <rect x="80" y="60" width="340" height="200" rx="12" fill="#FFF8E0" stroke="#E8C870" stroke-width="2"/>
+  <rect x="80" y="60" width="340" height="55" rx="12" fill="#F5B82E"/>
+  <rect x="80" y="100" width="340" height="15" fill="#F5B82E"/>
+  <text x="250" y="95" font-family="serif" font-size="22" fill="white" text-anchor="middle" font-weight="bold">こだわりのたまご</text>
+  <!-- パック内の卵 -->
+  <g>
+    <ellipse cx="160" cy="200" rx="30" ry="38" fill="#E8C880" stroke="#D0A850" stroke-width="1.5"/>
+    <ellipse cx="250" cy="195" rx="32" ry="40" fill="#F0D090" stroke="#D0A850" stroke-width="1.5"/>
+    <ellipse cx="340" cy="200" rx="30" ry="38" fill="#E4C078" stroke="#D0A850" stroke-width="1.5"/>
+    <ellipse cx="160" cy="240" rx="30" ry="38" fill="#ECC880" stroke="#D0A850" stroke-width="1.5"/>
+    <ellipse cx="250" cy="238" rx="32" ry="40" fill="#E8C070" stroke="#D0A850" stroke-width="1.5"/>
+    <ellipse cx="340" cy="240" rx="30" ry="38" fill="#E0BC70" stroke="#D0A850" stroke-width="1.5"/>
+  </g>
+  <!-- 卵3個（下） -->
+  <g transform="translate(250,390)">
+    <ellipse cx="-70" cy="0" rx="48" ry="60" fill="#ECC880" stroke="#D0A850" stroke-width="2"/>
+    <ellipse cx="0" cy="-10" rx="52" ry="66" fill="#F0D090" stroke="#D0A850" stroke-width="2"/>
+    <ellipse cx="70" cy="0" rx="48" ry="60" fill="#E8C878" stroke="#D0A850" stroke-width="2"/>
+    <ellipse cx="-85" cy="-16" rx="14" ry="9" fill="white" opacity="0.38" transform="rotate(-22,-85,-16)"/>
+    <ellipse cx="-1" cy="-28" rx="16" ry="10" fill="white" opacity="0.4" transform="rotate(-22,-1,-28)"/>
+    <ellipse cx="55" cy="-16" rx="13" ry="8" fill="white" opacity="0.36" transform="rotate(-22,55,-16)"/>
+  </g>
+  <!-- 葉っぱ -->
+  <ellipse cx="80" cy="450" rx="55" ry="30" fill="#8CC870" opacity="0.55" transform="rotate(-35,80,450)"/>
+  <ellipse cx="420" cy="440" rx="48" ry="26" fill="#8CC870" opacity="0.5" transform="rotate(30,420,440)"/>
+</svg>

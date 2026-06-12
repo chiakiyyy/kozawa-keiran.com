@@ -1,0 +1,178 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+<Layout title="個人のお客様へ｜小澤鶏卵" description="小澤鶏卵の家庭用・ギフト・通販・定期購入サービス。毎日の食卓に安心でおいしいたまごを。">
+  <Header/>
+  <main>
+    <section class="shop-hero">
+      <div class="sh-bg"><img src="/images/hero_main.svg" alt="" aria-hidden="true" loading="eager"/><div class="sh-ov"></div></div>
+      <div class="sh-content">
+        <span class="biz-hero-en">FOR HOME</span>
+        <h1 class="biz-hero-title">毎日の食卓に、<br/>安心でおいしいたまごを。</h1>
+        <p class="biz-hero-sub">ご家庭用から贈り物まで、小澤鶏卵のたまごをご自宅でお楽しみください。</p>
+        <div style="display:flex;gap:1rem;flex-wrap:wrap">
+          <a href="/products" class="btn btn-primary">商品を見る →</a>
+          <a href="/contact" class="btn btn-outline" style="background:white">お問い合わせ</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ご家庭用商品 -->
+    <section class="sec">
+      <div class="container">
+        <div class="center-head">
+          <span class="sec-en">Home Use</span>
+          <h2 class="sec-title mt">ご家庭用商品</h2>
+        </div>
+        <div class="home-grid">
+          {[
+            { img:'/images/product_kodawari.svg', name:'こだわりのたまご', note:'10個入り・6個入り', badge:'人気No.1' },
+            { img:'/images/product_pink.svg',     name:'ピンクたまご',    note:'6個入り・ギフト用', badge:'かわいい' },
+            { img:'/images/product_araucana.svg', name:'アローカナのたまご', note:'6個入り', badge:'希少' },
+          ].map(p => (
+            <a href="/products" class="home-card card">
+              <div class="home-img">
+                <img src={p.img} alt={p.name} loading="lazy"/>
+                <span class="home-badge">{p.badge}</span>
+              </div>
+              <div class="home-body">
+                <h3>{p.name}</h3>
+                <p>{p.note}</p>
+                <span class="link-arrow">詳しく見る <svg width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M9 1l4 4-4 4M1 5h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ギフト -->
+    <section class="sec sec--cream">
+      <div class="container gift-row">
+        <div>
+          <span class="sec-en">Gift</span>
+          <h2 class="sec-title mt">贈り物にもぴったり</h2>
+          <p>内祝い・お中元・お歳暮・父の日・母の日など、大切な方への贈り物に小澤鶏卵のたまごはいかがでしょうか。化粧箱入りのギフトセットをご用意しています。</p>
+          <ul class="gift-list">
+            <li>✓ 化粧箱入りで見た目も華やか</li>
+            <li>✓ メッセージカード対応</li>
+            <li>✓ 各種価格帯をご用意</li>
+            <li>✓ 産直ならではの新鮮さ</li>
+          </ul>
+          <a href="/contact" class="btn btn-primary">ギフトについて問い合わせる</a>
+        </div>
+        <div class="gift-img-wrap">
+          <img src="/images/product_gift.svg" alt="ギフトセット" loading="lazy"/>
+        </div>
+      </div>
+    </section>
+
+    <!-- 定期購入 -->
+    <section class="sec">
+      <div class="container">
+        <div class="center-head">
+          <span class="sec-en">Subscription</span>
+          <h2 class="sec-title mt">定期購入サービス</h2>
+        </div>
+        <div class="sub-grid">
+          {[
+            { icon:'📅', title:'週1回〜対応', body:'ご希望の頻度でお届け。ライフスタイルに合わせて設定できます。' },
+            { icon:'🥚', title:'常に新鮮な状態で', body:'定期的にお届けするから、常に産みたての新鮮なたまごが食べられます。' },
+            { icon:'✏️', title:'いつでも変更可能', body:'数量・頻度・お届け先の変更は随時承ります。' },
+            { icon:'💰', title:'お得な価格で', body:'定期購入のお客様には、特別価格でお届けします。' },
+          ].map(s => (
+            <div class="sub-card">
+              <span class="sub-icon">{s.icon}</span>
+              <h3>{s.title}</h3>
+              <p>{s.body}</p>
+            </div>
+          ))}
+        </div>
+        <div style="text-align:center;margin-top:2.5rem">
+          <a href="/contact?type=subscription" class="btn btn-green">定期購入について問い合わせる →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- おすすめの食べ方 -->
+    <section class="sec sec--cream">
+      <div class="container">
+        <div class="center-head">
+          <span class="sec-en">Recipe</span>
+          <h2 class="sec-title mt">おすすめの食べ方</h2>
+        </div>
+        <div class="recipe-grid">
+          {[
+            { name:'卵かけご飯', note:'新鮮なたまごだからこそ楽しめる定番の食べ方。濃厚な黄身が絶品です。' },
+            { name:'目玉焼き', note:'シンプルな調理でたまご本来の旨みを味わえます。塩だけで十分おいしい。' },
+            { name:'オムレツ', note:'ふっくらとした仕上がりに。朝食やお弁当にもぴったりです。' },
+            { name:'プリン・スイーツ', note:'コクのある黄身がスイーツをワンランクアップさせます。' },
+          ].map(r => (
+            <div class="recipe-card">
+              <div class="recipe-icon">🍳</div>
+              <h3>{r.name}</h3>
+              <p>{r.note}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-band">
+      <p>ご注文・ご相談はお気軽にどうぞ</p>
+      <a href="/contact" class="btn btn-primary">お問い合わせはこちら →</a>
+    </section>
+  </main>
+  <Footer/>
+</Layout>
+<style>
+.container { max-width:1100px; margin:0 auto; padding:0 2rem; }
+.sec { padding:5.5rem 0; background:var(--bg); }
+.sec--cream { background:var(--bg2); }
+.mt { margin-top:.6rem; }
+.center-head { text-align:center; margin-bottom:3rem; }
+.shop-hero { position:relative; min-height:580px; display:flex; align-items:center; margin-top:70px; }
+.sh-bg { position:absolute; inset:0; }
+.sh-bg img { width:100%; height:100%; object-fit:cover; }
+.sh-ov { position:absolute; inset:0; background:linear-gradient(to right,rgba(59,50,31,.82) 0%,rgba(59,50,31,.55) 55%,rgba(59,50,31,.15) 100%); }
+.sh-content { position:relative; z-index:1; max-width:1100px; margin:0 auto; padding:4rem 2rem; }
+.biz-hero-en { font-family:'Lato',sans-serif; font-size:.7rem; letter-spacing:.25em; color:rgba(245,184,46,.8); text-transform:uppercase; display:block; margin-bottom:1rem; }
+.biz-hero-title { font-family:'Noto Serif JP',serif; font-size:clamp(1.8rem,4vw,3rem); font-weight:700; color:white; line-height:1.5; margin-bottom:1rem; }
+.biz-hero-sub { font-size:.95rem; color:rgba(255,255,255,.75); line-height:1.8; margin-bottom:2rem; }
+.home-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
+.home-card { text-decoration:none; color:inherit; display:block; }
+.home-img { position:relative; background:var(--bg2); }
+.home-img img { width:100%; height:220px; object-fit:cover; display:block; }
+.home-badge { position:absolute; top:10px; left:10px; background:var(--yellow); color:var(--brown); font-size:.7rem; font-weight:700; padding:.2rem .65rem; border-radius:999px; }
+.home-body { padding:1.25rem; }
+.home-body h3 { font-family:'Noto Serif JP',serif; font-size:.95rem; font-weight:700; color:var(--brown); margin-bottom:.3rem; }
+.home-body p { font-size:.8rem; color:var(--muted); margin-bottom:.75rem; }
+.gift-row { display:grid; grid-template-columns:1.1fr 1fr; gap:5rem; align-items:center; }
+.gift-row p { font-size:.9rem; color:var(--muted); line-height:1.9; margin:.75rem 0 1rem; }
+.gift-list { list-style:none; margin:0 0 1.75rem; padding:0; display:flex; flex-direction:column; gap:.5rem; }
+.gift-list li { font-size:.875rem; color:var(--brown); font-weight:500; }
+.gift-img-wrap { border-radius:16px; overflow:hidden; }
+.gift-img-wrap img { width:100%; height:320px; object-fit:cover; display:block; }
+.sub-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1.5rem; }
+.sub-card { padding:2rem 1.5rem; background:white; border-radius:16px; text-align:center; box-shadow:0 4px 20px rgba(59,50,31,.07); }
+.sub-icon { font-size:2rem; display:block; margin-bottom:.75rem; }
+.sub-card h3 { font-family:'Noto Serif JP',serif; font-size:.95rem; font-weight:700; color:var(--brown); margin-bottom:.5rem; }
+.sub-card p { font-size:.8rem; color:var(--muted); line-height:1.7; margin:0; }
+.recipe-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1.5rem; }
+.recipe-card { padding:1.75rem 1.25rem; background:white; border-radius:16px; text-align:center; box-shadow:0 4px 20px rgba(59,50,31,.07); }
+.recipe-icon { font-size:2rem; margin-bottom:.625rem; }
+.recipe-card h3 { font-family:'Noto Serif JP',serif; font-size:.9rem; font-weight:700; color:var(--brown); margin-bottom:.4rem; }
+.recipe-card p { font-size:.78rem; color:var(--muted); line-height:1.7; margin:0; }
+.cta-band { background:var(--yellow); padding:3rem 2rem; text-align:center; display:flex; flex-direction:column; align-items:center; gap:1.25rem; }
+.cta-band p { font-family:'Noto Serif JP',serif; font-size:1.1rem; font-weight:700; color:var(--brown); margin:0; }
+@media (max-width:900px) {
+  .home-grid,.sub-grid,.recipe-grid { grid-template-columns:1fr 1fr; }
+  .gift-row { grid-template-columns:1fr; gap:2rem; }
+}
+@media (max-width:600px) {
+  .home-grid,.sub-grid,.recipe-grid { grid-template-columns:1fr; max-width:380px; margin:0 auto; }
+}
+</style>

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+  <defs>
+    <radialGradient id="pgbg" cx="50%" cy="50%" r="55%">
+      <stop offset="0%" stop-color="#FFFEF5"/>
+      <stop offset="100%" stop-color="#FFF5D8"/>
+    </radialGradient>
+  </defs>
+  <rect width="500" height="500" fill="url(#pgbg)"/>
+  <!-- 箱 -->
+  <rect x="100" y="180" width="300" height="220" rx="10" fill="#FFF8E8" stroke="#E8C870" stroke-width="2.5"/>
+  <rect x="100" y="180" width="300" height="55" rx="10" fill="#F5B82E"/>
+  <rect x="100" y="218" width="300" height="17" fill="#F5B82E"/>
+  <!-- リボン縦 -->
+  <rect x="228" y="180" width="44" height="220" fill="rgba(255,255,255,0.5)" rx="4"/>
+  <!-- リボン横 -->
+  <rect x="100" y="268" width="300" height="28" fill="rgba(255,255,255,0.4)" rx="4"/>
+  <!-- リボンの結び目 -->
+  <circle cx="250" cy="235" r="22" fill="white" stroke="#F5B82E" stroke-width="2"/>
+  <ellipse cx="222" cy="222" rx="20" ry="12" fill="white" stroke="#F5B82E" stroke-width="1.5" transform="rotate(-35,222,222)"/>
+  <ellipse cx="278" cy="222" rx="20" ry="12" fill="white" stroke="#F5B82E" stroke-width="1.5" transform="rotate(35,278,222)"/>
+  <ellipse cx="228" cy="252" rx="14" ry="20" fill="white" stroke="#F5B82E" stroke-width="1.5" transform="rotate(15,228,252)"/>
+  <ellipse cx="272" cy="252" rx="14" ry="20" fill="white" stroke="#F5B82E" stroke-width="1.5" transform="rotate(-15,272,252)"/>
+  <!-- たまごの窓 -->
+  <ellipse cx="165" cy="330" rx="38" ry="48" fill="#F0D090" stroke="#D0A850" stroke-width="1.5"/>
+  <ellipse cx="250" cy="325" rx="40" ry="50" fill="#ECC880" stroke="#D0A850" stroke-width="1.5"/>
+  <ellipse cx="335" cy="330" rx="38" ry="48" fill="#E8C070" stroke="#D0A850" stroke-width="1.5"/>
+  <text x="250" y="460" font-family="serif" font-size="18" fill="#5C3D1E" text-anchor="middle" font-weight="bold">ギフトセット</text>
+</svg>

@@ -1,0 +1,102 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+const features = [
+  { id:'feed',   img:'/images/feature_feed.svg',   en:'Feed',   ja:'こだわりの飼料',      body:'鶏の健康を第一に考え、厳選した国産原料を使用した自家配合飼料を与えています。添加物を極力使わず、自然に近い形で鶏本来の力を引き出します。' },
+  { id:'env',    img:'/images/feature_env.svg',    en:'Environment', ja:'快適な飼育環境', body:'清潔で風通しの良い鶏舎で、のびのびと健康に育てています。ストレスの少ない環境が、おいしいたまごを産む秘訣です。' },
+  { id:'water',  img:'/images/feature_water.svg',  en:'Water',  ja:'おいしい水',           body:'地下から汲み上げた清潔な地下水をたっぷりと与えています。水質管理を徹底し、常に新鮮な水を供給しています。' },
+  { id:'safety', img:'/images/feature_safety.svg', en:'Safety', ja:'安心・安全への取り組み', body:'徹底した衛生管理のもと、採卵から配送まで全工程で品質基準を遵守。生産者との連携でトレーサビリティを確保しています。' },
+];
+---
+<Layout title="こだわり｜小澤鶏卵" description="小澤鶏卵のこだわり。飼料・飼育環境・水・安全管理への取り組みをご紹介します。">
+  <Header/>
+  <main>
+    <div class="page-hero">
+      <div class="container">
+        <span class="page-hero-en">FEATURE</span>
+        <h1 class="page-hero-title">こだわり</h1>
+        <p class="page-hero-sub">おいしいたまごは、毎日の積み重ねから生まれます</p>
+      </div>
+    </div>
+
+    <!-- リード -->
+    <section class="lead-sec">
+      <div class="container lead-inner">
+        <div class="lead-egg" aria-hidden="true">
+          <svg viewBox="0 0 220 280" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <radialGradient id="leg" cx="38%" cy="32%" r="58%">
+                <stop offset="0%" stop-color="#FFFEF5"/><stop offset="100%" stop-color="#E8DFC8"/>
+              </radialGradient>
+              <radialGradient id="lyk" cx="40%" cy="38%" r="55%">
+                <stop offset="0%" stop-color="#F5D060"/><stop offset="100%" stop-color="#C88010"/>
+              </radialGradient>
+            </defs>
+            <ellipse cx="110" cy="152" rx="88" ry="114" fill="url(#leg)" stroke="#D4C080" stroke-width="2"/>
+            <ellipse cx="110" cy="162" rx="46" ry="60" fill="url(#lyk)" opacity="0.52"/>
+            <ellipse cx="88" cy="122" rx="22" ry="14" fill="white" opacity="0.42" transform="rotate(-22,88,122)"/>
+          </svg>
+        </div>
+        <div class="lead-text">
+          <h2 class="sec-title">全ては、おいしいたまごのために。</h2>
+          <p>小澤鶏卵では、鶏が健康でのびのびと育てる環境づくりを最優先にしています。飼料・水・飼育環境・衛生管理——それぞれにこだわりを持ち、毎日の積み重ねが、食卓に届くおいしいたまごにつながっています。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- こだわり詳細 -->
+    {features.map((f, i) => (
+      <section class={`feature-detail ${i % 2 === 1 ? 'feature-detail--rev' : ''}`} id={f.id}>
+        <div class="fd-img">
+          <img src={f.img} alt={f.ja} loading="lazy"/>
+        </div>
+        <div class="fd-text">
+          <span class="sec-en">{f.en}</span>
+          <h2 class="sec-title fd-title">{f.ja}</h2>
+          <div class="fd-divider"></div>
+          <p>{f.body}</p>
+        </div>
+      </section>
+    ))}
+
+    <!-- CTA -->
+    <section class="cta-band">
+      <p>品質へのこだわりについてのご質問もお気軽に</p>
+      <a href="/contact" class="btn btn-primary">お問い合わせはこちら →</a>
+    </section>
+  </main>
+  <Footer/>
+</Layout>
+<style>
+.container { max-width:1100px; margin:0 auto; padding:0 2rem; }
+.page-hero { background:var(--bg2); padding:7rem 0 4rem; margin-top:70px; border-bottom:1px solid rgba(245,184,46,.2); }
+.page-hero-en { font-family:'Lato',sans-serif; font-size:.7rem; letter-spacing:.25em; color:var(--green); text-transform:uppercase; display:block; margin-bottom:.4rem; }
+.page-hero-title { font-family:'Noto Serif JP',serif; font-size:clamp(1.8rem,4vw,2.8rem); font-weight:700; color:var(--brown); }
+.page-hero-sub { font-size:.9rem; color:var(--muted); margin-top:.5rem; }
+.lead-sec { padding:5rem 0; background:var(--bg); }
+.lead-inner { display:flex; gap:4rem; align-items:center; }
+.lead-egg { flex-shrink:0; width:160px; filter:drop-shadow(0 8px 24px rgba(212,192,100,.2)); animation:fe 7s ease-in-out infinite; }
+@keyframes fe { 0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)} }
+.lead-text .sec-title { margin-bottom:1rem; }
+.lead-text p { font-size:.9rem; color:var(--muted); line-height:1.9; }
+.feature-detail { display:grid; grid-template-columns:1fr 1fr; min-height:480px; }
+.feature-detail--rev .fd-img { order:2; }
+.feature-detail--rev .fd-text { order:1; }
+.fd-img img { width:100%; height:100%; object-fit:cover; display:block; min-height:380px; }
+.fd-text { padding:5rem 4rem; display:flex; flex-direction:column; justify-content:center; background:var(--bg2); }
+.feature-detail:nth-child(odd) .fd-text { background:var(--bg); }
+.fd-title { margin-top:.6rem; }
+.fd-divider { width:2.5rem; height:2px; background:var(--yellow); margin:1.25rem 0; }
+.fd-text p { font-size:.9rem; color:var(--muted); line-height:1.9; }
+.cta-band { background:var(--yellow); padding:3rem 2rem; text-align:center; display:flex; flex-direction:column; align-items:center; gap:1.25rem; }
+.cta-band p { font-family:'Noto Serif JP',serif; font-size:1.1rem; font-weight:700; color:var(--brown); margin:0; }
+@media (max-width:900px) {
+  .lead-inner { flex-direction:column; gap:2rem; }
+  .lead-egg { width:120px; }
+  .feature-detail,.feature-detail--rev { grid-template-columns:1fr; }
+  .feature-detail--rev .fd-img,.feature-detail--rev .fd-text { order:unset; }
+  .fd-text { padding:3rem 2rem; }
+  .fd-img img { min-height:260px; }
+}
+</style>

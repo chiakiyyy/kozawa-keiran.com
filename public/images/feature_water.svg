@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450">
+  <defs>
+    <linearGradient id="fwbg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#E8F5FF"/>
+      <stop offset="100%" stop-color="#C0E0F8"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="450" fill="url(#fwbg)"/>
+  <!-- 水面の波紋 -->
+  <ellipse cx="300" cy="260" rx="180" ry="40" fill="none" stroke="#7BB8DC" stroke-width="2" opacity="0.5"/>
+  <ellipse cx="300" cy="260" rx="130" ry="28" fill="none" stroke="#7BB8DC" stroke-width="2" opacity="0.6"/>
+  <ellipse cx="300" cy="260" rx="80" ry="18" fill="none" stroke="#7BB8DC" stroke-width="2" opacity="0.7"/>
+  <ellipse cx="300" cy="260" rx="40" ry="10" fill="none" stroke="#7BB8DC" stroke-width="2" opacity="0.85"/>
+  <!-- 水滴 -->
+  <path d="M300,80 Q280,130 280,160 Q280,200 300,210 Q320,200 320,160 Q320,130 300,80 Z" fill="#7BB8DC" opacity="0.8"/>
+  <!-- 水面 -->
+  <ellipse cx="300" cy="350" rx="280" ry="80" fill="#A0CCE8" opacity="0.6"/>
+  <path d="M0,320 Q150,280 300,310 Q450,340 600,300 L600,450 L0,450 Z" fill="#88B8D8" opacity="0.7"/>
+  <!-- 泡 -->
+  <circle cx="240" cy="340" r="10" fill="white" opacity="0.5"/>
+  <circle cx="350" cy="355" r="8" fill="white" opacity="0.45"/>
+  <circle cx="290" cy="365" r="6" fill="white" opacity="0.4"/>
+  <!-- 山 (背景) -->
+  <polygon points="0,250 150,100 300,250" fill="#5A9A50" opacity="0.4"/>
+  <polygon points="200,250 400,80 600,250" fill="#4A8A40" opacity="0.35"/>
+  <text x="300" y="425" font-family="serif" font-size="18" fill="#2A5A8A" text-anchor="middle" font-weight="bold">おいしい水</text>
+</svg>

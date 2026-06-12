@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450">
+  <defs>
+    <linearGradient id="fsbg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFFEF5"/>
+      <stop offset="100%" stop-color="#FFF5D8"/>
+    </radialGradient>
+  </defs>
+  <rect width="600" height="450" fill="url(#fsbg)"/>
+  <!-- 手でたまごを持つイメージ -->
+  <!-- 手 -->
+  <path d="M180,380 Q160,320 170,260 Q180,220 210,200 Q240,185 270,190 Q290,195 300,210 L300,380 Z" fill="#E8C090" stroke="#C8A070" stroke-width="1.5"/>
+  <path d="M300,210 Q310,190 330,185 Q355,182 365,200 Q370,220 365,260 L340,380 L300,380 Z" fill="#E8C090" stroke="#C8A070" stroke-width="1.5"/>
+  <!-- 指 -->
+  <path d="M210,200 Q205,160 215,140 Q230,120 250,125 Q265,132 263,155 L260,200" fill="#E8C090" stroke="#C8A070" stroke-width="1.5"/>
+  <path d="M263,195 Q262,150 272,130 Q285,112 305,118 Q320,126 318,148 L310,200" fill="#E8C090" stroke="#C8A070" stroke-width="1.5"/>
+  <path d="M310,200 Q312,158 322,140 Q334,122 354,130 Q368,140 364,163 L355,200" fill="#E8C090" stroke="#C8A070" stroke-width="1.5"/>
+  <!-- たまご (手の上) -->
+  <ellipse cx="290" cy="240" rx="65" ry="82" fill="#F0D090" stroke="#D0A850" stroke-width="2"/>
+  <ellipse cx="290" cy="252" rx="35" ry="44" fill="#F5D060" opacity="0.5"/>
+  <ellipse cx="268" cy="212" rx="18" ry="11" fill="white" opacity="0.42" transform="rotate(-22,268,212)"/>
+  <!-- 盾マーク -->
+  <path d="M420,160 L500,190 L500,260 Q500,310 460,330 Q420,310 420,260 Z" fill="#6F8F3A" opacity="0.15" stroke="#6F8F3A" stroke-width="2"/>
+  <path d="M445,240 L455,255 L480,218" stroke="#6F8F3A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <text x="300" y="430" font-family="serif" font-size="18" fill="#3B321F" text-anchor="middle" font-weight="bold">安心・安全への取り組み</text>
+</svg>

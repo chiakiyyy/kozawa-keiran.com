@@ -2,119 +2,160 @@
 
 @layer base {
   :root {
-    --color-yellow: #F2C94C;
-    --color-yellow-light: #FFF8C0;
-    --color-yellow-pale: #FFFCE8;
-    --color-yellow-bg: #FFFAE0;
-    --color-green: #5A9A50;
-    --color-green-dark: #3D7A34;
-    --color-green-light: #E8F5E0;
-    --color-brown: #6B4226;
-    --color-text: #3A2A1A;
-    --color-text-muted: #7A6040;
-    --color-white: #FFFFFF;
-    --color-cream: #FFFCE8;
+    --yellow:     #F5B82E;
+    --yellow-lt:  #FFF3C0;
+    --yellow-bg:  #FFFAF0;
+    --green:      #6F8F3A;
+    --green-dk:   #4A6A20;
+    --green-lt:   #EAF0DA;
+    --bg:         #FFFAF0;
+    --bg2:        #F7F1DF;
+    --brown:      #3B321F;
+    --muted:      #7A6A4A;
+    --white:      #FFFFFF;
   }
 
   html {
-    font-family: 'Zen Maru Gothic', 'M PLUS Rounded 1c', 'Hiragino Maru Gothic ProN', sans-serif;
+    font-family: 'Noto Sans JP', 'Hiragino Sans', sans-serif;
+    background-color: var(--bg);
+    color: var(--brown);
     scroll-behavior: smooth;
-    background-color: var(--color-cream);
-    color: var(--color-text);
   }
 
   body { -webkit-font-smoothing: antialiased; }
 
-  h1, h2, h3 {
-    font-family: 'Zen Maru Gothic', 'M PLUS Rounded 1c', sans-serif;
+  h1,h2,h3,h4 {
+    font-family: 'Noto Serif JP', 'Hiragino Mincho ProN', serif;
     line-height: 1.5;
   }
 }
 
 @layer components {
-  .btn-yellow {
+  /* ボタン */
+  .btn {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    padding: 0.875rem 2.25rem;
-    background-color: var(--color-yellow);
-    color: var(--color-text);
-    font-size: 0.9rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
+    padding: 0.875rem 2rem;
     border-radius: 999px;
-    text-decoration: none;
-    transition: all 0.2s ease;
-    box-shadow: 0 4px 12px rgba(242,201,76,0.4);
-  }
-  .btn-yellow:hover {
-    background-color: #E8B830;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(242,201,76,0.5);
-  }
-
-  .btn-green {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.875rem 2.25rem;
-    background-color: var(--color-green);
-    color: white;
     font-size: 0.9rem;
     font-weight: 700;
     letter-spacing: 0.06em;
-    border-radius: 999px;
     text-decoration: none;
-    transition: all 0.2s ease;
-    box-shadow: 0 4px 12px rgba(90,154,80,0.35);
+    transition: all 0.22s ease;
+    cursor: pointer;
+    white-space: nowrap;
+    border: none;
+    font-family: 'Noto Sans JP', sans-serif;
+  }
+
+  .btn-primary {
+    background-color: var(--yellow);
+    color: var(--brown);
+    box-shadow: 0 4px 14px rgba(245,184,46,0.35);
+  }
+  .btn-primary:hover {
+    background-color: #E8A818;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgba(245,184,46,0.45);
+  }
+
+  .btn-green {
+    background-color: var(--green);
+    color: white;
+    box-shadow: 0 4px 14px rgba(111,143,58,0.3);
   }
   .btn-green:hover {
-    background-color: var(--color-green-dark);
+    background-color: var(--green-dk);
     transform: translateY(-2px);
   }
 
   .btn-outline {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.75rem 2rem;
-    border: 2px solid var(--color-green);
-    color: var(--color-green);
-    font-size: 0.875rem;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    border-radius: 999px;
-    text-decoration: none;
-    transition: all 0.2s ease;
     background-color: white;
+    color: var(--green);
+    border: 2px solid var(--green);
   }
   .btn-outline:hover {
-    background-color: var(--color-green);
+    background-color: var(--green);
     color: white;
   }
 
-  .section-en {
+  .btn-outline-yellow {
+    background-color: transparent;
+    color: var(--yellow);
+    border: 2px solid var(--yellow);
+  }
+  .btn-outline-yellow:hover {
+    background-color: var(--yellow);
+    color: var(--brown);
+  }
+
+  /* セクションラベル */
+  .sec-en {
     font-family: 'Lato', sans-serif;
-    font-size: 0.7rem;
-    letter-spacing: 0.28em;
-    color: var(--color-green);
-    text-transform: uppercase;
-    display: block;
-    margin-bottom: 0.5rem;
-  }
-
-  .section-title {
-    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    font-size: 1rem;
     font-weight: 700;
-    color: var(--color-text);
-    margin-bottom: 1.25rem;
-    letter-spacing: 0.02em;
-    line-height: 1.5;
+    letter-spacing: 0.18em;
+    color: var(--green);
+    display: block;
+    line-height: 1;
+  }
+  .sec-ja {
+    font-size: 0.75rem;
+    color: var(--muted);
+    display: block;
+    letter-spacing: 0.1em;
+    margin-top: 3px;
   }
 
-  .wave-divider {
-    width: 100%;
-    overflow: hidden;
-    line-height: 0;
+  .sec-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: clamp(1.5rem, 2.8vw, 2.2rem);
+    font-weight: 700;
+    color: var(--brown);
+    line-height: 1.55;
+    letter-spacing: 0.02em;
   }
+
+  /* 波形 */
+  .wave { display: block; width: 100%; line-height: 0; }
+  .wave svg { display: block; width: 100%; }
+
+  /* カード */
+  .card {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(59,50,31,0.08);
+    transition: transform 0.25s, box-shadow 0.25s;
+  }
+  .card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 38px rgba(59,50,31,0.13);
+  }
+
+  /* リンク矢印 */
+  .link-arrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.83rem;
+    font-weight: 700;
+    color: var(--yellow);
+    text-decoration: none;
+    transition: gap 0.2s;
+  }
+  .link-arrow:hover { gap: 0.6rem; }
+
+  /* ページヘッダー */
+  .page-hero {
+    background-color: var(--bg2);
+    padding: 7rem 0 4rem;
+    border-bottom: 1px solid rgba(245,184,46,0.2);
+    margin-top: 70px;
+  }
+  .page-hero .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+  .page-hero-en { font-family: 'Lato', sans-serif; font-size: 0.7rem; letter-spacing: 0.25em; color: var(--green); text-transform: uppercase; display: block; margin-bottom: 0.5rem; }
+  .page-hero-title { font-family: 'Noto Serif JP', serif; font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 700; color: var(--brown); }
+  .page-hero-sub { font-size: 0.9rem; color: var(--muted); margin-top: 0.5rem; }
 }

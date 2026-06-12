@@ -1,0 +1,263 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+const targets = [
+  { icon:'🍜', name:'ラーメン店' },
+  { icon:'🎂', name:'洋菓子店' },
+  { icon:'🏨', name:'ホテル' },
+  { icon:'🛒', name:'スーパー' },
+  { icon:'🏫', name:'給食施設' },
+  { icon:'🎪', name:'イベント業者' },
+  { icon:'🍽️', name:'飲食店全般' },
+  { icon:'🎉', name:'催事利用' },
+];
+const concerns = [
+  '毎日使うたまごを安定して仕入れたい',
+  '品質を均一に揃えたい',
+  '大量注文に対応してほしい',
+  'イベント・催事に合わせて調整したい',
+  '配送対応してほしい',
+  '急な増減にも柔軟に対応してほしい',
+];
+const flow = [
+  { step:'01', title:'お問い合わせ', body:'フォームまたはお電話にてお気軽にご連絡ください。' },
+  { step:'02', title:'ヒアリング', body:'ご要望・ご利用シーン・数量・配送希望などをお聞きします。' },
+  { step:'03', title:'ご提案・お見積り', body:'最適な商品・納品プランをご提案し、お見積もりをご提示します。' },
+  { step:'04', title:'納品開始', body:'合意後、ご希望の日程から定期納品を開始します。' },
+];
+const faqs = [
+  { q:'最小発注量はどのくらいですか？', a:'1ケース（約10kg）から承ります。お気軽にご相談ください。' },
+  { q:'配送エリアはどこですか？', a:'○○県全域および近隣県に対応しています。詳細はお問い合わせください。' },
+  { q:'急な数量変更は可能ですか？', a:'できる限り柔軟に対応いたします。事前にご連絡いただければ幸いです。' },
+  { q:'規格・サイズの指定はできますか？', a:'はい、S・M・L・LLなど各サイズ、赤玉・白玉などの指定が可能です。' },
+  { q:'請求書払いは可能ですか？', a:'法人・個人事業主様には掛け売りに対応しています。詳しくはご相談ください。' },
+];
+---
+<Layout title="法人のお客様へ｜小澤鶏卵" description="小澤鶏卵の業務用たまご。飲食店・ホテル・給食施設・スーパーなど法人向けの安定供給サービス。定期納品・大量注文対応。">
+  <Header/>
+  <main>
+    <!-- HERO -->
+    <section class="biz-hero">
+      <div class="biz-hero-bg">
+        <img src="/images/business_hero.svg" alt="" aria-hidden="true" loading="eager"/>
+        <div class="biz-hero-ov"></div>
+      </div>
+      <div class="biz-hero-content">
+        <span class="biz-hero-en">FOR BUSINESS</span>
+        <h1 class="biz-hero-title">
+          毎日使うたまごを<br/>
+          安定してお届けします。
+        </h1>
+        <p class="biz-hero-sub">
+          飲食店・食品事業者様へ<br/>
+          業務用たまごの安定供給はお任せください。
+        </p>
+        <a href="#contact-form" class="btn btn-primary">法人取引のご相談はこちら →</a>
+      </div>
+    </section>
+
+    <!-- お悩み -->
+    <section class="sec">
+      <div class="container">
+        <div class="center-head">
+          <span class="sec-en">Problem</span>
+          <h2 class="sec-title mt">こんなお悩みありませんか？</h2>
+        </div>
+        <div class="concerns-grid">
+          {concerns.map((c, i) => (
+            <div class="concern-item">
+              <span class="concern-check">✓</span>
+              <span>{c}</span>
+            </div>
+          ))}
+        </div>
+        <p class="concerns-cta-text">小澤鶏卵がそのお悩みを解決します！</p>
+      </div>
+    </section>
+
+    <!-- 対応業種 -->
+    <section class="sec sec--cream">
+      <div class="container">
+        <div class="center-head">
+          <span class="sec-en">Target</span>
+          <h2 class="sec-title mt">このような事業者様にご利用いただいています</h2>
+        </div>
+        <div class="targets-grid">
+          {targets.map(t => (
+            <div class="target-card">
+              <span class="target-icon">{t.icon}</span>
+              <span>{t.name}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- 取扱商品 -->
+    <section class="sec">
+      <div class="container">
+        <div class="center-head">
+          <span class="sec-en">Products</span>
+          <h2 class="sec-title mt">取扱商品</h2>
+        </div>
+        <div class="biz-products-grid">
+          {[
+            { name:'赤玉', note:'コクと旨みが豊か', color:'#E8A060' },
+            { name:'白玉', note:'クセがなく万能', color:'#F0E8D0' },
+            { name:'ピンクたまご', note:'見た目も美しく人気', color:'#F5C0B0' },
+            { name:'アローカナ', note:'希少な青い殻', color:'#B0C8B0' },
+            { name:'温泉卵', note:'調理済みですぐ使える', color:'#F5D080' },
+            { name:'業務用ケース', note:'10kg〜大量対応', color:'#D0C098' },
+          ].map(p => (
+            <div class="biz-product-card">
+              <div class="biz-product-circle" style={`background:${p.color}`}></div>
+              <h3>{p.name}</h3>
+              <p>{p.note}</p>
+            </div>
+          ))}
+        </div>
+        <p class="products-note">※取り扱いサイズ・規格はお気軽にご相談ください。</p>
+      </div>
+    </section>
+
+    <!-- 納品までの流れ -->
+    <section class="sec sec--green">
+      <div class="container">
+        <div class="center-head center-head--light">
+          <span class="sec-en" style="color:rgba(245,184,46,.8)">Flow</span>
+          <h2 class="sec-title mt" style="color:white">納品までの流れ</h2>
+        </div>
+        <div class="flow-grid">
+          {flow.map(f => (
+            <div class="flow-item">
+              <div class="flow-step">{f.step}</div>
+              <h3>{f.title}</h3>
+              <p>{f.body}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="sec">
+      <div class="container">
+        <div class="center-head">
+          <span class="sec-en">FAQ</span>
+          <h2 class="sec-title mt">よくある質問</h2>
+        </div>
+        <div class="faq-list">
+          {faqs.map(f => (
+            <details class="faq-item">
+              <summary class="faq-q">
+                <span class="faq-icon">Q</span>
+                {f.q}
+              </summary>
+              <div class="faq-a">
+                <span class="faq-icon faq-icon--a">A</span>
+                <p>{f.a}</p>
+              </div>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- お問い合わせ -->
+    <section class="sec sec--cream" id="contact-form">
+      <div class="container">
+        <div class="center-head">
+          <span class="sec-en">Contact</span>
+          <h2 class="sec-title mt">法人取引のご相談</h2>
+          <p style="color:var(--muted);font-size:.9rem;margin-top:.5rem">まずはお気軽にお問い合わせください。担当者よりご連絡いたします。</p>
+        </div>
+        <div class="biz-contact-box">
+          <div class="biz-tel-box">
+            <p class="biz-tel-label">お電話</p>
+            <a href="tel:0000-00-0000" class="biz-tel">0000-00-0000</a>
+            <p class="biz-tel-hours">月〜土 8:00〜17:00</p>
+          </div>
+          <div class="biz-form-box">
+            <p>フォームからもご相談いただけます</p>
+            <a href="/contact?type=business" class="btn btn-primary" style="justify-content:center">お問い合わせフォームへ →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer/>
+</Layout>
+<style>
+.container { max-width:1100px; margin:0 auto; padding:0 2rem; }
+.sec { padding:5.5rem 0; background:var(--bg); }
+.sec--cream { background:var(--bg2); }
+.sec--green { background:#4A6A20; }
+.mt { margin-top:.6rem; }
+.center-head { text-align:center; margin-bottom:3rem; }
+.center-head--light .sec-en { color:rgba(245,184,46,.8); }
+/* Hero */
+.biz-hero { position:relative; min-height:600px; display:flex; align-items:center; margin-top:70px; }
+.biz-hero-bg { position:absolute; inset:0; }
+.biz-hero-bg img { width:100%; height:100%; object-fit:cover; }
+.biz-hero-ov { position:absolute; inset:0; background:linear-gradient(to right,rgba(20,40,10,.85) 0%,rgba(20,40,10,.6) 55%,rgba(20,40,10,.2) 100%); }
+.biz-hero-content { position:relative; z-index:1; max-width:1100px; margin:0 auto; padding:4rem 2rem; }
+.biz-hero-en { font-family:'Lato',sans-serif; font-size:.7rem; letter-spacing:.25em; color:rgba(245,184,46,.8); text-transform:uppercase; display:block; margin-bottom:1rem; }
+.biz-hero-title { font-family:'Noto Serif JP',serif; font-size:clamp(1.8rem,4vw,3rem); font-weight:700; color:white; line-height:1.5; margin-bottom:1rem; }
+.biz-hero-sub { font-size:.95rem; color:rgba(255,255,255,.75); line-height:1.8; margin-bottom:2rem; }
+/* Concerns */
+.concerns-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; margin-bottom:2rem; }
+.concern-item { display:flex; align-items:center; gap:.75rem; padding:1.1rem 1.25rem; background:white; border-radius:10px; border-left:3px solid var(--yellow); font-size:.875rem; color:var(--brown); font-weight:500; box-shadow:0 2px 12px rgba(59,50,31,.06); }
+.concern-check { color:var(--yellow); font-weight:700; font-size:1.1rem; flex-shrink:0; }
+.concerns-cta-text { text-align:center; font-family:'Noto Serif JP',serif; font-size:1.1rem; font-weight:700; color:var(--green); }
+/* Targets */
+.targets-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; }
+.target-card { display:flex; flex-direction:column; align-items:center; gap:.5rem; padding:1.5rem 1rem; background:white; border-radius:12px; box-shadow:0 2px 12px rgba(59,50,31,.06); font-size:.875rem; font-weight:700; color:var(--brown); text-align:center; transition:transform .2s,box-shadow .2s; }
+.target-card:hover { transform:translateY(-3px); box-shadow:0 8px 24px rgba(59,50,31,.1); }
+.target-icon { font-size:1.75rem; }
+/* Products */
+.biz-products-grid { display:grid; grid-template-columns:repeat(6,1fr); gap:1rem; }
+.biz-product-card { text-align:center; }
+.biz-product-circle { width:80px; height:80px; border-radius:50%; margin:0 auto .75rem; border:2px solid rgba(59,50,31,.08); box-shadow:0 4px 16px rgba(59,50,31,.1); }
+.biz-product-card h3 { font-family:'Noto Serif JP',serif; font-size:.85rem; font-weight:700; color:var(--brown); margin-bottom:.25rem; }
+.biz-product-card p { font-size:.75rem; color:var(--muted); margin:0; }
+.products-note { text-align:center; font-size:.8rem; color:var(--muted); margin-top:1.5rem; }
+/* Flow */
+.flow-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1.5rem; }
+.flow-item { text-align:center; padding:2rem 1.25rem; background:rgba(255,255,255,.1); border-radius:16px; border:1px solid rgba(245,184,46,.2); }
+.flow-step { font-family:'Lato',sans-serif; font-size:1.8rem; font-weight:300; color:rgba(245,184,46,.7); letter-spacing:-.02em; margin-bottom:.5rem; line-height:1; }
+.flow-item h3 { font-family:'Noto Serif JP',serif; font-size:.95rem; font-weight:700; color:white; margin-bottom:.5rem; }
+.flow-item p { font-size:.8rem; color:rgba(255,255,255,.65); line-height:1.7; margin:0; }
+/* FAQ */
+.faq-list { max-width:720px; margin:0 auto; display:flex; flex-direction:column; gap:.75rem; }
+.faq-item { background:white; border-radius:12px; border:1px solid rgba(245,184,46,.2); overflow:hidden; }
+.faq-q { display:flex; align-items:center; gap:1rem; padding:1.1rem 1.5rem; cursor:pointer; font-size:.9rem; font-weight:700; color:var(--brown); list-style:none; transition:background .15s; }
+.faq-q:hover { background:rgba(245,184,46,.06); }
+.faq-q::-webkit-details-marker { display:none; }
+.faq-icon { width:28px; height:28px; border-radius:50%; background:var(--yellow); color:var(--brown); font-size:.78rem; font-weight:700; display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; }
+.faq-icon--a { background:var(--green); color:white; }
+.faq-a { display:flex; align-items:flex-start; gap:1rem; padding:0 1.5rem 1.1rem 1.5rem; }
+.faq-a p { font-size:.875rem; color:var(--muted); line-height:1.8; margin:0; padding-top:.2rem; }
+/* BIZ CONTACT */
+.biz-contact-box { display:grid; grid-template-columns:1fr 1fr; gap:2rem; max-width:700px; margin:0 auto; }
+.biz-tel-box,.biz-form-box { background:white; border-radius:16px; padding:2rem; text-align:center; box-shadow:0 4px 20px rgba(59,50,31,.07); }
+.biz-tel-label { font-size:.75rem; font-weight:700; color:var(--green); letter-spacing:.1em; margin-bottom:.5rem; }
+.biz-tel { display:block; font-family:'Lato',sans-serif; font-size:1.6rem; font-weight:300; color:var(--brown); text-decoration:none; letter-spacing:.05em; margin-bottom:.25rem; }
+.biz-tel-hours { font-size:.75rem; color:var(--muted); }
+.biz-form-box p { font-size:.875rem; color:var(--muted); margin-bottom:1rem; }
+@media (max-width:900px) {
+  .concerns-grid { grid-template-columns:1fr 1fr; }
+  .targets-grid { grid-template-columns:repeat(4,1fr); }
+  .biz-products-grid { grid-template-columns:repeat(3,1fr); }
+  .flow-grid { grid-template-columns:1fr 1fr; gap:1rem; }
+}
+@media (max-width:600px) {
+  .concerns-grid,.flow-grid,.biz-contact-box { grid-template-columns:1fr; }
+  .targets-grid { grid-template-columns:repeat(4,1fr); }
+  .biz-products-grid { grid-template-columns:repeat(3,1fr); }
+}
+@media (max-width:480px) {
+  .targets-grid { grid-template-columns:repeat(2,1fr); }
+  .biz-products-grid { grid-template-columns:repeat(2,1fr); }
+}
+</style>

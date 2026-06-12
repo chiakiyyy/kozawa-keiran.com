@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+  <defs>
+    <radialGradient id="ppbg" cx="50%" cy="50%" r="55%">
+      <stop offset="0%" stop-color="#FFF5F5"/>
+      <stop offset="100%" stop-color="#FFE8E0"/>
+    </radialGradient>
+    <radialGradient id="ppyolk" cx="40%" cy="38%" r="55%">
+      <stop offset="0%" stop-color="#F5D060"/>
+      <stop offset="100%" stop-color="#C88010"/>
+    </radialGradient>
+  </defs>
+  <rect width="500" height="500" fill="url(#ppbg)"/>
+  <g transform="translate(250,250)">
+    <ellipse cx="-80" cy="20" rx="62" ry="78" fill="#F5C0C0" stroke="#E0A0A0" stroke-width="2" opacity="0.85"/>
+    <ellipse cx="80" cy="20" rx="62" ry="78" fill="#FFCACA" stroke="#E0A0A0" stroke-width="2" opacity="0.85"/>
+    <ellipse cx="0" cy="0" rx="75" ry="95" fill="#FFBABA" stroke="#E09090" stroke-width="2"/>
+    <ellipse cx="0" cy="10" rx="40" ry="50" fill="url(#ppyolk)" opacity="0.55"/>
+    <ellipse cx="-16" cy="-28" rx="20" ry="12" fill="white" opacity="0.4" transform="rotate(-22,-16,-28)"/>
+  </g>
+  <text x="250" y="430" font-family="serif" font-size="20" fill="#C07080" text-anchor="middle" font-weight="bold">ピンクたまご</text>
+  <ellipse cx="80" cy="440" rx="52" ry="28" fill="#FFB0B0" opacity="0.45" transform="rotate(-35,80,440)"/>
+  <ellipse cx="420" cy="430" rx="46" ry="25" fill="#FFB0B0" opacity="0.4" transform="rotate(30,420,430)"/>
+</svg>

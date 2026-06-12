@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450">
+  <defs>
+    <linearGradient id="ffbg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFF8E0"/>
+      <stop offset="100%" stop-color="#F0E8C0"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="450" fill="url(#ffbg)"/>
+  <!-- 穀物 (たくさんの粒) -->
+  <g fill="#D4A030">
+    <ellipse cx="200" cy="260" rx="8" ry="12" transform="rotate(20,200,260)"/>
+    <ellipse cx="220" cy="245" rx="7" ry="11" transform="rotate(-15,220,245)"/>
+    <ellipse cx="240" cy="265" rx="8" ry="12" transform="rotate(35,240,265)"/>
+    <ellipse cx="180" cy="275" rx="7" ry="10" transform="rotate(-25,180,275)"/>
+    <ellipse cx="260" cy="250" rx="8" ry="12" transform="rotate(10,260,250)"/>
+    <ellipse cx="280" cy="268" rx="7" ry="11" transform="rotate(40,280,268)"/>
+    <ellipse cx="300" cy="255" rx="8" ry="12" transform="rotate(-20,300,255)"/>
+    <ellipse cx="160" cy="258" rx="7" ry="11" transform="rotate(15,160,258)"/>
+    <ellipse cx="320" cy="270" rx="7" ry="11" transform="rotate(30,320,270)"/>
+    <ellipse cx="340" cy="252" rx="8" ry="12" transform="rotate(-10,340,252)"/>
+    <ellipse cx="360" cy="267" rx="7" ry="10" transform="rotate(25,360,267)"/>
+    <ellipse cx="380" cy="255" rx="8" ry="12" transform="rotate(-30,380,255)"/>
+    <ellipse cx="400" cy="268" rx="7" ry="11" transform="rotate(18,400,268)"/>
+    <ellipse cx="210" cy="285" rx="8" ry="11" transform="rotate(-12,210,285)"/>
+    <ellipse cx="250" cy="280" rx="7" ry="10" transform="rotate(28,250,280)"/>
+    <ellipse cx="290" cy="285" rx="8" ry="12" transform="rotate(-8,290,285)"/>
+    <ellipse cx="330" cy="282" rx="7" ry="11" transform="rotate(22,330,282)"/>
+    <ellipse cx="370" cy="278" rx="8" ry="10" transform="rotate(-35,370,278)"/>
+  </g>
+  <!-- 穀物の山 -->
+  <ellipse cx="280" cy="320" rx="200" ry="70" fill="#C89020" opacity="0.5"/>
+  <ellipse cx="280" cy="300" rx="160" ry="55" fill="#D4A030" opacity="0.6"/>
+  <!-- 容器 -->
+  <path d="M80,320 Q120,420 280,430 Q440,420 480,320 Z" fill="#B87820" opacity="0.7"/>
+  <!-- 麦穂 -->
+  <g transform="translate(100,180)">
+    <line x1="0" y1="0" x2="0" y2="120" stroke="#C89020" stroke-width="3"/>
+    <ellipse cx="-8" cy="20" rx="6" ry="14" fill="#D4A030" transform="rotate(-20,-8,20)"/>
+    <ellipse cx="8" cy="30" rx="6" ry="14" fill="#D4A030" transform="rotate(20,8,30)"/>
+    <ellipse cx="-8" cy="50" rx="6" ry="14" fill="#D4A030" transform="rotate(-25,-8,50)"/>
+    <ellipse cx="8" cy="60" rx="6" ry="14" fill="#D4A030" transform="rotate(25,8,60)"/>
+    <ellipse cx="-8" cy="80" rx="6" ry="14" fill="#D4A030" transform="rotate(-20,-8,80)"/>
+    <ellipse cx="0" cy="10" rx="5" ry="12" fill="#C89020"/>
+  </g>
+  <g transform="translate(480,160)">
+    <line x1="0" y1="0" x2="0" y2="110" stroke="#C89020" stroke-width="3"/>
+    <ellipse cx="-8" cy="22" rx="6" ry="13" fill="#D4A030" transform="rotate(-20,-8,22)"/>
+    <ellipse cx="8" cy="35" rx="6" ry="13" fill="#D4A030" transform="rotate(20,8,35)"/>
+    <ellipse cx="-7" cy="55" rx="6" ry="13" fill="#D4A030" transform="rotate(-25,-7,55)"/>
+    <ellipse cx="7" cy="70" rx="6" ry="13" fill="#D4A030" transform="rotate(25,7,70)"/>
+    <ellipse cx="0" cy="12" rx="5" ry="11" fill="#C89020"/>
+  </g>
+  <text x="300" y="430" font-family="serif" font-size="18" fill="#5C3D1E" text-anchor="middle" font-weight="bold">こだわりの飼料</text>
+</svg>

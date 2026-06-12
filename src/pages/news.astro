@@ -1,0 +1,90 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+const cats = ['すべて','お知らせ','商品情報','営業日','イベント','重要なお知らせ'];
+const articles = [
+  { date:'2024.05.01', cat:'営業日',    title:'ゴールデンウィーク期間の営業について', href:'/news/detail' },
+  { date:'2024.04.10', cat:'商品情報',  title:'「こだわりのたまご」価格改定のお知らせ', href:'/news/detail' },
+  { date:'2024.03.15', cat:'お知らせ',  title:'ホームページをリニューアルしました', href:'/news/detail' },
+  { date:'2024.02.20', cat:'商品情報',  title:'春限定ギフトセットの販売を開始します', href:'/news/detail' },
+  { date:'2024.01.10', cat:'営業日',    title:'年始の営業開始のご案内', href:'/news/detail' },
+  { date:'2023.12.20', cat:'重要なお知らせ', title:'年末年始の休業のお知らせ', href:'/news/detail' },
+  { date:'2023.11.15', cat:'イベント',  title:'地域の食育イベントに出展します', href:'/news/detail' },
+  { date:'2023.10.01', cat:'お知らせ',  title:'業務用定期納品サービスの強化について', href:'/news/detail' },
+];
+---
+<Layout title="お知らせ｜小澤鶏卵" description="小澤鶏卵からのお知らせ・新着情報をご覧いただけます。">
+  <Header/>
+  <main>
+    <div class="page-hero">
+      <div class="container">
+        <span class="page-hero-en">NEWS</span>
+        <h1 class="page-hero-title">お知らせ</h1>
+        <p class="page-hero-sub">小澤鶏卵からの最新情報をお届けします</p>
+      </div>
+    </div>
+
+    <section class="news-sec">
+      <div class="container">
+        <!-- カテゴリフィルター -->
+        <div class="cat-tabs">
+          {cats.map((c, i) => (
+            <button class={`cat-btn ${i === 0 ? 'active' : ''}`}>{c}</button>
+          ))}
+        </div>
+
+        <!-- 記事一覧 -->
+        <ul class="article-list">
+          {articles.map(a => (
+            <li>
+              <a href={a.href} class="article-row">
+                <span class="art-date">{a.date}</span>
+                <span class={`art-cat art-cat--${a.cat === '重要なお知らせ' ? 'imp' : a.cat === '商品情報' ? 'prod' : a.cat === 'イベント' ? 'ev' : 'default'}`}>{a.cat}</span>
+                <span class="art-title">{a.title}</span>
+                <svg class="art-arr" width="16" height="12" viewBox="0 0 16 12" fill="none"><path d="M10 1l5 5-5 5M1 6h14" stroke="#F5B82E" stroke-width="1.8" stroke-linecap="round"/></svg>
+              </a>
+            </li>
+          ))}
+        </ul>
+
+        <!-- ページネーション -->
+        <div class="pagination">
+          <span class="page-num active">1</span>
+          <a href="#" class="page-num">2</a>
+          <a href="#" class="page-num">3</a>
+          <span class="page-ellipsis">…</span>
+          <a href="#" class="page-num">10</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer/>
+</Layout>
+<style>
+.container { max-width:900px; margin:0 auto; padding:0 2rem; }
+.page-hero { background:var(--bg2); padding:7rem 0 4rem; margin-top:70px; border-bottom:1px solid rgba(245,184,46,.2); }
+.page-hero-en { font-family:'Lato',sans-serif; font-size:.7rem; letter-spacing:.25em; color:var(--green); text-transform:uppercase; display:block; margin-bottom:.4rem; }
+.page-hero-title { font-family:'Noto Serif JP',serif; font-size:clamp(1.8rem,4vw,2.8rem); font-weight:700; color:var(--brown); }
+.page-hero-sub { font-size:.9rem; color:var(--muted); margin-top:.5rem; }
+.news-sec { padding:4rem 0 6rem; background:var(--bg); }
+.cat-tabs { display:flex; gap:.5rem; flex-wrap:wrap; margin-bottom:2.5rem; }
+.cat-btn { padding:.45rem 1.1rem; border-radius:999px; border:1.5px solid rgba(111,143,58,.3); background:white; color:var(--muted); font-size:.8rem; font-weight:700; cursor:pointer; transition:all .2s; }
+.cat-btn:hover,.cat-btn.active { background:var(--green); border-color:var(--green); color:white; }
+.article-list { list-style:none; margin:0; padding:0; }
+.article-row { display:flex; align-items:center; gap:1.25rem; padding:1.1rem .875rem; text-decoration:none; color:var(--brown); border-bottom:1px solid rgba(245,184,46,.2); border-radius:8px; transition:background .15s; flex-wrap:wrap; }
+.article-row:hover { background:rgba(245,184,46,.07); }
+.art-date { font-family:'Lato',sans-serif; font-size:.8rem; color:var(--muted); white-space:nowrap; min-width:5.5rem; }
+.art-cat { font-size:.7rem; font-weight:700; padding:.22rem .65rem; border-radius:999px; white-space:nowrap; }
+.art-cat--default { background:rgba(111,143,58,.12); color:var(--green); }
+.art-cat--prod { background:rgba(245,184,46,.18); color:#8B6010; }
+.art-cat--imp { background:rgba(200,40,40,.1); color:#C02828; }
+.art-cat--ev { background:rgba(60,100,200,.1); color:#3060C0; }
+.art-title { flex:1; font-size:.9rem; font-weight:500; }
+.art-arr { flex-shrink:0; }
+.pagination { display:flex; justify-content:center; gap:.5rem; margin-top:3rem; }
+.page-num { width:38px; height:38px; border-radius:8px; display:inline-flex; align-items:center; justify-content:center; font-size:.85rem; font-weight:700; text-decoration:none; color:var(--brown); background:white; border:1px solid rgba(245,184,46,.3); transition:all .2s; }
+.page-num.active { background:var(--yellow); border-color:var(--yellow); color:var(--brown); }
+.page-num:hover:not(.active) { background:rgba(245,184,46,.1); }
+.page-ellipsis { display:inline-flex; align-items:center; justify-content:center; width:38px; height:38px; color:var(--muted); }
+</style>

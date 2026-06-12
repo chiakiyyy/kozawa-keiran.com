@@ -1,0 +1,214 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+<Layout title="私たちについて｜小澤鶏卵" description="小澤鶏卵の想い・歴史・会社概要をご紹介します。地域の食卓に寄り添い続けて60年。">
+  <Header/>
+  <main>
+    <div class="page-hero">
+      <div class="container">
+        <span class="page-hero-en">ABOUT</span>
+        <h1 class="page-hero-title">私たちについて</h1>
+        <p class="page-hero-sub">小澤鶏卵の想いと歩みをご紹介します</p>
+      </div>
+    </div>
+
+    <!-- 想い -->
+    <section class="sec" id="philosophy">
+      <div class="container two-col">
+        <div class="col-img">
+          <div class="round-img">
+            <img src="/images/about_chickens.svg" alt="元気に育つ鶏たち" loading="lazy"/>
+          </div>
+        </div>
+        <div class="col-text">
+          <span class="sec-en">Philosophy</span>
+          <h2 class="sec-title mt">私たちの想い</h2>
+          <p>小澤鶏卵は1965年の創業以来、地域の食卓に新鮮で安心なたまごをお届けしてきました。</p>
+          <p>「幸せは、たまごのある食卓にある。」——そんな想いを胸に、私たちは毎日たまごを届け続けています。おひさまを浴びながら元気に育った鶏が産む卵は、ふっくらとした黄身と締まった白身が自慢です。</p>
+          <p>これからも、安全・安心・おいしいを三本柱に、地域の食インフラとして皆さまの食卓を支え続けます。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 地域とのつながり -->
+    <section class="sec sec--cream" id="local">
+      <div class="container two-col two-col--rev">
+        <div class="col-text">
+          <span class="sec-en">Local</span>
+          <h2 class="sec-title mt">地域とのつながり</h2>
+          <p>創業以来60年、私たちは地域の飲食店・給食施設・ご家庭と深いつながりを育んできました。顔の見えるお取引を大切に、お客様のニーズに寄り添ったご提案を続けています。</p>
+          <p>地元の農家・生産者とも緊密な連携をとり、地産地消の精神で地域経済の循環にも貢献しています。</p>
+        </div>
+        <div class="col-img">
+          <div class="round-img">
+            <img src="/images/hero_main.svg" alt="農場の風景" loading="lazy"/>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 安心安全 -->
+    <section class="sec" id="safety">
+      <div class="container">
+        <div class="center-head">
+          <span class="sec-en">Safety</span>
+          <h2 class="sec-title mt">安心安全への姿勢</h2>
+        </div>
+        <div class="three-grid">
+          {[
+            { num: '01', title: '徹底した衛生管理', body: '保管・仕分け・配送の全工程において、食品衛生法に基づいた厳格な基準を遵守しています。' },
+            { num: '02', title: '産地直送・当日入荷', body: '信頼できる生産者から直接仕入れ、採卵から最短で配送。常に新鮮な状態でお届けします。' },
+            { num: '03', title: 'トレーサビリティ', body: '仕入れ先農場の管理状況を定期的に確認し、問題発生時の迅速な対応体制を整えています。' },
+          ].map(item => (
+            <div class="feat-item">
+              <div class="feat-num">{item.num}</div>
+              <h3>{item.title}</h3>
+              <p>{item.body}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- 強み -->
+    <section class="sec sec--green" id="strength">
+      <div class="container">
+        <div class="center-head center-head--light">
+          <span class="sec-en" style="color:rgba(245,184,46,.8)">Strength</span>
+          <h2 class="sec-title mt" style="color:white">小澤鶏卵の強み</h2>
+        </div>
+        <div class="strength-grid">
+          {[
+            { icon: '🥚', title: '60年の実績', body: '1965年創業。地域に根ざした長年の信頼関係が私たちの基盤です。' },
+            { icon: '🚚', title: '安定供給', body: '業務用・家庭用を問わず、ご要望に合わせた安定的な納品体制を整えています。' },
+            { icon: '🌿', title: '品質へのこだわり', body: 'こだわりの飼料と清潔な飼育環境で育てた鶏が産む、高品質なたまごをお届けします。' },
+            { icon: '🤝', title: '地域密着サービス', body: 'きめ細かな対応と柔軟なサービスで、地域のお客様に寄り添います。' },
+          ].map(s => (
+            <div class="strength-card">
+              <div class="strength-icon">{s.icon}</div>
+              <h3>{s.title}</h3>
+              <p>{s.body}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- 会社概要 -->
+    <section class="sec" id="company">
+      <div class="container">
+        <div class="center-head">
+          <span class="sec-en">Company</span>
+          <h2 class="sec-title mt">会社概要</h2>
+        </div>
+        <div class="table-wrap">
+          <table class="info-table">
+            <tbody>
+              {[
+                ['会社名', '小澤鶏卵'],
+                ['代表者', '小澤 ○○'],
+                ['設立', '1965年（昭和40年）'],
+                ['所在地', '〒000-0000　○○県○○市○○町 0-0-0'],
+                ['電話番号', '0000-00-0000'],
+                ['メール', 'info@kozawa-keiran.com'],
+                ['営業時間', '月曜〜土曜 8:00〜17:00（日曜・祝日は休業）'],
+                ['事業内容', '鶏卵の販売・卸売 / 業務用鶏卵の定期納品 / 温泉卵・加工品の製造販売'],
+              ].map(([th, td]) => (
+                <tr>
+                  <th>{th}</th>
+                  <td>{td}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 沿革 -->
+    <section class="sec sec--cream" id="history">
+      <div class="container">
+        <div class="center-head">
+          <span class="sec-en">History</span>
+          <h2 class="sec-title mt">沿革</h2>
+        </div>
+        <ul class="timeline">
+          {[
+            ['1965年', '小澤鶏卵 創業'],
+            ['1972年', '法人化・株式会社設立'],
+            ['1985年', '業務用配送サービス開始'],
+            ['1998年', '新工場竣工・設備刷新'],
+            ['2010年', '温泉卵・加工品の製造販売開始'],
+            ['2020年', 'オンラインショップ開設'],
+            ['2024年', '創業60周年'],
+          ].map(([year, event]) => (
+            <li class="tl-item">
+              <span class="tl-year">{year}</span>
+              <div class="tl-dot"></div>
+              <span class="tl-event">{event}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-band">
+      <p>ご注文・ご相談はお気軽にどうぞ</p>
+      <a href="/contact" class="btn btn-primary">お問い合わせはこちら →</a>
+    </section>
+  </main>
+  <Footer/>
+</Layout>
+<style>
+.container { max-width:1100px; margin:0 auto; padding:0 2rem; }
+.sec { padding:6rem 0; background:var(--bg); }
+.sec--cream { background:var(--bg2); }
+.sec--green { background:#4A6A20; }
+.mt { margin-top:.6rem; }
+.sec p { font-size:.9rem; color:var(--muted); line-height:1.9; margin-bottom:1rem; }
+.two-col { display:grid; grid-template-columns:1fr 1.1fr; gap:5rem; align-items:center; }
+.two-col--rev .col-img { order:2; }
+.two-col--rev .col-text { order:1; }
+.round-img { width:min(380px,100%); aspect-ratio:1; border-radius:50%; overflow:hidden; border:4px solid rgba(245,184,46,.3); box-shadow:0 8px 32px rgba(59,50,31,.12); margin:0 auto; }
+.round-img img { width:100%; height:100%; object-fit:cover; }
+.center-head { text-align:center; margin-bottom:3rem; }
+.center-head--light .sec-en { color:rgba(245,184,46,.8); }
+.three-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2rem; }
+.feat-item { padding:2rem; background:white; border-radius:16px; box-shadow:0 4px 20px rgba(59,50,31,.07); }
+.feat-num { font-family:'Lato',sans-serif; font-size:.65rem; letter-spacing:.15em; color:var(--yellow); margin-bottom:.75rem; }
+.feat-item h3 { font-family:'Noto Serif JP',serif; font-size:1rem; font-weight:700; color:var(--brown); margin-bottom:.5rem; }
+.feat-item p { font-size:.85rem; color:var(--muted); line-height:1.8; margin:0; }
+.strength-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1.5rem; }
+.strength-card { background:rgba(255,255,255,.12); border:1px solid rgba(245,184,46,.2); border-radius:16px; padding:1.75rem 1.5rem; text-align:center; }
+.strength-icon { font-size:2rem; margin-bottom:.75rem; }
+.strength-card h3 { font-family:'Noto Serif JP',serif; font-size:.95rem; font-weight:700; color:white; margin-bottom:.5rem; }
+.strength-card p { font-size:.8rem; color:rgba(255,255,255,.65); line-height:1.7; margin:0; }
+.table-wrap { max-width:700px; margin:0 auto; }
+.info-table { width:100%; border-collapse:collapse; }
+.info-table tr { border-bottom:1px solid rgba(245,184,46,.2); }
+.info-table th { padding:1rem 1.25rem 1rem 0; font-size:.85rem; font-weight:700; color:var(--brown); text-align:left; white-space:nowrap; width:9rem; vertical-align:top; }
+.info-table td { padding:1rem 0; font-size:.875rem; color:var(--muted); line-height:1.7; vertical-align:top; }
+.timeline { list-style:none; margin:0 auto; padding:0; max-width:600px; display:flex; flex-direction:column; gap:0; }
+.tl-item { display:grid; grid-template-columns:7rem 24px 1fr; align-items:center; gap:.75rem; padding:.875rem 0; border-bottom:1px solid rgba(245,184,46,.18); }
+.tl-year { font-family:'Lato',sans-serif; font-size:.85rem; font-weight:700; color:var(--green); text-align:right; }
+.tl-dot { width:12px; height:12px; border-radius:50%; background:var(--yellow); margin:0 auto; flex-shrink:0; }
+.tl-event { font-size:.9rem; color:var(--brown); font-weight:500; }
+.cta-band { background:var(--yellow); padding:3rem 2rem; text-align:center; display:flex; flex-direction:column; align-items:center; gap:1.25rem; }
+.cta-band p { font-family:'Noto Serif JP',serif; font-size:1.1rem; font-weight:700; color:var(--brown); margin:0; }
+.page-hero { background:var(--bg2); padding:7rem 0 4rem; margin-top:70px; border-bottom:1px solid rgba(245,184,46,.2); }
+.page-hero-en { font-family:'Lato',sans-serif; font-size:.7rem; letter-spacing:.25em; color:var(--green); text-transform:uppercase; display:block; margin-bottom:.4rem; }
+.page-hero-title { font-family:'Noto Serif JP',serif; font-size:clamp(1.8rem,4vw,2.8rem); font-weight:700; color:var(--brown); margin-bottom:.5rem; }
+.page-hero-sub { font-size:.9rem; color:var(--muted); }
+@media (max-width:900px) {
+  .two-col,.two-col--rev { grid-template-columns:1fr; gap:2.5rem; }
+  .two-col--rev .col-img,.two-col--rev .col-text { order:unset; }
+  .three-grid,.strength-grid { grid-template-columns:1fr 1fr; }
+}
+@media (max-width:600px) {
+  .three-grid,.strength-grid { grid-template-columns:1fr; }
+  .tl-item { grid-template-columns:6rem 20px 1fr; }
+}
+</style>
