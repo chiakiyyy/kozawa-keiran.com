@@ -4,25 +4,29 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 ---
 
-<Layout title="小澤鶏卵｜新鮮で安心なたまごを地域へ" description="小澤鶏卵は地域の飲食店・施設・ご家庭へ、安全で高品質なたまごをお届けします。幸せは、たまごのある食卓にある。">
+<Layout
+  title="小澤鶏卵｜新鮮で安心なたまごを地域へ"
+  description="幸せは、たまごのある食卓にある。小澤鶏卵は地域の飲食店・施設・ご家庭へ、安全で高品質なたまごをお届けします。"
+>
   <Header />
   <main>
 
-    <!-- ============ HERO ============ -->
+    <!-- ============================================================
+         HERO
+    ============================================================ -->
     <section class="hero">
-      <!-- 左: テキスト -->
       <div class="hero-left">
-        <!-- 卵の装飾（左上） -->
-        <div class="hero-egg-tl" aria-hidden="true">
+        <div class="hero-egg-deco" aria-hidden="true">
           <svg viewBox="0 0 70 88" xmlns="http://www.w3.org/2000/svg">
             <ellipse cx="35" cy="47" rx="30" ry="38" fill="#FFF3C0" stroke="#F5B82E" stroke-width="1.5"/>
-            <ellipse cx="35" cy="52" rx="15" ry="20" fill="#F5B82E" opacity="0.35"/>
+            <ellipse cx="35" cy="52" rx="15" ry="19" fill="#F5B82E" opacity="0.32"/>
           </svg>
         </div>
 
         <h1 class="hero-title">
           幸せは、<br/>
-          <span class="hero-yellow">たまご</span>のある食卓にある。
+          <em class="hero-em">たまご</em>のある<br/>
+          食卓にある。
         </h1>
 
         <p class="hero-catch">
@@ -36,46 +40,127 @@ import Footer from '../components/Footer.astro';
           毎日新鮮で安心なたまごをお届けしています。
         </p>
 
-        <a href="/about" class="hero-btn">私たちについて　→</a>
+        <div class="hero-ctas">
+          <a href="/business" class="hero-btn-primary">法人取引のご相談</a>
+          <a href="/products" class="hero-btn-ghost">商品を見る</a>
+        </div>
 
-        <!-- ドット装飾（右下） -->
+        <!-- ドット装飾 -->
         <div class="hero-dots" aria-hidden="true">
-          {Array.from({length:15}).map((_,i) => (
-            <span class="hdot" style={`--n:${i}`}></span>
-          ))}
+          {Array.from({length:15}).map((_,i) => <span class="hdot" style={`--n:${i}`}></span>)}
         </div>
       </div>
 
-      <!-- 右: 写真 -->
       <div class="hero-right">
-        <div class="hero-photo-wrap">
-          <!-- 白い有機曲線でくり抜くSVGマスク -->
-          <div class="hero-photo-mask">
-            <img src="/images/hero_main.svg" alt="農場と新鮮なたまご" loading="eager"/>
+        <div class="hero-photo">
+          <img src="/images/hero_main.svg" alt="農場と新鮮なたまご" loading="eager"/>
+        </div>
+        <!-- 左側の有機白カーブ -->
+        <svg class="hero-curve" viewBox="0 0 140 700" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M140,0 L0,0 L0,700 L140,700 Q20,560 50,350 Q80,140 140,0 Z" fill="#FFFAF0"/>
+        </svg>
+      </div>
+    </section>
+
+
+    <!-- ============================================================
+         FOR BUSINESS（最重要 — HEROの直下）
+    ============================================================ -->
+    <section class="for-biz">
+      <div class="for-biz-inner">
+        <div class="for-biz-text">
+          <span class="sec-badge sec-badge--dark">FOR BUSINESS</span>
+          <h2 class="for-biz-title">
+            毎日使うたまごを、<br/>
+            安定してお届けします。
+          </h2>
+          <p class="for-biz-body">
+            飲食店・ホテル・給食施設・スーパーなど、業務用たまごの安定供給はお任せください。
+            大量注文・定期納品・サイズ規格指定など、柔軟に対応します。
+          </p>
+
+          <!-- 対応業種アイコン -->
+          <div class="biz-targets">
+            {[
+              {icon:'🍜', label:'ラーメン店'},
+              {icon:'🎂', label:'洋菓子店'},
+              {icon:'🏨', label:'ホテル'},
+              {icon:'🛒', label:'スーパー'},
+              {icon:'🏫', label:'給食施設'},
+              {icon:'🎪', label:'催事・イベント'},
+            ].map(t => (
+              <div class="biz-target">
+                <span class="biz-target-icon">{t.icon}</span>
+                <span class="biz-target-label">{t.label}</span>
+              </div>
+            ))}
           </div>
-          <!-- 左側の有機カーブ（白） -->
-          <svg class="hero-curve" viewBox="0 0 160 700" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" aria-hidden="true">
-            <path d="M160,0 L0,0 L0,700 L160,700 Q40,580 60,350 Q80,120 160,0 Z" fill="#FFFAF0"/>
-          </svg>
+
+          <a href="/business" class="btn-biz">
+            法人取引のご相談はこちら
+            <svg width="16" height="12" viewBox="0 0 16 12" fill="none"><path d="M10 1l5 5-5 5M1 6h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </a>
+        </div>
+
+        <div class="for-biz-visual" aria-hidden="true">
+          <img src="/images/business_hero.svg" alt=""/>
+          <div class="for-biz-card">
+            <div class="fbc-num">01</div>
+            <p class="fbc-text">ご注文・<br/>ヒアリング</p>
+            <div class="fbc-arrow">↓</div>
+            <div class="fbc-num">02</div>
+            <p class="fbc-text">ご提案・<br/>お見積り</p>
+            <div class="fbc-arrow">↓</div>
+            <div class="fbc-num">03</div>
+            <p class="fbc-text">納品<br/>スタート</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- ============ ABOUT ============ -->
+
+    <!-- ============================================================
+         FOR HOME
+    ============================================================ -->
+    <section class="for-home">
+      <div class="for-home-inner">
+        <div class="for-home-img">
+          <img src="/images/hero_main.svg" alt="家庭用たまごイメージ" loading="lazy"/>
+        </div>
+        <div class="for-home-text">
+          <span class="sec-badge">FOR HOME</span>
+          <h2 class="for-home-title">
+            毎日の食卓に、<br/>
+            安心でおいしいたまごを。
+          </h2>
+          <p class="for-home-body">
+            ご家庭用・ギフト・通販・定期購入など、個人のお客様にも幅広くご対応します。
+            産地直送の新鮮なたまごを、毎日の食卓へお届けします。
+          </p>
+          <div class="for-home-links">
+            <a href="/shop" class="btn-home-primary">個人のお客様はこちら →</a>
+            <a href="/products" class="btn-home-ghost">商品ラインナップ →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================================================
+         ABOUT
+    ============================================================ -->
     <section class="about">
       <!-- 左: 丸い鶏写真 -->
       <div class="about-img-wrap">
         <div class="about-circle">
           <img src="/images/about_chickens.svg" alt="元気に育つ鶏たち" loading="lazy"/>
         </div>
-        <!-- 緑の楕円装飾 -->
-        <div class="about-deco-green" aria-hidden="true">
+        <div class="about-deco-g" aria-hidden="true">
           <svg viewBox="0 0 80 100" xmlns="http://www.w3.org/2000/svg">
             <ellipse cx="40" cy="53" rx="34" ry="44" fill="#EAF0DA" stroke="#6F8F3A" stroke-width="1"/>
           </svg>
         </div>
-        <!-- 黄の楕円装飾 -->
-        <div class="about-deco-yellow" aria-hidden="true">
+        <div class="about-deco-y" aria-hidden="true">
           <svg viewBox="0 0 60 75" xmlns="http://www.w3.org/2000/svg">
             <ellipse cx="30" cy="40" rx="26" ry="32" fill="#FFF3C0" stroke="#F5B82E" stroke-width="1"/>
           </svg>
@@ -87,33 +172,98 @@ import Footer from '../components/Footer.astro';
         <span class="about-en">ABOUT</span>
         <span class="about-ja">私たちについて</span>
         <p class="about-body">
-          小澤鶏卵は、茨城県の自然豊かな環境の中で、<br/>
-          鶏の健康を第一に考え、こだわりの飼料と<br/>
-          きれいな水で鶏を育てています。<br/>
-          新鮮でおいしいたまごを、まごころ込めて<br/>
-          お届けします。
+          小澤鶏卵は、自然豊かな環境の中で、鶏の健康を第一に考え、こだわりの飼料ときれいな水で鶏を育てています。
+          新鮮でおいしいたまごを、まごころ込めてお届けします。
         </p>
-        <a href="/about" class="about-btn">詳しく見る　→</a>
+        <a href="/about" class="btn-green">詳しく見る　→</a>
       </div>
     </section>
 
-    <!-- ============ NEWS ============ -->
-    <section class="news">
-      <!-- 左: ラベル -->
+
+    <!-- ============================================================
+         FEATURE
+    ============================================================ -->
+    <section class="feature-sec">
+      <div class="feature-sec-inner">
+        <div class="feature-label">
+          <span class="fl-en">FEATURE</span>
+          <span class="fl-ja">こだわり</span>
+        </div>
+        <div class="feature-cards">
+          {[
+            {img:'/images/feature_feed.svg',   name:'こだわりの飼料',     desc:'鶏の健康を考え、厳選した原料を使用した自家配合飼料を与えています。'},
+            {img:'/images/feature_env.svg',    name:'快適な飼育環境',     desc:'清潔で風通しの良い鶏舎で、のびのびと育った鶏から産まれています。'},
+            {img:'/images/feature_water.svg',  name:'おいしい水',         desc:'地下から汲み上げたきれいな水をたっぷり与えています。'},
+            {img:'/images/feature_safety.svg', name:'安心・安全への取り組み', desc:'徹底した衛生管理のもと、安心・安全なたまごをお届けします。'},
+          ].map(f => (
+            <article class="fcard">
+              <div class="fcard-img">
+                <img src={f.img} alt={f.name} loading="lazy"/>
+              </div>
+              <div class="fcard-body">
+                <h3 class="fcard-name">{f.name}</h3>
+                <p class="fcard-desc">{f.desc}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================================================
+         LINE UP
+    ============================================================ -->
+    <section class="lineup-sec">
+      <div class="lineup-deco-y" aria-hidden="true"></div>
+      <div class="lineup-deco-g" aria-hidden="true"></div>
+      <div class="lineup-sec-inner">
+        <div class="lineup-label">
+          <span class="ll-en">LINE UP</span>
+          <span class="ll-ja">商品紹介</span>
+        </div>
+        <div class="lineup-cards">
+          {[
+            {img:'/images/product_kodawari.svg', name:'こだわりのたまご',   desc:'コクと甘みが特徴の、当社自慢のたまごです。',             href:'/products#kodawari'},
+            {img:'/images/product_pink.svg',     name:'ピンクたまご',       desc:'やさしいピンク色の殻が特徴のたまごです。',               href:'/products#pink'},
+            {img:'/images/product_araucana.svg', name:'アローカナのたまご', desc:'南米原産の鶏が産む、希少な青い殻のたまごです。',         href:'/products#araucana'},
+            {img:'/images/product_gift.svg',     name:'ギフトセット',       desc:'大切な方への贈り物に。ギフトセットをご用意しています。', href:'/products#gift'},
+          ].map(p => (
+            <article class="lcard">
+              <a href={p.href} class="lcard-link-wrap">
+                <div class="lcard-img">
+                  <img src={p.img} alt={p.name} loading="lazy"/>
+                </div>
+                <div class="lcard-body">
+                  <h3 class="lcard-name">{p.name}</h3>
+                  <p class="lcard-desc">{p.desc}</p>
+                  <span class="lcard-more">詳しく見る　→</span>
+                </div>
+              </a>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================================================
+         NEWS
+    ============================================================ -->
+    <section class="news-sec">
       <div class="news-label">
-        <span class="news-en">NEWS</span>
-        <span class="news-ja">お知らせ</span>
+        <span class="nl-en">NEWS</span>
+        <span class="nl-ja">お知らせ</span>
       </div>
 
-      <!-- 中: リスト -->
       <ul class="news-list">
         {[
-          { date:'2024.05.01', title:'ゴールデンウィーク期間の営業について' },
-          { date:'2024.04.10', title:'「こだわりのたまご」価格改定のお知らせ' },
-          { date:'2024.03.15', title:'ホームページをリニューアルしました' },
+          {date:'2024.05.01', title:'ゴールデンウィーク期間の営業について'},
+          {date:'2024.04.10', title:'「こだわりのたまご」価格改定のお知らせ'},
+          {date:'2024.03.15', title:'ホームページをリニューアルしました'},
         ].map(n => (
           <li>
-            <a href="/news" class="news-row">
+            <a href="/news" class="nrow">
               <span class="ndate">{n.date}</span>
               <span class="ntitle">{n.title}</span>
               <svg width="14" height="10" viewBox="0 0 14 10" fill="none" class="narr">
@@ -124,7 +274,6 @@ import Footer from '../components/Footer.astro';
         ))}
       </ul>
 
-      <!-- 右: 丸い卵写真 -->
       <div class="news-img">
         <div class="news-circle">
           <img src="/images/news_eggs.svg" alt="たまごイメージ" loading="lazy"/>
@@ -132,85 +281,20 @@ import Footer from '../components/Footer.astro';
       </div>
     </section>
 
-    <!-- ============ LINE UP ============ -->
-    <section class="lineup">
-      <!-- 黄色と緑の丸い装飾 -->
-      <div class="lineup-deco-y" aria-hidden="true"></div>
-      <div class="lineup-deco-g" aria-hidden="true"></div>
 
-      <!-- 左: 縦書きラベル -->
-      <div class="lineup-label">
-        <span class="lineup-en">LINE UP</span>
-        <span class="lineup-ja">商品紹介</span>
-      </div>
-
-      <!-- 右: カードグリッド -->
-      <div class="lineup-cards">
-        {[
-          { img:'/images/product_kodawari.svg', name:'こだわりのたまご', desc:'コクと甘みが特徴の、当社自慢のたまごです。', href:'/products#kodawari' },
-          { img:'/images/product_pink.svg',     name:'ピンクたまご',    desc:'やさしいピンク色の殻が特徴のたまごです。', href:'/products#pink' },
-          { img:'/images/product_araucana.svg', name:'アローカナのたまご', desc:'南米原産の鶏が産む、希少な青い殻のたまごです。', href:'/products#araucana' },
-          { img:'/images/product_gift.svg',     name:'ギフトセット',    desc:'大切な方への贈り物に。ギフトセットをご用意しています。', href:'/products#gift' },
-        ].map(p => (
-          <article class="lcard">
-            <div class="lcard-img">
-              <img src={p.img} alt={p.name} loading="lazy"/>
-            </div>
-            <div class="lcard-body">
-              <h3 class="lcard-name">{p.name}</h3>
-              <p class="lcard-desc">{p.desc}</p>
-              <a href={p.href} class="lcard-link">
-                詳しく見る　→
-              </a>
-            </div>
-          </article>
-        ))}
-      </div>
-    </section>
-
-    <!-- ============ FEATURE ============ -->
-    <section class="feature"><div class="feature-inner">
-      <!-- 左: 縦書きラベル -->
-      <div class="feature-label">
-        <span class="feature-en">FEATURE</span>
-        <span class="feature-ja">こだわり</span>
-      </div>
-
-      <!-- 右: カードグリッド -->
-      <div class="feature-cards">
-        {[
-          { img:'/images/feature_feed.svg',   name:'こだわりの飼料',     desc:'鶏の健康を考え、厳選した原料を使用した自家配合飼料を与えています。' },
-          { img:'/images/feature_env.svg',    name:'快適な飼育環境',     desc:'清潔で風通しの良い鶏舎で、のびのびと育った鶏から産まれています。' },
-          { img:'/images/feature_water.svg',  name:'おいしい水',         desc:'地下から汲み上げたきれいな水をたっぷり与えています。' },
-          { img:'/images/feature_safety.svg', name:'安心・安全への取り組み', desc:'徹底した衛生管理のもと、安心・安全なたまごをお届けします。' },
-        ].map(f => (
-          <article class="fcard">
-            <div class="fcard-img">
-              <img src={f.img} alt={f.name} loading="lazy"/>
-            </div>
-            <div class="fcard-body">
-              <h3 class="fcard-name">{f.name}</h3>
-              <p class="fcard-desc">{f.desc}</p>
-            </div>
-          </article>
-        ))}
-      </div>
-      </div><!-- /feature-inner -->
-    </section>
-
-    <!-- ============ CONTACT ============ -->
-    <section class="contact">
-      <!-- 左: テキスト -->
-      <div class="contact-left">
-        <span class="contact-en">CONTACT</span>
-        <span class="contact-ja">お問い合わせ</span>
-        <p class="contact-body">
+    <!-- ============================================================
+         CONTACT
+    ============================================================ -->
+    <section class="contact-sec">
+      <div class="contact-text">
+        <span class="ct-en">CONTACT</span>
+        <span class="ct-ja">お問い合わせ</span>
+        <p class="ct-body">
           ご注文やご質問など、<br/>
           お気軽にお問い合わせください。
         </p>
       </div>
 
-      <!-- 中: ボタン -->
       <div class="contact-center">
         <a href="/contact" class="contact-btn">
           <svg width="18" height="14" viewBox="0 0 18 14" fill="none">
@@ -221,9 +305,9 @@ import Footer from '../components/Footer.astro';
         </a>
       </div>
 
-      <!-- 右: 卵料理写真 -->
-      <div class="contact-img" aria-hidden="true">
+      <div class="contact-photo" aria-hidden="true">
         <img src="/images/contact_bg.svg" alt=""/>
+        <div class="contact-photo-fade"></div>
       </div>
     </section>
 
@@ -232,465 +316,403 @@ import Footer from '../components/Footer.astro';
 </Layout>
 
 <style>
-/* ==============================
+/* ====================================================
+   共通
+==================================================== */
+.btn-green {
+  display: inline-flex; align-items: center; gap: .5rem;
+  padding: .85rem 2rem; background: #6F8F3A; color: white;
+  font-size: .875rem; font-weight: 700; border-radius: 999px;
+  text-decoration: none; box-shadow: 0 4px 14px rgba(111,143,58,.3);
+  transition: all .22s;
+}
+.btn-green:hover { background: #4A6A20; transform: translateY(-2px); }
+
+/* ====================================================
    HERO
-============================== */
+==================================================== */
 .hero {
   display: grid;
   grid-template-columns: 1fr 1fr;
   min-height: calc(100svh - 70px);
   margin-top: 70px;
-  background: var(--bg);
+  background: #FFFAF0;
   overflow: hidden;
-  position: relative;
 }
 
-/* 左 */
 .hero-left {
-  padding: 5rem 3rem 4rem 4rem;
+  padding: 5rem 3rem 4rem 5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   position: relative;
 }
 
-.hero-egg-tl {
-  position: absolute;
-  top: 3rem;
-  left: 2.5rem;
-  width: 52px;
-  opacity: .75;
+.hero-egg-deco {
+  position: absolute; top: 3rem; left: 3rem;
+  width: 52px; opacity: .7;
 }
 
 .hero-title {
   font-family: 'Noto Serif JP', serif;
-  font-size: clamp(2rem, 3.8vw, 3.2rem);
-  font-weight: 700;
-  color: var(--brown);
-  line-height: 1.5;
-  letter-spacing: .03em;
-  margin-bottom: 1.5rem;
+  font-size: clamp(1.9rem, 3.5vw, 3.1rem);
+  font-weight: 700; color: #3B321F;
+  line-height: 1.55; letter-spacing: .03em;
+  margin-bottom: 1.4rem;
 }
-
-.hero-yellow { color: var(--yellow); }
+.hero-em { font-style: normal; color: #F5B82E; }
 
 .hero-catch {
-  font-size: .9rem;
-  color: var(--muted);
-  line-height: 2;
-  margin-bottom: 1.25rem;
+  font-size: .875rem; color: #7A6A4A;
+  line-height: 2; margin-bottom: 1.1rem;
 }
 
 .hero-body {
-  font-size: .9rem;
-  color: var(--brown);
-  line-height: 1.9;
-  margin-bottom: 2rem;
+  font-size: .875rem; color: #3B321F;
+  line-height: 1.9; margin-bottom: 2rem;
 }
 
-.hero-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: .5rem;
-  padding: .875rem 2.25rem;
-  background: var(--yellow);
-  color: var(--brown);
-  font-size: .875rem;
-  font-weight: 700;
-  border-radius: 999px;
-  text-decoration: none;
-  width: fit-content;
+.hero-ctas { display: flex; gap: .875rem; flex-wrap: wrap; }
+
+.hero-btn-primary {
+  display: inline-flex; align-items: center; gap: .5rem;
+  padding: .9rem 1.75rem;
+  background: #F5B82E; color: #3B321F;
+  font-size: .875rem; font-weight: 700;
+  border-radius: 999px; text-decoration: none;
   box-shadow: 0 4px 14px rgba(245,184,46,.4);
-  transition: all .22s;
+  transition: all .22s; white-space: nowrap;
 }
-.hero-btn:hover { background: #E8A818; transform: translateY(-2px); }
+.hero-btn-primary:hover { background: #E8A818; transform: translateY(-2px); }
+
+.hero-btn-ghost {
+  display: inline-flex; align-items: center;
+  padding: .9rem 1.75rem;
+  border: 2px solid #6F8F3A; color: #6F8F3A;
+  font-size: .875rem; font-weight: 700;
+  border-radius: 999px; text-decoration: none;
+  background: white; transition: all .22s; white-space: nowrap;
+}
+.hero-btn-ghost:hover { background: #6F8F3A; color: white; }
 
 .hero-dots {
-  position: absolute;
-  bottom: 2.5rem;
-  right: 1.5rem;
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 7px;
-  opacity: .55;
+  position: absolute; bottom: 2.5rem; right: 1.5rem;
+  display: grid; grid-template-columns: repeat(5,1fr); gap: 6px;
+  opacity: .5;
 }
-.hdot {
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  background: var(--yellow);
-}
+.hdot { width: 6px; height: 6px; border-radius: 50%; background: #F5B82E; }
 .hdot:nth-child(3n) { background: #D4E4B0; }
 
-/* 右 */
-.hero-right {
-  position: relative;
-  overflow: hidden;
-}
-
-.hero-photo-wrap {
-  position: absolute;
-  inset: 0;
-}
-
-.hero-photo-mask {
-  position: absolute;
-  inset: 0;
-}
-.hero-photo-mask img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-/* 白いカーブ（左側） */
+.hero-right { position: relative; overflow: hidden; }
+.hero-photo { position: absolute; inset: 0; }
+.hero-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .hero-curve {
-  position: absolute;
-  left: -1px; top: 0; bottom: 0;
-  width: 140px;
-  height: 100%;
-  z-index: 1;
+  position: absolute; left: -1px; top: 0; bottom: 0;
+  width: 130px; height: 100%; z-index: 1;
 }
 
-/* ==============================
-   ABOUT
-============================== */
-.about {
-  display: grid;
-  grid-template-columns: 1fr 1.15fr;
-  gap: 5rem;
-  align-items: center;
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 6rem 2rem;
+
+/* ====================================================
+   FOR BUSINESS
+==================================================== */
+.for-biz {
+  background: #2A4A20;
+  padding: 6rem 0;
+}
+.for-biz-inner {
+  max-width: 1100px; margin: 0 auto; padding: 0 2rem;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 5rem; align-items: center;
 }
 
-.about-img-wrap {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.about-circle {
-  width: min(380px, 100%);
-  aspect-ratio: 1;
-  border-radius: 50%;
-  overflow: hidden;
-  position: relative;
-  z-index: 1;
-  box-shadow: 0 8px 32px rgba(59,50,31,.1);
-}
-.about-circle img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-}
-
-.about-deco-green {
-  position: absolute;
-  bottom: -10px; right: 0px;
-  width: 90px; opacity: .75; z-index: 0;
-}
-.about-deco-yellow {
-  position: absolute;
-  top: 10px; right: -14px;
-  width: 65px; opacity: .7; z-index: 0;
-}
-
-.about-en {
+.sec-badge {
+  display: inline-block;
   font-family: 'Lato', sans-serif;
-  font-size: 1.1rem;
-  font-weight: 700;
-  letter-spacing: .2em;
-  color: var(--green);
-  display: block;
-}
-.about-ja {
-  font-size: .75rem;
-  color: var(--muted);
-  letter-spacing: .1em;
-  display: block;
-  margin-top: 3px;
+  font-size: .65rem; font-weight: 700;
+  letter-spacing: .22em; text-transform: uppercase;
+  padding: .3rem .9rem;
+  border: 1px solid rgba(245,184,46,.5);
+  color: rgba(245,184,46,.85);
+  border-radius: 999px;
   margin-bottom: 1.25rem;
 }
-.about-body {
-  font-size: .9rem;
-  color: var(--muted);
-  line-height: 2;
-  margin-bottom: 1.75rem;
+.sec-badge--dark { background: rgba(245,184,46,.1); }
+
+.for-biz-title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: clamp(1.5rem, 2.8vw, 2.25rem);
+  font-weight: 700; color: white;
+  line-height: 1.55; margin-bottom: 1rem;
 }
-.about-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: .5rem;
-  padding: .8rem 2rem;
-  background: var(--green);
-  color: white;
-  font-size: .875rem;
-  font-weight: 700;
-  border-radius: 999px;
-  text-decoration: none;
+
+.for-biz-body {
+  font-size: .9rem; color: rgba(255,255,255,.72);
+  line-height: 1.9; margin-bottom: 2rem;
+}
+
+.biz-targets {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: .625rem; margin-bottom: 2rem;
+}
+.biz-target {
+  display: flex; flex-direction: column; align-items: center;
+  gap: .3rem; padding: .75rem .5rem;
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 10px;
+  transition: background .2s;
+}
+.biz-target:hover { background: rgba(255,255,255,.12); }
+.biz-target-icon { font-size: 1.4rem; line-height: 1; }
+.biz-target-label { font-size: .72rem; color: rgba(255,255,255,.75); font-weight: 500; text-align: center; }
+
+.btn-biz {
+  display: inline-flex; align-items: center; gap: .6rem;
+  padding: 1rem 2.25rem;
+  background: #F5B82E; color: #3B321F;
+  font-size: .9rem; font-weight: 700;
+  border-radius: 999px; text-decoration: none;
+  box-shadow: 0 4px 18px rgba(245,184,46,.45);
+  transition: all .22s;
+}
+.btn-biz:hover { background: #E8A818; transform: translateY(-2px); }
+
+.for-biz-visual {
+  position: relative; border-radius: 16px; overflow: hidden;
+  min-height: 400px;
+}
+.for-biz-visual img {
+  width: 100%; height: 100%; object-fit: cover;
+  display: block; opacity: .5;
+  position: absolute; inset: 0;
+}
+.for-biz-card {
+  position: absolute; right: 0; top: 0; bottom: 0;
+  width: 130px;
+  background: rgba(255,255,255,.96);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: .4rem; padding: 1.5rem 1rem;
+}
+.fbc-num {
+  font-family: 'Lato', sans-serif;
+  font-size: .65rem; font-weight: 700;
+  letter-spacing: .15em; color: #F5B82E;
+  width: 28px; height: 28px; border-radius: 50%;
+  background: rgba(245,184,46,.12);
+  display: flex; align-items: center; justify-content: center;
+}
+.fbc-text { font-size: .75rem; font-weight: 700; color: #3B321F; text-align: center; line-height: 1.5; }
+.fbc-arrow { font-size: .8rem; color: #6F8F3A; opacity: .6; }
+
+
+/* ====================================================
+   FOR HOME
+==================================================== */
+.for-home {
+  background: #F7F1DF;
+  padding: 6rem 0;
+}
+.for-home-inner {
+  max-width: 1100px; margin: 0 auto; padding: 0 2rem;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 5rem; align-items: center;
+}
+.for-home-img {
+  border-radius: 20px; overflow: hidden;
+  box-shadow: 0 8px 32px rgba(59,50,31,.12);
+}
+.for-home-img img {
+  width: 100%; height: 400px; object-fit: cover; display: block;
+}
+.sec-badge { /* for HOME variant */ }
+.for-home-text .sec-badge {
+  border-color: rgba(111,143,58,.4);
+  color: #6F8F3A; background: rgba(111,143,58,.08);
+}
+.for-home-title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: clamp(1.5rem, 2.8vw, 2.25rem);
+  font-weight: 700; color: #3B321F;
+  line-height: 1.55; margin-bottom: 1rem;
+}
+.for-home-body {
+  font-size: .9rem; color: #7A6A4A;
+  line-height: 1.9; margin-bottom: 2rem;
+}
+.for-home-links { display: flex; flex-direction: column; gap: .875rem; width: fit-content; }
+.btn-home-primary {
+  display: inline-flex; align-items: center;
+  padding: .9rem 2rem;
+  background: #6F8F3A; color: white;
+  font-size: .875rem; font-weight: 700;
+  border-radius: 999px; text-decoration: none;
   box-shadow: 0 4px 14px rgba(111,143,58,.3);
   transition: all .22s;
 }
-.about-btn:hover { background: var(--green-dk); transform: translateY(-2px); }
+.btn-home-primary:hover { background: #4A6A20; transform: translateY(-2px); }
+.btn-home-ghost {
+  display: inline-flex; align-items: center;
+  padding: .9rem 2rem;
+  border: 2px solid #6F8F3A; color: #6F8F3A;
+  font-size: .875rem; font-weight: 700;
+  border-radius: 999px; text-decoration: none;
+  background: white; transition: all .22s;
+}
+.btn-home-ghost:hover { background: #6F8F3A; color: white; }
 
-/* ==============================
-   NEWS
-============================== */
-.news {
-  background: var(--bg2);
-  display: grid;
-  grid-template-columns: 180px 1fr 220px;
-  gap: 3rem;
-  align-items: center;
-  padding: 4rem;
-  max-width: 1100px;
-  margin: 0 auto;
-  border-radius: 0;
-}
 
-.news-en {
-  font-family: 'Lato', sans-serif;
-  font-size: 1.1rem;
-  font-weight: 700;
-  letter-spacing: .2em;
-  color: var(--green);
-  display: block;
+/* ====================================================
+   ABOUT
+==================================================== */
+.about {
+  display: grid; grid-template-columns: 1fr 1.15fr;
+  gap: 5rem; align-items: center;
+  max-width: 1100px; margin: 0 auto;
+  padding: 6rem 2rem;
 }
-.news-ja {
-  font-size: .75rem;
-  color: var(--muted);
-  letter-spacing: .1em;
-  display: block;
-  margin-top: 3px;
+.about-img-wrap { position: relative; display: flex; justify-content: center; }
+.about-circle {
+  width: min(380px,100%); aspect-ratio: 1;
+  border-radius: 50%; overflow: hidden;
+  position: relative; z-index: 1;
+  box-shadow: 0 8px 32px rgba(59,50,31,.1);
 }
-
-.news-list {
-  list-style: none;
-  margin: 0; padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0;
+.about-circle img { width: 100%; height: 100%; object-fit: cover; }
+.about-deco-g { position: absolute; bottom: -8px; right: 4px; width: 88px; opacity: .75; z-index: 0; }
+.about-deco-y { position: absolute; top: 12px; right: -12px; width: 62px; opacity: .7; z-index: 0; }
+.about-en {
+  font-family: 'Lato', sans-serif; font-size: 1.1rem;
+  font-weight: 700; letter-spacing: .2em; color: #6F8F3A; display: block;
 }
-.news-row {
-  display: flex;
-  align-items: center;
-  gap: 1.25rem;
-  padding: 1rem .5rem;
-  border-bottom: 1px solid rgba(111,143,58,.15);
-  text-decoration: none;
-  color: var(--brown);
-  border-radius: 6px;
-  transition: background .15s;
+.about-ja {
+  font-size: .75rem; color: #7A6A4A; letter-spacing: .1em;
+  display: block; margin-top: 3px; margin-bottom: 1.25rem;
 }
-.news-row:first-child { border-top: 1px solid rgba(111,143,58,.15); }
-.news-row:hover { background: rgba(245,184,46,.08); }
-.ndate {
-  font-family: 'Lato', sans-serif;
-  font-size: .8rem;
-  color: var(--muted);
-  white-space: nowrap;
-  min-width: 5.5rem;
-}
-.ntitle { flex: 1; font-size: .875rem; font-weight: 500; }
-.narr { flex-shrink: 0; }
-
-.news-circle {
-  width: 200px;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  overflow: hidden;
-  margin: 0 auto;
-  box-shadow: 0 4px 20px rgba(59,50,31,.1);
-}
-.news-circle img { width: 100%; height: 100%; object-fit: cover; }
-
-/* NEWSは全幅で背景色を出す */
-.news-full {
-  background: var(--bg2);
-  padding: 0;
-}
-.news-full > .news {
-  max-width: 1100px;
-  margin: 0 auto;
+.about-body {
+  font-size: .9rem; color: #7A6A4A;
+  line-height: 1.95; margin-bottom: 1.75rem;
 }
 
-/* ==============================
-   LINE UP
-============================== */
-.lineup {
-  padding: 5.5rem 4rem;
-  max-width: 1100px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 140px 1fr;
-  gap: 3rem;
-  align-items: start;
-  position: relative;
-}
 
-/* 丸い装飾 */
-.lineup-deco-y {
-  position: absolute;
-  left: -60px; top: 4rem;
-  width: 100px; height: 100px;
-  border-radius: 50%;
-  background: rgba(245,184,46,.18);
-}
-.lineup-deco-g {
-  position: absolute;
-  left: -30px; bottom: 3rem;
-  width: 70px; height: 70px;
-  border-radius: 50%;
-  background: rgba(111,143,58,.12);
-}
-
-.lineup-label {
-  display: flex;
-  flex-direction: column;
-  padding-top: .5rem;
-}
-.lineup-en {
-  font-family: 'Lato', sans-serif;
-  font-size: 1.1rem;
-  font-weight: 700;
-  letter-spacing: .2em;
-  color: var(--green);
-  display: block;
-}
-.lineup-ja {
-  font-size: .75rem;
-  color: var(--muted);
-  letter-spacing: .1em;
-  display: block;
-  margin-top: 3px;
-}
-
-.lineup-cards {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.25rem;
-}
-
-.lcard {
-  background: white;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 2px 16px rgba(59,50,31,.07);
-  transition: transform .25s, box-shadow .25s;
-}
-.lcard:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(59,50,31,.13); }
-
-.lcard-img {
-  background: var(--bg2);
-  overflow: hidden;
-}
-.lcard-img img {
-  width: 100%; height: 170px;
-  object-fit: cover; display: block;
-  transition: transform .4s;
-}
-.lcard:hover .lcard-img img { transform: scale(1.04); }
-
-.lcard-body { padding: 1rem 1rem 1.25rem; }
-.lcard-name {
-  font-family: 'Noto Serif JP', serif;
-  font-size: .9rem; font-weight: 700;
-  color: var(--brown); margin-bottom: .35rem;
-}
-.lcard-desc {
-  font-size: .78rem; color: var(--muted);
-  line-height: 1.65; margin-bottom: .75rem;
-}
-.lcard-link {
-  font-size: .78rem; font-weight: 700;
-  color: var(--yellow);
-  text-decoration: none;
-  display: inline-flex; align-items: center; gap: .3rem;
-  transition: gap .2s;
-}
-.lcard-link:hover { gap: .55rem; }
-
-/* ==============================
+/* ====================================================
    FEATURE
-============================== */
-.feature {
-  background: var(--bg2);
-  padding: 5.5rem 4rem;
-  /* 全幅に伸ばす */
+==================================================== */
+.feature-sec { background: #F7F1DF; padding: 5.5rem 0; }
+.feature-sec-inner {
+  max-width: 1100px; margin: 0 auto; padding: 0 2rem;
+  display: grid; grid-template-columns: 140px 1fr;
+  gap: 3rem; align-items: start;
 }
-.feature-inner-wrap {
-  max-width: 1100px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 140px 1fr;
-  gap: 3rem;
-  align-items: start;
+.feature-label { display: flex; flex-direction: column; padding-top: .4rem; }
+.fl-en {
+  font-family: 'Lato', sans-serif; font-size: 1.1rem;
+  font-weight: 700; letter-spacing: .2em; color: #6F8F3A; display: block;
 }
-
-/* featureはsectionの中にdivで包む */
-.feature {
-  display: block;
-}
-.feature-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 140px 1fr;
-  gap: 3rem;
-  align-items: start;
-}
-
-.feature-label {
-  display: flex;
-  flex-direction: column;
-  padding-top: .5rem;
-}
-.feature-en {
-  font-family: 'Lato', sans-serif;
-  font-size: 1.1rem; font-weight: 700;
-  letter-spacing: .2em; color: var(--green);
-  display: block;
-}
-.feature-ja {
-  font-size: .75rem; color: var(--muted);
-  letter-spacing: .1em; display: block; margin-top: 3px;
-}
-
-.feature-cards {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.25rem;
-}
-
+.fl-ja { font-size: .75rem; color: #7A6A4A; letter-spacing: .1em; display: block; margin-top: 3px; }
+.feature-cards { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.25rem; }
 .fcard {
-  background: white;
-  border-radius: 12px;
-  overflow: hidden;
+  background: white; border-radius: 12px; overflow: hidden;
   box-shadow: 0 2px 16px rgba(59,50,31,.07);
   transition: transform .25s, box-shadow .25s;
 }
 .fcard:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(59,50,31,.13); }
-
-.fcard-img img {
-  width: 100%; height: 150px;
-  object-fit: cover; display: block;
-}
+.fcard-img img { width: 100%; height: 150px; object-fit: cover; display: block; }
 .fcard-body { padding: .875rem .875rem 1.1rem; }
-.fcard-name {
-  font-family: 'Noto Serif JP', serif;
-  font-size: .875rem; font-weight: 700;
-  color: var(--brown); margin-bottom: .3rem;
+.fcard-name { font-family: 'Noto Serif JP', serif; font-size: .875rem; font-weight: 700; color: #3B321F; margin-bottom: .3rem; }
+.fcard-desc { font-size: .75rem; color: #7A6A4A; line-height: 1.65; margin: 0; }
+
+
+/* ====================================================
+   LINE UP
+==================================================== */
+.lineup-sec {
+  background: #FFFAF0; padding: 5.5rem 0;
+  position: relative; overflow: hidden;
 }
-.fcard-desc {
-  font-size: .75rem; color: var(--muted);
-  line-height: 1.65; margin: 0;
+.lineup-deco-y {
+  position: absolute; left: -50px; top: 4rem;
+  width: 110px; height: 110px; border-radius: 50%;
+  background: rgba(245,184,46,.16);
+}
+.lineup-deco-g {
+  position: absolute; left: -20px; bottom: 3rem;
+  width: 75px; height: 75px; border-radius: 50%;
+  background: rgba(111,143,58,.1);
+}
+.lineup-sec-inner {
+  max-width: 1100px; margin: 0 auto; padding: 0 2rem;
+  display: grid; grid-template-columns: 140px 1fr;
+  gap: 3rem; align-items: start;
+  position: relative;
+}
+.lineup-label { display: flex; flex-direction: column; padding-top: .4rem; }
+.ll-en { font-family: 'Lato', sans-serif; font-size: 1.1rem; font-weight: 700; letter-spacing: .2em; color: #6F8F3A; display: block; }
+.ll-ja { font-size: .75rem; color: #7A6A4A; letter-spacing: .1em; display: block; margin-top: 3px; }
+.lineup-cards { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.25rem; }
+.lcard {
+  background: white; border-radius: 12px; overflow: hidden;
+  box-shadow: 0 2px 16px rgba(59,50,31,.07);
+  transition: transform .25s, box-shadow .25s;
+}
+.lcard:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(59,50,31,.13); }
+.lcard-link-wrap { text-decoration: none; color: inherit; display: block; }
+.lcard-img { background: #F7F1DF; overflow: hidden; }
+.lcard-img img {
+  width: 100%; height: 170px; object-fit: cover; display: block;
+  transition: transform .4s;
+}
+.lcard:hover .lcard-img img { transform: scale(1.04); }
+.lcard-body { padding: 1rem 1rem 1.25rem; }
+.lcard-name { font-family: 'Noto Serif JP', serif; font-size: .9rem; font-weight: 700; color: #3B321F; margin-bottom: .35rem; }
+.lcard-desc { font-size: .78rem; color: #7A6A4A; line-height: 1.65; margin-bottom: .75rem; }
+.lcard-more {
+  font-size: .78rem; font-weight: 700; color: #F5B82E;
+  display: inline-flex; align-items: center; gap: .3rem;
 }
 
-/* ==============================
+
+/* ====================================================
+   NEWS
+==================================================== */
+.news-sec {
+  background: #F7F1DF;
+  display: grid;
+  grid-template-columns: 160px 1fr 200px;
+  gap: 3rem; align-items: center;
+  padding: 4.5rem 4rem;
+  max-width: 1100px; margin: 0 auto;
+}
+.nl-en { font-family: 'Lato', sans-serif; font-size: 1.1rem; font-weight: 700; letter-spacing: .2em; color: #6F8F3A; display: block; }
+.nl-ja { font-size: .75rem; color: #7A6A4A; letter-spacing: .1em; display: block; margin-top: 3px; }
+.news-list { list-style: none; margin: 0; padding: 0; }
+.nrow {
+  display: flex; align-items: center; gap: 1.25rem;
+  padding: 1rem .5rem;
+  border-bottom: 1px solid rgba(111,143,58,.15);
+  text-decoration: none; color: #3B321F;
+  border-radius: 6px; transition: background .15s;
+}
+.nrow:first-of-type { border-top: 1px solid rgba(111,143,58,.15); }
+.nrow:hover { background: rgba(245,184,46,.08); }
+.ndate { font-family: 'Lato', sans-serif; font-size: .8rem; color: #7A6A4A; white-space: nowrap; min-width: 5.5rem; }
+.ntitle { flex: 1; font-size: .875rem; font-weight: 500; }
+.narr { flex-shrink: 0; }
+.news-circle {
+  width: 180px; aspect-ratio: 1;
+  border-radius: 50%; overflow: hidden;
+  box-shadow: 0 4px 20px rgba(59,50,31,.1);
+}
+.news-circle img { width: 100%; height: 100%; object-fit: cover; }
+
+/* NEWS全幅背景 */
+.news-wrap { background: #F7F1DF; }
+
+
+/* ====================================================
    CONTACT
-============================== */
-.contact {
+==================================================== */
+.contact-sec {
   background: #5A7A2E;
   display: grid;
   grid-template-columns: 1fr auto 1fr;
@@ -699,113 +721,67 @@ import Footer from '../components/Footer.astro';
   position: relative;
   overflow: hidden;
 }
-
-.contact-left {
-  padding: 3.5rem 2rem 3.5rem 5rem;
-}
-.contact-en {
-  font-family: 'Lato', sans-serif;
-  font-size: 1.3rem; font-weight: 700;
-  letter-spacing: .22em; color: white;
-  display: block; line-height: 1;
-}
-.contact-ja {
-  font-size: .75rem; letter-spacing: .1em;
-  color: rgba(255,255,255,.65); display: block; margin-top: 4px;
-  margin-bottom: 1rem;
-}
-.contact-body {
-  font-size: .875rem; color: rgba(255,255,255,.8);
-  line-height: 1.85; margin: 0;
-}
-
-.contact-center {
-  padding: 3rem 3rem;
-  display: flex;
-  justify-content: center;
-}
+.contact-text { padding: 3.5rem 2rem 3.5rem 5rem; }
+.ct-en { font-family: 'Lato', sans-serif; font-size: 1.3rem; font-weight: 700; letter-spacing: .22em; color: white; display: block; line-height: 1; }
+.ct-ja { font-size: .75rem; letter-spacing: .1em; color: rgba(255,255,255,.65); display: block; margin-top: 4px; margin-bottom: 1rem; }
+.ct-body { font-size: .875rem; color: rgba(255,255,255,.8); line-height: 1.85; margin: 0; }
+.contact-center { padding: 3rem; display: flex; justify-content: center; }
 .contact-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: .6rem;
-  padding: 1rem 2.25rem;
-  background: white;
-  color: var(--brown);
-  font-size: .875rem; font-weight: 700;
-  border-radius: 999px;
-  text-decoration: none;
+  display: inline-flex; align-items: center; gap: .6rem;
+  padding: 1rem 2.25rem; background: white;
+  color: #3B321F; font-size: .875rem; font-weight: 700;
+  border-radius: 999px; text-decoration: none;
   box-shadow: 0 4px 16px rgba(0,0,0,.15);
-  transition: all .22s;
-  white-space: nowrap;
+  transition: all .22s; white-space: nowrap;
 }
 .contact-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,.2); }
-
-.contact-img {
-  position: absolute;
-  right: 0; top: 0; bottom: 0;
-  width: 35%;
-  overflow: hidden;
-}
-.contact-img::before {
-  content: '';
-  position: absolute;
-  left: 0; top: 0; bottom: 0;
-  width: 120px;
+.contact-photo { position: absolute; right: 0; top: 0; bottom: 0; width: 34%; overflow: hidden; }
+.contact-photo-fade {
+  position: absolute; left: 0; top: 0; bottom: 0; width: 120px;
   background: linear-gradient(to right, #5A7A2E, transparent);
   z-index: 1;
 }
-.contact-img img {
-  width: 100%; height: 100%;
-  object-fit: cover; display: block;
-  opacity: .75;
-}
+.contact-photo img { width: 100%; height: 100%; object-fit: cover; display: block; opacity: .7; }
 
-/* フッター上の区切り線を消す */
-.contact + footer .ft-wave {
-  display: none;
-}
 
-/* ==============================
-   NEWS全幅背景
-============================== */
-.news-section-wrap {
-  background: var(--bg2);
-}
-
-/* ==============================
+/* ====================================================
    RESPONSIVE
-============================== */
+==================================================== */
 @media (max-width: 1024px) {
-  .lineup, .feature-inner { grid-template-columns: 1fr; gap: 1.5rem; }
-  .lineup-label, .feature-label { flex-direction: row; gap: 1rem; align-items: center; }
-  .lineup-cards, .feature-cards { grid-template-columns: repeat(2, 1fr); }
+  .for-biz-inner, .for-home-inner { gap: 3rem; }
+  .feature-sec-inner, .lineup-sec-inner { grid-template-columns: 1fr; gap: 1.5rem; }
+  .feature-label, .lineup-label { flex-direction: row; gap: 1rem; align-items: center; }
+  .feature-cards, .lineup-cards { grid-template-columns: repeat(2,1fr); }
+  .news-sec { grid-template-columns: 140px 1fr; }
+  .news-img { display: none; }
 }
 
 @media (max-width: 900px) {
   .hero { grid-template-columns: 1fr; min-height: auto; }
-  .hero-right { height: 55vw; min-height: 280px; order: -1; }
+  .hero-right { height: 56vw; min-height: 280px; order: -1; }
   .hero-curve { display: none; }
   .hero-left { padding: 2.5rem 1.5rem; }
+  .for-biz-inner, .for-home-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+  .for-biz-visual { min-height: 280px; }
+  .for-home-img img { height: 280px; }
   .about { grid-template-columns: 1fr; gap: 2.5rem; padding: 4rem 1.5rem; }
   .about-circle { max-width: 300px; }
-  .news { grid-template-columns: 140px 1fr; padding: 3rem 1.5rem; }
-  .news-img { display: none; }
-  .contact { grid-template-columns: 1fr auto; }
-  .contact-img { display: none; }
-  .contact-left { padding: 2.5rem 1.5rem; }
+  .contact-sec { grid-template-columns: 1fr auto; }
+  .contact-photo { display: none; }
+  .contact-text { padding: 2.5rem 1.5rem; }
   .contact-center { padding: 2.5rem 1.5rem; }
-  .lineup { padding: 4rem 1.5rem; }
-  .feature { padding: 4rem 0; }
-  .feature-inner { padding: 0 1.5rem; }
 }
 
 @media (max-width: 640px) {
-  .hero-title { font-size: 1.9rem; }
-  .news { grid-template-columns: 1fr; }
+  .hero-title { font-size: 1.85rem; }
+  .hero-ctas { flex-direction: column; }
+  .for-biz-inner { padding: 0 1.5rem; }
+  .for-biz-card { width: 110px; }
+  .biz-targets { grid-template-columns: repeat(3,1fr); }
+  .news-sec { grid-template-columns: 1fr; gap: 1.25rem; padding: 3rem 1.5rem; }
   .news-label { display: flex; flex-direction: row; gap: 1rem; align-items: center; }
-  .lineup-cards, .feature-cards { grid-template-columns: 1fr; max-width: 340px; margin: 0 auto; }
-  .contact { grid-template-columns: 1fr; }
-  .contact-left { padding: 2.5rem 1.5rem 1rem; }
+  .feature-cards, .lineup-cards { grid-template-columns: 1fr; max-width: 340px; margin: 0 auto; }
+  .contact-sec { grid-template-columns: 1fr; }
   .contact-center { padding: 0 1.5rem 2.5rem; justify-content: flex-start; }
 }
 </style>
