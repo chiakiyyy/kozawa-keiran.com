@@ -2,50 +2,49 @@
 
 @layer base {
   :root {
-    --yellow:     #D9B55A;
-    --yellow-lt:  #EDE5D0;
-    --yellow-bg:  #F7F5F1;
-    --green:      #6B625A;
-    --green-dk:   #5A5248;
-    --green-lt:   #EFEAE2;
-    --bg:         #F7F5F1;
-    --bg2:        #EFEAE2;
-    --brown:      #2B2A28;
-    --muted:      #7D756E;
-    --white:      #FFFFFF;
-    --border:     #DDD6CC;
-    --heading:    #2B2A28;
-    --body-text:  #4A4642;
-    --gold:       #D9B55A;
-    --gold-dk:    #C8A14A;
+    --amber:     #BA7517;
+    --amber-lt:  #EF9F27;
+    --amber-bg:  #FAEEDA;
+    --amber-pale:#FFF8EE;
+    --gray-dk:   #2C2C2A;
+    --gray-mid:  #5F5E5A;
+    --gray-lt:   #F1EFE8;
+    --border:    rgba(44,44,42,0.1);
+    --bg:        #FFFFFF;
+    --bg2:       #FAFAF8;
+    --text:      #2C2C2A;
+    --muted:     #5F5E5A;
+    --radius-sm: 12px;
+    --radius-md: 20px;
+    --radius-lg: 28px;
   }
 
   html {
     font-family: 'Noto Sans JP', 'Hiragino Sans', sans-serif;
-    background-color: var(--bg);
-    color: #FFFFFF;
+    background: var(--bg);
+    color: var(--text);
     scroll-behavior: smooth;
   }
 
   body { -webkit-font-smoothing: antialiased; }
 
   h1,h2,h3,h4 {
-    font-family: 'Noto Serif JP', 'Hiragino Mincho ProN', serif;
-    line-height: 1.5;
+    font-family: 'Noto Serif JP', serif;
+    line-height: 1.55;
+    color: var(--text);
   }
 }
 
 @layer components {
-  /* ボタン */
   .btn {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
     padding: 0.875rem 2rem;
     border-radius: 999px;
-    font-size: 0.9rem;
+    font-size: 0.875rem;
     font-weight: 700;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.05em;
     text-decoration: none;
     transition: all 0.22s ease;
     cursor: pointer;
@@ -55,112 +54,115 @@
   }
 
   .btn-primary {
-    background: #D9B55A;
-    color: #FFFFFF;
-    
+    background: var(--amber);
+    color: #FAEEDA;
   }
   .btn-primary:hover {
-    background: #C8A14A;
-    transform: translateY(-2px);
-    
-  }
-
-  .btn-green {
-    background-color: var(--green);
-    color: white;
-    box-shadow: 0 4px 14px rgba(111,143,58,0.3);
-  }
-  .btn-green:hover {
-    background-color: var(--green-dk);
+    background: #9C6010;
     transform: translateY(-2px);
   }
 
   .btn-outline {
-    background-color: white;
-    color: var(--green);
-    border: 2px solid var(--green);
+    background: transparent;
+    color: var(--amber);
+    border: 1.5px solid var(--amber);
   }
   .btn-outline:hover {
-    background-color: var(--green);
-    color: white;
+    background: var(--amber-bg);
   }
 
-  .btn-outline-yellow {
-    background-color: transparent;
-    color: var(--yellow);
-    border: 2px solid var(--yellow);
+  .btn-dark {
+    background: var(--gray-dk);
+    color: #FAEEDA;
   }
-  .btn-outline-yellow:hover {
-    background: #D9B55A;
-    color: #FFFFFF;
+  .btn-dark:hover {
+    background: #444441;
+    transform: translateY(-2px);
   }
+
+  /* セクション共通 */
+  .sec { padding: 5rem 0; }
+  .sec--pale { background: var(--bg2); }
+  .sec--amber { background: var(--amber-bg); }
+  .sec--dark { background: var(--gray-dk); }
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
 
   /* セクションラベル */
-  .sec-en {
+  .sec-label {
     font-family: 'Lato', sans-serif;
-    font-size: 1rem;
+    font-size: 0.65rem;
     font-weight: 700;
-    letter-spacing: 0.18em;
-    color: var(--green);
+    letter-spacing: 0.2em;
+    color: var(--amber);
     display: block;
-    line-height: 1;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
   }
-  .sec-ja {
-    font-size: 0.75rem;
-    color: var(--muted);
-    display: block;
-    letter-spacing: 0.1em;
-    margin-top: 3px;
-  }
-
   .sec-title {
     font-family: 'Noto Serif JP', serif;
-    font-size: clamp(1.5rem, 2.8vw, 2.2rem);
+    font-size: clamp(1.5rem, 2.8vw, 2.1rem);
     font-weight: 700;
-    color: #FFFFFF;
-    line-height: 1.55;
-    letter-spacing: 0.02em;
+    color: var(--text);
+    line-height: 1.5;
   }
-
-  /* 波形 */
-  .wave { display: block; width: 100%; line-height: 0; }
-  .wave svg { display: block; width: 100%; }
+  .sec-lead {
+    font-size: 0.9rem;
+    color: var(--muted);
+    line-height: 1.9;
+    margin-top: 0.75rem;
+  }
 
   /* カード */
   .card {
     background: white;
-    border-radius: 16px;
+    border-radius: var(--radius-md);
+    border: 0.5px solid var(--border);
     overflow: hidden;
-    box-shadow: 0 4px 20px rgba(59,50,31,0.08);
     transition: transform 0.25s, box-shadow 0.25s;
   }
   .card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 14px 38px rgba(59,50,31,0.13);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 36px rgba(44,44,42,0.1);
   }
 
   /* リンク矢印 */
   .link-arrow {
     display: inline-flex;
     align-items: center;
-    gap: 0.35rem;
-    font-size: 0.83rem;
+    gap: 0.4rem;
+    font-size: 0.82rem;
     font-weight: 700;
-    color: var(--yellow);
+    color: var(--amber);
     text-decoration: none;
     transition: gap 0.2s;
   }
-  .link-arrow:hover { gap: 0.6rem; }
+  .link-arrow:hover { gap: 0.65rem; }
 
-  /* ページヘッダー */
+  /* ページヒーロー */
   .page-hero {
-    background-color: var(--bg2);
     padding: 7rem 0 4rem;
-    border-bottom: 1px solid rgba(245,184,46,0.2);
-    margin-top: 70px;
+    background: var(--amber-pale);
+    margin-top: 72px;
+    border-bottom: 0.5px solid rgba(186,117,23,0.15);
   }
-  .page-hero .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
-  .page-hero-en { font-family: 'Lato', sans-serif; font-size: 0.7rem; letter-spacing: 0.25em; color: var(--green); text-transform: uppercase; display: block; margin-bottom: 0.5rem; }
-  .page-hero-title { font-family: 'Noto Serif JP', serif; font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 700; color: #FFFFFF; }
-  .page-hero-sub { font-size: 0.9rem; color: var(--muted); margin-top: 0.5rem; }
+  .page-hero-label {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.22em;
+    color: var(--amber);
+    display: block;
+    margin-bottom: 0.75rem;
+  }
+  .page-hero-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 700;
+    color: var(--text);
+  }
+  .page-hero-sub {
+    font-size: 0.9rem;
+    color: var(--muted);
+    margin-top: 0.625rem;
+    line-height: 1.8;
+  }
 }
