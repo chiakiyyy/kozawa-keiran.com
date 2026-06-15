@@ -3,44 +3,99 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 ---
-<Layout title="個人のお客様へ｜小澤鶏卵" description="小澤鶏卵の家庭用・ギフト・通販・定期購入サービス。毎日の食卓に安心でおいしいたまごを。">
+<Layout title="個人のお客様へ｜小澤鶏卵" description="小澤鶏卵のオンラインショップ。富山から新鮮なたまごをご自宅へお届けします。">
   <Header/>
   <main>
+
+    <!-- HERO -->
     <section class="shop-hero">
-      <div class="sh-bg"><img src="/images/hero_main.svg" alt="" aria-hidden="true" loading="eager"/><div class="sh-ov"></div></div>
+      <div class="sh-bg">
+        <img src="/images/hero_main.svg" alt="" aria-hidden="true" loading="eager"/>
+        <div class="sh-ov"></div>
+      </div>
       <div class="sh-content">
-        <span class="biz-hero-en">FOR HOME</span>
-        <h1 class="biz-hero-title">毎日の食卓に、<br/>安心でおいしいたまごを。</h1>
-        <p class="biz-hero-sub">ご家庭用から贈り物まで、小澤鶏卵のたまごをご自宅でお楽しみください。</p>
-        <div style="display:flex;gap:1rem;flex-wrap:wrap">
-          <a href="/products" class="btn btn-primary">商品を見る →</a>
-          <a href="/contact" class="btn btn-outline" style="background:white">お問い合わせ</a>
+        <span class="sh-label">FOR HOME · ONLINE SHOP</span>
+        <h1 class="sh-title">富山から、<br/>新鮮なたまごを<br/>あなたの食卓へ。</h1>
+        <p class="sh-sub">小澤鶏卵のたまごをご自宅でお楽しみいただけます。<br/>オンラインショップにてご注文を承っております。</p>
+        <a href="https://kozawa.theshop.jp/" target="_blank" rel="noopener" class="sh-btn">
+          オンラインショップへ
+          <svg width="16" height="12" viewBox="0 0 16 12" fill="none"><path d="M10 1l5 5-5 5M1 6h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- BASE誘導 メインカード -->
+    <section class="sec">
+      <div class="container">
+        <div class="base-card fade-up">
+          <div class="base-card-left">
+            <span class="base-badge">BASE公式ショップ</span>
+            <h2 class="base-title">小澤鶏卵<br/>オンラインショップ</h2>
+            <p class="base-desc">富山県富山市から産みたての新鮮なたまごをお届けします。ご家庭用・ギフト用など各種取り揃えております。</p>
+            <ul class="base-points">
+              <li>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="#EF9F27" opacity=".2"/><path d="M5 8l2 2 4-4" stroke="#BA7517" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                クレジットカード・コンビニ払い対応
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="#EF9F27" opacity=".2"/><path d="M5 8l2 2 4-4" stroke="#BA7517" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                ギフト・プレゼントにも対応
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="#EF9F27" opacity=".2"/><path d="M5 8l2 2 4-4" stroke="#BA7517" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                全国配送対応
+              </li>
+            </ul>
+            <a href="https://kozawa.theshop.jp/" target="_blank" rel="noopener" class="btn btn-primary base-cta">
+              ショップを見る →
+            </a>
+          </div>
+          <div class="base-card-right">
+            <div class="base-egg-wrap">
+              <svg viewBox="0 0 280 320" xmlns="http://www.w3.org/2000/svg">
+                <rect width="280" height="320" rx="20" fill="#FAEEDA"/>
+                <ellipse cx="140" cy="185" rx="72" ry="88" fill="#FAC775"/>
+                <ellipse cx="140" cy="148" rx="50" ry="66" fill="#EF9F27"/>
+                <ellipse cx="122" cy="125" rx="16" ry="12" fill="white" opacity="0.3"/>
+                <!-- ドット装飾 -->
+                <circle cx="210" cy="240" r="5" fill="#BA7517" opacity="0.4"/>
+                <circle cx="224" cy="228" r="5" fill="#BA7517" opacity="0.4"/>
+                <circle cx="238" cy="240" r="5" fill="#BA7517" opacity="0.4"/>
+                <circle cx="210" cy="256" r="5" fill="#BA7517" opacity="0.3"/>
+                <circle cx="224" cy="244" r="5" fill="#BA7517" opacity="0.3"/>
+                <circle cx="238" cy="256" r="5" fill="#BA7517" opacity="0.3"/>
+                <text x="140" y="46" text-anchor="middle" font-family="Lato,sans-serif" font-size="10" fill="#BA7517" opacity="0.6" letter-spacing="3">KOZAWA KEIRAN</text>
+              </svg>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- ご家庭用商品 -->
-    <section class="sec">
+    <!-- 商品ラインアップ -->
+    <section class="sec sec--pale">
       <div class="container">
-        <div class="center-head">
-          <span class="sec-en">Home Use</span>
-          <h2 class="sec-title mt">ご家庭用商品</h2>
+        <div class="center-head fade-up" style="margin-bottom:3.5rem">
+          <span class="sec-label" style="display:flex;justify-content:center">PRODUCTS</span>
+          <h2 class="sec-title" style="text-align:center">商品ラインアップ</h2>
+          <span class="sec-deco sec-deco--center"></span>
         </div>
-        <div class="home-grid">
+        <div class="prod-grid">
           {[
-            { img:'/images/product_kodawari.svg', name:'こだわりのたまご', note:'10個入り・6個入り', badge:'人気No.1' },
-            { img:'/images/product_pink.svg',     name:'ピンクたまご',    note:'6個入り・ギフト用', badge:'かわいい' },
-            { img:'/images/product_araucana.svg', name:'アローカナのたまご', note:'6個入り', badge:'希少' },
+            { img:'/images/product_kodawari.svg', name:'こだわりのたまご',   note:'コクと甘みが特徴の、当社自慢のたまごです。',        badge:'人気No.1', d:'fade-up-d1' },
+            { img:'/images/product_pink.svg',     name:'ピンクたまご',       note:'やさしいピンク色の殻が特徴のたまごです。',            badge:'かわいい',  d:'fade-up-d2' },
+            { img:'/images/product_araucana.svg', name:'アローカナのたまご', note:'南米原産の鶏が産む、希少な青い殻のたまご。',          badge:'希少',      d:'fade-up-d3' },
+            { img:'/images/product_gift.svg',     name:'ギフトセット',       note:'大切な方への贈り物に。各種価格帯をご用意。',          badge:'贈り物に',  d:'fade-up-d4' },
           ].map(p => (
-            <a href="/products" class="home-card card">
-              <div class="home-img">
+            <a href="https://kozawa.theshop.jp/items/all" target="_blank" rel="noopener" class={`prod-card card fade-up ${p.d}`}>
+              <div class="prod-img">
                 <img src={p.img} alt={p.name} loading="lazy"/>
-                <span class="home-badge">{p.badge}</span>
+                <span class="prod-badge">{p.badge}</span>
               </div>
-              <div class="home-body">
+              <div class="prod-body">
                 <h3>{p.name}</h3>
                 <p>{p.note}</p>
-                <span class="link-arrow">詳しく見る <svg width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M9 1l4 4-4 4M1 5h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+                <span class="link-arrow">ショップで見る →</span>
               </div>
             </a>
           ))}
@@ -49,130 +104,112 @@ import Footer from '../components/Footer.astro';
     </section>
 
     <!-- ギフト -->
-    <section class="sec sec--cream">
-      <div class="container gift-row">
-        <div>
-          <span class="sec-en">Gift</span>
-          <h2 class="sec-title mt">贈り物にもぴったり</h2>
-          <p>内祝い・お中元・お歳暮・父の日・母の日など、大切な方への贈り物に小澤鶏卵のたまごはいかがでしょうか。化粧箱入りのギフトセットをご用意しています。</p>
-          <ul class="gift-list">
-            <li>✓ 化粧箱入りで見た目も華やか</li>
-            <li>✓ メッセージカード対応</li>
-            <li>✓ 各種価格帯をご用意</li>
-            <li>✓ 産直ならではの新鮮さ</li>
-          </ul>
-          <a href="/contact" class="btn btn-primary">ギフトについて問い合わせる</a>
-        </div>
-        <div class="gift-img-wrap">
-          <img src="/images/product_gift.svg" alt="ギフトセット" loading="lazy"/>
-        </div>
-      </div>
-    </section>
-
-    <!-- 定期購入 -->
     <section class="sec">
       <div class="container">
-        <div class="center-head">
-          <span class="sec-en">Subscription</span>
-          <h2 class="sec-title mt">定期購入サービス</h2>
-        </div>
-        <div class="sub-grid">
-          {[
-            { icon:'📅', title:'週1回〜対応', body:'ご希望の頻度でお届け。ライフスタイルに合わせて設定できます。' },
-            { icon:'🥚', title:'常に新鮮な状態で', body:'定期的にお届けするから、常に産みたての新鮮なたまごが食べられます。' },
-            { icon:'✏️', title:'いつでも変更可能', body:'数量・頻度・お届け先の変更は随時承ります。' },
-            { icon:'💰', title:'お得な価格で', body:'定期購入のお客様には、特別価格でお届けします。' },
-          ].map(s => (
-            <div class="sub-card">
-              <span class="sub-icon">{s.icon}</span>
-              <h3>{s.title}</h3>
-              <p>{s.body}</p>
-            </div>
-          ))}
-        </div>
-        <div style="text-align:center;margin-top:2.5rem">
-          <a href="/contact?type=subscription" class="btn btn-green">定期購入について問い合わせる →</a>
+        <div class="gift-row fade-up">
+          <div>
+            <span class="sec-label">GIFT</span>
+            <h2 class="sec-title">贈り物にも<br/>ぴったりです。</h2>
+            <span class="sec-deco"></span>
+            <p class="sec-lead">内祝い・お中元・お歳暮・父の日・母の日など、大切な方への贈り物に小澤鶏卵のたまごはいかがでしょうか。化粧箱入りのギフトセットをご用意しています。</p>
+            <ul class="gift-list">
+              <li>化粧箱入りで見た目も華やか</li>
+              <li>メッセージカード対応</li>
+              <li>各種価格帯をご用意</li>
+              <li>産直ならではの新鮮さ</li>
+            </ul>
+            <a href="https://kozawa.theshop.jp/" target="_blank" rel="noopener" class="btn btn-primary">ギフトをショップで見る →</a>
+          </div>
+          <div class="gift-img">
+            <img src="/images/product_gift.svg" alt="ギフトセット" loading="lazy"/>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- おすすめの食べ方 -->
-    <section class="sec sec--cream">
+    <!-- 法人バナー -->
+    <section class="sec sec--amber">
       <div class="container">
-        <div class="center-head">
-          <span class="sec-en">Recipe</span>
-          <h2 class="sec-title mt">おすすめの食べ方</h2>
-        </div>
-        <div class="recipe-grid">
-          {[
-            { name:'卵かけご飯', note:'新鮮なたまごだからこそ楽しめる定番の食べ方。濃厚な黄身が絶品です。' },
-            { name:'目玉焼き', note:'シンプルな調理でたまご本来の旨みを味わえます。塩だけで十分おいしい。' },
-            { name:'オムレツ', note:'ふっくらとした仕上がりに。朝食やお弁当にもぴったりです。' },
-            { name:'プリン・スイーツ', note:'コクのある黄身がスイーツをワンランクアップさせます。' },
-          ].map(r => (
-            <div class="recipe-card">
-              <div class="recipe-icon">🍳</div>
-              <h3>{r.name}</h3>
-              <p>{r.note}</p>
-            </div>
-          ))}
+        <div class="biz-banner fade-up">
+          <div>
+            <span class="sec-label">FOR BUSINESS</span>
+            <h2 class="biz-banner-title">法人・業務用のご注文はこちら</h2>
+            <p class="biz-banner-desc">飲食店・スーパー・病院・給食センターなど、業務用の大量注文はお電話・メールにて承ります。</p>
+          </div>
+          <a href="/business" class="btn btn-dark">法人のお客様へ →</a>
         </div>
       </div>
     </section>
 
-    <!-- CTA -->
-    <section class="cta-band">
-      <p>ご注文・ご相談はお気軽にどうぞ</p>
-      <a href="/contact" class="btn btn-primary">お問い合わせはこちら →</a>
-    </section>
   </main>
   <Footer/>
 </Layout>
+
 <style>
-.container { max-width:1100px; margin:0 auto; padding:0 2rem; }
-.sec { padding:5.5rem 0; background:var(--bg); }
-.sec--cream { background:var(--bg2); }
-.mt { margin-top:.6rem; }
-.center-head { text-align:center; margin-bottom:3rem; }
-.shop-hero { position:relative; min-height:580px; display:flex; align-items:center; margin-top:70px; }
+.container { max-width:1100px; margin:0 auto; padding:0 2.5rem; }
+
+/* HERO */
+.shop-hero { position:relative; min-height:580px; display:flex; align-items:center; margin-top:72px; overflow:hidden; }
 .sh-bg { position:absolute; inset:0; }
 .sh-bg img { width:100%; height:100%; object-fit:cover; }
-.sh-ov { position:absolute; inset:0; background:linear-gradient(to right,rgba(59,50,31,.82) 0%,rgba(59,50,31,.55) 55%,rgba(59,50,31,.15) 100%); }
-.sh-content { position:relative; z-index:1; max-width:1100px; margin:0 auto; padding:4rem 2rem; }
-.biz-hero-en { font-family:'Lato',sans-serif; font-size:.7rem; letter-spacing:.25em; color:rgba(245,184,46,.8); text-transform:uppercase; display:block; margin-bottom:1rem; }
-.biz-hero-title { font-family:'Noto Serif JP',serif; font-size:clamp(1.8rem,4vw,3rem); font-weight:700; color:white; line-height:1.5; margin-bottom:1rem; }
-.biz-hero-sub { font-size:.95rem; color:rgba(255,255,255,.75); line-height:1.8; margin-bottom:2rem; }
-.home-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
-.home-card { text-decoration:none; color:inherit; display:block; }
-.home-img { position:relative; background:var(--bg2); }
-.home-img img { width:100%; height:220px; object-fit:cover; display:block; }
-.home-badge { position:absolute; top:10px; left:10px; background:var(--yellow); color:var(--brown); font-size:.7rem; font-weight:700; padding:.2rem .65rem; border-radius:999px; }
-.home-body { padding:1.25rem; }
-.home-body h3 { font-family:'Noto Serif JP',serif; font-size:.95rem; font-weight:700; color:var(--brown); margin-bottom:.3rem; }
-.home-body p { font-size:.8rem; color:var(--muted); margin-bottom:.75rem; }
-.gift-row { display:grid; grid-template-columns:1.1fr 1fr; gap:5rem; align-items:center; }
-.gift-row p { font-size:.9rem; color:var(--muted); line-height:1.9; margin:.75rem 0 1rem; }
-.gift-list { list-style:none; margin:0 0 1.75rem; padding:0; display:flex; flex-direction:column; gap:.5rem; }
-.gift-list li { font-size:.875rem; color:var(--brown); font-weight:500; }
-.gift-img-wrap { border-radius:16px; overflow:hidden; }
-.gift-img-wrap img { width:100%; height:320px; object-fit:cover; display:block; }
-.sub-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1.5rem; }
-.sub-card { padding:2rem 1.5rem; background:white; border-radius:16px; text-align:center; box-shadow:0 4px 20px rgba(59,50,31,.07); }
-.sub-icon { font-size:2rem; display:block; margin-bottom:.75rem; }
-.sub-card h3 { font-family:'Noto Serif JP',serif; font-size:.95rem; font-weight:700; color:var(--brown); margin-bottom:.5rem; }
-.sub-card p { font-size:.8rem; color:var(--muted); line-height:1.7; margin:0; }
-.recipe-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1.5rem; }
-.recipe-card { padding:1.75rem 1.25rem; background:white; border-radius:16px; text-align:center; box-shadow:0 4px 20px rgba(59,50,31,.07); }
-.recipe-icon { font-size:2rem; margin-bottom:.625rem; }
-.recipe-card h3 { font-family:'Noto Serif JP',serif; font-size:.9rem; font-weight:700; color:var(--brown); margin-bottom:.4rem; }
-.recipe-card p { font-size:.78rem; color:var(--muted); line-height:1.7; margin:0; }
-.cta-band { background:var(--yellow); padding:3rem 2rem; text-align:center; display:flex; flex-direction:column; align-items:center; gap:1.25rem; }
-.cta-band p { font-family:'Noto Serif JP',serif; font-size:1.1rem; font-weight:700; color:var(--brown); margin:0; }
+.sh-ov { position:absolute; inset:0; background:linear-gradient(to right,rgba(30,30,28,.88) 0%,rgba(30,30,28,.6) 55%,rgba(30,30,28,.15) 100%); }
+.sh-content { position:relative; z-index:1; max-width:1100px; margin:0 auto; padding:4rem 2.5rem; }
+.sh-label { font-family:'Lato',sans-serif; font-size:.58rem; letter-spacing:.24em; color:rgba(250,199,117,.75); display:block; margin-bottom:1.25rem; }
+.sh-title { font-family:'Noto Serif JP',serif; font-size:clamp(1.9rem,4.5vw,3.2rem); font-weight:700; color:white; line-height:1.5; margin-bottom:1.25rem; }
+.sh-sub { font-size:.92rem; color:rgba(255,255,255,.7); line-height:1.9; margin-bottom:2.5rem; }
+.sh-btn { display:inline-flex; align-items:center; gap:.75rem; background:#BA7517; color:#FFFBF3; font-size:.9rem; font-weight:700; padding:1rem 2.25rem; border-radius:999px; text-decoration:none; letter-spacing:.06em; transition:all .25s; box-shadow:0 4px 18px rgba(186,117,23,.35); }
+.sh-btn:hover { background:#9C6010; transform:translateY(-2px); }
+
+/* BASEカード */
+.base-card { background:white; border:.5px solid rgba(44,44,42,.08); border-radius:var(--radius-lg); overflow:hidden; display:grid; grid-template-columns:1.1fr 1fr; box-shadow:0 8px 48px rgba(44,44,42,.08); }
+.base-card-left { padding:3.5rem; }
+.base-badge { display:inline-block; background:#FAEEDA; color:#BA7517; font-size:.7rem; font-weight:700; padding:.35rem 1rem; border-radius:999px; margin-bottom:1.5rem; letter-spacing:.06em; }
+.base-title { font-family:'Noto Serif JP',serif; font-size:clamp(1.6rem,3vw,2.2rem); font-weight:700; color:#1E1E1C; line-height:1.5; margin-bottom:1rem; }
+.base-desc { font-size:.9rem; color:#6B6A66; line-height:1.9; margin-bottom:1.5rem; }
+.base-points { list-style:none; margin:0 0 2rem; padding:0; display:flex; flex-direction:column; gap:.65rem; }
+.base-points li { display:flex; align-items:center; gap:.6rem; font-size:.875rem; color:#1E1E1C; font-weight:500; }
+.base-cta { margin-top:.5rem; }
+.base-card-right { background:#FAFAF7; display:flex; align-items:center; justify-content:center; padding:2.5rem; }
+.base-egg-wrap { width:100%; max-width:260px; }
+.base-egg-wrap svg { width:100%; height:auto; }
+
+/* PRODUCTS */
+.prod-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1.25rem; }
+.prod-card { text-decoration:none; color:inherit; display:flex; flex-direction:column; }
+.prod-img { position:relative; aspect-ratio:1; background:#FAEEDA; overflow:hidden; }
+.prod-img img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .5s cubic-bezier(.25,.46,.45,.94); }
+.prod-card:hover .prod-img img { transform:scale(1.06); }
+.prod-badge { position:absolute; top:10px; left:10px; background:#BA7517; color:#FFFBF3; font-size:.65rem; font-weight:700; padding:.25rem .7rem; border-radius:999px; }
+.prod-body { padding:1.4rem; }
+.prod-body h3 { font-family:'Noto Serif JP',serif; font-size:.9rem; font-weight:700; color:#1E1E1C; margin-bottom:.35rem; }
+.prod-body p { font-size:.78rem; color:#6B6A66; line-height:1.7; margin-bottom:.85rem; }
+
+/* GIFT */
+.gift-row { display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:center; }
+.gift-list { list-style:none; margin:.75rem 0 2rem; padding:0; display:flex; flex-direction:column; gap:.6rem; }
+.gift-list li { display:flex; align-items:center; gap:.6rem; font-size:.875rem; color:#1E1E1C; font-weight:500; }
+.gift-list li::before { content:'✓'; color:#BA7517; font-weight:700; flex-shrink:0; }
+.gift-img { border-radius:var(--radius-lg); overflow:hidden; aspect-ratio:4/3; background:#FAEEDA; }
+.gift-img img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .6s; }
+.gift-img:hover img { transform:scale(1.04); }
+
+/* 法人バナー */
+.biz-banner { display:flex; align-items:center; justify-content:space-between; gap:2rem; flex-wrap:wrap; }
+.biz-banner-title { font-family:'Noto Serif JP',serif; font-size:1.3rem; font-weight:700; color:#1E1E1C; margin:.4rem 0 .5rem; }
+.biz-banner-desc { font-size:.875rem; color:#6B6A66; line-height:1.8; }
+
+/* CENTER HEAD */
+.center-head { text-align:center; }
+
 @media (max-width:900px) {
-  .home-grid,.sub-grid,.recipe-grid { grid-template-columns:1fr 1fr; }
-  .gift-row { grid-template-columns:1fr; gap:2rem; }
+  .base-card { grid-template-columns:1fr; }
+  .base-card-right { display:none; }
+  .gift-row { grid-template-columns:1fr; gap:2.5rem; }
+  .prod-grid { grid-template-columns:repeat(2,1fr); }
+  .biz-banner { flex-direction:column; align-items:flex-start; }
 }
 @media (max-width:600px) {
-  .home-grid,.sub-grid,.recipe-grid { grid-template-columns:1fr; max-width:380px; margin:0 auto; }
+  .prod-grid { grid-template-columns:repeat(2,1fr); }
+  .base-card-left { padding:2rem; }
 }
 </style>
