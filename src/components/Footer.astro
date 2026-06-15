@@ -10,62 +10,61 @@ const links = [
 ];
 ---
 <footer class="ft">
-  <div class="ft-body">
-    <div class="ft-in">
-      <div class="ft-brand">
-        <a href="/" class="ft-logo">
-          <svg width="36" height="42" viewBox="0 0 32 38" fill="none" aria-hidden="true">
-            <ellipse cx="16" cy="22" rx="14" ry="15" fill="rgba(250,199,117,0.25)"/>
-            <ellipse cx="16" cy="13" rx="10" ry="12" fill="rgba(239,159,39,0.3)"/>
-          </svg>
-          <div>
-            <span class="ft-jp">小澤鶏卵</span>
-            <span class="ft-en">KOZAWA KEIRAN</span>
-          </div>
-        </a>
-        <p class="ft-tagline">新鮮で安心なたまごを、<br/>毎日の食卓へ。</p>
-        <a href="tel:076-466-3815" class="ft-tel">076-466-3815</a>
-        <p class="ft-hrs">月〜土 8:00〜17:00（日祝休業）</p>
-        <p class="ft-addr">〒939-2716 富山県富山市婦中町下轡田25-1</p>
-      </div>
-
-      <nav class="ft-nav">
-        <p class="ft-nav-label">SITE MAP</p>
-        <ul>
-          {links.map(l => <li><a href={l.href}>{l.label}</a></li>)}
-        </ul>
-      </nav>
-
-      <div class="ft-contact">
-        <p class="ft-nav-label">CONTACT</p>
-        <p class="ft-contact-lead">ご注文・ご相談はお気軽に</p>
-        <a href="/contact" class="btn btn-primary" style="justify-content:center;width:100%;margin-bottom:.75rem">お問い合わせフォーム →</a>
-        <a href="/business" class="btn btn-outline" style="justify-content:center;width:100%">法人のお客様はこちら</a>
-      </div>
+  <div class="ft-inner">
+    <div class="ft-brand">
+      <a href="/" class="ft-logo">
+        <svg width="32" height="32" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+          <circle cx="18" cy="18" r="17" fill="rgba(237,229,208,0.15)" stroke="rgba(217,181,90,0.3)" stroke-width="1"/>
+          <ellipse cx="18" cy="21" rx="9" ry="10" fill="rgba(232,217,184,0.2)" stroke="rgba(217,181,90,0.3)" stroke-width="0.8"/>
+          <ellipse cx="18" cy="15" rx="6" ry="7.5" fill="rgba(232,217,184,0.25)" stroke="rgba(217,181,90,0.3)" stroke-width="0.8"/>
+        </svg>
+        <div>
+          <span class="ft-jp">小澤鶏卵</span>
+          <span class="ft-en">KOZAWA KEIRAN</span>
+        </div>
+      </a>
+      <p class="ft-tagline">新鮮で安心なたまごを、<br/>毎日の食卓へ。</p>
+      <a href="tel:076-466-3815" class="ft-tel">076-466-3815</a>
+      <p class="ft-hrs">月〜土 8:00〜17:00（日祝休業）</p>
+      <p class="ft-addr">〒939-2716 富山県富山市婦中町下轡田25-1</p>
     </div>
 
-    <div class="ft-btm">
-      <p>&copy; {new Date().getFullYear()} 小澤鶏卵 All rights reserved.</p>
+    <nav class="ft-nav">
+      <p class="ft-nav-label">SITE MAP</p>
+      <ul>
+        {links.map(l => <li><a href={l.href}>{l.label}</a></li>)}
+      </ul>
+    </nav>
+
+    <div class="ft-contact">
+      <p class="ft-nav-label">CONTACT</p>
+      <p class="ft-contact-lead">ご注文・ご相談はお気軽にどうぞ</p>
+      <a href="/contact" class="btn btn-primary" style="justify-content:center;width:100%;margin-bottom:.75rem">お問い合わせ →</a>
+      <a href="/business" class="btn btn-secondary" style="justify-content:center;width:100%;border-color:rgba(255,255,255,.25);color:rgba(255,255,255,.6)">法人のお客様はこちら</a>
     </div>
+  </div>
+
+  <div class="ft-btm">
+    <p>&copy; {new Date().getFullYear()} 小澤鶏卵 All rights reserved.</p>
   </div>
 </footer>
 
 <style>
-.ft-body { background:#2C2C2A; color:white; padding:4rem 0 0; }
-.ft-in { max-width:1100px; margin:0 auto; padding:0 2rem 3rem; display:grid; grid-template-columns:1.4fr 1fr 1.2fr; gap:4rem; }
-.ft-logo { display:flex; align-items:center; gap:10px; text-decoration:none; margin-bottom:1rem; }
-.ft-jp { display:block; font-family:'Noto Serif JP',serif; font-size:1.05rem; font-weight:700; color:white; letter-spacing:.06em; }
-.ft-en { display:block; font-family:'Lato',sans-serif; font-size:.5rem; letter-spacing:.18em; color:rgba(255,255,255,.4); margin-top:2px; }
-.ft-tagline { font-size:.875rem; color:rgba(255,255,255,.6); line-height:1.9; margin-bottom:1rem; }
-.ft-tel { display:block; font-family:'Lato',sans-serif; font-size:1.5rem; font-weight:300; color:#FAC775; text-decoration:none; letter-spacing:.04em; margin-bottom:.25rem; }
-.ft-hrs,.ft-addr { font-size:.73rem; color:rgba(255,255,255,.4); margin:.15rem 0 0; line-height:1.6; }
-.ft-nav-label { font-family:'Lato',sans-serif; font-size:.62rem; letter-spacing:.18em; color:#BA7517; margin-bottom:1rem; }
-.ft-nav ul { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; }
-.ft-nav a { display:block; padding:.45rem 0; font-size:.85rem; color:rgba(255,255,255,.6); text-decoration:none; border-bottom:0.5px solid rgba(255,255,255,.06); transition:color .15s,padding-left .2s; }
-.ft-nav a:hover { color:#FAC775; padding-left:.4rem; }
-.ft-contact-lead { font-size:.83rem; color:rgba(255,255,255,.55); margin-bottom:1.25rem; line-height:1.7; }
-.ft-btm { max-width:1100px; margin:0 auto; padding:1.5rem 2rem; border-top:0.5px solid rgba(255,255,255,.08); text-align:center; }
-.ft-btm p { font-size:.72rem; color:rgba(255,255,255,.3); margin:0; }
-@media (max-width:900px) { .ft-in { grid-template-columns:1fr 1fr; gap:2.5rem; } .ft-contact { grid-column:1/-1; } }
-@media (max-width:600px) { .ft-in { grid-template-columns:1fr; gap:2rem; } }
+.ft { background:#2B2A28; color:white; padding:4.5rem 0 0; }
+.ft-inner { max-width:1080px; margin:0 auto; padding:0 2.5rem 3.5rem; display:grid; grid-template-columns:1.4fr 1fr 1.2fr; gap:4rem; }
+.ft-logo { display:flex; align-items:center; gap:10px; text-decoration:none; margin-bottom:1.25rem; }
+.ft-jp { display:block; font-family:'Noto Serif JP',serif; font-size:1rem; font-weight:700; color:white; letter-spacing:.08em; }
+.ft-en { display:block; font-family:'Lato',sans-serif; font-size:.48rem; letter-spacing:.2em; color:rgba(255,255,255,.35); margin-top:3px; }
+.ft-tagline { font-size:.85rem; color:rgba(255,255,255,.5); line-height:2; margin-bottom:1.25rem; }
+.ft-tel { display:block; font-family:'Lato',sans-serif; font-size:1.5rem; font-weight:300; color:var(--gold); text-decoration:none; letter-spacing:.04em; margin-bottom:.3rem; }
+.ft-hrs,.ft-addr { font-size:.72rem; color:rgba(255,255,255,.35); margin:.15rem 0 0; line-height:1.7; }
+.ft-nav-label { font-family:'Lato',sans-serif; font-size:.6rem; letter-spacing:.2em; color:var(--gold); margin-bottom:1.25rem; opacity:.8; }
+.ft-nav ul { list-style:none; margin:0; padding:0; }
+.ft-nav a { display:block; padding:.45rem 0; font-size:.83rem; color:rgba(255,255,255,.5); text-decoration:none; border-bottom:1px solid rgba(255,255,255,.06); transition:color .15s,padding-left .2s; }
+.ft-nav a:hover { color:rgba(255,255,255,.85); padding-left:.4rem; }
+.ft-contact-lead { font-size:.83rem; color:rgba(255,255,255,.45); margin-bottom:1.5rem; line-height:1.8; }
+.ft-btm { max-width:1080px; margin:0 auto; padding:1.5rem 2.5rem; border-top:1px solid rgba(255,255,255,.06); text-align:center; }
+.ft-btm p { font-size:.7rem; color:rgba(255,255,255,.25); margin:0; letter-spacing:.04em; }
+@media (max-width:900px) { .ft-inner { grid-template-columns:1fr 1fr; gap:3rem; } .ft-contact { grid-column:1/-1; } }
+@media (max-width:600px) { .ft-inner { grid-template-columns:1fr; gap:2.5rem; } }
 </style>

@@ -3,125 +3,50 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 ---
-<Layout title="小澤鶏卵｜富山のたまご専門店" description="幸せは、たまごのある食卓にある。小澤鶏卵は地域の飲食店・施設・ご家庭へ、安全で高品質なたまごをお届けします。">
+<Layout title="小澤鶏卵｜富山の平飼いたまご専門店" description="ひとつの卵から、毎日の食卓をもっと豊かに。小澤鶏卵は富山から安全で高品質なたまごをお届けします。">
   <Header/>
   <main>
 
     <!-- HERO -->
     <section class="hero">
       <div class="hero-img">
-        <img src="/images/hero_main.svg" alt="新鮮なたまご" loading="eager"/>
+        <img src="/images/hero_main.svg" alt="小澤鶏卵の新鮮なたまご" loading="eager"/>
         <div class="hero-ov"></div>
       </div>
       <div class="hero-content">
-        <span class="hero-eyebrow">KOZAWA KEIRAN · EST. 1920s · TOYAMA</span>
-        <h1 class="hero-h1">幸せは、<br/><em>たまご</em>のある<br/>食卓にある。</h1>
-        <p class="hero-lead">富山で100年以上、地域の食卓に<br/>新鮮で安心なたまごをお届けしています。</p>
+        <span class="hero-eyebrow">KOZAWA KEIRAN · TOYAMA · EST. 1920s</span>
+        <h1 class="hero-h1">ひとつの卵から、<br/>毎日の食卓を<br/>もっと豊かに。</h1>
+        <p class="hero-lead">自然の恵みを受けて、のびのびと育った鶏の卵。<br/>小澤鶏卵は、安心・安全でおいしい卵を<br/>農場から直接お届けします。</p>
         <div class="hero-btns">
-          <a href="/business" class="btn btn-primary">法人取引のご相談</a>
-          <a href="/products" class="btn btn-outline-wh">商品を見る</a>
+          <a href="/products" class="btn btn-primary">商品一覧を見る　→</a>
+          <a href="/feature"  class="btn btn-white">こだわりを読む　→</a>
         </div>
       </div>
-    </section>
-
-    <!-- STATS -->
-    <div class="stats-bar">
-      <div class="stats-in">
-        <div class="stat"><span class="stat-num">100<span class="stat-unit">年+</span></span><span class="stat-label">創業からの歴史</span></div>
-        <div class="stat-div"></div>
-        <div class="stat"><span class="stat-num">月水金</span><span class="stat-label">注文受付日</span></div>
-        <div class="stat-div"></div>
-        <div class="stat"><span class="stat-num">当日</span><span class="stat-label">夕方お届け</span></div>
-        <div class="stat-div"></div>
-        <div class="stat"><span class="stat-num">富山市内</span><span class="stat-label">配達エリア</span></div>
-      </div>
-    </div>
-
-    <!-- FOR BUSINESS -->
-    <section class="sec">
-      <div class="container">
-        <div class="two-col">
-          <div class="two-col-img">
-            <img src="/images/business_hero.svg" alt="業務用たまご"/>
-          </div>
-          <div class="two-col-body">
-            <div class="sec-head">
-              <span class="sec-eyebrow">FOR BUSINESS</span>
-              <h2 class="sec-title">毎日使うたまごを、<br/>安定してお届けします。</h2>
-              <p class="sec-lead">飲食店・ホテル・給食施設・スーパーなど、業務用たまごの安定供給はお任せください。大量注文・定期納品・サイズ規格指定など、柔軟に対応します。</p>
-            </div>
-            <div class="client-tags">
-              {['ラーメン店','洋菓子店','ホテル','スーパー','給食施設','催事・イベント'].map(t => (
-                <span class="c-tag">{t}</span>
-              ))}
-            </div>
-            <a href="/business" class="btn btn-primary" style="margin-top:2rem">法人取引のご相談はこちら →</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FOR HOME -->
-    <section class="sec sec--gray">
-      <div class="container">
-        <div class="two-col two-col--rev">
-          <div class="two-col-img">
-            <img src="/images/hero_main.svg" alt="ご家庭用たまご"/>
-          </div>
-          <div class="two-col-body">
-            <div class="sec-head">
-              <span class="sec-eyebrow">FOR HOME</span>
-              <h2 class="sec-title">毎日の食卓に、<br/>安心でおいしいたまごを。</h2>
-              <p class="sec-lead">ご家庭用・ギフト・通販・定期購入など、個人のお客様にも幅広くご対応します。産地直送の新鮮なたまごを、毎日の食卓へ。</p>
-            </div>
-            <div style="display:flex;gap:.75rem;flex-wrap:wrap;margin-top:1.5rem">
-              <a href="/shop" class="btn btn-primary">個人のお客様はこちら →</a>
-              <a href="/products" class="btn btn-outline">商品ラインナップ</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section class="sec">
-      <div class="container">
-        <div class="two-col">
-          <div class="two-col-img">
-            <img src="/images/about_chickens.svg" alt="元気に育つ鶏たち"/>
-          </div>
-          <div class="two-col-body">
-            <div class="sec-head">
-              <span class="sec-eyebrow">ABOUT</span>
-              <h2 class="sec-title">私たちについて</h2>
-              <p class="sec-lead">小澤鶏卵は、自然豊かな環境の中で、鶏の健康を第一に考え、こだわりの飼料ときれいな水で鶏を育てています。新鮮でおいしいたまごを、まごころ込めてお届けします。</p>
-            </div>
-            <a href="/about" class="btn btn-primary" style="margin-top:1.5rem">詳しく見る →</a>
-          </div>
-        </div>
+      <div class="hero-scroll">
+        <span>SCROLL</span>
+        <div class="hero-scroll-line"></div>
       </div>
     </section>
 
     <!-- FEATURE -->
-    <section class="sec sec--amber">
+    <section class="sec sec--white">
       <div class="container">
         <div class="sec-head sec-head--center">
           <span class="sec-eyebrow">FEATURE</span>
-          <h2 class="sec-title">こだわり</h2>
+          <h2 class="sec-title">小澤鶏卵のこだわり</h2>
+          <span class="sec-rule"></span>
         </div>
         <div class="feat-grid">
           {[
-            { img:'/images/feature_feed.svg',   title:'こだわりの飼料',     body:'鶏の健康を考え、厳選した原料を使用した自家配合飼料を与えています。' },
-            { img:'/images/feature_env.svg',    title:'快適な飼育環境',     body:'清潔で風通しの良い鶏舎で、のびのびと育った鶏から産まれています。' },
-            { img:'/images/feature_water.svg',  title:'おいしい水',         body:'地下から汲み上げたきれいな水をたっぷり与えています。' },
-            { img:'/images/feature_safety.svg', title:'安心・安全への取り組み', body:'徹底した衛生管理のもと、安心・安全なたまごをお届けします。' },
+            { svg:'🐔', title:'のびのび育つ、平飼い環境',     body:'自然光と風が入る開放的な鶏舎で、鶏たちはのびのびと暮らしています。' },
+            { svg:'🌿', title:'厳選した自然の恵み',           body:'国産の飼料を中心に、栄養バランスを考えたえさで、健康な卵を育てています。' },
+            { svg:'🥚', title:'鮮度へのこだわり',             body:'採卵したその日に出荷。新鮮な卵を農場から直接お届けします。' },
           ].map(f => (
-            <div class="feat-card">
-              <div class="feat-img"><img src={f.img} alt={f.title} loading="lazy"/></div>
-              <div class="feat-body">
-                <h3>{f.title}</h3>
-                <p>{f.body}</p>
-              </div>
+            <div class="feat-item">
+              <div class="feat-icon">{f.svg}</div>
+              <h3>{f.title}</h3>
+              <p>{f.body}</p>
+              <a href="/feature" class="link-arrow">詳しく見る　→</a>
             </div>
           ))}
         </div>
@@ -129,62 +54,83 @@ import Footer from '../components/Footer.astro';
     </section>
 
     <!-- PRODUCTS -->
-    <section class="sec">
+    <section class="sec sec--bg">
       <div class="container">
-        <div class="sec-head sec-head--center">
-          <span class="sec-eyebrow">LINE UP</span>
-          <h2 class="sec-title">商品紹介</h2>
-        </div>
-        <div class="prod-grid">
-          {[
-            { img:'/images/product_kodawari.svg', name:'こだわりのたまご', note:'コクと甘みが特徴の、当社自慢のたまごです。', href:'/products#kodawari' },
-            { img:'/images/product_pink.svg',     name:'ピンクたまご',     note:'やさしいピンク色の殻が特徴のたまごです。',   href:'/products#pink' },
-            { img:'/images/product_araucana.svg', name:'アローカナのたまご', note:'南米原産の鶏が産む、希少な青い殻のたまごです。', href:'/products#araucana' },
-            { img:'/images/product_gift.svg',     name:'ギフトセット',     note:'大切な方への贈り物に。ギフトセットをご用意。', href:'/products#gift' },
-          ].map(p => (
-            <a href={p.href} class="card prod-card">
-              <div class="prod-img"><img src={p.img} alt={p.name} loading="lazy"/></div>
-              <div class="prod-body">
-                <h3>{p.name}</h3>
-                <p>{p.note}</p>
-                <span class="link-arrow">詳しく見る <svg width="13" height="10" viewBox="0 0 14 10" fill="none"><path d="M9 1l4 4-4 4M1 5h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
-              </div>
-            </a>
-          ))}
+        <div class="prod-layout">
+          <div class="prod-head">
+            <span class="sec-eyebrow">LINE UP</span>
+            <h2 class="sec-title sec-title--lg">商品一覧</h2>
+            <span class="sec-rule"></span>
+            <p class="sec-lead">こだわりの卵を、用途やシーンに<br/>合わせてお選びいただけます。</p>
+            <a href="/products" class="link-arrow" style="margin-top:1.5rem;display:inline-flex">すべての商品を見る　→</a>
+          </div>
+          <div class="prod-cards">
+            {[
+              { img:'/images/product_kodawari.svg', badge:'一番人気',      name:'小澤の平飼いたまご',   note:'10個入', price:'¥480' },
+              { img:'/images/product_pink.svg',     badge:'コクと甘み',    name:'小澤の濃厚たまご',     note:'10個入', price:'¥530' },
+              { img:'/images/product_gift.svg',     badge:'ギフトにおすすめ', name:'平飼いたまご ギフトセット', note:'20個入', price:'¥1,980' },
+            ].map(p => (
+              <a href="/products" class="prod-card">
+                <div class="prod-img"><img src={p.img} alt={p.name} loading="lazy"/></div>
+                <div class="prod-body">
+                  <span class="prod-badge">{p.badge}</span>
+                  <h3>{p.name}</h3>
+                  <p class="prod-note">{p.note}</p>
+                  <p class="prod-price">{p.price} <span>（税込）</span></p>
+                </div>
+              </a>
+            ))}
+          </div>
         </div>
       </div>
     </section>
 
+    <!-- PHOTO GRID -->
+    <div class="photo-grid">
+      <a href="/about" class="photo-item">
+        <img src="/images/about_chickens.svg" alt="農場紹介" loading="lazy"/>
+        <div class="photo-ov"><span>農場紹介　→</span></div>
+      </a>
+      <a href="/feature" class="photo-item">
+        <img src="/images/feature_feed.svg" alt="おいしい食べ方" loading="lazy"/>
+        <div class="photo-ov"><span>おいしい食べ方　→</span></div>
+      </a>
+      <a href="/shop" class="photo-item">
+        <img src="/images/product_gift.svg" alt="ギフト・定期便" loading="lazy"/>
+        <div class="photo-ov"><span>ギフト・定期便　→</span></div>
+      </a>
+    </div>
+
     <!-- NEWS -->
-    <section class="sec sec--gray">
+    <section class="sec sec--white">
       <div class="container">
-        <div class="news-row">
+        <div class="news-layout">
           <div class="sec-head">
             <span class="sec-eyebrow">NEWS</span>
             <h2 class="sec-title">お知らせ</h2>
+            <span class="sec-rule"></span>
           </div>
-          <ul class="news-list">
-            <li><a href="/news"><time>2024.05.01</time><span>ゴールデンウィーク期間の営業について</span></a></li>
-            <li><a href="/news"><time>2024.04.10</time><span>「こだわりのたまご」価格改定のお知らせ</span></a></li>
-            <li><a href="/news"><time>2024.03.15</time><span>ホームページをリニューアルしました</span></a></li>
-          </ul>
-          <a href="/news" class="btn btn-outline" style="margin-top:2rem">お知らせ一覧 →</a>
+          <div class="news-body">
+            <ul class="news-list">
+              <li><a href="/news"><time>2024.05.15</time><span class="news-cat">お知らせ</span><span class="news-title">オンラインショップをリニューアルしました。</span></a></li>
+              <li><a href="/news"><time>2024.04.10</time><span class="news-cat">お知らせ</span><span class="news-title">「こだわりのたまご」価格改定のお知らせ</span></a></li>
+              <li><a href="/news"><time>2024.03.15</time><span class="news-cat">お知らせ</span><span class="news-title">ホームページをリニューアルしました</span></a></li>
+            </ul>
+            <a href="/news" class="link-arrow" style="margin-top:1.5rem;display:inline-flex">お知らせ一覧　→</a>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- CONTACT CTA -->
-    <section class="cta-sec">
-      <div class="container cta-in">
+    <!-- FOR BUSINESS -->
+    <section class="biz-band">
+      <div class="container biz-in">
         <div>
-          <span class="sec-eyebrow" style="color:#FAC775">CONTACT</span>
-          <h2 class="cta-title">お問い合わせ</h2>
-          <p class="cta-lead">ご注文やご質問など、お気軽にお問い合わせください。</p>
+          <span class="sec-eyebrow" style="color:rgba(217,181,90,.7)">FOR BUSINESS</span>
+          <h2 class="biz-title">法人・業務用のご相談</h2>
+          <p class="biz-lead">飲食店・ホテル・給食施設・スーパーなど、業務用たまごの安定供給はお任せください。</p>
         </div>
-        <div class="cta-btns">
-          <a href="/contact" class="btn btn-primary">お問い合わせフォームへ →</a>
-          <a href="tel:076-466-3815" class="btn btn-outline-wh">076-466-3815</a>
-        </div>
+        <a href="/business" class="btn btn-primary">法人取引のご相談はこちら　→</a>
       </div>
     </section>
 
@@ -197,77 +143,71 @@ import Footer from '../components/Footer.astro';
 .hero { position:relative; min-height:100svh; display:flex; align-items:center; }
 .hero-img { position:absolute; inset:0; }
 .hero-img img { width:100%; height:100%; object-fit:cover; }
-.hero-ov { position:absolute; inset:0; background:linear-gradient(to right,rgba(44,44,42,.85) 0%,rgba(44,44,42,.6) 55%,rgba(44,44,42,.2) 100%); }
-.hero-content { position:relative; z-index:1; max-width:1100px; margin:0 auto; padding:7rem 2rem 4rem; }
-.hero-eyebrow { font-family:'Lato',sans-serif; font-size:.65rem; letter-spacing:.2em; color:#FAC775; opacity:.8; display:block; margin-bottom:1.5rem; }
-.hero-h1 { font-family:'Noto Serif JP',serif; font-size:clamp(2.4rem,5.5vw,4rem); font-weight:700; color:white; line-height:1.4; margin-bottom:1.25rem; letter-spacing:.02em; }
-.hero-h1 em { font-style:normal; color:#FAC775; }
-.hero-lead { font-size:clamp(.88rem,1.5vw,1rem); color:rgba(255,255,255,.75); line-height:1.9; margin-bottom:2.5rem; }
+.hero-ov { position:absolute; inset:0; background:linear-gradient(105deg,rgba(43,42,40,.78) 0%,rgba(43,42,40,.5) 55%,rgba(43,42,40,.18) 100%); }
+.hero-content { position:relative; z-index:1; max-width:1080px; margin:0 auto; padding:9rem 2.5rem 5rem; }
+.hero-eyebrow { font-family:'Lato',sans-serif; font-size:.6rem; letter-spacing:.25em; color:rgba(217,181,90,.8); display:block; margin-bottom:2rem; text-transform:uppercase; }
+.hero-h1 { font-family:'Noto Serif JP',serif; font-size:clamp(2.2rem,5vw,3.6rem); font-weight:700; color:white; line-height:1.55; margin-bottom:1.5rem; letter-spacing:.02em; }
+.hero-lead { font-size:clamp(.85rem,1.2vw,.95rem); color:rgba(255,255,255,.65); line-height:2.1; margin-bottom:3rem; }
 .hero-btns { display:flex; gap:1rem; flex-wrap:wrap; }
-.btn-outline-wh { background:transparent; color:white; border:1.5px solid rgba(255,255,255,.6); border-radius:999px; padding:.875rem 2rem; font-size:.875rem; font-weight:700; text-decoration:none; transition:all .2s; letter-spacing:.04em; }
-.btn-outline-wh:hover { background:rgba(255,255,255,.1); }
-
-/* STATS */
-.stats-bar { background:white; border-bottom:0.5px solid rgba(186,117,23,.12); }
-.stats-in { max-width:1100px; margin:0 auto; padding:0 2rem; display:flex; align-items:center; }
-.stat { flex:1; padding:1.75rem 1rem; text-align:center; display:flex; flex-direction:column; gap:.35rem; }
-.stat-num { font-family:'Lato',sans-serif; font-size:1.6rem; font-weight:300; color:#BA7517; line-height:1; letter-spacing:-.01em; }
-.stat-unit { font-size:.85rem; }
-.stat-label { font-size:.72rem; color:#888780; letter-spacing:.04em; }
-.stat-div { width:0.5px; height:40px; background:rgba(186,117,23,.15); flex-shrink:0; }
-
-/* TWO COL */
-.two-col { display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:center; }
-.two-col--rev .two-col-img { order:2; }
-.two-col--rev .two-col-body { order:1; }
-.two-col-img { border-radius:var(--radius-lg); overflow:hidden; }
-.two-col-img img { width:100%; height:400px; object-fit:cover; display:block; }
-
-/* CLIENT TAGS */
-.client-tags { display:flex; flex-wrap:wrap; gap:.5rem; margin-top:1.25rem; }
-.c-tag { background:#FAEEDA; color:#633806; font-size:.75rem; font-weight:500; padding:.4rem 1rem; border-radius:999px; border:0.5px solid rgba(186,117,23,.2); }
+.hero-scroll { position:absolute; bottom:2.5rem; right:3rem; z-index:1; display:flex; flex-direction:column; align-items:center; gap:.75rem; }
+.hero-scroll span { font-family:'Lato',sans-serif; font-size:.58rem; letter-spacing:.2em; color:rgba(255,255,255,.4); writing-mode:vertical-rl; }
+.hero-scroll-line { width:1px; height:40px; background:linear-gradient(to bottom,rgba(217,181,90,.5),transparent); }
 
 /* FEATURE */
-.feat-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1.25rem; }
-.feat-card { background:white; border-radius:var(--radius-md); border:0.5px solid rgba(186,117,23,.1); overflow:hidden; }
-.feat-img img { width:100%; height:160px; object-fit:cover; display:block; }
-.feat-body { padding:1.25rem; }
-.feat-body h3 { font-family:'Noto Serif JP',serif; font-size:.92rem; font-weight:700; color:#2C2C2A; margin-bottom:.4rem; }
-.feat-body p { font-size:.78rem; color:#888780; line-height:1.7; margin:0; }
+.feat-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:3rem; }
+.feat-item { text-align:center; padding:2rem 1.5rem; }
+.feat-icon { font-size:2rem; margin-bottom:1.25rem; display:block; }
+.feat-item h3 { font-family:'Noto Serif JP',serif; font-size:1rem; font-weight:700; color:var(--heading); margin-bottom:.75rem; }
+.feat-item p { font-size:.83rem; color:var(--light); line-height:2; margin-bottom:1.25rem; }
 
 /* PRODUCTS */
-.prod-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1.25rem; }
-.prod-card { text-decoration:none; color:inherit; }
-.prod-img img { width:100%; height:200px; object-fit:cover; display:block; }
+.prod-layout { display:grid; grid-template-columns:1fr 2fr; gap:5rem; align-items:start; }
+.prod-cards { display:grid; grid-template-columns:repeat(3,1fr); gap:1.25rem; }
+.prod-card { text-decoration:none; color:inherit; background:var(--bg-white); border-radius:var(--radius-md); overflow:hidden; border:1px solid var(--border); transition:transform .25s,box-shadow .25s; display:block; }
+.prod-card:hover { transform:translateY(-3px); box-shadow:0 8px 28px rgba(43,42,40,.08); }
+.prod-img img { width:100%; height:180px; object-fit:cover; display:block; }
 .prod-body { padding:1.25rem; }
-.prod-body h3 { font-family:'Noto Serif JP',serif; font-size:.92rem; font-weight:700; color:#2C2C2A; margin-bottom:.3rem; }
-.prod-body p { font-size:.78rem; color:#888780; margin-bottom:.75rem; line-height:1.6; }
+.prod-badge { font-family:'Lato',sans-serif; font-size:.62rem; letter-spacing:.12em; color:var(--gold); display:block; margin-bottom:.4rem; }
+.prod-body h3 { font-family:'Noto Serif JP',serif; font-size:.9rem; font-weight:700; color:var(--heading); margin-bottom:.3rem; }
+.prod-note { font-size:.75rem; color:var(--light); margin:.2rem 0 .6rem; }
+.prod-price { font-family:'Lato',sans-serif; font-size:1.1rem; font-weight:400; color:var(--heading); margin:0; }
+.prod-price span { font-size:.72rem; color:var(--light); }
+
+/* PHOTO GRID */
+.photo-grid { display:grid; grid-template-columns:repeat(3,1fr); }
+.photo-item { position:relative; overflow:hidden; aspect-ratio:4/3; display:block; }
+.photo-item img { width:100%; height:100%; object-fit:cover; transition:transform .5s; }
+.photo-item:hover img { transform:scale(1.04); }
+.photo-ov { position:absolute; inset:0; background:linear-gradient(to top,rgba(43,42,40,.65) 0%,transparent 50%); display:flex; align-items:flex-end; padding:1.75rem; transition:background .3s; }
+.photo-item:hover .photo-ov { background:linear-gradient(to top,rgba(43,42,40,.75) 0%,rgba(43,42,40,.15) 60%); }
+.photo-ov span { font-family:'Noto Serif JP',serif; font-size:.95rem; font-weight:700; color:white; letter-spacing:.04em; }
 
 /* NEWS */
-.news-row { max-width:720px; }
-.news-list { list-style:none; margin:1.5rem 0 0; padding:0; }
-.news-list li { border-bottom:0.5px solid rgba(186,117,23,.12); }
-.news-list a { display:flex; align-items:center; gap:1.5rem; padding:.9rem 0; text-decoration:none; transition:padding-left .2s; }
-.news-list a:hover { padding-left:.5rem; }
-.news-list time { font-family:'Lato',sans-serif; font-size:.78rem; color:#BA7517; white-space:nowrap; }
-.news-list span { font-size:.875rem; color:#2C2C2A; font-weight:500; }
+.news-layout { display:grid; grid-template-columns:200px 1fr; gap:5rem; align-items:start; }
+.news-list { list-style:none; margin:0; padding:0; }
+.news-list li { border-bottom:1px solid var(--border); }
+.news-list a { display:flex; align-items:baseline; gap:1.25rem; padding:1rem 0; text-decoration:none; transition:padding-left .2s; flex-wrap:wrap; }
+.news-list a:hover { padding-left:.4rem; }
+.news-list time { font-family:'Lato',sans-serif; font-size:.75rem; color:var(--light); white-space:nowrap; flex-shrink:0; }
+.news-cat { font-size:.7rem; color:var(--gold); border:1px solid rgba(217,181,90,.3); padding:.15rem .65rem; border-radius:2px; white-space:nowrap; flex-shrink:0; }
+.news-title { font-size:.875rem; color:var(--heading); }
 
-/* CTA */
-.cta-sec { background:#2C2C2A; padding:5rem 0; }
-.cta-in { display:flex; align-items:center; justify-content:space-between; gap:3rem; flex-wrap:wrap; }
-.cta-title { font-family:'Noto Serif JP',serif; font-size:clamp(1.5rem,3vw,2rem); font-weight:700; color:white; margin:.4rem 0 .6rem; }
-.cta-lead { font-size:.875rem; color:rgba(255,255,255,.55); margin:0; }
-.cta-btns { display:flex; gap:1rem; flex-wrap:wrap; }
+/* BIZ */
+.biz-band { background:var(--bg-sub); border-top:1px solid var(--border); border-bottom:1px solid var(--border); padding:4rem 0; }
+.biz-in { display:flex; align-items:center; justify-content:space-between; gap:3rem; flex-wrap:wrap; }
+.biz-title { font-family:'Noto Serif JP',serif; font-size:clamp(1.3rem,2.5vw,1.7rem); font-weight:700; color:var(--heading); margin:.5rem 0 .75rem; }
+.biz-lead { font-size:.85rem; color:var(--light); line-height:1.9; max-width:480px; margin:0; }
 
 @media (max-width:900px) {
-  .two-col { grid-template-columns:1fr; gap:2.5rem; }
-  .two-col--rev .two-col-img,.two-col--rev .two-col-body { order:unset; }
-  .feat-grid { grid-template-columns:repeat(2,1fr); }
-  .prod-grid { grid-template-columns:repeat(2,1fr); }
-  .stats-in { flex-wrap:wrap; }
-  .cta-in { flex-direction:column; align-items:flex-start; }
+  .feat-grid { grid-template-columns:1fr; gap:2rem; max-width:480px; margin:0 auto; }
+  .prod-layout { grid-template-columns:1fr; gap:2.5rem; }
+  .prod-cards { grid-template-columns:repeat(2,1fr); }
+  .photo-grid { grid-template-columns:1fr; }
+  .news-layout { grid-template-columns:1fr; gap:2rem; }
+  .biz-in { flex-direction:column; align-items:flex-start; }
+  .hero-scroll { display:none; }
 }
 @media (max-width:600px) {
-  .feat-grid,.prod-grid { grid-template-columns:1fr; max-width:380px; margin:0 auto; }
+  .prod-cards { grid-template-columns:1fr; max-width:320px; margin:0 auto; }
 }
 </style>
