@@ -2,23 +2,27 @@
 
 @layer base {
   :root {
-    --yellow:     #F5B82E;
-    --yellow-lt:  #FFF3C0;
-    --yellow-bg:  #FFFAF0;
-    --green:      #6F8F3A;
-    --green-dk:   #4A6A20;
-    --green-lt:   #EAF0DA;
-    --bg:         #FFFAF0;
-    --bg2:        #F7F1DF;
-    --brown:      #3B321F;
-    --muted:      #7A6A4A;
-    --white:      #FFFFFF;
+    --amber:     #BA7517;
+    --amber-lt:  #FAC775;
+    --amber-bg:  #FAEEDA;
+    --amber-pale:#FFF8ED;
+    --brown:     #412402;
+    --brown-md:  #633806;
+    --brown-lt:  #854F0B;
+    --gray:      #F8F6F2;
+    --gray-md:   #E8E4DC;
+    --muted:     #888780;
+    --text:      #2C2C2A;
+    --white:     #FFFFFF;
+    --radius-sm: 10px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
   }
 
   html {
     font-family: 'Noto Sans JP', 'Hiragino Sans', sans-serif;
-    background-color: var(--bg);
-    color: var(--brown);
+    background-color: var(--white);
+    color: var(--text);
     scroll-behavior: smooth;
   }
 
@@ -26,23 +30,24 @@
 
   h1,h2,h3,h4 {
     font-family: 'Noto Serif JP', 'Hiragino Mincho ProN', serif;
-    line-height: 1.5;
+    line-height: 1.55;
   }
+
+  * { box-sizing: border-box; }
 }
 
 @layer components {
-  /* ボタン */
   .btn {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
     padding: 0.875rem 2rem;
     border-radius: 999px;
-    font-size: 0.9rem;
+    font-size: 0.875rem;
     font-weight: 700;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.04em;
     text-decoration: none;
-    transition: all 0.22s ease;
+    transition: all 0.2s ease;
     cursor: pointer;
     white-space: nowrap;
     border: none;
@@ -50,112 +55,120 @@
   }
 
   .btn-primary {
-    background-color: var(--yellow);
-    color: var(--brown);
-    box-shadow: 0 4px 14px rgba(245,184,46,0.35);
+    background: var(--amber);
+    color: var(--amber-bg);
   }
   .btn-primary:hover {
-    background-color: #E8A818;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 22px rgba(245,184,46,0.45);
-  }
-
-  .btn-green {
-    background-color: var(--green);
-    color: white;
-    box-shadow: 0 4px 14px rgba(111,143,58,0.3);
-  }
-  .btn-green:hover {
-    background-color: var(--green-dk);
+    background: var(--brown-lt);
     transform: translateY(-2px);
   }
 
   .btn-outline {
-    background-color: white;
-    color: var(--green);
-    border: 2px solid var(--green);
+    background: transparent;
+    color: var(--amber);
+    border: 1.5px solid var(--amber);
   }
   .btn-outline:hover {
-    background-color: var(--green);
-    color: white;
+    background: var(--amber-bg);
   }
 
-  .btn-outline-yellow {
-    background-color: transparent;
-    color: var(--yellow);
-    border: 2px solid var(--yellow);
+  .btn-dark {
+    background: var(--brown);
+    color: var(--amber-bg);
   }
-  .btn-outline-yellow:hover {
-    background-color: var(--yellow);
-    color: var(--brown);
+  .btn-dark:hover {
+    background: #2C2C2A;
+    transform: translateY(-2px);
   }
 
-  /* セクションラベル */
-  .sec-en {
+  /* セクション共通 */
+  .sec { padding: 6rem 0; }
+  .sec--gray { background: var(--gray); }
+  .sec--amber { background: var(--amber-bg); }
+  .sec--dark { background: var(--brown); }
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+
+  /* セクションヘッダー 包装社スタイル */
+  .sec-head { margin-bottom: 3rem; }
+  .sec-head--center { text-align: center; }
+  .sec-eyebrow {
     font-family: 'Lato', sans-serif;
-    font-size: 1rem;
-    font-weight: 700;
-    letter-spacing: 0.18em;
-    color: var(--green);
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    color: var(--amber);
+    text-transform: uppercase;
     display: block;
-    line-height: 1;
+    margin-bottom: 0.5rem;
   }
-  .sec-ja {
-    font-size: 0.75rem;
-    color: var(--muted);
-    display: block;
-    letter-spacing: 0.1em;
-    margin-top: 3px;
-  }
-
   .sec-title {
     font-family: 'Noto Serif JP', serif;
-    font-size: clamp(1.5rem, 2.8vw, 2.2rem);
+    font-size: clamp(1.5rem, 2.8vw, 2.1rem);
     font-weight: 700;
-    color: var(--brown);
+    color: var(--text);
     line-height: 1.55;
-    letter-spacing: 0.02em;
+  }
+  .sec-lead {
+    font-size: 0.9rem;
+    color: var(--muted);
+    line-height: 1.9;
+    margin-top: 0.75rem;
   }
 
-  /* 波形 */
-  .wave { display: block; width: 100%; line-height: 0; }
-  .wave svg { display: block; width: 100%; }
-
-  /* カード */
+  /* カード 包装社スタイル 丸め強め */
   .card {
     background: white;
-    border-radius: 16px;
+    border-radius: var(--radius-lg);
+    border: 0.5px solid rgba(186,117,23,0.12);
     overflow: hidden;
-    box-shadow: 0 4px 20px rgba(59,50,31,0.08);
     transition: transform 0.25s, box-shadow 0.25s;
   }
   .card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 14px 38px rgba(59,50,31,0.13);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(186,117,23,0.12);
+  }
+
+  /* ページヒーロー */
+  .page-hero {
+    padding: 8rem 0 5rem;
+    margin-top: 72px;
+  }
+  .page-hero-eyebrow {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    color: var(--amber);
+    display: block;
+    margin-bottom: 0.75rem;
+  }
+  .page-hero-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.45;
+    margin-bottom: 1rem;
+  }
+  .page-hero-sub {
+    font-size: 0.9rem;
+    color: var(--muted);
+    line-height: 1.9;
+    max-width: 480px;
   }
 
   /* リンク矢印 */
   .link-arrow {
     display: inline-flex;
     align-items: center;
-    gap: 0.35rem;
+    gap: 0.4rem;
     font-size: 0.83rem;
     font-weight: 700;
-    color: var(--yellow);
+    color: var(--amber);
     text-decoration: none;
     transition: gap 0.2s;
   }
-  .link-arrow:hover { gap: 0.6rem; }
+  .link-arrow:hover { gap: 0.65rem; }
 
-  /* ページヘッダー */
-  .page-hero {
-    background-color: var(--bg2);
-    padding: 7rem 0 4rem;
-    border-bottom: 1px solid rgba(245,184,46,0.2);
-    margin-top: 70px;
-  }
-  .page-hero .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
-  .page-hero-en { font-family: 'Lato', sans-serif; font-size: 0.7rem; letter-spacing: 0.25em; color: var(--green); text-transform: uppercase; display: block; margin-bottom: 0.5rem; }
-  .page-hero-title { font-family: 'Noto Serif JP', serif; font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 700; color: var(--brown); }
-  .page-hero-sub { font-size: 0.9rem; color: var(--muted); margin-top: 0.5rem; }
+  /* 波 */
+  .wave { display: block; width: 100%; line-height: 0; }
+  .wave svg { display: block; width: 100%; }
 }
