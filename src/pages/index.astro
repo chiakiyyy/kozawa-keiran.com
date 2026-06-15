@@ -24,30 +24,44 @@ import Footer from '../components/Footer.astro';
           </div>
         </div>
       </div>
+      <div class="hero-scroll">
+        <span>SCROLL</span>
+        <div class="hero-scroll-line"></div>
+      </div>
     </section>
 
     <!-- STATS -->
     <div class="stats">
-      <div class="stat"><span class="stat-n">100<small>年+</small></span><span class="stat-l">創業からの歴史</span></div>
-      <div class="stat"><span class="stat-n">月水金</span><span class="stat-l">注文受付日</span></div>
-      <div class="stat"><span class="stat-n">当日</span><span class="stat-l">夕方お届け対応</span></div>
+      <div class="stat fade-up fade-up-d1">
+        <span class="stat-n">100<small>年+</small></span>
+        <span class="stat-l">創業からの歴史</span>
+      </div>
+      <div class="stat fade-up fade-up-d2">
+        <span class="stat-n">月水金</span>
+        <span class="stat-l">注文受付日</span>
+      </div>
+      <div class="stat fade-up fade-up-d3">
+        <span class="stat-n">当日</span>
+        <span class="stat-l">夕方お届け対応</span>
+      </div>
     </div>
 
     <!-- FOR BUSINESS -->
     <section class="sec">
       <div class="container">
         <div class="two-col">
-          <div class="two-col-img">
+          <div class="two-col-img fade-up">
             <img src="/images/business_hero.svg" alt="業務用たまご" loading="lazy"/>
           </div>
-          <div class="two-col-body">
+          <div class="two-col-body fade-up fade-up-d2">
             <span class="sec-label">FOR BUSINESS</span>
             <h2 class="sec-title">毎日使うたまごを、<br/>安定してお届けします。</h2>
+            <span class="sec-deco"></span>
             <p class="sec-lead">飲食店・ホテル・給食施設・スーパーなど、業務用たまごの安定供給はお任せください。大量注文・定期納品・催事対応など柔軟に対応します。</p>
             <div class="biz-tags">
               {['ラーメン店','洋菓子店','ホテル','スーパー','給食施設','催事・イベント'].map(t => <span class="biz-tag">{t}</span>)}
             </div>
-            <a href="/business" class="btn btn-primary" style="margin-top:2rem">法人取引のご相談はこちら →</a>
+            <a href="/business" class="btn btn-primary" style="margin-top:2.5rem">法人取引のご相談はこちら →</a>
           </div>
         </div>
       </div>
@@ -56,17 +70,18 @@ import Footer from '../components/Footer.astro';
     <!-- ORDER FLOW -->
     <section class="sec sec--amber">
       <div class="container">
-        <div style="text-align:center;margin-bottom:2.5rem">
-          <span class="sec-label">HOW TO ORDER</span>
-          <h2 class="sec-title">注文方法</h2>
+        <div class="center-head fade-up">
+          <span class="sec-label" style="justify-content:center;display:flex">HOW TO ORDER</span>
+          <h2 class="sec-title" style="text-align:center">注文方法</h2>
+          <span class="sec-deco sec-deco--center"></span>
         </div>
         <div class="order-methods">
           {[
-            { icon:'📞', name:'お電話', detail:'076-466-3815', sub:'月〜土 8:00〜17:00' },
-            { icon:'💬', name:'LINE',   detail:'公式アカウントへ', sub:'お気軽にどうぞ' },
-            { icon:'✉️', name:'メール', detail:'お問い合わせフォーム', sub:'24時間受付' },
+            { icon:'📞', name:'お電話', detail:'076-466-3815', sub:'月〜土 8:00〜17:00', delay:'fade-up-d1' },
+            { icon:'💬', name:'LINE',   detail:'公式アカウントへ', sub:'お気軽にどうぞ', delay:'fade-up-d2' },
+            { icon:'✉️', name:'メール', detail:'お問い合わせフォーム', sub:'24時間受付', delay:'fade-up-d3' },
           ].map(m => (
-            <div class="method-card">
+            <div class={`method-card fade-up ${m.delay}`}>
               <span class="method-icon">{m.icon}</span>
               <h3>{m.name}</h3>
               <p class="method-detail">{m.detail}</p>
@@ -74,7 +89,7 @@ import Footer from '../components/Footer.astro';
             </div>
           ))}
         </div>
-        <div class="order-note">
+        <div class="order-note fade-up">
           <strong>月・水・金 9:30まで</strong>にご注文いただくと、当日夕方にお届けします。<br/>
           お祭り・学園祭などの催し物・まとめてのご注文もお気軽にご相談ください。
         </div>
@@ -85,16 +100,17 @@ import Footer from '../components/Footer.astro';
     <section class="sec sec--pale">
       <div class="container">
         <div class="two-col two-col--rev">
-          <div class="two-col-body">
+          <div class="two-col-body fade-up">
             <span class="sec-label">FOR HOME</span>
             <h2 class="sec-title">毎日の食卓に、<br/>安心でおいしいたまごを。</h2>
+            <span class="sec-deco"></span>
             <p class="sec-lead">ご家庭用・ギフト・通販・定期購入など、個人のお客様にも幅広くご対応します。</p>
-            <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:2rem">
+            <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:2.5rem">
               <a href="/shop" class="btn btn-primary">個人のお客様はこちら →</a>
               <a href="/products" class="btn btn-outline">商品ラインナップ</a>
             </div>
           </div>
-          <div class="two-col-img">
+          <div class="two-col-img fade-up fade-up-d2">
             <img src="/images/hero_main.svg" alt="ご家庭用たまご" loading="lazy"/>
           </div>
         </div>
@@ -104,15 +120,16 @@ import Footer from '../components/Footer.astro';
     <!-- ABOUT -->
     <section class="sec">
       <div class="container">
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center">
-          <div>
+        <div class="two-col">
+          <div class="fade-up">
             <span class="sec-label">ABOUT</span>
-            <h2 class="sec-title" style="margin-bottom:1rem">私たちについて</h2>
-            <p style="font-size:.9rem;color:#5F5E5A;line-height:1.9">小澤鶏卵は、自然豊かな環境の中で、鶏の健康を第一に考え、こだわりの飼料ときれいな水で鶏を育てています。創業100年以上、富山の食卓を支えてきました。</p>
-            <a href="/about" class="link-arrow" style="margin-top:1.5rem;display:inline-flex">詳しく見る →</a>
+            <h2 class="sec-title">私たちについて</h2>
+            <span class="sec-deco"></span>
+            <p class="sec-lead">小澤鶏卵は、自然豊かな環境の中で、鶏の健康を第一に考え、こだわりの飼料ときれいな水で鶏を育てています。創業100年以上、富山の食卓を支えてきました。</p>
+            <a href="/about" class="link-arrow" style="margin-top:1.75rem;display:inline-flex">詳しく見る →</a>
           </div>
-          <div style="border-radius:var(--radius-md);overflow:hidden;aspect-ratio:4/3;background:#FAEEDA">
-            <img src="/images/about_chickens.svg" alt="小澤鶏卵について" loading="lazy" style="width:100%;height:100%;object-fit:cover"/>
+          <div class="two-col-img fade-up fade-up-d2">
+            <img src="/images/about_chickens.svg" alt="小澤鶏卵について" loading="lazy"/>
           </div>
         </div>
       </div>
@@ -121,20 +138,24 @@ import Footer from '../components/Footer.astro';
     <!-- FEATURE -->
     <section class="sec sec--pale">
       <div class="container">
-        <div style="text-align:center;margin-bottom:3rem">
-          <span class="sec-label">FEATURE</span>
-          <h2 class="sec-title">こだわり</h2>
+        <div class="center-head fade-up" style="margin-bottom:3.5rem">
+          <span class="sec-label" style="justify-content:center;display:flex">FEATURE</span>
+          <h2 class="sec-title" style="text-align:center">こだわり</h2>
+          <span class="sec-deco sec-deco--center"></span>
         </div>
         <div class="feat-grid">
           {[
-            { img:'/images/feature_feed.svg',   title:'こだわりの飼料',       body:'鶏の健康を考え、厳選した原料を使用した自家配合飼料を与えています。' },
-            { img:'/images/feature_env.svg',    title:'快適な飼育環境',       body:'清潔で風通しの良い鶏舎で、のびのびと育った鶏から産まれています。' },
-            { img:'/images/feature_water.svg',  title:'おいしい水',           body:'地下から汲み上げたきれいな水をたっぷり与えています。' },
-            { img:'/images/feature_safety.svg', title:'安心・安全への取り組み', body:'徹底した衛生管理のもと、安心・安全なたまごをお届けします。' },
+            { img:'/images/feature_feed.svg',   title:'こだわりの飼料',       body:'鶏の健康を考え、厳選した原料を使用した自家配合飼料を与えています。', d:'fade-up-d1' },
+            { img:'/images/feature_env.svg',    title:'快適な飼育環境',       body:'清潔で風通しの良い鶏舎で、のびのびと育った鶏から産まれています。', d:'fade-up-d2' },
+            { img:'/images/feature_water.svg',  title:'おいしい水',           body:'地下から汲み上げたきれいな水をたっぷり与えています。', d:'fade-up-d3' },
+            { img:'/images/feature_safety.svg', title:'安心・安全への取り組み', body:'徹底した衛生管理のもと、安心・安全なたまごをお届けします。', d:'fade-up-d4' },
           ].map(f => (
-            <div class="feat-card card">
+            <div class={`feat-card card fade-up ${f.d}`}>
               <div class="feat-img"><img src={f.img} alt={f.title} loading="lazy"/></div>
-              <div class="feat-body"><h3>{f.title}</h3><p>{f.body}</p></div>
+              <div class="feat-body">
+                <h3>{f.title}</h3>
+                <p>{f.body}</p>
+              </div>
             </div>
           ))}
         </div>
@@ -144,18 +165,19 @@ import Footer from '../components/Footer.astro';
     <!-- PRODUCTS -->
     <section class="sec">
       <div class="container">
-        <div style="text-align:center;margin-bottom:3rem">
-          <span class="sec-label">LINE UP</span>
-          <h2 class="sec-title">商品紹介</h2>
+        <div class="center-head fade-up" style="margin-bottom:3.5rem">
+          <span class="sec-label" style="justify-content:center;display:flex">LINE UP</span>
+          <h2 class="sec-title" style="text-align:center">商品紹介</h2>
+          <span class="sec-deco sec-deco--center"></span>
         </div>
         <div class="prod-grid">
           {[
-            { img:'/images/product_kodawari.svg', name:'こだわりのたまご', note:'コクと甘みが特徴の、当社自慢のたまごです。', href:'/products#kodawari' },
-            { img:'/images/product_pink.svg',     name:'ピンクたまご',    note:'やさしいピンク色の殻が特徴のたまごです。',   href:'/products#pink' },
-            { img:'/images/product_araucana.svg', name:'アローカナのたまご', note:'南米原産の鶏が産む、希少な青い殻のたまご。', href:'/products#araucana' },
-            { img:'/images/product_gift.svg',     name:'ギフトセット',    note:'大切な方への贈り物に。各種ご用意しています。', href:'/products#gift' },
+            { img:'/images/product_kodawari.svg', name:'こだわりのたまご',    note:'コクと甘みが特徴の、当社自慢のたまごです。',         href:'/products#kodawari', d:'fade-up-d1' },
+            { img:'/images/product_pink.svg',     name:'ピンクたまご',        note:'やさしいピンク色の殻が特徴のたまごです。',             href:'/products#pink',     d:'fade-up-d2' },
+            { img:'/images/product_araucana.svg', name:'アローカナのたまご',  note:'南米原産の鶏が産む、希少な青い殻のたまご。',           href:'/products#araucana', d:'fade-up-d3' },
+            { img:'/images/product_gift.svg',     name:'ギフトセット',        note:'大切な方への贈り物に。各種ご用意しています。',         href:'/products#gift',     d:'fade-up-d4' },
           ].map(p => (
-            <a href={p.href} class="prod-card card">
+            <a href={p.href} class={`prod-card card fade-up ${p.d}`}>
               <div class="prod-img"><img src={p.img} alt={p.name} loading="lazy"/></div>
               <div class="prod-body">
                 <h3>{p.name}</h3>
@@ -171,8 +193,11 @@ import Footer from '../components/Footer.astro';
     <!-- NEWS -->
     <section class="sec sec--pale">
       <div class="container">
-        <div class="news-head">
-          <div><span class="sec-label">NEWS</span><h2 class="sec-title">お知らせ</h2></div>
+        <div class="news-head fade-up">
+          <div>
+            <span class="sec-label">NEWS</span>
+            <h2 class="sec-title">お知らせ</h2>
+          </div>
           <a href="/news" class="link-arrow">すべて見る →</a>
         </div>
         <ul class="news-list">
@@ -181,7 +206,7 @@ import Footer from '../components/Footer.astro';
             { date:'2024.04.10', tag:'重要',     title:'「こだわりのたまご」価格改定のお知らせ' },
             { date:'2024.03.15', tag:'お知らせ', title:'ホームページをリニューアルしました' },
           ].map(n => (
-            <li class="news-item">
+            <li class="news-item fade-up">
               <a href="/news">
                 <span class="news-date">{n.date}</span>
                 <span class={`news-tag ${n.tag === '重要' ? 'news-tag--imp' : ''}`}>{n.tag}</span>
@@ -196,10 +221,10 @@ import Footer from '../components/Footer.astro';
     <!-- CTA -->
     <section class="cta-sec">
       <div class="container" style="text-align:center">
-        <span class="sec-label" style="justify-content:center;display:flex">CONTACT</span>
-        <h2 class="sec-title" style="color:white;margin:.5rem 0 1rem">ご注文・ご相談はお気軽に</h2>
-        <p style="color:rgba(255,255,255,0.7);font-size:.9rem;margin-bottom:2rem">まずはお電話かフォームにてお気軽にご連絡ください</p>
-        <div style="display:flex;justify-content:center;gap:1rem;flex-wrap:wrap">
+        <span class="sec-label fade-up" style="justify-content:center;display:flex;color:rgba(250,199,117,0.7)">CONTACT</span>
+        <h2 class="sec-title fade-up fade-up-d1" style="color:white;margin:.5rem 0 1rem">ご注文・ご相談はお気軽に</h2>
+        <p class="fade-up fade-up-d2" style="color:rgba(255,255,255,0.6);font-size:.9rem;margin-bottom:2.5rem">まずはお電話かフォームにてお気軽にご連絡ください</p>
+        <div class="fade-up fade-up-d3" style="display:flex;justify-content:center;gap:1rem;flex-wrap:wrap">
           <a href="/contact" class="btn btn-primary">お問い合わせフォーム →</a>
           <a href="tel:076-466-3815" class="btn btn-outline-w">📞 076-466-3815</a>
         </div>
@@ -215,77 +240,87 @@ import Footer from '../components/Footer.astro';
 .hero { position:relative; min-height:100svh; display:flex; align-items:flex-end; }
 .hero-bg { position:absolute; inset:0; }
 .hero-bg img { width:100%; height:100%; object-fit:cover; }
-.hero-ov { position:absolute; inset:0; background:linear-gradient(135deg,rgba(44,44,42,.85) 0%,rgba(44,44,42,.55) 60%,rgba(44,44,42,.2) 100%); }
-.hero-body { position:relative; z-index:1; width:100%; padding-bottom:4rem; }
-.hero-content { max-width:1100px; margin:0 auto; padding:2rem 2rem 0; padding-top:calc(72px + 3rem); }
-.hero-label { font-family:'Lato',sans-serif; font-size:.62rem; letter-spacing:.2em; color:rgba(250,199,117,.8); display:block; margin-bottom:1.25rem; }
-.hero-title { font-family:'Noto Serif JP',serif; font-size:clamp(2.2rem,6vw,4rem); font-weight:700; color:white; line-height:1.45; margin-bottom:1.25rem; }
+.hero-ov { position:absolute; inset:0; background:linear-gradient(135deg,rgba(30,30,28,.88) 0%,rgba(30,30,28,.58) 55%,rgba(30,30,28,.18) 100%); }
+.hero-body { position:relative; z-index:1; width:100%; }
+.hero-content { max-width:1100px; margin:0 auto; padding:calc(72px + 4rem) 2.5rem 5rem; }
+.hero-label { font-family:'Lato',sans-serif; font-size:.58rem; letter-spacing:.24em; color:rgba(250,199,117,.75); display:block; margin-bottom:1.5rem; }
+.hero-title { font-family:'Noto Serif JP',serif; font-size:clamp(2.4rem,6.5vw,4.4rem); font-weight:700; color:white; line-height:1.42; margin-bottom:1.5rem; letter-spacing:.02em; }
 .hero-title em { font-style:normal; color:#FAC775; }
-.hero-sub { font-size:.95rem; color:rgba(255,255,255,.7); line-height:1.9; margin-bottom:2rem; }
+.hero-sub { font-size:.95rem; color:rgba(255,255,255,.65); line-height:2; margin-bottom:2.5rem; }
 .hero-btns { display:flex; gap:1rem; flex-wrap:wrap; }
-.btn-outline-w { background:transparent; color:white; border:1.5px solid rgba(255,255,255,.5); border-radius:999px; padding:.875rem 2rem; font-size:.875rem; font-weight:700; text-decoration:none; transition:all .2s; display:inline-flex; align-items:center; }
-.btn-outline-w:hover { background:rgba(255,255,255,.1); }
+.btn-outline-w { background:transparent; color:white; border:1.5px solid rgba(255,255,255,.45); border-radius:999px; padding:.9rem 2.25rem; font-size:.875rem; font-weight:700; text-decoration:none; transition:all .25s; display:inline-flex; align-items:center; letter-spacing:.06em; }
+.btn-outline-w:hover { background:rgba(255,255,255,.1); border-color:rgba(255,255,255,.7); }
+
+/* SCROLL インジケーター */
+.hero-scroll { position:absolute; bottom:2.5rem; left:50%; transform:translateX(-50%); z-index:2; display:flex; flex-direction:column; align-items:center; gap:.6rem; }
+.hero-scroll span { font-family:'Lato',sans-serif; font-size:.52rem; letter-spacing:.22em; color:rgba(255,255,255,.45); }
+.hero-scroll-line { width:1px; height:48px; background:linear-gradient(to bottom,rgba(250,199,117,.5),transparent); animation:scrollLine 1.8s ease-in-out infinite; }
+@keyframes scrollLine { 0%,100%{opacity:.3;transform:scaleY(.5);transform-origin:top} 50%{opacity:1;transform:scaleY(1)} }
 
 /* STATS */
-.stats { display:grid; grid-template-columns:repeat(3,1fr); border-bottom:.5px solid rgba(44,44,42,.1); }
-.stat { padding:1.75rem 0; text-align:center; border-right:.5px solid rgba(44,44,42,.1); }
+.stats { display:grid; grid-template-columns:repeat(3,1fr); border-bottom:.5px solid var(--border); }
+.stat { padding:2rem 0; text-align:center; border-right:.5px solid var(--border); }
 .stat:last-child { border-right:none; }
-.stat-n { display:block; font-family:'Lato',sans-serif; font-size:1.8rem; font-weight:300; color:#BA7517; line-height:1; margin-bottom:.3rem; }
-.stat-n small { font-size:1rem; }
-.stat-l { display:block; font-size:.75rem; color:#5F5E5A; letter-spacing:.04em; }
+.stat-n { display:block; font-family:'Lato',sans-serif; font-size:2rem; font-weight:300; color:var(--amber); line-height:1; margin-bottom:.35rem; letter-spacing:-.01em; }
+.stat-n small { font-size:1.1rem; }
+.stat-l { display:block; font-size:.72rem; color:var(--muted); letter-spacing:.06em; }
 
 /* TWO COL */
-.two-col { display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:center; }
+.two-col { display:grid; grid-template-columns:1fr 1fr; gap:5.5rem; align-items:center; }
 .two-col--rev { direction:rtl; }
 .two-col--rev > * { direction:ltr; }
-.two-col-img { border-radius:var(--radius-md); overflow:hidden; aspect-ratio:4/3; background:#FAEEDA; }
-.two-col-img img { width:100%; height:100%; object-fit:cover; display:block; }
-.biz-tags { display:flex; flex-wrap:wrap; gap:.5rem; margin-top:1.5rem; }
-.biz-tag { background:#F1EFE8; color:#5F5E5A; font-size:.75rem; padding:.3rem .85rem; border-radius:999px; border:.5px solid rgba(44,44,42,.1); }
+.two-col-img { border-radius:var(--radius-lg); overflow:hidden; aspect-ratio:4/3; background:var(--amber-bg); }
+.two-col-img img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .6s cubic-bezier(.25,.46,.45,.94); }
+.two-col-img:hover img { transform:scale(1.04); }
+.biz-tags { display:flex; flex-wrap:wrap; gap:.5rem; margin-top:1.75rem; }
+.biz-tag { background:var(--gray-lt); color:var(--muted); font-size:.72rem; padding:.35rem .9rem; border-radius:999px; border:.5px solid var(--border); }
 
 /* ORDER */
-.order-methods { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; margin-bottom:1.75rem; }
-.method-card { background:white; border-radius:var(--radius-sm); border:.5px solid rgba(44,44,42,.08); padding:2rem 1.5rem; text-align:center; }
-.method-icon { font-size:1.75rem; display:block; margin-bottom:.75rem; }
-.method-card h3 { font-family:'Noto Serif JP',serif; font-size:.95rem; font-weight:700; color:#2C2C2A; margin-bottom:.4rem; }
-.method-detail { font-size:.85rem; color:#BA7517; font-weight:500; margin-bottom:.2rem; }
-.method-sub { font-size:.75rem; color:#888780; }
-.order-note { background:white; border-radius:var(--radius-sm); border:.5px solid rgba(186,117,23,.2); padding:1.25rem 1.5rem; font-size:.875rem; color:#5F5E5A; line-height:1.8; text-align:center; }
-.order-note strong { color:#2C2C2A; font-weight:700; }
+.order-methods { display:grid; grid-template-columns:repeat(3,1fr); gap:1.25rem; margin-bottom:2rem; }
+.method-card { background:white; border-radius:var(--radius-md); border:.5px solid rgba(44,44,42,.08); padding:2.25rem 1.5rem; text-align:center; box-shadow:0 4px 24px rgba(44,44,42,.06); }
+.method-icon { font-size:1.75rem; display:block; margin-bottom:.85rem; }
+.method-card h3 { font-family:'Noto Serif JP',serif; font-size:.95rem; font-weight:700; color:var(--text); margin-bottom:.45rem; }
+.method-detail { font-size:.85rem; color:var(--amber); font-weight:500; margin-bottom:.25rem; }
+.method-sub { font-size:.72rem; color:var(--muted); }
+.order-note { background:white; border-radius:var(--radius-sm); border:.5px solid rgba(186,117,23,.18); padding:1.5rem 2rem; font-size:.875rem; color:var(--muted); line-height:1.9; text-align:center; }
+.order-note strong { color:var(--text); font-weight:700; }
 
 /* FEAT */
-.feat-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; }
+.feat-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1.25rem; }
 .feat-card { display:flex; flex-direction:column; }
-.feat-img { aspect-ratio:1; background:#FAEEDA; overflow:hidden; }
-.feat-img img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .4s; }
-.feat-card:hover .feat-img img { transform:scale(1.04); }
-.feat-body { padding:1.25rem; }
-.feat-body h3 { font-family:'Noto Serif JP',serif; font-size:.9rem; font-weight:700; color:#2C2C2A; margin-bottom:.4rem; }
-.feat-body p { font-size:.78rem; color:#5F5E5A; line-height:1.7; margin:0; }
+.feat-img { aspect-ratio:1; background:var(--amber-bg); overflow:hidden; }
+.feat-img img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .5s cubic-bezier(.25,.46,.45,.94); }
+.feat-card:hover .feat-img img { transform:scale(1.06); }
+.feat-body { padding:1.4rem; }
+.feat-body h3 { font-family:'Noto Serif JP',serif; font-size:.9rem; font-weight:700; color:var(--text); margin-bottom:.45rem; }
+.feat-body p { font-size:.78rem; color:var(--muted); line-height:1.8; margin:0; }
 
 /* PRODUCTS */
 .prod-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1.25rem; }
 .prod-card { text-decoration:none; color:inherit; display:flex; flex-direction:column; }
-.prod-img { aspect-ratio:1; background:#FAEEDA; overflow:hidden; }
-.prod-img img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .4s; }
-.prod-card:hover .prod-img img { transform:scale(1.05); }
-.prod-body { padding:1.25rem; }
-.prod-body h3 { font-family:'Noto Serif JP',serif; font-size:.9rem; font-weight:700; color:#2C2C2A; margin-bottom:.3rem; }
-.prod-body p { font-size:.78rem; color:#5F5E5A; line-height:1.6; margin-bottom:.75rem; }
+.prod-img { aspect-ratio:1; background:var(--amber-bg); overflow:hidden; }
+.prod-img img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .5s cubic-bezier(.25,.46,.45,.94); }
+.prod-card:hover .prod-img img { transform:scale(1.06); }
+.prod-body { padding:1.4rem; }
+.prod-body h3 { font-family:'Noto Serif JP',serif; font-size:.9rem; font-weight:700; color:var(--text); margin-bottom:.35rem; }
+.prod-body p { font-size:.78rem; color:var(--muted); line-height:1.7; margin-bottom:.85rem; }
 
 /* NEWS */
-.news-head { display:flex; align-items:center; justify-content:space-between; margin-bottom:2rem; }
+.news-head { display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:2.5rem; }
 .news-list { list-style:none; margin:0; padding:0; }
-.news-item { border-bottom:.5px solid rgba(44,44,42,.08); }
-.news-item a { display:flex; align-items:center; gap:1rem; padding:1rem 0; text-decoration:none; transition:background .15s; }
+.news-item { border-bottom:.5px solid var(--border); }
+.news-item a { display:flex; align-items:center; gap:1.25rem; padding:1.1rem 0; text-decoration:none; transition:padding-left .2s; }
 .news-item a:hover { padding-left:.5rem; }
-.news-date { font-family:'Lato',sans-serif; font-size:.78rem; color:#888780; white-space:nowrap; }
-.news-tag { font-size:.68rem; font-weight:700; padding:.2rem .65rem; border-radius:999px; background:#F1EFE8; color:#5F5E5A; white-space:nowrap; }
-.news-tag--imp { background:#FAEEDA; color:#BA7517; }
-.news-title { font-size:.875rem; color:#2C2C2A; }
+.news-date { font-family:'Lato',sans-serif; font-size:.76rem; color:var(--muted); white-space:nowrap; letter-spacing:.04em; }
+.news-tag { font-size:.66rem; font-weight:700; padding:.2rem .7rem; border-radius:999px; background:var(--gray-lt); color:var(--muted); white-space:nowrap; }
+.news-tag--imp { background:var(--amber-bg); color:var(--amber); }
+.news-title { font-size:.875rem; color:var(--text); }
 
 /* CTA */
-.cta-sec { background:#2C2C2A; padding:5rem 0; }
+.cta-sec { background:var(--gray-dk); padding:6rem 0; }
+
+/* CENTER HEAD */
+.center-head { text-align:center; }
 
 @media (max-width:900px) {
   .two-col { grid-template-columns:1fr; gap:2.5rem; }
@@ -293,10 +328,11 @@ import Footer from '../components/Footer.astro';
   .feat-grid,.prod-grid { grid-template-columns:repeat(2,1fr); }
   .order-methods { grid-template-columns:repeat(3,1fr); }
 }
-@media (max-width:600px) {
+@media (max-width:640px) {
   .feat-grid,.prod-grid { grid-template-columns:repeat(2,1fr); }
   .order-methods { grid-template-columns:1fr; }
   .stats { grid-template-columns:1fr; }
-  .stat { border-right:none; border-bottom:.5px solid rgba(44,44,42,.1); }
+  .stat { border-right:none; border-bottom:.5px solid var(--border); }
+  .hero-scroll { display:none; }
 }
 </style>
