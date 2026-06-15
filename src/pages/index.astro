@@ -12,11 +12,11 @@ import Footer from '../components/Footer.astro';
       <div class="hero-inner">
         <div class="hero-text">
           <span class="hero-label">TOYAMA · EST. 1920s · EGG SUPPLIER</span>
-          <h1 class="hero-title">ひとつの卵から、<br/>毎日の食卓を<br/>もっと豊かに。</h1>
-          <p class="hero-sub">自然の恵みを受けて、のびのびと育った鶏の卵。<br/>小澤鶏卵は、安心・安全でおいしい卵を<br/>農場から直接お届けします。</p>
+          <h1 class="hero-title">幸せは、<br/><em>たまご</em>のある<br/>食卓にある。</h1>
+          <p class="hero-sub">おひさまを浴びる幸せ。新鮮なものを食べる幸せ。<br/>安心できるものを選べる幸せ。</p>
           <div class="hero-btns">
-            <a href="/shop" class="btn btn-primary">商品一覧を見る →</a>
-            <a href="/feature" class="btn btn-outline">こだわりを読む →</a>
+            <a href="/business" class="btn btn-primary">法人取引のご相談</a>
+            <a href="/products" class="btn btn-outline">商品を見る</a>
           </div>
         </div>
         <div class="hero-img">
@@ -278,12 +278,13 @@ import Footer from '../components/Footer.astro';
 .hero-title {
   font-family: 'Noto Serif JP', serif;
   font-size: clamp(2rem, 4.5vw, 3.6rem);
-  font-weight: 400;
+  font-weight: 700;
   color: #1E1E1C;
   line-height: 1.6;
   margin-bottom: 1.5rem;
-  letter-spacing: .06em;
+  letter-spacing: .02em;
 }
+.hero-title em { font-style:normal; color:#BA7517; }
 .hero-sub {
   font-size: .92rem;
   color: #6B6A66;
