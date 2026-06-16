@@ -33,14 +33,8 @@ const path = Astro.url.pathname;
     </nav>
 
     <div class="hdr-right">
-      <a href="/business" class="hdr-nav-extra">
-        <span class="nav-en">BUSINESS</span>
-        <span class="nav-ja">法人のお客様</span>
-      </a>
-      <a href="/contact" class="hdr-nav-extra">
-        <span class="nav-en">CONTACT</span>
-        <span class="nav-ja">お問い合わせ</span>
-      </a>
+      <a href="/business" class="hdr-cta-btn">法人のお客様</a>
+      <a href="/contact" class="hdr-cta-btn">お問い合わせ</a>
     </div>
 
     <button class="hdr-ham" id="hdr-ham" aria-label="メニューを開く" aria-expanded="false">
@@ -152,7 +146,23 @@ const path = Astro.url.pathname;
 }
 .hdr-nav-extra:hover::after { width: 18px; }
 .hdr-nav-extra:hover { background: #FFF8EE; }
-.hdr-cta { padding: .55rem 1.4rem; font-size: .78rem; }
+.hdr-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: .45rem 1.1rem;
+  border: 1px solid #BA7517;
+  border-radius: 999px;
+  font-size: .75rem;
+  color: #BA7517;
+  text-decoration: none;
+  letter-spacing: .06em;
+  white-space: nowrap;
+  transition: all .2s;
+}
+.hdr-cta-btn:hover {
+  background: #BA7517;
+  color: #FFFBF3;
+}
 /* ハンバーガー */
 .hdr-ham {
   display: none; flex-direction: column; gap: 5px;
