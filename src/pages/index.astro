@@ -350,16 +350,15 @@ import Footer from '../components/Footer.astro';
 
 /* STATS 卵型カード */
 .stats-wrap {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0;
-  padding: 5rem 1rem;
-  background: #F9F7F2;
-  justify-items: center;
-}
-.stat-egg {
   display: flex;
   justify-content: center;
+  gap: 0;
+  padding: 5rem 2rem;
+  background: #F9F7F2;
+}
+.stat-egg {
+  width: 220px;
+  flex-shrink: 0;
 }
 .stat-egg-inner {
   background: white;
