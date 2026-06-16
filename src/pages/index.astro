@@ -28,20 +28,58 @@ import Footer from '../components/Footer.astro';
     </section>
 
     <!-- STATS -->
-    <div class="stats">
-      <div class="stat fade-up fade-up-d1">
-        <span class="stat-n">100<small>年+</small></span>
-        <span class="stat-l">創業からの歴史</span>
+    <div class="stats-wrap">
+      <div class="stat-egg fade-up fade-up-d1">
+        <div class="stat-egg-inner">
+          <div class="stat-icon">
+            <svg width="36" height="36" viewBox="0 0 36 36" fill="none" stroke="#BA7517" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="4" y="14" width="28" height="18" rx="3"/>
+              <path d="M12 14V10a6 6 0 0112 0v4"/>
+              <circle cx="18" cy="23" r="2.5"/>
+            </svg>
+          </div>
+          <div class="stat-deco"></div>
+          <div class="stat-num">100<span class="stat-unit">年+</span></div>
+          <div class="stat-label">創業からの歴史</div>
+          <div class="stat-desc">大正時代から続く鶏卵一筋の歩み。<br/>これからも信頼を積み重ねて<br/>まいります。</div>
+        </div>
       </div>
-      <div class="stat fade-up fade-up-d2">
-        <span class="stat-n">月水金</span>
-        <span class="stat-l">注文受付日</span>
+      <div class="stat-egg fade-up fade-up-d2">
+        <div class="stat-egg-inner">
+          <div class="stat-icon">
+            <svg width="36" height="36" viewBox="0 0 36 36" fill="none" stroke="#BA7517" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="4" y="6" width="28" height="24" rx="3"/>
+              <path d="M4 13h28M12 4v4M24 4v4"/>
+              <rect x="10" y="18" width="4" height="4" rx="1"/>
+              <rect x="16" y="18" width="4" height="4" rx="1"/>
+              <rect x="22" y="18" width="4" height="4" rx="1"/>
+            </svg>
+          </div>
+          <div class="stat-deco"></div>
+          <div class="stat-num">月水金</div>
+          <div class="stat-label">注文受付日</div>
+          <div class="stat-desc">毎週 月・水・金は<br/>ご注文を受け付けています。<br/>計画的にお届けします。</div>
+        </div>
       </div>
-      <div class="stat fade-up fade-up-d3">
-        <span class="stat-n">当日</span>
-        <span class="stat-l">夕方お届け対応</span>
+      <div class="stat-egg fade-up fade-up-d3">
+        <div class="stat-egg-inner">
+          <div class="stat-icon">
+            <svg width="36" height="36" viewBox="0 0 36 36" fill="none" stroke="#BA7517" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="14" width="22" height="12" rx="2"/>
+              <path d="M24 18h4l4 4H24v-4z"/>
+              <circle cx="9" cy="28" r="3"/>
+              <circle cx="27" cy="28" r="3"/>
+              <path d="M6 14V10h12v4"/>
+            </svg>
+          </div>
+          <div class="stat-deco"></div>
+          <div class="stat-num">当日</div>
+          <div class="stat-label">夕方お届け対応</div>
+          <div class="stat-desc">ご注文は当日夕方にお届け。<br/>新鮮な卵をできるだけ<br/>早くお届けします。</div>
+        </div>
       </div>
     </div>
+    <p class="stats-note fade-up">※お届けエリアや時間帯は地域によって異なります。詳しくはお問い合わせください。</p>
 
     <!-- FOR BUSINESS -->
     <section class="sec">
@@ -310,13 +348,79 @@ import Footer from '../components/Footer.astro';
 .hero-scroll-line { width:1px; height:48px; background:linear-gradient(to bottom,rgba(186,117,23,.4),transparent); animation:scrollLine 1.8s ease-in-out infinite; }
 @keyframes scrollLine { 0%,100%{opacity:.3;transform:scaleY(.5);transform-origin:top} 50%{opacity:1;transform:scaleY(1)} }
 
-/* STATS */
-.stats { display:grid; grid-template-columns:repeat(3,1fr); border-bottom:.5px solid var(--border); }
-.stat { padding:2rem 0; text-align:center; border-right:.5px solid var(--border); }
-.stat:last-child { border-right:none; }
-.stat-n { display:block; font-family:'Lato',sans-serif; font-size:2rem; font-weight:300; color:var(--amber); line-height:1; margin-bottom:.35rem; letter-spacing:-.01em; }
-.stat-n small { font-size:1.1rem; }
-.stat-l { display:block; font-size:.72rem; color:var(--muted); letter-spacing:.06em; }
+/* STATS 卵型カード */
+.stats-wrap {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  padding: 5rem 4rem;
+  background: #F9F7F2;
+}
+.stat-egg {
+  display: flex;
+  justify-content: center;
+}
+.stat-egg-inner {
+  background: white;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  width: 100%;
+  max-width: 260px;
+  aspect-ratio: 3/4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+  box-shadow: 0 8px 40px rgba(44,44,42,0.07);
+  border: 0.5px solid rgba(186,117,23,0.1);
+  gap: 0;
+}
+.stat-icon {
+  color: #BA7517;
+  margin-bottom: .75rem;
+}
+.stat-deco {
+  width: 24px;
+  height: 1px;
+  background: #BA7517;
+  opacity: .4;
+  margin: .5rem auto .85rem;
+}
+.stat-num {
+  font-family: 'Noto Serif JP', serif;
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 400;
+  color: #BA7517;
+  line-height: 1.1;
+  letter-spacing: .04em;
+  margin-bottom: .4rem;
+}
+.stat-unit {
+  font-size: 1rem;
+  font-weight: 400;
+}
+.stat-label {
+  font-size: .78rem;
+  font-weight: 500;
+  color: #2C2A24;
+  letter-spacing: .1em;
+  margin-bottom: .85rem;
+}
+.stat-desc {
+  font-size: .72rem;
+  color: #9B9994;
+  line-height: 1.9;
+  letter-spacing: .04em;
+}
+.stats-note {
+  text-align: center;
+  font-size: .72rem;
+  color: #9B9994;
+  padding-bottom: 3rem;
+  background: #F9F7F2;
+  letter-spacing: .04em;
+}
 
 /* TWO COL */
 .two-col { display:grid; grid-template-columns:1fr 1fr; gap:5.5rem; align-items:center; }
@@ -385,8 +489,8 @@ import Footer from '../components/Footer.astro';
 @media (max-width:640px) {
   .feat-grid,.prod-grid { grid-template-columns:repeat(2,1fr); }
   .order-methods { grid-template-columns:1fr; }
-  .stats { grid-template-columns:1fr; }
-  .stat { border-right:none; border-bottom:.5px solid var(--border); }
+  .stats-wrap { grid-template-columns:1fr; padding:3rem 2rem; gap:1.5rem; }
+  .stat-egg-inner { max-width:220px; }
   .hero-scroll { display:none; }
   .hero-title { font-size:clamp(1.8rem,8vw,2.4rem); }
 }
