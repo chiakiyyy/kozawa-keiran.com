@@ -24,7 +24,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta property="og:description" content={description}/>
     <meta property="og:url" content={canonicalURL}/>
     <meta property="og:site_name" content="小澤鶏卵"/>
-    <meta property="og:image" content={new URL(ogImage, Astro.site)}/>
+    <meta property="og:image" content={new URL('/og-image.jpg', Astro.site)}/>
     <meta property="og:locale" content="ja_JP"/>
     <meta name="twitter:card" content="summary_large_image"/>
     <link rel="preconnect" href="https://fonts.googleapis.com"/>
