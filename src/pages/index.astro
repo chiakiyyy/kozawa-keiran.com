@@ -252,6 +252,14 @@ import Footer from '../components/Footer.astro';
   object-position: center right;
   display: block;
 }
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, #F9F7F2 0%, #F9F7F2 28%, rgba(249,247,242,0.85) 48%, rgba(249,247,242,0.2) 65%, transparent 80%);
+  pointer-events: none;
+  z-index: 0;
+}
 .hero-inner {
   position: relative;
   z-index: 1;
