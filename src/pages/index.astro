@@ -102,35 +102,6 @@ import Footer from '../components/Footer.astro';
       </div>
     </section>
 
-    <!-- ORDER FLOW -->
-    <section class="sec sec--amber">
-      <div class="container">
-        <div class="center-head fade-up">
-          <span class="sec-label" style="justify-content:center;display:flex">HOW TO ORDER</span>
-          <h2 class="sec-title" style="text-align:center">注文方法</h2>
-          <span class="sec-deco sec-deco--center"></span>
-        </div>
-        <div class="order-methods">
-          {[
-            { icon:'📞', name:'お電話', detail:'076-466-3815', sub:'月〜土 8:00〜17:00', delay:'fade-up-d1' },
-            { icon:'💬', name:'LINE',   detail:'公式アカウントへ', sub:'お気軽にどうぞ', delay:'fade-up-d2' },
-            { icon:'✉️', name:'メール', detail:'お問い合わせフォーム', sub:'24時間受付', delay:'fade-up-d3' },
-          ].map(m => (
-            <div class={`method-card fade-up ${m.delay}`}>
-              <span class="method-icon">{m.icon}</span>
-              <h3>{m.name}</h3>
-              <p class="method-detail">{m.detail}</p>
-              <p class="method-sub">{m.sub}</p>
-            </div>
-          ))}
-        </div>
-        <div class="order-note fade-up">
-          <strong>月・水・金 9:30まで</strong>にご注文いただくと、当日夕方にお届けします。<br/>
-          お祭り・学園祭などの催し物・まとめてのご注文もお気軽にご相談ください。
-        </div>
-      </div>
-    </section>
-
     <!-- FOR HOME -->
     <section class="sec sec--pale">
       <div class="container">
@@ -277,7 +248,7 @@ import Footer from '../components/Footer.astro';
   min-height: 75svh;
   display: flex;
   align-items: center;
-  padding-top: 72px;
+  padding-top: 112px; /* 40px bar + 72px header */
   overflow: hidden;
   background: #F9F7F2;
 }
