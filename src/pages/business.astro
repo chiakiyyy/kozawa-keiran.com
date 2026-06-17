@@ -126,16 +126,17 @@ const faqs = [
     </section>
 
     <!-- 納品までの流れ -->
-    <section class="sec sec--green">
-      <div class="container">
-        <div class="center-head center-head--light">
-          <span class="sec-en" style="color:rgba(245,184,46,.8)">Flow</span>
-          <h2 class="sec-title mt" style="color:white">納品までの流れ</h2>
-        </div>
-        <div class="flow-grid">
+    <section class="business-flow">
+      <div class="flow-bg-shape"></div>
+      <div class="flow-inner">
+        <p class="section-en">Flow</p>
+        <h2>納品までの流れ</h2>
+        <p class="flow-lead">お問い合わせから納品開始まで、担当者が丁寧にサポートします。</p>
+        <div class="flow-line"></div>
+        <div class="flow-list">
           {flow.map(f => (
-            <div class="flow-item">
-              <div class="flow-step">{f.step}</div>
+            <div class="flow-card">
+              <span class="flow-num">{f.step}</span>
               <h3>{f.title}</h3>
               <p>{f.body}</p>
             </div>
@@ -256,11 +257,63 @@ const faqs = [
 .biz-product-card p { font-size:.75rem; color:var(--muted); margin:0; }
 .products-note { text-align:center; font-size:.8rem; color:var(--muted); margin-top:1.5rem; }
 /* Flow */
-.flow-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1.5rem; }
-.flow-item { text-align:center; padding:2rem 1.25rem; background:rgba(255,255,255,.1); border-radius:16px; border:1px solid rgba(245,184,46,.2); }
-.flow-step { font-family:'Lato',sans-serif; font-size:1.8rem; font-weight:300; color:rgba(245,184,46,.7); letter-spacing:-.02em; margin-bottom:.5rem; line-height:1; }
-.flow-item h3 { font-family:'Noto Serif JP',serif; font-size:.95rem; font-weight:700; color:white; margin-bottom:.5rem; }
-.flow-item p { font-size:.8rem; color:rgba(255,255,255,.65); line-height:1.7; margin:0; }
+.business-flow {
+  position: relative; overflow: hidden;
+  padding: 6.5rem 1.25rem 7rem;
+  background: #FFF8EC;
+}
+.flow-bg-shape {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(circle at 12% 18%, rgba(186,117,23,.14) 0 90px, transparent 92px),
+    radial-gradient(circle at 88% 82%, rgba(186,117,23,.10) 0 120px, transparent 122px);
+  pointer-events: none;
+}
+.flow-bg-shape::before {
+  content: ""; position: absolute; top: -120px; left: -10%;
+  width: 120%; height: 200px; background: var(--bg,#fff);
+  border-radius: 0 0 50% 50%;
+}
+.flow-inner { position: relative; max-width: 1120px; margin: 0 auto; text-align: center; }
+.section-en {
+  margin: 0 0 .5rem; color: #BA7517;
+  font-family: 'Zen Kaku Gothic New', sans-serif; font-style: italic;
+  font-size: 1.1rem; letter-spacing: .08em;
+}
+.business-flow h2 {
+  margin: 0; color: #2C2A24;
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  font-size: clamp(1.6rem,4vw,2.4rem); font-weight: 700; letter-spacing: .06em;
+}
+.flow-lead { margin: 1.1rem auto 4.3rem; color: #6B6860; line-height: 1.9; font-size: .9rem; }
+.flow-list { position: relative; display: grid; grid-template-columns: repeat(4,1fr); gap: 1.75rem; }
+.flow-line { position: absolute; left: 8%; right: 8%; top: 19.5rem; border-top: 3px dotted rgba(186,117,23,.5); z-index: 0; }
+.flow-card {
+  position: relative; z-index: 1;
+  padding: 2.9rem 1.5rem 2rem;
+  background: white; border: 1px solid rgba(186,117,23,.18);
+  border-radius: 999px 999px 36px 36px;
+  box-shadow: 0 14px 34px rgba(112,70,24,.08);
+}
+.flow-card:nth-child(even) { transform: translateY(2.25rem); }
+.flow-num {
+  position: absolute; top: -1.5rem; left: 50%; transform: translateX(-50%);
+  display: grid; place-items: center; width: 58px; height: 58px;
+  background: #BA7517; color: white; border: 5px solid #FFF8EC;
+  border-radius: 50%; font-family: Manrope, sans-serif; font-weight: 700; font-size: 1.1rem;
+}
+.flow-card h3 { margin: 0 0 1rem; color: #2C2A24; font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 1.15rem; }
+.flow-card p { margin: 0; color: #6B6860; font-size: .85rem; line-height: 1.9; text-align: left; }
+@media (max-width:900px) {
+  .flow-list { grid-template-columns: 1fr 1fr; gap: 3.5rem 1.5rem; }
+  .flow-line { display: none; }
+  .flow-card:nth-child(even) { transform: none; }
+}
+@media (max-width:560px) {
+  .business-flow { padding: 5rem 1.1rem; }
+  .flow-list { grid-template-columns: 1fr; }
+  .flow-card { border-radius: 34px; }
+}
 /* FAQ */
 .faq-list { max-width:720px; margin:0 auto; display:flex; flex-direction:column; gap:.75rem; }
 .faq-item { background:white; border-radius:12px; border:1px solid rgba(245,184,46,.2); overflow:hidden; }
@@ -282,10 +335,9 @@ const faqs = [
   .concerns-grid { grid-template-columns:1fr 1fr; }
   .targets-grid { grid-template-columns:repeat(4,1fr); }
   .biz-products-grid { grid-template-columns:repeat(3,1fr); }
-  .flow-grid { grid-template-columns:1fr 1fr; gap:1rem; }
 }
 @media (max-width:600px) {
-  .concerns-grid,.flow-grid,.biz-contact-box { grid-template-columns:1fr; }
+  .concerns-grid,.biz-contact-box { grid-template-columns:1fr; }
   .targets-grid { grid-template-columns:repeat(4,1fr); }
   .biz-products-grid { grid-template-columns:repeat(3,1fr); }
 }
