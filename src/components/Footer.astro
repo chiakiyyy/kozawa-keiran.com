@@ -1,10 +1,10 @@
 ---
 const links = [
   { label: '私たちについて', href: '/about' },
-  { label: 'お知らせ',       href: '/news' },
-  { label: '商品紹介',       href: '/products' },
   { label: 'こだわり',       href: '/feature' },
+  { label: '商品紹介',       href: '/products' },
   { label: '出荷の流れ',     href: '/flow' },
+  { label: 'お知らせ',       href: '/news' },
   { label: '法人のお客様',   href: '/business' },
   { label: '個人のお客様',   href: '/shop' },
   { label: 'お問い合わせ',   href: '/contact' },
@@ -15,33 +15,24 @@ const links = [
     <div class="ft-in">
       <div class="ft-brand">
         <a href="/" class="ft-logo">
-          <svg width="36" height="44" viewBox="0 0 34 42" fill="none" aria-hidden="true">
-            <ellipse cx="17" cy="26" rx="15" ry="16" fill="rgba(255,255,255,0.35)"/>
-            <ellipse cx="17" cy="16" rx="10" ry="13" fill="rgba(255,255,255,0.5)"/>
-          </svg>
+          <img src="/images/icon.png" alt="" aria-hidden="true" class="ft-logo-icon"/>
           <div>
             <span class="ft-jp">小澤鶏卵</span>
             <span class="ft-en">KOZAWA KEIRAN</span>
           </div>
         </a>
-        <p class="ft-copy">新鮮で安心なたまごを、<br/>毎日の食卓へ。</p>
         <a href="tel:076-466-3815" class="ft-tel">076-466-3815</a>
-        <p class="ft-hrs">月〜土 8:00〜17:00（日祝休業）</p>
-        <p class="ft-addr">〒939-2716 富山県富山市婦中町下轡田25-1</p>
+        <p class="ft-hrs">月〜土 8:00〜17:00（日祝休業）／〒939-2716 富山県富山市婦中町下轡田25-1</p>
       </div>
 
       <nav class="ft-nav">
-        <p class="ft-nav-label">MENU</p>
         <ul>
           {links.map(l => <li><a href={l.href}>{l.label}</a></li>)}
         </ul>
       </nav>
 
       <div class="ft-contact">
-        <p class="ft-nav-label">CONTACT</p>
-        <p class="ft-contact-lead">ご注文・ご質問など<br/>お気軽にお問い合わせください。</p>
-        <a href="/contact" class="ft-btn-primary" style="justify-content:center;width:100%;margin-bottom:.75rem">お問い合わせフォーム →</a>
-        <a href="/business" class="ft-btn-outline" style="justify-content:center;width:100%">法人のお客様はこちら</a>
+        <a href="/contact" class="ft-btn-primary">お問い合わせフォーム →</a>
       </div>
     </div>
   </div>
@@ -51,51 +42,59 @@ const links = [
 </footer>
 
 <style>
-.ft { background: #f6b937; color: #3a2a00; }
-.ft-top { padding: 2.75rem 0 2rem; }
+.ft { background: #FDF6E9; color: #BA7517; }
+.ft-top { padding: 1.75rem 0 1.25rem; }
 .ft-in {
   max-width: 1200px; margin: 0 auto; padding: 0 2rem;
-  display: grid; grid-template-columns: 1.4fr 1fr 1.3fr; gap: 3rem;
+  display: flex; align-items: center; justify-content: space-between; gap: 2rem;
+  flex-wrap: wrap;
 }
-.ft-logo { display: flex; align-items: center; gap: .75rem; text-decoration: none; margin-bottom: 1rem; }
-.ft-jp { display: block; font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 1.05rem; font-weight: 700; color: #ffffff; letter-spacing: .05em; }
-.ft-en { display: block; font-family: Manrope, sans-serif; font-size: .48rem; letter-spacing: .2em; color: rgba(255,255,255,0.65); margin-top: 2px; }
-.ft-copy { font-size: .875rem; color: rgba(255,255,255,0.85); line-height: 1.8; margin-bottom: 1rem; }
-.ft-tel { display: block; font-family: Manrope, sans-serif; font-size: 1.5rem; font-weight: 700; color: #ffffff; text-decoration: none; letter-spacing: .04em; margin-bottom: .25rem; }
-.ft-hrs, .ft-addr { font-size: .72rem; color: rgba(255,255,255,0.7); margin: .2rem 0 0; line-height: 1.6; }
-.ft-nav-label { font-family: Manrope, sans-serif; font-size: .6rem; letter-spacing: .18em; color: rgba(255,255,255,0.75); margin-bottom: .75rem; text-transform: uppercase; }
-.ft-nav ul { list-style: none; margin: 0; padding: 0; }
+.ft-brand { display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; }
+.ft-logo { display: flex; align-items: center; gap: .6rem; text-decoration: none; flex-shrink: 0; }
+.ft-logo-icon { height: 38px; width: auto; display: block; object-fit: contain; }
+.ft-jp { display: block; font-family: 'Zen Kaku Gothic New', sans-serif; font-size: .95rem; font-weight: 700; color: #BA7517; letter-spacing: .05em; line-height: 1.3; }
+.ft-en { display: block; font-family: Manrope, sans-serif; font-size: .42rem; letter-spacing: .2em; color: rgba(186,117,23,0.6); margin-top: 2px; }
+.ft-tel { font-family: Manrope, sans-serif; font-size: 1.15rem; font-weight: 700; color: #BA7517; text-decoration: none; letter-spacing: .03em; flex-shrink: 0; }
+.ft-hrs { font-size: .68rem; color: rgba(186,117,23,0.75); margin: 0; line-height: 1.5; }
+
+/* メニュー：横並び2行 */
+.ft-nav { flex: 1; min-width: 280px; }
+.ft-nav ul {
+  list-style: none; margin: 0; padding: 0;
+  display: flex; flex-wrap: wrap; gap: .25rem 1.25rem; justify-content: center;
+}
 .ft-nav a {
-  display: block; padding: .38rem 0; font-size: .84rem; color: rgba(255,255,255,0.9);
-  text-decoration: none; border-bottom: 0.5px solid rgba(255,255,255,0.2);
-  transition: color .15s, padding-left .2s;
+  font-size: .78rem; color: rgba(186,117,23,0.85);
+  text-decoration: none; padding: .25rem 0;
+  transition: color .15s;
+  white-space: nowrap;
 }
-.ft-nav a:hover { color: #ffffff; padding-left: .4rem; }
-.ft-contact-lead { font-size: .82rem; color: rgba(255,255,255,0.85); line-height: 1.7; margin-bottom: 1rem; }
-/* footer専用ボタン */
+.ft-nav a:hover { color: #BA7517; text-decoration: underline; }
+
+.ft-contact { flex-shrink: 0; }
 .ft-btn-primary {
-  display: flex; align-items: center; gap: .5rem;
-  padding: .7rem 1.5rem; border-radius: 2px;
-  background: #3a2a00; color: #f6b937;
-  font-size: .84rem; font-weight: 600; letter-spacing: .04em;
+  display: inline-flex; align-items: center; gap: .5rem;
+  padding: .55rem 1.25rem; border-radius: 999px;
+  background: #BA7517; color: #FDF6E9;
+  font-size: .78rem; font-weight: 700; letter-spacing: .03em;
   text-decoration: none; border: none; cursor: pointer;
-  transition: opacity .15s;
+  transition: opacity .15s; white-space: nowrap;
 }
 .ft-btn-primary:hover { opacity: .85; }
-.ft-btn-outline {
-  display: flex; align-items: center; gap: .5rem;
-  padding: .7rem 1.5rem; border-radius: 2px;
-  background: transparent; color: #ffffff;
-  font-size: .84rem; font-weight: 600; letter-spacing: .04em;
-  text-decoration: none; border: 1.5px solid rgba(255,255,255,0.6); cursor: pointer;
-  transition: background .15s, border-color .15s;
-}
-.ft-btn-outline:hover { background: rgba(255,255,255,0.12); border-color: #ffffff; }
+
 .ft-btm {
-  border-top: 0.5px solid rgba(255,255,255,0.2);
-  padding: 1.1rem 2rem; text-align: center;
+  border-top: 0.5px solid rgba(186,117,23,0.2);
+  padding: .75rem 2rem; text-align: center;
 }
-.ft-btm p { font-size: .72rem; color: rgba(255,255,255,0.7); margin: 0; }
-@media (max-width:900px) { .ft-in { grid-template-columns: 1fr 1fr; gap: 2.5rem; } .ft-contact { grid-column: 1/-1; } }
-@media (max-width:600px) { .ft-in { grid-template-columns: 1fr; gap: 2rem; } }
+.ft-btm p { font-size: .68rem; color: rgba(186,117,23,0.65); margin: 0; }
+
+@media (max-width:900px) {
+  .ft-in { flex-direction: column; align-items: stretch; text-align: center; gap: 1.25rem; }
+  .ft-brand { justify-content: center; }
+  .ft-nav ul { justify-content: center; }
+  .ft-contact { display: flex; justify-content: center; }
+}
+@media (max-width:600px) {
+  .ft-brand { flex-direction: column; gap: .75rem; text-align: center; }
+}
 </style>

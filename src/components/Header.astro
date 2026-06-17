@@ -95,7 +95,7 @@ const path = Astro.url.pathname;
 <style>
 .hdr {
   position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-  background: rgba(255,255,255,0.95);
+  background: rgba(253,246,233,0.95);
   border-bottom: 0.5px solid rgba(44,44,42,0.08);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
@@ -133,7 +133,7 @@ const path = Astro.url.pathname;
   border-radius: 2px; transition: width .22s;
 }
 .hdr-nav a:hover::after, .hdr-nav a.act::after { width: 18px; }
-.hdr-nav a:hover, .hdr-nav a.act { background: #FFF8EE; }
+.hdr-nav a:hover, .hdr-nav a.act { background: rgba(186,117,23,0.08); }
 .nav-en { font-family: Manrope, sans-serif; font-size: .78rem; font-weight: 700; letter-spacing: .1em; color: #1E1E1C; }
 .nav-ja { font-size: .64rem; color: #9B9994; letter-spacing: .04em; }
 /* コンタクトボタン群 */
@@ -147,7 +147,7 @@ const path = Astro.url.pathname;
   letter-spacing: .03em; white-space: nowrap;
   transition: opacity .18s;
 }
-.hdr-contact-btn:hover { background: #FFF8EE; }
+.hdr-contact-btn:hover { background: rgba(186,117,23,0.08); }
 .hdr-contact-num { font-size: .82rem; letter-spacing: .06em; }
 .hdr-contact-icon { padding: .45rem .75rem; }
 .hdr-contact-label { font-size: .72rem; }
