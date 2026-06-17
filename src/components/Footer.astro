@@ -32,7 +32,7 @@ const linksRow2 = [
         </ul>
         <ul class="ft-nav-row">
           {linksRow2.map(l => <li><a href={l.href}>{l.label}</a></li>)}
-          <li><a href="/contact" class="ft-btn-primary">お問い合わせ＞</a></li>
+          <li><a href="/contact" class="ft-btn-primary">お問い合わせはこちら →</a></li>
         </ul>
       </nav>
     </div>
@@ -74,13 +74,15 @@ const linksRow2 = [
 
 .ft-btn-primary {
   display: inline-flex; align-items: center; gap: .5rem;
-  padding: .55rem 1.25rem; border-radius: 999px;
-  background: #BA7517; color: #FDF6E9;
-  font-size: .78rem; font-weight: 700; letter-spacing: .03em;
+  padding: .85rem 1.7rem; border-radius: 999px;
+  background: #BA7517; color: #FFFBF3;
+  font-family: Manrope, 'Zen Kaku Gothic New', sans-serif;
+  font-size: .85rem; font-weight: 700; letter-spacing: .06em;
   text-decoration: none; border: none; cursor: pointer;
-  transition: opacity .15s; white-space: nowrap;
+  box-shadow: 0 4px 18px rgba(186,117,23,0.28);
+  transition: all .28s cubic-bezier(.25,.46,.45,.94); white-space: nowrap;
 }
-.ft-btn-primary:hover { opacity: .85; }
+.ft-btn-primary:hover { background: #9C6010; transform: translateY(-2px); box-shadow: 0 8px 28px rgba(186,117,23,0.35); }
 
 .ft-btm {
   border-top: 0.5px solid rgba(186,117,23,0.2);
