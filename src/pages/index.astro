@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 ---
-<Layout title="小澤鶏卵｜新鮮で安心なたまごを地域へ">
+<Layout title="小澤鶏卵｜富山の業務用たまご・鶏卵専門店｜当日配達対応" description="富山県の鶏卵専門店・小澤鶏卵。大正時代創業100年以上。富山市を中心に飲食店・ホテル・給食施設・スーパーへ業務用たまごを当日配達。月・水・金9:30までのご注文で当日夕方お届け。定期納品・催事対応も承ります。">
   <Header/>
   <main>
 
@@ -13,7 +13,8 @@ import Footer from '../components/Footer.astro';
       <div class="hero-inner">
         <div class="hero-text">
           <span class="hero-label">TOYAMA · EST. 1920s · EGG SUPPLIER</span>
-          <h1 class="hero-title">幸せは、<br/><em>たまご</em>のある<br/>食卓にある。</h1>
+          <h1 class="sr-only">小澤鶏卵 - 富山の業務用たまご・鶏卵専門店。当日配達対応。</h1>
+          <p class="hero-title" aria-hidden="true">幸せは、<br/><em>たまご</em>のある<br/>食卓にある。</p>
           <p class="hero-sub">おひさまを浴びる幸せ。新鮮なものを食べる幸せ。<br/>安心できるものを選べる幸せ。</p>
           <div class="hero-btns">
             <a href="/business" class="btn btn-primary">法人取引のご相談</a>
@@ -90,9 +91,9 @@ import Footer from '../components/Footer.astro';
           </div>
           <div class="two-col-body">
             <span class="sec-label">FOR BUSINESS</span>
-            <h2 class="sec-title">毎日使うたまごを、<br/>安定してお届けします。</h2>
+            <h2 class="sec-title">富山の飲食店・施設へ<br/>業務用たまごを安定配達</h2>
             <span class="sec-deco"></span>
-            <p class="sec-lead">飲食店・ホテル・給食施設・スーパーなど、業務用たまごの安定供給はお任せください。<br/>大量注文・定期納品・催事対応など柔軟に対応します。</p>
+            <p class="sec-lead">富山市を中心に、飲食店・ホテル・給食施設・スーパーなど業務用たまごの安定供給はお任せください。<br/>大量注文・定期納品・催事対応など柔軟に対応します。</p>
             <div class="biz-tags">
               {['ラーメン店','洋菓子店','ホテル','スーパー','給食施設','催事・イベント'].map(t => <span class="biz-tag">{t}</span>)}
             </div>

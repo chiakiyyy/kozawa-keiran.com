@@ -5,7 +5,7 @@ interface Props {
   description?: string;
   ogImage?: string;
 }
-const { title, description = '小澤鶏卵は地域の飲食店・施設・ご家庭へ、安全で高品質なたまごをお届けします。', ogImage = '/og-image.jpg' } = Astro.props;
+const { title, description = '富山県の鶏卵専門店・小澤鶏卵。大正時代創業、富山市を中心に飲食店・ホテル・給食施設・スーパーへ業務用たまごを当日配達。個人宅配・定期納品・催事対応も承ります。', ogImage = '/og-image.jpg' } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 <!doctype html>
@@ -18,6 +18,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
     <title>{title}</title>
     <meta name="description" content={description}/>
+    <meta name="keywords" content="富山 卵 業務用, 富山 たまご 配達, 小澤鶏卵, 富山市 鶏卵, 業務用卵 富山, 飲食店 卵 富山, たまご 定期配達 富山"/>
     <link rel="canonical" href={canonicalURL}/>
     <meta property="og:type" content="website"/>
     <meta property="og:title" content={title}/>
@@ -30,6 +31,43 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <link rel="preconnect" href="https://fonts.googleapis.com"/>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&display=swap" rel="stylesheet"/>
+    <!-- 構造化データ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "小澤鶏卵",
+      "alternateName": "KOZAWA KEIRAN",
+      "description": "富山県の鶏卵専門店。大正時代創業100年以上。富山市を中心に飲食店・ホテル・給食施設・スーパーへ業務用たまごを当日配達。",
+      "url": "https://kozawa-keiran.com",
+      "telephone": "076-466-3815",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "婦中町下轡田25-1",
+        "addressLocality": "富山市",
+        "addressRegion": "富山県",
+        "postalCode": "939-2716",
+        "addressCountry": "JP"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 36.6023,
+        "longitude": 137.1587
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+          "opens": "08:00",
+          "closes": "17:00"
+        }
+      ],
+      "sameAs": ["https://line.me/ti/p/@215bpskd", "https://kozawa.theshop.jp/"],
+      "priceRange": "¥",
+      "servesCuisine": "鶏卵・たまご",
+      "areaServed": "富山県"
+    }
+    </script>
   </head>
   <body>
     <slot/>
