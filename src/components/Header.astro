@@ -8,34 +8,6 @@ const nav = [
 const path = Astro.url.pathname;
 ---
 
-<!-- 追尾コンタクトバー -->
-<div class="contact-bar" id="contact-bar">
-  <div class="contact-bar-in">
-    <a href="tel:076-466-3815" class="cbar-item">
-      <svg width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M3 3.5C3 3.5 4.5 2 6 2c.5 0 1 .3 1.3.8l1.4 2.4c.3.5.2 1.1-.2 1.5L7.2 8c.8 1.5 2 2.8 3.5 3.6l1.3-1.3c.4-.4 1-.5 1.5-.2l2.4 1.4c.5.3.8.8.8 1.3 0 1.5-1.5 3-1.5 3C6 18 2 10 3 3.5z"/>
-      </svg>
-      <span class="cbar-label">電話する</span>
-      <span class="cbar-value">076-466-3815</span>
-    </a>
-    <div class="cbar-sep"></div>
-    <a href="https://line.me/ti/p/@215bpskd" target="_blank" rel="noopener" class="cbar-item cbar-line">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.070 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/>
-      </svg>
-      <span class="cbar-label">LINEで相談</span>
-    </a>
-    <div class="cbar-sep"></div>
-    <a href="/contact" class="cbar-item cbar-form">
-      <svg width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-        <rect x="2" y="4" width="16" height="12" rx="2"/>
-        <path d="M2 7l8 5 8-5"/>
-      </svg>
-      <span class="cbar-label">お問い合わせフォーム</span>
-    </a>
-  </div>
-</div>
-
 <header class="hdr" id="hdr">
   <div class="hdr-in">
     <a href="/" class="hdr-logo">
@@ -59,8 +31,26 @@ const path = Astro.url.pathname;
       </ul>
     </nav>
 
-    <div class="hdr-right">
-      <a href="/business" class="hdr-cta-btn">法人のお客様</a>
+    <div class="hdr-contact">
+      <a href="tel:076-466-3815" class="hdr-contact-btn">
+        <svg width="13" height="13" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 3.5C3 3.5 4.5 2 6 2c.5 0 1 .3 1.3.8l1.4 2.4c.3.5.2 1.1-.2 1.5L7.2 8c.8 1.5 2 2.8 3.5 3.6l1.3-1.3c.4-.4 1-.5 1.5-.2l2.4 1.4c.5.3.8.8.8 1.3 0 1.5-1.5 3-1.5 3C6 18 2 10 3 3.5z"/>
+        </svg>
+        <span class="hdr-contact-num">076-466-3815</span>
+      </a>
+      <a href="https://line.me/ti/p/@215bpskd" target="_blank" rel="noopener" class="hdr-contact-btn hdr-contact-icon">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.070 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/>
+        </svg>
+        <span class="hdr-contact-label">LINE</span>
+      </a>
+      <a href="/contact" class="hdr-contact-btn hdr-contact-icon">
+        <svg width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="4" width="16" height="12" rx="2"/>
+          <path d="M2 7l8 5 8-5"/>
+        </svg>
+        <span class="hdr-contact-label">メール</span>
+      </a>
     </div>
 
     <button class="hdr-ham" id="hdr-ham" aria-label="メニューを開く" aria-expanded="false">
@@ -87,48 +77,22 @@ const path = Astro.url.pathname;
       <li>
         <a href={item.href}>
           <span class="d-en">{item.en}</span>
-          <span class="d-ja">{item.label}</span>
+          <span class="d-ja">{item.ja}</span>
         </a>
       </li>
     ))}
     <li><a href="/contact"><span class="d-en">CONTACT</span><span class="d-ja">お問い合わせ</span></a></li>
+    <li><a href="/business"><span class="d-en">BUSINESS</span><span class="d-ja">法人のお客様</span></a></li>
   </ul>
   <div class="drw-ft">
-    <a href="/business" class="btn btn-primary" style="justify-content:center">法人のお客様はこちら</a>
     <a href="tel:076-466-3815" class="drw-tel">076-466-3815</a>
     <p class="drw-hours">月〜土 8:00〜17:00</p>
   </div>
 </nav>
 
 <style>
-/* ── コンタクトバー ── */
-.contact-bar {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 201;
-  background: #f6b937;
-  border-bottom: 0.5px solid rgba(58,42,0,0.15);
-}
-.contact-bar-in {
-  max-width: 1450px; margin: 0 auto; padding: 0 2.5rem;
-  height: 40px; display: flex; align-items: center; justify-content: flex-end; gap: 0;
-}
-.cbar-item {
-  display: flex; align-items: center; gap: .45rem;
-  padding: 0 1.25rem; height: 40px;
-  text-decoration: none; color: #3a2a00;
-  font-size: .72rem; font-weight: 600; letter-spacing: .04em;
-  transition: background .15s;
-  white-space: nowrap;
-}
-.cbar-item:hover { background: rgba(58,42,0,0.08); }
-.cbar-label { font-size: .68rem; opacity: .7; }
-.cbar-value { font-family: Manrope, sans-serif; font-size: .82rem; font-weight: 700; }
-.cbar-sep { width: 0.5px; height: 20px; background: rgba(58,42,0,0.2); }
-.cbar-form { background: rgba(58,42,0,0.08); }
-.cbar-form:hover { background: rgba(58,42,0,0.15); }
-
-/* ── ヘッダー（バー分下げる） ── */
 .hdr {
-  position: fixed; top: 40px; left: 0; right: 0; z-index: 200;
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
   background: rgba(255,255,255,0.95);
   border-bottom: 0.5px solid rgba(44,44,42,0.08);
   backdrop-filter: blur(16px);
@@ -137,7 +101,7 @@ const path = Astro.url.pathname;
 }
 .hdr.scrolled { box-shadow: 0 4px 32px rgba(44,44,42,0.07); }
 .hdr-in {
-  max-width: 1200px; margin: 0 auto; padding: 0 2.5rem;
+  max-width: 1450px; margin: 0 auto; padding: 0 2.5rem;
   height: 72px; display: flex; align-items: center; gap: 2rem;
 }
 .hdr-logo {
@@ -153,6 +117,7 @@ const path = Astro.url.pathname;
   display: block; font-family: Manrope, sans-serif;
   font-size: .46rem; letter-spacing: .28em; color: #9B9994; margin-top: 4px;
 }
+/* ナビ */
 .hdr-nav { flex: 1; display: flex; justify-content: center; }
 .hdr-nav ul { display: flex; list-style: none; margin: 0; padding: 0; gap: .25rem; }
 .hdr-nav a {
@@ -162,21 +127,28 @@ const path = Astro.url.pathname;
 }
 .hdr-nav a::after {
   content: ''; position: absolute; bottom: 6px; left: 50%; transform: translateX(-50%);
-  width: 0; height: 1.5px; background: var(--amber);
+  width: 0; height: 1.5px; background: #f6b937;
   border-radius: 2px; transition: width .22s;
 }
 .hdr-nav a:hover::after, .hdr-nav a.act::after { width: 18px; }
 .hdr-nav a:hover, .hdr-nav a.act { background: #FFF8EE; }
 .nav-en { font-family: Manrope, sans-serif; font-size: .66rem; font-weight: 700; letter-spacing: .13em; color: #1E1E1C; }
 .nav-ja { font-size: .56rem; color: #9B9994; letter-spacing: .05em; }
-.hdr-right { display: flex; align-items: center; gap: 1.25rem; flex-shrink: 0; }
-.hdr-cta-btn {
-  display: inline-flex; align-items: center;
-  padding: .45rem 1.1rem; border: 1px solid #BA7517; border-radius: 999px;
-  font-size: .75rem; color: #BA7517; text-decoration: none;
-  letter-spacing: .06em; white-space: nowrap; transition: all .2s;
+/* コンタクトボタン群 */
+.hdr-contact { display: flex; align-items: center; gap: .5rem; flex-shrink: 0; }
+.hdr-contact-btn {
+  display: inline-flex; align-items: center; gap: .4rem;
+  padding: .45rem .9rem;
+  background: #f6b937; color: white;
+  border-radius: 6px; text-decoration: none;
+  font-family: Manrope, sans-serif; font-size: .78rem; font-weight: 700;
+  letter-spacing: .03em; white-space: nowrap;
+  transition: opacity .18s;
 }
-.hdr-cta-btn:hover { background: #BA7517; color: #FFFBF3; }
+.hdr-contact-btn:hover { opacity: .85; }
+.hdr-contact-num { font-size: .82rem; letter-spacing: .06em; }
+.hdr-contact-icon { padding: .45rem .75rem; }
+.hdr-contact-label { font-size: .72rem; }
 /* ハンバーガー */
 .hdr-ham {
   display: none; flex-direction: column; gap: 5px;
@@ -211,27 +183,22 @@ const path = Astro.url.pathname;
 .drw li { border-bottom: 0.5px solid rgba(44,44,42,0.05); }
 .drw a { display: flex; align-items: center; justify-content: space-between; padding: .95rem 1.5rem; text-decoration: none; transition: background .15s; }
 .drw a:hover { background: #FAFAF7; }
-.d-en { font-family: Manrope, sans-serif; font-size: .6rem; font-weight: 700; letter-spacing: .18em; color: var(--amber); }
+.d-en { font-family: Manrope, sans-serif; font-size: .6rem; font-weight: 700; letter-spacing: .18em; color: #f6b937; }
 .d-ja { font-size: .88rem; font-weight: 500; color: #1E1E1C; }
 .drw-ft {
   padding: 1.25rem 1.5rem; display: flex; flex-direction: column; gap: .75rem;
   border-top: 0.5px solid rgba(44,44,42,0.08); background: #FAFAF7;
 }
-.drw-tel { font-family: Manrope, sans-serif; font-size: 1.4rem; font-weight: 300; color: #1E1E1C; text-decoration: none; letter-spacing: .04em; text-align: center; transition: color .18s; }
-.drw-tel:hover { color: var(--amber); }
+.drw-tel { font-family: Manrope, sans-serif; font-size: 1.4rem; font-weight: 700; color: #1E1E1C; text-decoration: none; letter-spacing: .04em; text-align: center; transition: color .18s; }
+.drw-tel:hover { color: #f6b937; }
 .drw-hours { font-size: .72rem; color: #9B9994; text-align: center; margin: 0; }
 
-@media (max-width:1024px) {
-  .hdr-nav, .hdr-right { display: none; }
-  .hdr-ham { display: flex; }
-  .cbar-item .cbar-label { display: none; }
-  .cbar-item { padding: 0 .85rem; }
+@media (max-width:1100px) {
+  .hdr-contact-num { display: none; }
+  .hdr-contact-btn { padding: .45rem .65rem; }
 }
-@media (max-width:640px) {
-  .hdr-in { padding: 0 1.25rem; height: 64px; }
-  .contact-bar-in { padding: 0 1rem; }
-  .cbar-value { display: none; }
-}
+@media (max-width:1024px) { .hdr-nav, .hdr-contact { display: none; } .hdr-ham { display: flex; } }
+@media (max-width:640px) { .hdr-in { padding: 0 1.25rem; height: 64px; } }
 </style>
 
 <script>
