@@ -25,7 +25,7 @@
   }
 
   html {
-    font-family: 'Noto Sans JP', 'Hiragino Sans', sans-serif;
+    font-family: Manrope, 'Zen Kaku Gothic New', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Hiragino Sans', 'ヒラギノ角ゴ ProN W3', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', YuGothic, Verdana, Meiryo, sans-serif;
     background: var(--bg);
     color: var(--text);
     scroll-behavior: smooth;
@@ -34,7 +34,7 @@
   body { -webkit-font-smoothing: antialiased; }
 
   h1, h2, h3, h4 {
-    font-family: 'Noto Serif JP', serif;
+    font-family: Manrope, 'Zen Kaku Gothic New', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Hiragino Sans', sans-serif;
     line-height: 1.6;
     color: var(--text);
   }
@@ -59,7 +59,7 @@
     cursor: pointer;
     white-space: nowrap;
     border: none;
-    font-family: 'Noto Sans JP', sans-serif;
+    font-family: Manrope, 'Zen Kaku Gothic New', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Hiragino Sans', 'ヒラギノ角ゴ ProN W3', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', YuGothic, Verdana, Meiryo, sans-serif;
   }
   .btn-primary {
     background: var(--amber);
@@ -115,7 +115,7 @@
 
   /* ========== セクション見出し（包装社風） ========== */
   .sec-label {
-    font-family: 'Lato', sans-serif;
+    font-family: Manrope, sans-serif;
     font-size: 0.6rem;
     font-weight: 700;
     letter-spacing: 0.26em;
@@ -125,7 +125,7 @@
     text-transform: uppercase;
   }
   .sec-title {
-    font-family: 'Noto Serif JP', serif;
+    font-family: Manrope, 'Zen Kaku Gothic New', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Hiragino Sans', sans-serif;
     font-size: clamp(1.55rem, 2.8vw, 2.2rem);
     font-weight: 700;
     color: var(--text);
@@ -200,7 +200,7 @@
     pointer-events: none;
   }
   .page-hero-label {
-    font-family: 'Lato', sans-serif;
+    font-family: Manrope, sans-serif;
     font-size: 0.6rem;
     letter-spacing: 0.26em;
     color: var(--amber);
@@ -209,7 +209,7 @@
     text-transform: uppercase;
   }
   .page-hero-title {
-    font-family: 'Noto Serif JP', serif;
+    font-family: Manrope, 'Zen Kaku Gothic New', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Hiragino Sans', sans-serif;
     font-size: clamp(1.9rem, 4vw, 2.9rem);
     font-weight: 700;
     color: var(--text);
@@ -256,7 +256,7 @@
     border: 1px solid rgba(44,44,42,0.15);
     border-radius: var(--radius-sm);
     font-size: 0.9rem;
-    font-family: 'Noto Sans JP', sans-serif;
+    font-family: Manrope, 'Zen Kaku Gothic New', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Hiragino Sans', 'ヒラギノ角ゴ ProN W3', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', YuGothic, Verdana, Meiryo, sans-serif;
     color: var(--text);
     background: white;
     transition: border-color 0.2s, box-shadow 0.2s;
