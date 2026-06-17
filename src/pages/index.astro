@@ -103,27 +103,35 @@ import Footer from '../components/Footer.astro';
       </div>
     </section>
 
-    <!-- FOR HOME -->
-    <section class="sec sec--pale">
+    <!-- PRODUCTS -->
+    <section class="sec">
       <div class="container">
-        <div class="two-col two-col--rev">
-          <div class="two-col-body fade-up">
-            <span class="sec-label">FOR HOME</span>
-            <h2 class="sec-title">毎日の食卓に、<br/>安心でおいしいたまごを。</h2>
-            <span class="sec-deco"></span>
-            <p class="sec-lead">ご家庭用・ギフト・通販・定期購入など、個人のお客様にも幅広くご対応します。</p>
-            <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:2.5rem">
-              <a href="/shop" class="btn btn-primary">個人のお客様はこちら →</a>
-              <a href="/products" class="btn btn-outline">商品ラインナップ</a>
-            </div>
-          </div>
-          <div class="two-col-img fade-up fade-up-d2">
-            <img src="/images/hero_main.png" alt="ご家庭用たまご" loading="lazy"/>
-          </div>
+        <div class="center-head fade-up" style="margin-bottom:3.5rem">
+          <span class="sec-label" style="justify-content:center;display:flex">LINE UP</span>
+          <h2 class="sec-title" style="text-align:center">商品紹介</h2>
+          <span class="sec-deco sec-deco--center"></span>
+        </div>
+        <div class="prod-grid">
+          {[
+            { img:'/images/product_kodawari.svg', name:'こだわりのたまご',    note:'コクと甘みが特徴の、当社自慢のたまごです。',         href:'/products#kodawari', d:'fade-up-d1' },
+            { img:'/images/product_pink.svg',     name:'ピンクたまご',        note:'やさしいピンク色の殻が特徴のたまごです。',             href:'/products#pink',     d:'fade-up-d2' },
+            { img:'/images/product_araucana.svg', name:'アローカナのたまご',  note:'南米原産の鶏が産む、希少な青い殻のたまご。',           href:'/products#araucana', d:'fade-up-d3' },
+            { img:'/images/product_gift.svg',     name:'ギフトセット',        note:'大切な方への贈り物に。各種ご用意しています。',         href:'/products#gift',     d:'fade-up-d4' },
+          ].map(p => (
+            <a href={p.href} class={`prod-card card fade-up ${p.d}`}>
+              <div class="prod-img"><img src={p.img} alt={p.name} loading="lazy"/></div>
+              <div class="prod-body">
+                <h3>{p.name}</h3>
+                <p>{p.note}</p>
+                <span class="link-arrow">詳しく見る →</span>
+              </div>
+            </a>
+          ))}
         </div>
       </div>
     </section>
 
+    <!-- NEWS -->
     <!-- ABOUT -->
     <section class="sec">
       <div class="container">
@@ -164,34 +172,6 @@ import Footer from '../components/Footer.astro';
                 <p>{f.body}</p>
               </div>
             </div>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    <!-- PRODUCTS -->
-    <section class="sec">
-      <div class="container">
-        <div class="center-head fade-up" style="margin-bottom:3.5rem">
-          <span class="sec-label" style="justify-content:center;display:flex">LINE UP</span>
-          <h2 class="sec-title" style="text-align:center">商品紹介</h2>
-          <span class="sec-deco sec-deco--center"></span>
-        </div>
-        <div class="prod-grid">
-          {[
-            { img:'/images/product_kodawari.svg', name:'こだわりのたまご',    note:'コクと甘みが特徴の、当社自慢のたまごです。',         href:'/products#kodawari', d:'fade-up-d1' },
-            { img:'/images/product_pink.svg',     name:'ピンクたまご',        note:'やさしいピンク色の殻が特徴のたまごです。',             href:'/products#pink',     d:'fade-up-d2' },
-            { img:'/images/product_araucana.svg', name:'アローカナのたまご',  note:'南米原産の鶏が産む、希少な青い殻のたまご。',           href:'/products#araucana', d:'fade-up-d3' },
-            { img:'/images/product_gift.svg',     name:'ギフトセット',        note:'大切な方への贈り物に。各種ご用意しています。',         href:'/products#gift',     d:'fade-up-d4' },
-          ].map(p => (
-            <a href={p.href} class={`prod-card card fade-up ${p.d}`}>
-              <div class="prod-img"><img src={p.img} alt={p.name} loading="lazy"/></div>
-              <div class="prod-body">
-                <h3>{p.name}</h3>
-                <p>{p.note}</p>
-                <span class="link-arrow">詳しく見る →</span>
-              </div>
-            </a>
           ))}
         </div>
       </div>
