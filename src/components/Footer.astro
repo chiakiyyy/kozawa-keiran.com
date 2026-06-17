@@ -1,13 +1,14 @@
 ---
-const links = [
+const linksRow1 = [
   { label: '私たちについて', href: '/about' },
   { label: 'こだわり',       href: '/feature' },
   { label: '商品紹介',       href: '/products' },
   { label: '出荷の流れ',     href: '/flow' },
   { label: 'お知らせ',       href: '/news' },
+];
+const linksRow2 = [
   { label: '法人のお客様',   href: '/business' },
   { label: '個人のお客様',   href: '/shop' },
-  { label: 'お問い合わせ',   href: '/contact' },
 ];
 ---
 <footer class="ft">
@@ -22,12 +23,16 @@ const links = [
           </div>
         </a>
         <a href="tel:076-466-3815" class="ft-tel">076-466-3815</a>
-        <p class="ft-hrs">月〜土 8:00〜17:00（日祝休業）／〒939-2716 富山県富山市婦中町下轡田25-1</p>
+        <p class="ft-hrs">月〜土 8:00〜17:00（日祝休業）<br/>〒939-2716 富山県富山市婦中町下轡田25-1</p>
       </div>
 
       <nav class="ft-nav">
-        <ul>
-          {links.map(l => <li><a href={l.href}>{l.label}</a></li>)}
+        <ul class="ft-nav-row">
+          {linksRow1.map(l => <li><a href={l.href}>{l.label}</a></li>)}
+        </ul>
+        <ul class="ft-nav-row">
+          {linksRow2.map(l => <li><a href={l.href}>{l.label}</a></li>)}
+          <li class="ft-nav-paren">（<a href="/contact">お問い合わせ</a>）</li>
         </ul>
       </nav>
 
@@ -58,8 +63,8 @@ const links = [
 .ft-hrs { font-size: .68rem; color: rgba(186,117,23,0.75); margin: 0; line-height: 1.5; }
 
 /* メニュー：横並び2行 */
-.ft-nav { flex: 1; min-width: 280px; }
-.ft-nav ul {
+.ft-nav { flex: 1; min-width: 280px; display: flex; flex-direction: column; gap: .4rem; }
+.ft-nav-row {
   list-style: none; margin: 0; padding: 0;
   display: flex; flex-wrap: wrap; gap: .25rem 1.25rem; justify-content: center;
 }
@@ -70,6 +75,8 @@ const links = [
   white-space: nowrap;
 }
 .ft-nav a:hover { color: #BA7517; text-decoration: underline; }
+.ft-nav-paren { font-size: .78rem; color: rgba(186,117,23,0.85); white-space: nowrap; }
+.ft-nav-paren a { padding: 0; }
 
 .ft-contact { flex-shrink: 0; }
 .ft-btn-primary {
@@ -91,7 +98,7 @@ const links = [
 @media (max-width:900px) {
   .ft-in { flex-direction: column; align-items: stretch; text-align: center; gap: 1.25rem; }
   .ft-brand { justify-content: center; }
-  .ft-nav ul { justify-content: center; }
+  .ft-nav-row { justify-content: center; }
   .ft-contact { display: flex; justify-content: center; }
 }
 @media (max-width:600px) {
