@@ -4,14 +4,18 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 const cats = ['すべて','お知らせ','商品情報','営業日','イベント','重要なお知らせ'];
 const articles = [
+  { date:'2025.04.01', cat:'お知らせ',  title:'春の新たまごシーズン到来。今年も富山市内への当日配達を承ります', href:'/news/detail' },
+  { date:'2025.03.10', cat:'商品情報',  title:'業務用まとめ買いプラン：ケース単位での定期納品について', href:'/news/detail' },
+  { date:'2025.02.14', cat:'お知らせ',  title:'富山市内の飲食店様・給食施設様へ｜業務用たまご安定供給のご案内', href:'/news/detail' },
+  { date:'2025.01.20', cat:'お知らせ',  title:'2025年 営業開始のご案内。月・水・金 注文受付、当日夕方配達を継続します', href:'/news/detail' },
+  { date:'2024.12.01', cat:'重要なお知らせ', title:'年末年始（2024年12月28日〜2025年1月5日）の休業について', href:'/news/detail' },
+  { date:'2024.11.01', cat:'商品情報',  title:'ギフトセット受付開始。歳暮シーズンのたまごギフトはお早めに', href:'/news/detail' },
+  { date:'2024.10.15', cat:'イベント',  title:'富山の食育フェアに出展します。産地直送たまごの試食も', href:'/news/detail' },
+  { date:'2024.09.01', cat:'お知らせ',  title:'催事・学園祭・お祭りへのたまご大量注文、お気軽にご相談ください', href:'/news/detail' },
+  { date:'2024.08.01', cat:'商品情報',  title:'アローカナのたまご（青い殻）の取り扱いについて', href:'/news/detail' },
+  { date:'2024.07.01', cat:'お知らせ',  title:'夏場の品質管理について。冷蔵配送で鮮度をキープしてお届けします', href:'/news/detail' },
   { date:'2024.05.01', cat:'営業日',    title:'ゴールデンウィーク期間の営業について', href:'/news/detail' },
   { date:'2024.04.10', cat:'商品情報',  title:'「こだわりのたまご」価格改定のお知らせ', href:'/news/detail' },
-  { date:'2024.03.15', cat:'お知らせ',  title:'ホームページをリニューアルしました', href:'/news/detail' },
-  { date:'2024.02.20', cat:'商品情報',  title:'春限定ギフトセットの販売を開始します', href:'/news/detail' },
-  { date:'2024.01.10', cat:'営業日',    title:'年始の営業開始のご案内', href:'/news/detail' },
-  { date:'2023.12.20', cat:'重要なお知らせ', title:'年末年始の休業のお知らせ', href:'/news/detail' },
-  { date:'2023.11.15', cat:'イベント',  title:'地域の食育イベントに出展します', href:'/news/detail' },
-  { date:'2023.10.01', cat:'お知らせ',  title:'業務用定期納品サービスの強化について', href:'/news/detail' },
 ];
 ---
 <Layout title="お知らせ｜小澤鶏卵" description="小澤鶏卵からのお知らせ・新着情報をご覧いただけます。">

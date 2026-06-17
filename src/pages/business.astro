@@ -34,13 +34,13 @@ const faqs = [
   { q:'請求書払いは可能ですか？', a:'法人・個人事業主様には掛け売りに対応しています。詳しくはご相談ください。' },
 ];
 ---
-<Layout title="法人のお客様へ｜小澤鶏卵" description="小澤鶏卵の業務用たまご。飲食店・ホテル・給食施設・スーパーなど法人向けの安定供給サービス。定期納品・大量注文対応。">
+<Layout title="業務用たまご｜富山市内当日配達対応｜小澤鶏卵" description="富山市内への業務用たまご当日配達。飲食店・ホテル・給食施設・スーパーへの定期納品、大量注文、催事対応。月・水・金9:30注文で当日夕方お届け。富山県富山市の鶏卵専門店・小澤鶏卵。">
   <Header/>
   <main>
     <!-- HERO -->
     <section class="biz-hero">
       <div class="biz-hero-bg">
-        <img src="/images/business_hero.svg" alt="" aria-hidden="true" loading="eager"/>
+        <img src="/images/business_hero.png" alt="" aria-hidden="true" loading="eager"/>
         <div class="biz-hero-ov"></div>
       </div>
       <div class="biz-hero-content">
@@ -50,8 +50,7 @@ const faqs = [
           安定してお届けします。
         </h1>
         <p class="biz-hero-sub">
-          飲食店・食品事業者様へ<br/>
-          業務用たまごの安定供給はお任せください。
+          富山市内・富山県を中心とした飲食店・食品事業者様へ<br/>月・水・金 9:30注文受付 → 当日夕方配達対応。
         </p>
         <a href="#contact-form" class="btn btn-primary">法人取引のご相談はこちら →</a>
       </div>
@@ -73,6 +72,11 @@ const faqs = [
           ))}
         </div>
         <p class="concerns-cta-text">小澤鶏卵がそのお悩みを解決します！</p>
+        <div class="track-record">
+          <div class="track-item"><span class="track-num">100<small>年+</small></span><span class="track-label">創業からの歴史</span></div>
+          <div class="track-item"><span class="track-num">富山市内</span><span class="track-label">当日配達対応エリア</span></div>
+          <div class="track-item"><span class="track-num">月水金</span><span class="track-label">注文受付日</span></div>
+        </div>
       </div>
     </section>
 
@@ -137,6 +141,35 @@ const faqs = [
             </div>
           ))}
         </div>
+      </div>
+    </section>
+
+
+    <!-- 配達エリア -->
+    <section class="sec sec--cream">
+      <div class="container">
+        <div class="center-head">
+          <span class="sec-en">Delivery Area</span>
+          <h2 class="sec-title mt">配達対応エリア</h2>
+        </div>
+        <div class="area-grid">
+          <div class="area-main">
+            <div class="area-badge area-badge--main">当日配達対応</div>
+            <h3>富山市内</h3>
+            <p>月・水・金の午前9:30までのご注文で、当日夕方にお届けします。</p>
+          </div>
+          <div class="area-main">
+            <div class="area-badge area-badge--sub">応相談</div>
+            <h3>富山市外・県内各地</h3>
+            <p>高岡市・射水市・砺波市など富山県内各地へも対応可能です。まずはご相談ください。</p>
+          </div>
+          <div class="area-main">
+            <div class="area-badge area-badge--sub">応相談</div>
+            <h3>催事・イベント配送</h3>
+            <p>お祭り・学園祭・催事などスポット配送も承ります。数量・日程はお気軽にご相談を。</p>
+          </div>
+        </div>
+        <p class="area-note">※配達エリアや時間帯は地域によって異なります。詳しくはお問い合わせください。</p>
       </div>
     </section>
 
@@ -260,4 +293,20 @@ const faqs = [
   .targets-grid { grid-template-columns:repeat(2,1fr); }
   .biz-products-grid { grid-template-columns:repeat(2,1fr); }
 }
+/* 取引実績 */
+.track-record { display:flex; justify-content:center; gap:3rem; margin-top:2rem; flex-wrap:wrap; }
+.track-item { display:flex; flex-direction:column; align-items:center; gap:.3rem; }
+.track-num { font-family:Manrope,sans-serif; font-size:1.6rem; font-weight:700; color:#BA7517; letter-spacing:.02em; }
+.track-num small { font-size:.9rem; }
+.track-label { font-size:.75rem; color:#6B6860; letter-spacing:.05em; }
+/* 配達エリア */
+.area-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.25rem; margin-bottom:1rem; }
+.area-main { background:white; border-radius:12px; padding:1.75rem; border:0.5px solid rgba(186,117,23,0.15); box-shadow:0 2px 12px rgba(44,44,42,0.05); }
+.area-badge { display:inline-flex; align-items:center; padding:.25rem .75rem; border-radius:999px; font-size:.7rem; font-weight:700; margin-bottom:.75rem; }
+.area-badge--main { background:#BA7517; color:white; }
+.area-badge--sub { background:rgba(186,117,23,0.12); color:#BA7517; }
+.area-main h3 { font-size:.95rem; font-weight:700; color:#2C2A24; margin-bottom:.4rem; }
+.area-main p { font-size:.82rem; color:#6B6860; line-height:1.8; margin:0; }
+.area-note { text-align:center; font-size:.78rem; color:#9B9994; margin-top:1rem; }
+@media (max-width:720px) { .area-grid { grid-template-columns:1fr; } .track-record { gap:1.5rem; } }
 </style>

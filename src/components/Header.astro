@@ -4,6 +4,7 @@ const nav = [
   { en: 'NEWS',    ja: 'お知らせ',       href: '/news' },
   { en: 'LINE UP', ja: '商品紹介',       href: '/products' },
   { en: 'FEATURE', ja: 'こだわり',       href: '/feature' },
+  { en: 'FLOW',    ja: '出荷の流れ',     href: '/flow' },
 ];
 const path = Astro.url.pathname;
 ---
@@ -81,6 +82,7 @@ const path = Astro.url.pathname;
         </a>
       </li>
     ))}
+    <li><a href="/flow"><span class="d-en">FLOW</span><span class="d-ja">出荷の流れ</span></a></li>
     <li><a href="/contact"><span class="d-en">CONTACT</span><span class="d-ja">お問い合わせ</span></a></li>
     <li><a href="/business"><span class="d-en">BUSINESS</span><span class="d-ja">法人のお客様</span></a></li>
   </ul>
