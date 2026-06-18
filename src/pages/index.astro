@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import { products } from '../data/products';
 ---
 <Layout title="小澤鶏卵｜富山の業務用たまご・鶏卵専門店｜当日配達対応" description="富山県の鶏卵専門店・小澤鶏卵。大正時代創業100年以上。富山市を中心に飲食店・ホテル・給食施設・スーパーへ業務用たまごを当日配達。月・水・金9:30までのご注文で当日夕方お届け。定期納品・催事対応も承ります。">
   <Header/>
@@ -112,13 +113,8 @@ import Footer from '../components/Footer.astro';
           <span class="sec-deco sec-deco--center"></span>
         </div>
         <div class="prod-grid">
-          {[
-            { img:'/images/product_kodawari.svg', name:'こだわりのたまご',    note:'コクと甘みが特徴の、当社自慢のたまごです。',         href:'/products#kodawari', d:'fade-up-d1' },
-            { img:'/images/product_pink.svg',     name:'ピンクたまご',        note:'やさしいピンク色の殻が特徴のたまごです。',             href:'/products#pink',     d:'fade-up-d2' },
-            { img:'/images/product_araucana.svg', name:'アローカナのたまご',  note:'南米原産の鶏が産む、希少な青い殻のたまご。',           href:'/products#araucana', d:'fade-up-d3' },
-            { img:'/images/product_gift.svg',     name:'ギフトセット',        note:'大切な方への贈り物に。各種ご用意しています。',         href:'/products#gift',     d:'fade-up-d4' },
-          ].map(p => (
-            <a href={p.href} class={`prod-card card fade-up ${p.d}`}>
+          {products.filter(p => p.id !== 'business').map((p, i) => (
+            <a href={`/products#${p.id}`} class={`prod-card card fade-up fade-up-d${i + 1}`}>
               <div class="prod-img"><img src={p.img} alt={p.name} loading="lazy"/></div>
               <div class="prod-body">
                 <h3>{p.name}</h3>
