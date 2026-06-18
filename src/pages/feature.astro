@@ -3,96 +3,209 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import ContactSection from '../components/ContactSection.astro';
-const features = [
-  { id:'feed',   img:'/images/feature_feed.svg',   en:'Feed',   ja:'こだわりの飼料',      body:'鶏の健康を第一に考え、厳選した国産原料を使用した自家配合飼料を与えています。添加物を極力使わず、自然に近い形で鶏本来の力を引き出します。' },
-  { id:'env',    img:'/images/feature_env.svg',    en:'Environment', ja:'快適な飼育環境', body:'清潔で風通しの良い鶏舎で、のびのびと健康に育てています。ストレスの少ない環境が、おいしいたまごを産む秘訣です。' },
-  { id:'water',  img:'/images/feature_water.svg',  en:'Water',  ja:'おいしい水',           body:'地下から汲み上げた清潔な地下水をたっぷりと与えています。水質管理を徹底し、常に新鮮な水を供給しています。' },
-  { id:'safety', img:'/images/feature_safety.svg', en:'Safety', ja:'安心・安全への取り組み', body:'徹底した衛生管理のもと、採卵から配送まで全工程で品質基準を遵守。生産者との連携でトレーサビリティを確保しています。' },
+
+const points = [
+  {
+    num: '01',
+    img: '/images/feature/feature-chicken.jpg',
+    fallback: true,
+    ja: '健康な鶏から、健康なたまごを',
+    body: '鶏の健康を第一に考え、衛生管理を徹底した環境で飼育しています。飼料にもこだわり、栄養バランスのとれた食事で、元気な鶏を育てています。',
+    icon: `<svg width="34" height="34" viewBox="0 0 34 34" fill="none" stroke="#BA7517" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M10 26c0-7 3-13 7-13s7 6 7 13"/><circle cx="17" cy="9" r="5"/><path d="M21 7l4-2-1 4"/><path d="M14 8l-1.5-1.5"/></svg>`,
+  },
+  {
+    num: '02',
+    img: '/images/feature/feature-egg.jpg',
+    fallback: true,
+    ja: '新鮮さをそのままに',
+    body: '毎日、自社農場の卵を丁寧に集卵し、鮮度を保ったまま出荷しています。卵本来のコクと甘みを、ぜひご賞味ください。',
+    icon: `<svg width="34" height="34" viewBox="0 0 34 34" fill="none" stroke="#BA7517" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="17" cy="19" rx="10" ry="12"/><path d="M17 7V4"/></svg>`,
+  },
+  {
+    num: '03',
+    img: '/images/feature/feature-factory.jpg',
+    fallback: true,
+    ja: '徹底した品質管理',
+    body: '洗卵・選別・検査・包装まで、すべての工程で厳しい基準を設け、安心・安全な卵をお届けできるよう、品質管理を徹底しています。',
+    icon: `<svg width="34" height="34" viewBox="0 0 34 34" fill="none" stroke="#BA7517" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="6" width="16" height="22" rx="2"/><path d="M13 13h8M13 18h8M13 23h5"/></svg>`,
+  },
+  {
+    num: '04',
+    img: '/images/business_hero.png',
+    fallback: false,
+    ja: '迅速・丁寧な配送',
+    body: '富山県内を中心に、毎日新鮮な卵をお届けしています。ご希望の時間・数量に合わせて、柔軟に対応いたします。',
+    icon: `<svg width="34" height="34" viewBox="0 0 34 34" fill="none" stroke="#BA7517" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="17" height="11" rx="1.5"/><path d="M20 14h6l4 5v3h-10v-8z"/><circle cx="9" cy="25" r="2.4"/><circle cx="25" cy="25" r="2.4"/></svg>`,
+  },
+  {
+    num: '05',
+    img: '/images/feature/feature-family.jpg',
+    fallback: true,
+    ja: '地域の食卓を支える存在へ',
+    body: '地元に根ざした鶏卵の生産・販売を通じて、地域の皆さまの「おいしい」を支え続けていきます。',
+    icon: `<svg width="34" height="34" viewBox="0 0 34 34" fill="none" stroke="#BA7517" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="9" r="3.2"/><circle cx="23" cy="9" r="3.2"/><path d="M5 27v-4a6 6 0 016-6h0a6 6 0 016 6v4"/><path d="M17 27v-4a6 6 0 016-6h0a6 6 0 016 6v4"/></svg>`,
+  },
 ];
 ---
-<Layout title="こだわり｜小澤鶏卵" description="小澤鶏卵のこだわり。飼料・飼育環境・水・安全管理への取り組みをご紹介します。">
+<Layout title="こだわり｜小澤鶏卵" description="小澤鶏卵のこだわり。健康な鶏・新鮮さ・品質管理・配送・地域への想い、おいしさと安心のための5つのこだわりをご紹介します。">
   <Header/>
   <main>
-    <div class="page-hero">
+    <!-- パンくず -->
+    <div class="breadcrumb">
       <div class="container">
-        <span class="page-hero-en">FEATURE</span>
-        <h1 class="page-hero-title">こだわり</h1>
-        <p class="page-hero-sub">おいしいたまごは、毎日の積み重ねから生まれます</p>
+        <a href="/">TOP</a> <span>&gt;</span> <span>FEATURE</span>
       </div>
     </div>
 
-    <!-- リード -->
-    <section class="lead-sec">
-      <div class="container lead-inner">
-        <div class="lead-egg" aria-hidden="true">
-          <svg viewBox="0 0 220 280" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <radialGradient id="leg" cx="38%" cy="32%" r="58%">
-                <stop offset="0%" stop-color="#FFFEF5"/><stop offset="100%" stop-color="#E8DFC8"/>
-              </radialGradient>
-              <radialGradient id="lyk" cx="40%" cy="38%" r="55%">
-                <stop offset="0%" stop-color="#F5D060"/><stop offset="100%" stop-color="#C88010"/>
-              </radialGradient>
-            </defs>
-            <ellipse cx="110" cy="152" rx="88" ry="114" fill="url(#leg)" stroke="#D4C080" stroke-width="2"/>
-            <ellipse cx="110" cy="162" rx="46" ry="60" fill="url(#lyk)" opacity="0.52"/>
-            <ellipse cx="88" cy="122" rx="22" ry="14" fill="white" opacity="0.42" transform="rotate(-22,88,122)"/>
-          </svg>
+    <!-- ヒーロー -->
+    <section class="fe-hero">
+      <div class="container fe-hero-in">
+        <div class="fe-hero-text">
+          <span class="fe-en">FEATURE</span>
+          <h1>小澤鶏卵の<br/>こだわり</h1>
+          <p>おいしくて安全な卵を、毎日の食卓へ。<br/>小澤鶏卵は、鶏の飼育環境から配送まで、<br/>すべての工程にこだわりを持って取り組んでいます。</p>
         </div>
-        <div class="lead-text">
-          <h2 class="sec-title">全ては、おいしいたまごのために。</h2>
-          <p>小澤鶏卵では、鶏が健康でのびのびと育てる環境づくりを最優先にしています。飼料・水・飼育環境・衛生管理——それぞれにこだわりを持ち、毎日の積み重ねが、食卓に届くおいしいたまごにつながっています。</p>
+        <div class="fe-hero-img">
+          <img src="/images/feature/feature-hero.jpg" alt="新鮮なたまご" loading="eager" onerror="this.closest('.fe-hero-img').classList.add('img-fallback')"/>
         </div>
       </div>
     </section>
 
-    <!-- こだわり詳細 -->
-    {features.map((f, i) => (
-      <section class={`feature-detail ${i % 2 === 1 ? 'feature-detail--rev' : ''}`} id={f.id}>
-        <div class="fd-img">
-          <img src={f.img} alt={f.ja} loading="lazy"/>
+    <!-- 5つのこだわり -->
+    <section class="fe-points">
+      <div class="container">
+        <div class="fe-points-head">
+          <h2>おいしさと安心のための 5つのこだわり</h2>
+          <span class="fe-points-line"></span>
         </div>
-        <div class="fd-text">
-          <span class="sec-en">{f.en}</span>
-          <h2 class="sec-title fd-title">{f.ja}</h2>
-          <div class="fd-divider"></div>
-          <p>{f.body}</p>
-        </div>
-      </section>
-    ))}
 
-    <!-- CTA -->
-    <ContactSection title="品質へのこだわりについてのご質問もお気軽に"/>
+        <div class="fe-list">
+          {points.map(p => (
+            <div class="fe-row">
+              <div class:list={["fe-row-img", { "img-fallback": p.fallback }]}>
+                <img src={p.img} alt={p.ja} loading="lazy" onerror="this.closest('.fe-row-img').classList.add('img-fallback')"/>
+              </div>
+              <div class="fe-row-icon" set:html={p.icon}></div>
+              <div class="fe-row-body">
+                <span class="fe-row-num">{p.num}</span>
+                <h3>{p.ja}</h3>
+                <p>{p.body}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- 業務用バナー -->
+    <section class="fe-biz">
+      <div class="container">
+        <div class="fe-biz-card">
+          <span class="fe-biz-badge">業務用のお客様へ</span>
+          <div class="fe-biz-grid">
+            <div class="fe-biz-text">
+              <h3>飲食店・給食施設・食品加工業者様へ</h3>
+              <p>小澤鶏卵では、業務用の鶏卵を各種取り揃えております。定期配送・数量・価格など、柔軟にご相談を承りますので、お気軽にお問い合わせください。</p>
+            </div>
+            <ul class="fe-biz-checks">
+              <li>✓ 安定した品質・供給</li>
+              <li>✓ 小ロットから対応可能</li>
+              <li>✓ 配達エリア：富山県内一円</li>
+            </ul>
+            <div class:list={["fe-biz-img", { "img-fallback": true }]}>
+              <img src="/images/feature/feature-pack.jpg" alt="業務用たまご" loading="lazy" onerror="this.closest('.fe-biz-img').classList.add('img-fallback')"/>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <ContactSection
+      title="たまごのご注文・業務用のご相談はお気軽にお問い合わせください"
+      lead=""
+    />
   </main>
   <Footer/>
 </Layout>
 <style>
-.container { max-width:1100px; margin:0 auto; padding:0 2rem; }
-.page-hero { background:var(--bg2); padding:7rem 0 4rem; margin-top:76px; border-bottom:1px solid rgba(245,184,46,.2); }
-.page-hero-en { font-family:'Lato',sans-serif; font-size:.7rem; letter-spacing:.25em; color:var(--green); text-transform:uppercase; display:block; margin-bottom:.4rem; }
-.page-hero-title { font-family:'Noto Serif JP',serif; font-size:clamp(1.8rem,4vw,2.8rem); font-weight:700; color:var(--brown); }
-.page-hero-sub { font-size:.9rem; color:var(--muted); margin-top:.5rem; }
-.lead-sec { padding:5rem 0; background:var(--bg); }
-.lead-inner { display:flex; gap:4rem; align-items:center; }
-.lead-egg { flex-shrink:0; width:160px; filter:drop-shadow(0 8px 24px rgba(212,192,100,.2)); animation:fe 7s ease-in-out infinite; }
-@keyframes fe { 0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)} }
-.lead-text .sec-title { margin-bottom:1rem; }
-.lead-text p { font-size:.9rem; color:var(--muted); line-height:1.9; }
-.feature-detail { display:grid; grid-template-columns:1fr 1fr; min-height:480px; }
-.feature-detail--rev .fd-img { order:2; }
-.feature-detail--rev .fd-text { order:1; }
-.fd-img img { width:100%; height:100%; object-fit:cover; display:block; min-height:380px; }
-.fd-text { padding:5rem 4rem; display:flex; flex-direction:column; justify-content:center; background:var(--bg2); }
-.feature-detail:nth-child(odd) .fd-text { background:var(--bg); }
-.fd-title { margin-top:.6rem; }
-.fd-divider { width:2.5rem; height:2px; background:var(--yellow); margin:1.25rem 0; }
-.fd-text p { font-size:.9rem; color:var(--muted); line-height:1.9; }
-@media (max-width:900px) {
-  .lead-inner { flex-direction:column; gap:2rem; }
-  .lead-egg { width:120px; }
-  .feature-detail,.feature-detail--rev { grid-template-columns:1fr; }
-  .feature-detail--rev .fd-img,.feature-detail--rev .fd-text { order:unset; }
-  .fd-text { padding:3rem 2rem; }
-  .fd-img img { min-height:260px; }
+.container { max-width:1180px; margin:0 auto; padding:0 2rem; }
+
+/* パンくず */
+.breadcrumb { margin-top:76px; padding:.9rem 0; background:#FAFAF7; border-bottom:1px solid rgba(186,117,23,.08); }
+.breadcrumb .container { font-size:.78rem; color:#9B9994; }
+.breadcrumb a { color:#9B9994; text-decoration:none; }
+.breadcrumb a:hover { color:#BA7517; }
+.breadcrumb span { margin:0 .4rem; }
+
+/* ヒーロー */
+.fe-hero { padding:4.5rem 0 3.5rem; background:#fff; }
+.fe-hero-in { display:grid; grid-template-columns:1fr 1.1fr; gap:3rem; align-items:center; }
+.fe-en { font-family:Manrope,sans-serif; font-size:.7rem; letter-spacing:.25em; color:#BA7517; text-transform:uppercase; display:block; margin-bottom:.6rem; }
+.fe-hero-text h1 { font-family:'Zen Kaku Gothic New',sans-serif; font-size:clamp(1.9rem,4vw,2.7rem); font-weight:700; color:#2C2A24; line-height:1.4; margin-bottom:1.25rem; }
+.fe-hero-text p { font-size:.88rem; color:#6B6860; line-height:1.9; }
+.fe-hero-img { border-radius:20px; overflow:hidden; aspect-ratio:16/10; background:#FDF6E9; }
+.fe-hero-img img { width:100%; height:100%; object-fit:cover; display:block; }
+.fe-hero-img.img-fallback { background:linear-gradient(135deg,#FAEEDA,#F5D77A); display:flex; align-items:center; justify-content:center; }
+.fe-hero-img.img-fallback img { display:none; }
+.fe-hero-img.img-fallback::after { content:'🥚'; font-size:3.5rem; }
+
+/* 5つのこだわり見出し */
+.fe-points { padding:5rem 0 5.5rem; background:#fff; }
+.fe-points-head { text-align:center; margin-bottom:3.5rem; }
+.fe-points-head h2 { font-family:'Zen Kaku Gothic New',sans-serif; font-size:clamp(1.3rem,2.6vw,1.7rem); font-weight:700; color:#2C2A24; }
+.fe-points-line { display:block; width:2.5rem; height:2px; background:#BA7517; margin:1.1rem auto 0; }
+
+/* 各行 */
+.fe-list { display:flex; flex-direction:column; gap:2.25rem; }
+.fe-row {
+  position:relative; display:grid; grid-template-columns:320px 1fr; gap:2.5rem; align-items:center;
+  background:#FAFAF7; border-radius:16px; padding:1.75rem 2.25rem 1.75rem 0; overflow:hidden;
+}
+.fe-row-img { width:320px; height:230px; border-radius:14px; overflow:hidden; flex-shrink:0; margin-left:0; }
+.fe-row-img img { width:100%; height:100%; object-fit:cover; display:block; }
+.fe-row-img.img-fallback { background:linear-gradient(135deg,#FAEEDA,#F2C97A); display:flex; align-items:center; justify-content:center; }
+.fe-row-img.img-fallback img { display:none; }
+.fe-row-img.img-fallback::after { content:'🥚'; font-size:2.75rem; opacity:.7; }
+.fe-row-icon {
+  position:absolute; left:296px; top:50%; transform:translateY(-50%);
+  width:56px; height:56px; border-radius:50%; background:#FDF1DC;
+  display:flex; align-items:center; justify-content:center; box-shadow:0 4px 14px rgba(186,117,23,.15);
+  flex-shrink:0; z-index:2;
+}
+.fe-row-body { padding-left:2.5rem; }
+.fe-row-num { font-family:Manrope,sans-serif; font-size:1.5rem; font-weight:700; color:#BA7517; letter-spacing:.02em; display:block; margin-bottom:.35rem; }
+.fe-row-body h3 { font-family:'Zen Kaku Gothic New',sans-serif; font-size:1.2rem; font-weight:700; color:#2C2A24; margin-bottom:.6rem; }
+.fe-row-body p { font-size:.85rem; color:#6B6860; line-height:1.85; margin:0; max-width:560px; }
+
+/* 業務用バナー */
+.fe-biz { padding:0 0 5rem; background:#fff; }
+.fe-biz-card { position:relative; background:#FDF6E9; border-radius:20px; padding:2.75rem 2.5rem 2.25rem; border:1px solid rgba(186,117,23,.15); }
+.fe-biz-badge { position:absolute; top:-14px; left:2.5rem; background:#BA7517; color:white; font-size:.72rem; font-weight:700; padding:.4rem 1.1rem; border-radius:999px; letter-spacing:.03em; }
+.fe-biz-grid { display:grid; grid-template-columns:1.3fr 1fr 280px; gap:2rem; align-items:center; margin-top:.5rem; }
+.fe-biz-text h3 { font-family:'Zen Kaku Gothic New',sans-serif; font-size:1.15rem; font-weight:700; color:#2C2A24; margin-bottom:.75rem; }
+.fe-biz-text p { font-size:.85rem; color:#6B6860; line-height:1.85; margin:0; }
+.fe-biz-checks { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:.6rem; }
+.fe-biz-checks li { font-size:.85rem; color:#2C2A24; font-weight:600; }
+.fe-biz-img { width:280px; height:170px; border-radius:14px; overflow:hidden; }
+.fe-biz-img img { width:100%; height:100%; object-fit:cover; display:block; }
+.fe-biz-img.img-fallback { background:linear-gradient(135deg,#F5D77A,#BA7517); display:flex; align-items:center; justify-content:center; }
+.fe-biz-img.img-fallback img { display:none; }
+.fe-biz-img.img-fallback::after { content:'🥚🥚🥚'; font-size:1.5rem; letter-spacing:.3em; }
+
+@media (max-width:1024px) {
+  .fe-row { grid-template-columns:1fr; padding:1.75rem; }
+  .fe-row-img { width:100%; height:220px; }
+  .fe-row-icon { position:static; transform:none; margin-bottom:1rem; }
+  .fe-row-body { padding-left:0; }
+  .fe-biz-grid { grid-template-columns:1fr; }
+  .fe-biz-img { width:100%; height:200px; }
+}
+@media (max-width:780px) {
+  .fe-hero-in { grid-template-columns:1fr; }
+  .fe-hero-img { order:-1; }
+}
+@media (max-width:560px) {
+  .fe-biz-badge { left:1.5rem; }
 }
 </style>
