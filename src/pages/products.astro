@@ -4,121 +4,192 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { products } from '../data/products';
 import ContactSection from '../components/ContactSection.astro';
+
+// 商品紹介で表示する4品（添付デザイン準拠：小澤のたまご/業務用たまご/アローカナ/うずら）
+const lineupIds = ['kodawari', 'business', 'araucana', 'uzura'];
+const lineup = lineupIds
+  .map(id => products.find(p => p.id === id))
+  .filter((p): p is NonNullable<typeof p> => Boolean(p));
+
+const steps = [
+  { label: '下寧に梱包', icon: `<svg width="30" height="30" viewBox="0 0 30 30" fill="none" stroke="#BA7517" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="20" height="14" rx="2"/><path d="M5 16h20M11 11V8a4 4 0 018 0v3"/></svg>` },
+  { label: '迅速に出荷', icon: `<svg width="30" height="30" viewBox="0 0 30 30" fill="none" stroke="#BA7517" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="10" width="15" height="10" rx="1.5"/><path d="M17 13h5l3 4v3h-8v-7z"/><circle cx="8" cy="22" r="2.2"/><circle cx="22" cy="22" r="2.2"/></svg>` },
+  { label: '新鮮なままお届け', icon: `<svg width="30" height="30" viewBox="0 0 30 30" fill="none" stroke="#BA7517" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="10" width="18" height="15" rx="2"/><path d="M15 3v9M11 8l4-4 4 4"/></svg>` },
+];
 ---
-<Layout title="商品紹介｜小澤鶏卵" description="小澤鶏卵の商品紹介。こだわりのたまご・ピンクたまご・アローカナのたまご・ギフトセットなど幅広いラインナップ。">
+<Layout title="商品紹介｜小澤鶏卵" description="小澤鶏卵の商品紹介。小澤のたまご・業務用たまご・アローカナのたまご・うずらのたまごなど幅広いラインナップ。">
   <Header/>
   <main>
-    <div class="page-hero">
-      <div class="container">
-        <span class="page-hero-en">LINE UP</span>
-        <h1 class="page-hero-title">商品紹介</h1>
-        <p class="page-hero-sub">用途に合わせた多彩なたまごをご用意しています</p>
-      </div>
+    <!-- パンくず -->
+    <div class="breadcrumb">
+      <div class="container"><a href="/">TOP</a> <span>&gt;</span> <span>商品紹介</span></div>
     </div>
 
-    <!-- 商品一覧 -->
-    <section class="products-sec">
+    <!-- ヒーロー -->
+    <section class="pd-hero">
+      <div class="container pd-hero-in">
+        <div class="pd-hero-text">
+          <span class="pd-en">LINE UP</span>
+          <h1>商品紹介</h1>
+          <p>小澤鶏卵が自信をもってお届けする、<br/>新鮮でおいしい卵のラインナップです。<br/>用途やご希望に合わせてお選びいただけます。</p>
+        </div>
+        <div class:list={["pd-hero-img", { "img-fallback": true }]}>
+          <img src="/images/products/products-hero.jpg" alt="新鮮なたまご" loading="eager" onerror="this.closest('.pd-hero-img').classList.add('img-fallback')"/>
+        </div>
+      </div>
+    </section>
+
+    <!-- 取り扱い商品 -->
+    <section class="pd-lineup">
       <div class="container">
-        {products.map((p, i) => (
-          <article class={`product-row ${i % 2 === 1 ? 'product-row--rev' : ''}`} id={p.id}>
-            <div class="pr-img">
-              <img src={p.img} alt={p.name} loading="lazy"/>
-              <span class="pr-badge">{p.badge}</span>
-            </div>
-            <div class="pr-text">
-              <h2 class="pr-name">{p.name}</h2>
-              <div class="pr-divider"></div>
-              <p class="pr-desc">{p.desc}</p>
-              <dl class="pr-specs">
-                <dt>サイズ</dt><dd>{p.sizes}</dd>
-                <dt>パック</dt><dd>{p.pack}</dd>
-                <dt>価格</dt><dd>{p.price}</dd>
-              </dl>
-              <div class="pr-tags">
-                {p.business && <span class="pr-tag pr-tag--biz">業務用対応</span>}
-                {p.gift && <span class="pr-tag pr-tag--gift">ギフト対応</span>}
-              </div>
-              <div class="pr-actions">
-                <a href="/contact" class="btn btn-primary">ご注文・お問い合わせ</a>
-                {p.business && <a href="/business" class="btn btn-outline">法人向け詳細</a>}
-              </div>
-            </div>
-          </article>
-        ))}
-      </div>
-    </section>
-
-    <!-- ギフト対応 -->
-    <section class="gift-sec">
-      <div class="container gift-inner">
-        <div class="gift-text">
-          <span class="sec-en">Gift</span>
-          <h2 class="sec-title mt">ギフト対応しています</h2>
-          <p>大切な方への贈り物に、小澤鶏卵のたまごはいかがでしょうか。化粧箱入りのギフトセットをご用意しています。内祝い・お中元・お歳暮・父の日・母の日などさまざまなシーンに対応します。</p>
-          <a href="/contact" class="btn btn-green">ギフトについて問い合わせる</a>
+        <div class="pd-head">
+          <h2>取り扱い商品</h2>
+          <span class="pd-head-line"></span>
         </div>
-        <div class="gift-img">
-          <img src="/images/product_gift.svg" alt="ギフトセット" loading="lazy"/>
+        <div class="pd-grid">
+          {lineup.map(p => (
+            <a href={`#${p.id}`} class="pd-card">
+              <div class="pd-card-img">
+                {p.badge === '人気NO.1' && <span class="pd-card-badge">人気NO.1</span>}
+                {p.id === 'kodawari' && <span class="pd-card-badge">人気NO.1</span>}
+              </div>
+              <div class="pd-card-body">
+                <h3>{p.name}</h3>
+                <p class="pd-card-note">{p.note}</p>
+                <dl class="pd-card-specs">
+                  <dt>内容量</dt><dd>{p.pack}</dd>
+                  <dt>特徴</dt><dd>{p.sizes}</dd>
+                </dl>
+              </div>
+            </a>
+          ))}
         </div>
       </div>
     </section>
 
-    <!-- 業務用CTA -->
-    <section class="biz-cta">
-      <div class="container biz-cta-inner">
-        <div>
-          <h2>業務用のご注文はこちら</h2>
-          <p>飲食店・給食・製菓など大口のご注文はお任せください。定期納品にも対応しています。</p>
+    <!-- 梱包・配送について -->
+    <section class="pd-ship">
+      <div class="container">
+        <div class="pd-ship-card">
+          <div class="pd-ship-text">
+            <h3>梱包・配送について</h3>
+            <p>卵は割れやすいため、丁寧に梱包し、迅速にお届けします。<br/>配送エリアや送料については、お気軽にお問い合わせください。</p>
+          </div>
+          <div class="pd-ship-steps">
+            {steps.map((s, i) => (
+              <>
+                <div class="pd-ship-step">
+                  <div class="pd-ship-icon" set:html={s.icon}></div>
+                  <span>{s.label}</span>
+                </div>
+                {i < steps.length - 1 && <span class="pd-ship-arrow">▶</span>}
+              </>
+            ))}
+          </div>
         </div>
-        <a href="/business" class="btn btn-outline-yellow">法人向けページを見る →</a>
+      </div>
+    </section>
+
+    <!-- 業務用のご相談 -->
+    <section class="pd-biz">
+      <div class="container pd-biz-grid">
+        <div class="pd-biz-text">
+          <h3>業務用のご相談も承ります</h3>
+          <p>飲食店・給食施設・食品加工業者様など、業務用のご注文も承っております。<br/>ご予算やご要望に応じたご提案も可能ですので、まずはお気軽にご相談ください。</p>
+          <ul class="pd-biz-checks">
+            <li>✓ 安定した品質・供給</li>
+            <li>✓ 定期配送・数量・価格のご相談OK</li>
+            <li>✓ 小ロットから対応可能</li>
+            <li>✓ 配送エリア：富山県内一円</li>
+          </ul>
+        </div>
+        <div class:list={["pd-biz-img", { "img-fallback": true }]}>
+          <img src="/images/feature/feature-factory.jpg" alt="検卵ライン" loading="lazy" onerror="this.closest('.pd-biz-img').classList.add('img-fallback')"/>
+        </div>
       </div>
     </section>
 
     <!-- CONTACT -->
-    <ContactSection title="商品についてのご質問・ご注文はお気軽に"/>
+    <ContactSection title="たまごのご注文・業務用のご相談はお気軽にお問い合わせください" lead=""/>
   </main>
   <Footer/>
 </Layout>
 <style>
-.container { max-width:1100px; margin:0 auto; padding:0 2rem; }
-.page-hero { background:var(--bg2); padding:7rem 0 4rem; margin-top:76px; border-bottom:1px solid rgba(245,184,46,.2); }
-.page-hero-en { font-family:'Lato',sans-serif; font-size:.7rem; letter-spacing:.25em; color:var(--green); text-transform:uppercase; display:block; margin-bottom:.4rem; }
-.page-hero-title { font-family:'Noto Serif JP',serif; font-size:clamp(1.8rem,4vw,2.8rem); font-weight:700; color:var(--brown); }
-.page-hero-sub { font-size:.9rem; color:var(--muted); margin-top:.5rem; }
-.products-sec { padding:5rem 0; background:var(--bg); }
-.product-row { display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:center; padding:4rem 0; border-bottom:1px solid rgba(245,184,46,.15); }
-.product-row:first-child { padding-top:0; }
-.product-row--rev .pr-img { order:2; }
-.product-row--rev .pr-text { order:1; }
-.pr-img { position:relative; border-radius:16px; overflow:hidden; }
-.pr-img img { width:100%; height:360px; object-fit:cover; display:block; }
-.pr-badge { position:absolute; top:14px; left:14px; background:var(--yellow); color:var(--brown); font-size:.7rem; font-weight:700; padding:.3rem .75rem; border-radius:999px; }
-.pr-name { font-family:'Noto Serif JP',serif; font-size:clamp(1.4rem,2.5vw,2rem); font-weight:700; color:var(--brown); margin-bottom:0; }
-.pr-divider { width:2.5rem; height:2px; background:var(--yellow); margin:1rem 0; }
-.pr-desc { font-size:.9rem; color:var(--muted); line-height:1.9; margin-bottom:1.25rem; }
-.pr-specs { display:grid; grid-template-columns:5rem 1fr; gap:.4rem .75rem; margin-bottom:1.25rem; }
-.pr-specs dt { font-size:.8rem; font-weight:700; color:var(--brown); }
-.pr-specs dd { font-size:.8rem; color:var(--muted); margin:0; }
-.pr-tags { display:flex; gap:.5rem; margin-bottom:1.5rem; flex-wrap:wrap; }
-.pr-tag { font-size:.7rem; font-weight:700; padding:.25rem .7rem; border-radius:999px; }
-.pr-tag--biz { background:rgba(111,143,58,.12); color:var(--green); border:1px solid rgba(111,143,58,.3); }
-.pr-tag--gift { background:rgba(245,184,46,.15); color:#8B6010; border:1px solid rgba(245,184,46,.4); }
-.pr-actions { display:flex; gap:.875rem; flex-wrap:wrap; }
-.gift-sec { background:var(--bg2); padding:5rem 0; }
-.gift-inner { display:grid; grid-template-columns:1.1fr 1fr; gap:5rem; align-items:center; }
-.gift-text .sec-title { margin-top:.6rem; }
-.gift-text p { font-size:.9rem; color:var(--muted); line-height:1.9; margin:1rem 0 1.75rem; }
-.gift-img { border-radius:16px; overflow:hidden; }
-.gift-img img { width:100%; height:320px; object-fit:cover; display:block; }
-.mt { margin-top:.6rem; }
-.biz-cta { background:#2A4A20; padding:3.5rem 0; }
-.biz-cta-inner { display:flex; align-items:center; justify-content:space-between; gap:2rem; flex-wrap:wrap; }
-.biz-cta h2 { font-family:'Noto Serif JP',serif; font-size:1.3rem; font-weight:700; color:white; margin-bottom:.4rem; }
-.biz-cta p { font-size:.875rem; color:rgba(255,255,255,.7); margin:0; }
-@media (max-width:900px) {
-  .product-row,.product-row--rev,.gift-inner { grid-template-columns:1fr; gap:2rem; }
-  .product-row--rev .pr-img,.product-row--rev .pr-text { order:unset; }
-  .pr-img img { height:280px; }
-  .biz-cta-inner { flex-direction:column; text-align:center; }
+.container { max-width:1180px; margin:0 auto; padding:0 2rem; }
+
+/* パンくず */
+.breadcrumb { margin-top:76px; padding:.9rem 0; background:#FAFAF7; border-bottom:1px solid rgba(186,117,23,.08); }
+.breadcrumb .container { font-size:.78rem; color:#9B9994; }
+.breadcrumb a { color:#9B9994; text-decoration:none; }
+.breadcrumb a:hover { color:#BA7517; }
+.breadcrumb span { margin:0 .4rem; }
+
+/* ヒーロー */
+.pd-hero { padding:4.5rem 0 3.5rem; background:#fff; }
+.pd-hero-in { display:grid; grid-template-columns:1fr 1.1fr; gap:3rem; align-items:center; }
+.pd-en { font-family:Manrope,sans-serif; font-size:.7rem; letter-spacing:.25em; color:#BA7517; text-transform:uppercase; display:block; margin-bottom:.6rem; }
+.pd-hero-text h1 { font-family:'Zen Kaku Gothic New',sans-serif; font-size:clamp(1.9rem,4vw,2.7rem); font-weight:700; color:#2C2A24; margin-bottom:1.25rem; }
+.pd-hero-text p { font-size:.88rem; color:#6B6860; line-height:1.9; }
+.pd-hero-img { border-radius:20px; overflow:hidden; aspect-ratio:16/10; }
+.pd-hero-img img { width:100%; height:100%; object-fit:cover; display:block; }
+.pd-hero-img.img-fallback { background:linear-gradient(135deg,#FCE9B8,#F0B23C); display:flex; align-items:center; justify-content:center; }
+.pd-hero-img.img-fallback img { display:none; }
+.pd-hero-img.img-fallback::after { content:'🥚'; font-size:4rem; }
+
+/* 取り扱い商品 */
+.pd-lineup { padding:5rem 0; background:#fff; }
+.pd-head { text-align:center; margin-bottom:3rem; }
+.pd-head h2 { font-family:'Zen Kaku Gothic New',sans-serif; font-size:clamp(1.3rem,2.6vw,1.7rem); font-weight:700; color:#2C2A24; }
+.pd-head-line { display:block; width:2.5rem; height:2px; background:#BA7517; margin:1.1rem auto 0; }
+
+.pd-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1.5rem; }
+.pd-card { display:block; text-decoration:none; color:inherit; border-radius:14px; overflow:hidden; background:white; border:1px solid rgba(186,117,23,.12); box-shadow:0 4px 18px rgba(44,44,42,.05); transition:transform .2s, box-shadow .2s; }
+.pd-card:hover { transform:translateY(-3px); box-shadow:0 12px 30px rgba(44,44,42,.1); }
+.pd-card-img { position:relative; aspect-ratio:4/3; background:linear-gradient(135deg,#FCE9B8,#F0B23C); display:flex; align-items:center; justify-content:center; }
+.pd-card-img::after { content:'🥚'; font-size:2.75rem; opacity:.85; }
+.pd-card-badge { position:absolute; top:.75rem; left:.75rem; background:#BA7517; color:white; font-size:.66rem; font-weight:700; padding:.25rem .65rem; border-radius:999px; z-index:2; }
+.pd-card-body { padding:1.25rem 1.1rem 1.5rem; }
+.pd-card-body h3 { font-family:'Zen Kaku Gothic New',sans-serif; font-size:1rem; font-weight:700; color:#2C2A24; margin-bottom:.5rem; }
+.pd-card-note { font-size:.78rem; color:#6B6860; line-height:1.7; margin-bottom:1rem; min-height:3.4em; }
+.pd-card-specs { display:grid; grid-template-columns:3.4rem 1fr; gap:.35rem .6rem; margin:0; border-top:1px solid rgba(186,117,23,.1); padding-top:.75rem; }
+.pd-card-specs dt { font-size:.7rem; font-weight:700; color:#BA7517; }
+.pd-card-specs dd { font-size:.7rem; color:#6B6860; margin:0; }
+
+/* 梱包・配送 */
+.pd-ship { padding:0 0 4rem; background:#fff; }
+.pd-ship-card { border:1.5px solid rgba(186,117,23,.3); border-radius:16px; padding:2rem 2.25rem; display:flex; align-items:center; justify-content:space-between; gap:2rem; flex-wrap:wrap; }
+.pd-ship-text h3 { font-family:'Zen Kaku Gothic New',sans-serif; font-size:1.1rem; font-weight:700; color:#2C2A24; margin-bottom:.5rem; }
+.pd-ship-text p { font-size:.82rem; color:#6B6860; line-height:1.8; margin:0; }
+.pd-ship-steps { display:flex; align-items:center; gap:1.25rem; flex-wrap:wrap; }
+.pd-ship-step { display:flex; flex-direction:column; align-items:center; gap:.5rem; width:90px; }
+.pd-ship-icon { width:48px; height:48px; border-radius:50%; background:#FDF1DC; display:flex; align-items:center; justify-content:center; }
+.pd-ship-step span { font-size:.72rem; color:#2C2A24; font-weight:600; text-align:center; }
+.pd-ship-arrow { color:#F0B23C; font-size:.9rem; }
+
+/* 業務用 */
+.pd-biz { padding:0 0 5rem; background:#fff; }
+.pd-biz-grid { display:grid; grid-template-columns:1.3fr 1fr; gap:3rem; align-items:center; background:#FDF6E9; border-radius:20px; padding:2.75rem; border:1px solid rgba(186,117,23,.15); }
+.pd-biz-text h3 { font-family:'Zen Kaku Gothic New',sans-serif; font-size:1.2rem; font-weight:700; color:#2C2A24; margin-bottom:.85rem; }
+.pd-biz-text p { font-size:.85rem; color:#6B6860; line-height:1.85; margin-bottom:1.25rem; }
+.pd-biz-checks { list-style:none; margin:0; padding:0; display:grid; grid-template-columns:1fr 1fr; gap:.6rem 1rem; }
+.pd-biz-checks li { font-size:.82rem; color:#2C2A24; font-weight:600; }
+.pd-biz-img { border-radius:14px; overflow:hidden; aspect-ratio:4/3; }
+.pd-biz-img img { width:100%; height:100%; object-fit:cover; display:block; }
+.pd-biz-img.img-fallback { background:linear-gradient(135deg,#F0B23C,#BA7517); display:flex; align-items:center; justify-content:center; }
+.pd-biz-img.img-fallback img { display:none; }
+.pd-biz-img.img-fallback::after { content:'🥚🥚🥚'; font-size:1.5rem; letter-spacing:.3em; }
+
+@media (max-width:1024px) {
+  .pd-grid { grid-template-columns:repeat(2,1fr); }
+  .pd-biz-grid { grid-template-columns:1fr; }
+  .pd-biz-checks { grid-template-columns:1fr; }
+}
+@media (max-width:780px) {
+  .pd-hero-in { grid-template-columns:1fr; }
+  .pd-hero-img { order:-1; }
+  .pd-ship-card { flex-direction:column; text-align:center; }
+}
+@media (max-width:560px) {
+  .pd-grid { grid-template-columns:1fr; }
 }
 </style>

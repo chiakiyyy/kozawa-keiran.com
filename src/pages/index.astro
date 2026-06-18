@@ -114,7 +114,7 @@ import ContactSection from '../components/ContactSection.astro';
           <span class="sec-deco sec-deco--center"></span>
         </div>
         <div class="prod-grid">
-          {products.filter(p => p.id !== 'business').map((p, i) => (
+          {products.filter(p => ['kodawari','pink','araucana','gift'].includes(p.id)).map((p, i) => (
             <a href={`/products#${p.id}`} class={`prod-card card fade-up fade-up-d${i + 1}`}>
               <div class="prod-img"><img src={p.img} alt={p.name} loading="lazy"/></div>
               <div class="prod-body">

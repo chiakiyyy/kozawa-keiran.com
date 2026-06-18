@@ -81,4 +81,17 @@ export const products: Product[] = [
     business: false,
     gift: true,
   },
+  {
+    id: 'uzura',
+    img: '/images/product_kodawari.svg',
+    name: 'うずらのたまご',
+    badge: '栄養豊富',
+    note: 'お弁当やお惣菜、サラダのトッピングなどに便利なうずら卵です。',
+    desc: 'お弁当やお惣菜、サラダのトッピングなどに便利なうずら卵です。丁寧に育てたうずらの卵をお届けします。',
+    price: '参考価格：市価による',
+    sizes: '10個入・30個入・50個入',
+    pack: '栄養豊富で使いやすいサイズ',
+    business: false,
+    gift: false,
+  },
 ];
