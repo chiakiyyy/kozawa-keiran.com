@@ -6,11 +6,11 @@ import ContactSection from '../components/ContactSection.astro';
 
 const cats = ['すべて','お知らせ','メディア掲載','イベント','その他'];
 const articles = [
-  { date:'2025.04.01', cat:'お知らせ',  title:'ホームページをリニューアルしました', excerpt:'いつも小澤鶏卵をご愛顧いただき、誠にありがとうございます。このたび、ホームページをリニューアルいたしました。', img:'/images/product_kodawari.svg', href:'/news/detail' },
-  { date:'2025.03.10', cat:'お知らせ',  title:'ゴールデンウィーク期間の配送について', excerpt:'ゴールデンウィーク期間（4/27〜5/6）の配送スケジュールについて、ご案内いたします。', img:'/images/business_hero.png', href:'/news/detail' },
-  { date:'2025.02.14', cat:'メディア掲載', title:'富山新聞に掲載されました', excerpt:'2025年2月付の富山新聞に、当社の取り組みが掲載されました。', img:'/images/product_pink.svg', href:'/news/detail' },
-  { date:'2025.01.20', cat:'お知らせ',  title:'鶏舎の衛生管理強化について', excerpt:'お客様により安心・安全な卵をお届けするため、鶏舎の衛生管理をさらに強化いたしました。', img:'/images/product_araucana.svg', href:'/news/detail' },
-  { date:'2024.12.01', cat:'その他', title:'新年のご挨拶', excerpt:'新年あけましておめでとうございます。本年も変わらぬご愛顧のほど、よろしくお願い申し上げます。', img:'/images/product_gift.svg', href:'/news/detail' },
+  { date:'2025.04.01', cat:'お知らせ',  title:'ホームページをリニューアルしました', excerpt:'いつも小澤鶏卵をご愛顧いただき、誠にありがとうございます。このたび、ホームページをリニューアルいたしました。', img:'/images/news/news1.jpg', href:'/news/detail' },
+  { date:'2025.03.10', cat:'お知らせ',  title:'ゴールデンウィーク期間の配送について', excerpt:'ゴールデンウィーク期間（4/27〜5/6）の配送スケジュールについて、ご案内いたします。', img:'/images/news/news2.jpg', href:'/news/detail' },
+  { date:'2025.02.14', cat:'メディア掲載', title:'富山新聞に掲載されました', excerpt:'2025年2月付の富山新聞に、当社の取り組みが掲載されました。', img:'/images/news/news3.jpg', href:'/news/detail' },
+  { date:'2025.01.20', cat:'お知らせ',  title:'鶏舎の衛生管理強化について', excerpt:'お客様により安心・安全な卵をお届けするため、鶏舎の衛生管理をさらに強化いたしました。', img:'/images/news/news4.jpg', href:'/news/detail' },
+  { date:'2024.12.01', cat:'その他', title:'新年のご挨拶', excerpt:'新年あけましておめでとうございます。本年も変わらぬご愛顧のほど、よろしくお願い申し上げます。', img:'/images/news/news5.jpg', href:'/news/detail' },
 ];
 ---
 <Layout title="お知らせ｜小澤鶏卵" description="小澤鶏卵からのお知らせや最新情報をお届けします。">
@@ -48,8 +48,8 @@ const articles = [
         <div class="article-list">
           {articles.map(a => (
             <a href={a.href} class="article-card">
-              <div class="art-thumb">
-                <img src={a.img} alt="" loading="lazy"/>
+              <div class:list={["art-thumb", { "img-fallback": true }]}>
+                <img src={a.img} alt="" loading="lazy" onerror="this.closest('.art-thumb').classList.add('img-fallback')"/>
               </div>
               <div class="art-body">
                 <div class="art-meta">
@@ -124,6 +124,9 @@ const articles = [
 .article-card:hover { box-shadow:0 10px 26px rgba(44,44,42,.09); transform:translateY(-2px); }
 .art-thumb { flex-shrink:0; width:140px; height:100px; border-radius:10px; overflow:hidden; background:#FDF6E9; }
 .art-thumb img { width:100%; height:100%; object-fit:cover; display:block; }
+.art-thumb.img-fallback { background:linear-gradient(135deg,#FCE9B8,#F0B23C); display:flex; align-items:center; justify-content:center; }
+.art-thumb.img-fallback img { display:none; }
+.art-thumb.img-fallback::after { content:'🥚'; font-size:1.75rem; opacity:.85; }
 .art-body { flex:1; min-width:0; }
 .art-meta { display:flex; align-items:center; gap:.65rem; margin-bottom:.5rem; }
 .art-date { font-family:Manrope,sans-serif; font-size:.78rem; color:#9B9994; letter-spacing:.03em; }
