@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import ContactSection from '../components/ContactSection.astro';
 const features = [
   { id:'feed',   img:'/images/feature_feed.svg',   en:'Feed',   ja:'こだわりの飼料',      body:'鶏の健康を第一に考え、厳選した国産原料を使用した自家配合飼料を与えています。添加物を極力使わず、自然に近い形で鶏本来の力を引き出します。' },
   { id:'env',    img:'/images/feature_env.svg',    en:'Environment', ja:'快適な飼育環境', body:'清潔で風通しの良い鶏舎で、のびのびと健康に育てています。ストレスの少ない環境が、おいしいたまごを産む秘訣です。' },
@@ -61,10 +62,7 @@ const features = [
     ))}
 
     <!-- CTA -->
-    <section class="cta-band">
-      <p>品質へのこだわりについてのご質問もお気軽に</p>
-      <a href="/contact" class="btn btn-primary">お問い合わせはこちら →</a>
-    </section>
+    <ContactSection title="品質へのこだわりについてのご質問もお気軽に"/>
   </main>
   <Footer/>
 </Layout>
@@ -89,8 +87,6 @@ const features = [
 .fd-title { margin-top:.6rem; }
 .fd-divider { width:2.5rem; height:2px; background:var(--yellow); margin:1.25rem 0; }
 .fd-text p { font-size:.9rem; color:var(--muted); line-height:1.9; }
-.cta-band { background:var(--yellow); padding:3rem 2rem; text-align:center; display:flex; flex-direction:column; align-items:center; gap:1.25rem; }
-.cta-band p { font-family:'Noto Serif JP',serif; font-size:1.1rem; font-weight:700; color:var(--brown); margin:0; }
 @media (max-width:900px) {
   .lead-inner { flex-direction:column; gap:2rem; }
   .lead-egg { width:120px; }

@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { products } from '../data/products';
+import ContactSection from '../components/ContactSection.astro';
 ---
 <Layout title="商品紹介｜小澤鶏卵" description="小澤鶏卵の商品紹介。こだわりのたまご・ピンクたまご・アローカナのたまご・ギフトセットなど幅広いラインナップ。">
   <Header/>
@@ -72,6 +73,9 @@ import { products } from '../data/products';
         <a href="/business" class="btn btn-outline-yellow">法人向けページを見る →</a>
       </div>
     </section>
+
+    <!-- CONTACT -->
+    <ContactSection title="商品についてのご質問・ご注文はお気軽に"/>
   </main>
   <Footer/>
 </Layout>
