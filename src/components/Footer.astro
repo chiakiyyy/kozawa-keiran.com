@@ -72,17 +72,19 @@ const linksRow2 = [
 }
 .ft-nav a:hover { color: #BA7517; text-decoration: underline; }
 
+.ft-nav a.ft-btn-primary,
 .ft-btn-primary {
   display: inline-flex; align-items: center; gap: .5rem;
-  padding: .85rem 1.7rem; border-radius: 999px;
-  background: #BA7517; color: #FFFBF3;
+  padding: .85rem 1.7rem !important; border-radius: 999px;
+  background: #BA7517; color: #FFFBF3 !important;
   font-family: Manrope, 'Zen Kaku Gothic New', sans-serif;
   font-size: .85rem; font-weight: 700; letter-spacing: .06em;
   text-decoration: none; border: none; cursor: pointer;
   box-shadow: 0 4px 18px rgba(186,117,23,0.28);
   transition: all .28s cubic-bezier(.25,.46,.45,.94); white-space: nowrap;
 }
-.ft-btn-primary:hover { background: #9C6010; transform: translateY(-2px); box-shadow: 0 8px 28px rgba(186,117,23,0.35); }
+.ft-nav a.ft-btn-primary:hover,
+.ft-btn-primary:hover { background: #9C6010; color: #FFFBF3 !important; transform: translateY(-2px); box-shadow: 0 8px 28px rgba(186,117,23,0.35); text-decoration: none; }
 
 .ft-btm {
   border-top: 0.5px solid rgba(186,117,23,0.2);
