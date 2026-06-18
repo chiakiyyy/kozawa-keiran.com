@@ -2,32 +2,38 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-const cats = ['すべて','お知らせ','商品情報','営業日','イベント','重要なお知らせ'];
+import ContactSection from '../components/ContactSection.astro';
+
+const cats = ['すべて','お知らせ','メディア掲載','イベント','その他'];
 const articles = [
-  { date:'2025.04.01', cat:'お知らせ',  title:'春の新たまごシーズン到来。今年も富山市内への当日配達を承ります', excerpt:'こんにちは。小澤鶏卵です🥚 春は鶏も元気になり、新鮮なたまごが揃うシーズンです。今年も富山市内を中心に、月・水・金のご注文受付→当日夕方配達を継続いたします。飲食店様・ご家庭問わず、ぜひこの機会にご利用ください…', img:'/images/product_kodawari.svg', href:'/news/detail' },
-  { date:'2025.03.10', cat:'商品情報',  title:'業務用まとめ買いプラン：ケース単位での定期納品について', excerpt:'飲食店・給食施設様向けに、ケース単位（10kg〜）でのお得な定期納品プランをご用意しています。数量・頻度はご相談に応じて柔軟に調整可能です。まずはお気軽にお問い合わせください…', img:'/images/business_hero.png', href:'/news/detail' },
-  { date:'2025.02.14', cat:'お知らせ',  title:'富山市内の飲食店様・給食施設様へ｜業務用たまご安定供給のご案内', excerpt:'小澤鶏卵では富山市内の飲食店・ホテル・給食施設・スーパー様へ、安定した品質のたまごを安定供給しています。大量注文・催事対応にも柔軟に対応いたします…', img:'/images/product_pink.svg', href:'/news/detail' },
-  { date:'2025.01.20', cat:'お知らせ',  title:'2025年 営業開始のご案内。月・水・金 注文受付、当日夕方配達を継続します', excerpt:'本年もよろしくお願いいたします。2025年も変わらず、月・水・金の午前9:30までのご注文で当日夕方配達を行っております。新年のたまごもぜひご利用ください…', img:'/images/product_araucana.svg', href:'/news/detail' },
-  { date:'2024.12.01', cat:'重要なお知らせ', title:'年末年始（2024年12月28日〜2025年1月5日）の休業について', excerpt:'誠に勝手ながら、年末年始は下記の期間お休みをいただきます。休業期間中のご注文・お問い合わせにつきましては1月6日以降に順次対応いたします。ご不便をおかけいたしますが、よろしくお願いいたします…', img:'/images/product_gift.svg', href:'/news/detail' },
-  { date:'2024.11.01', cat:'商品情報',  title:'ギフトセット受付開始。歳暮シーズンのたまごギフトはお早めに', excerpt:'大切な方への贈り物に、小澤鶏卵のたまごギフトセットはいかがでしょうか。化粧箱入りで見た目も上品に仕上げております。歳暮シーズンは数量限定となりますので、お早めのご注文をおすすめします…', img:'/images/product_gift.svg', href:'/news/detail' },
-  { date:'2024.10.15', cat:'イベント',  title:'富山の食育フェアに出展します。産地直送たまごの試食も', excerpt:'地域の食育イベントに小澤鶏卵が出展いたします。産地直送の新鮮なたまごの試食コーナーもご用意していますので、お近くの方はぜひお立ち寄りください…', img:'/images/product_kodawari.svg', href:'/news/detail' },
-  { date:'2024.09.01', cat:'お知らせ',  title:'催事・学園祭・お祭りへのたまご大量注文、お気軽にご相談ください', excerpt:'秋は催事・学園祭・お祭りなどのイベントシーズン。大量のたまごが必要な際は、小澤鶏卵にお気軽にご相談ください。数量・配送日時など柔軟に対応いたします…', img:'/images/business_hero.png', href:'/news/detail' },
-  { date:'2024.08.01', cat:'商品情報',  title:'アローカナのたまご（青い殻）の取り扱いについて', excerpt:'南米原産の鶏「アローカナ」が産む、希少な青い殻のたまごの取り扱いを開始しました。コクがありながらあっさりとした味わいで、見た目にも楽しいたまごです…', img:'/images/product_araucana.svg', href:'/news/detail' },
-  { date:'2024.07.01', cat:'お知らせ',  title:'夏場の品質管理について。冷蔵配送で鮮度をキープしてお届けします', excerpt:'気温が高くなる夏場は、たまごの鮮度管理がより重要になります。小澤鶏卵では冷蔵配送を徹底し、品質を保ったままお手元へお届けしております…', img:'/images/product_pink.svg', href:'/news/detail' },
-  { date:'2024.05.01', cat:'営業日',    title:'ゴールデンウィーク期間の営業について', excerpt:'ゴールデンウィーク期間中の営業日・配達日についてご案内いたします。期間中もご注文を承りますので、詳しい日程はお気軽にお問い合わせください…', img:'/images/product_kodawari.svg', href:'/news/detail' },
-  { date:'2024.04.10', cat:'商品情報',  title:'「こだわりのたまご」価格改定のお知らせ', excerpt:'飼料価格の上昇に伴い、誠に恐れ入りますが「こだわりのたまご」の価格を一部改定いたします。今後も変わらぬ品質でお届けできるよう努めてまいります…', img:'/images/product_kodawari.svg', href:'/news/detail' },
+  { date:'2025.04.01', cat:'お知らせ',  title:'ホームページをリニューアルしました', excerpt:'いつも小澤鶏卵をご愛顧いただき、誠にありがとうございます。このたび、ホームページをリニューアルいたしました。', img:'/images/product_kodawari.svg', href:'/news/detail' },
+  { date:'2025.03.10', cat:'お知らせ',  title:'ゴールデンウィーク期間の配送について', excerpt:'ゴールデンウィーク期間（4/27〜5/6）の配送スケジュールについて、ご案内いたします。', img:'/images/business_hero.png', href:'/news/detail' },
+  { date:'2025.02.14', cat:'メディア掲載', title:'富山新聞に掲載されました', excerpt:'2025年2月付の富山新聞に、当社の取り組みが掲載されました。', img:'/images/product_pink.svg', href:'/news/detail' },
+  { date:'2025.01.20', cat:'お知らせ',  title:'鶏舎の衛生管理強化について', excerpt:'お客様により安心・安全な卵をお届けするため、鶏舎の衛生管理をさらに強化いたしました。', img:'/images/product_araucana.svg', href:'/news/detail' },
+  { date:'2024.12.01', cat:'その他', title:'新年のご挨拶', excerpt:'新年あけましておめでとうございます。本年も変わらぬご愛顧のほど、よろしくお願い申し上げます。', img:'/images/product_gift.svg', href:'/news/detail' },
 ];
 ---
-<Layout title="お知らせ｜小澤鶏卵" description="小澤鶏卵からのお知らせ・新着情報をご覧いただけます。">
+<Layout title="お知らせ｜小澤鶏卵" description="小澤鶏卵からのお知らせや最新情報をお届けします。">
   <Header/>
   <main>
-    <div class="page-hero">
-      <div class="container">
-        <span class="page-hero-en">NEWS</span>
-        <h1 class="page-hero-title">お知らせ</h1>
-        <p class="page-hero-sub">小澤鶏卵からの最新情報をお届けします</p>
-      </div>
+    <!-- パンくず -->
+    <div class="breadcrumb">
+      <div class="container"><a href="/">TOP</a> <span>&gt;</span> <span>NEWS</span></div>
     </div>
+
+    <!-- ヒーロー -->
+    <section class="nw-hero">
+      <div class="container nw-hero-in">
+        <div class="nw-hero-text">
+          <span class="nw-en">NEWS</span>
+          <h1>お知らせ</h1>
+          <p>小澤鶏卵からのお知らせや最新情報をお届けします。</p>
+        </div>
+        <div class:list={["nw-hero-img", { "img-fallback": true }]}>
+          <img src="/images/news/news-hero.jpg" alt="新鮮なたまご" loading="eager" onerror="this.closest('.nw-hero-img').classList.add('img-fallback')"/>
+        </div>
+      </div>
+    </section>
 
     <section class="news-sec">
       <div class="container">
@@ -44,79 +50,109 @@ const articles = [
             <a href={a.href} class="article-card">
               <div class="art-thumb">
                 <img src={a.img} alt="" loading="lazy"/>
-                <span class="art-date-badge">{a.date}</span>
               </div>
               <div class="art-body">
-                <span class={`art-cat art-cat--${a.cat === '重要なお知らせ' ? 'imp' : a.cat === '商品情報' ? 'prod' : a.cat === 'イベント' ? 'ev' : 'default'}`}>{a.cat}</span>
+                <div class="art-meta">
+                  <span class="art-date">{a.date}</span>
+                  <span class={`art-cat art-cat--${a.cat === 'メディア掲載' ? 'media' : a.cat === 'イベント' ? 'ev' : a.cat === 'その他' ? 'other' : 'default'}`}>{a.cat}</span>
+                </div>
                 <h2 class="art-title">{a.title}</h2>
                 <p class="art-excerpt">{a.excerpt}</p>
               </div>
+              <span class="art-arrow">›</span>
             </a>
           ))}
         </div>
 
         <!-- ページネーション -->
         <div class="pagination">
+          <a href="#" class="page-nav">‹</a>
           <span class="page-num active">1</span>
           <a href="#" class="page-num">2</a>
           <a href="#" class="page-num">3</a>
           <span class="page-ellipsis">…</span>
-          <a href="#" class="page-num">10</a>
+          <a href="#" class="page-num">8</a>
+          <a href="#" class="page-nav">›</a>
         </div>
       </div>
     </section>
+
+    <!-- CONTACT -->
+    <ContactSection title="業務用たまごのご相談・お見積りはお気軽にお問い合わせください" lead=""/>
   </main>
   <Footer/>
 </Layout>
 <style>
-.container { max-width:900px; margin:0 auto; padding:0 2rem; }
-.page-hero { background:var(--bg2,#F9F7F2); padding:7rem 0 4rem; margin-top:76px; border-bottom:1px solid rgba(186,117,23,.15); }
-.page-hero-en { font-family:Manrope,sans-serif; font-size:.7rem; letter-spacing:.25em; color:#BA7517; text-transform:uppercase; display:block; margin-bottom:.4rem; }
-.page-hero-title { font-family:'Zen Kaku Gothic New',sans-serif; font-size:clamp(1.8rem,4vw,2.8rem); font-weight:700; color:#2C2A24; }
-.page-hero-sub { font-size:.9rem; color:#6B6860; margin-top:.5rem; }
-.news-sec { padding:4rem 0 6rem; background:var(--bg,#fff); }
-.cat-tabs { display:flex; gap:.5rem; flex-wrap:wrap; margin-bottom:2.5rem; }
-.cat-btn { padding:.45rem 1.1rem; border-radius:999px; border:1.5px solid rgba(186,117,23,.3); background:white; color:#6B6860; font-size:.8rem; font-weight:700; cursor:pointer; transition:all .2s; }
-.cat-btn:hover,.cat-btn.active { background:#BA7517; border-color:#BA7517; color:white; }
+.container { max-width:1000px; margin:0 auto; padding:0 2rem; }
 
-/* 記事カード（さくらさくみらい風） */
-.article-list { display:flex; flex-direction:column; gap:1.25rem; }
+/* パンくず */
+.breadcrumb { margin-top:76px; padding:.9rem 0; background:#FAFAF7; border-bottom:1px solid rgba(186,117,23,.08); }
+.breadcrumb .container { font-size:.78rem; color:#9B9994; }
+.breadcrumb a { color:#9B9994; text-decoration:none; }
+.breadcrumb a:hover { color:#BA7517; }
+.breadcrumb span { margin:0 .4rem; }
+
+/* ヒーロー */
+.nw-hero { padding:4.5rem 0 3.5rem; background:#fff; }
+.nw-hero-in { display:grid; grid-template-columns:1fr 1.1fr; gap:3rem; align-items:center; }
+.nw-en { font-family:Manrope,sans-serif; font-size:.7rem; letter-spacing:.25em; color:#BA7517; text-transform:uppercase; display:block; margin-bottom:.6rem; }
+.nw-hero-text h1 { font-family:'Zen Kaku Gothic New',sans-serif; font-size:clamp(1.9rem,4vw,2.7rem); font-weight:700; color:#2C2A24; margin-bottom:1rem; }
+.nw-hero-text p { font-size:.88rem; color:#6B6860; line-height:1.9; }
+.nw-hero-img { border-radius:20px; overflow:hidden; aspect-ratio:16/9; }
+.nw-hero-img img { width:100%; height:100%; object-fit:cover; display:block; }
+.nw-hero-img.img-fallback { background:linear-gradient(135deg,#FCE9B8,#F0B23C); display:flex; align-items:center; justify-content:center; }
+.nw-hero-img.img-fallback img { display:none; }
+.nw-hero-img.img-fallback::after { content:'🥚'; font-size:4rem; }
+
+.news-sec { padding:4rem 0 6rem; background:#fff; }
+
+/* カテゴリタブ */
+.cat-tabs { display:flex; gap:.6rem; flex-wrap:wrap; margin-bottom:2.5rem; justify-content:center; }
+.cat-btn { padding:.5rem 1.3rem; border-radius:999px; border:1.5px solid rgba(186,117,23,.35); background:white; color:#6B6860; font-size:.8rem; font-weight:700; cursor:pointer; transition:all .2s; }
+.cat-btn:hover { background:rgba(186,117,23,.08); }
+.cat-btn.active { background:#F0B23C; border-color:#F0B23C; color:white; }
+
+/* 記事カード */
+.article-list { display:flex; flex-direction:column; gap:1.1rem; }
 .article-card {
-  display:flex; gap:1.5rem; align-items:flex-start;
-  padding:1.25rem; background:white; border-radius:16px;
+  display:flex; gap:1.5rem; align-items:center;
+  padding:1.1rem 1.5rem 1.1rem 1.1rem; background:white; border-radius:14px;
   border:1px solid rgba(186,117,23,.12); text-decoration:none; color:inherit;
-  box-shadow:0 2px 14px rgba(44,44,42,.05);
+  box-shadow:0 2px 14px rgba(44,44,42,.04);
   transition:box-shadow .2s, transform .2s;
 }
-.article-card:hover { box-shadow:0 10px 28px rgba(44,44,42,.1); transform:translateY(-2px); }
-.art-thumb { position:relative; flex-shrink:0; width:160px; height:120px; border-radius:10px; overflow:hidden; background:#FDF6E9; }
+.article-card:hover { box-shadow:0 10px 26px rgba(44,44,42,.09); transform:translateY(-2px); }
+.art-thumb { flex-shrink:0; width:140px; height:100px; border-radius:10px; overflow:hidden; background:#FDF6E9; }
 .art-thumb img { width:100%; height:100%; object-fit:cover; display:block; }
-.art-date-badge {
-  position:absolute; bottom:0; left:0; right:0;
-  background:rgba(44,44,42,.72); color:white;
-  font-family:Manrope,sans-serif; font-size:.7rem; letter-spacing:.04em;
-  text-align:center; padding:.3rem 0;
-}
-.art-body { flex:1; min-width:0; display:flex; flex-direction:column; gap:.5rem; }
-.art-cat { display:inline-flex; align-self:flex-start; font-size:.68rem; font-weight:700; padding:.2rem .65rem; border-radius:999px; white-space:nowrap; }
+.art-body { flex:1; min-width:0; }
+.art-meta { display:flex; align-items:center; gap:.65rem; margin-bottom:.5rem; }
+.art-date { font-family:Manrope,sans-serif; font-size:.78rem; color:#9B9994; letter-spacing:.03em; }
+.art-cat { font-size:.66rem; font-weight:700; padding:.2rem .65rem; border-radius:999px; white-space:nowrap; }
 .art-cat--default { background:rgba(186,117,23,.12); color:#BA7517; }
-.art-cat--prod { background:rgba(186,117,23,.18); color:#8B6010; }
-.art-cat--imp { background:rgba(200,40,40,.1); color:#C02828; }
+.art-cat--media { background:rgba(80,150,80,.12); color:#3F7D3F; }
 .art-cat--ev { background:rgba(60,100,200,.1); color:#3060C0; }
-.art-title { font-size:.98rem; font-weight:700; color:#2C2A24; margin:0; line-height:1.6; }
+.art-cat--other { background:rgba(150,150,150,.12); color:#777; }
+.art-title { font-family:'Zen Kaku Gothic New',sans-serif; font-size:1rem; font-weight:700; color:#2C2A24; margin:0 0 .5rem; line-height:1.5; }
 .art-excerpt {
-  font-size:.82rem; color:#9B9994; line-height:1.8; margin:0;
+  font-size:.8rem; color:#9B9994; line-height:1.75; margin:0;
   display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;
 }
+.art-arrow { flex-shrink:0; font-size:1.5rem; color:#F0B23C; font-weight:300; }
 
-.pagination { display:flex; justify-content:center; gap:.5rem; margin-top:3rem; }
-.page-num { width:38px; height:38px; border-radius:8px; display:inline-flex; align-items:center; justify-content:center; font-size:.85rem; font-weight:700; text-decoration:none; color:#2C2A24; background:white; border:1px solid rgba(186,117,23,.3); transition:all .2s; }
-.page-num.active { background:#BA7517; border-color:#BA7517; color:white; }
-.page-num:hover:not(.active) { background:rgba(186,117,23,.08); }
-.page-ellipsis { display:inline-flex; align-items:center; justify-content:center; width:38px; height:38px; color:#9B9994; }
+/* ページネーション */
+.pagination { display:flex; justify-content:center; align-items:center; gap:.5rem; margin-top:3rem; }
+.page-num,.page-nav { width:36px; height:36px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-size:.85rem; font-weight:700; text-decoration:none; color:#2C2A24; background:white; border:1px solid rgba(186,117,23,.25); transition:all .2s; }
+.page-num.active { background:#F0B23C; border-color:#F0B23C; color:white; }
+.page-num:hover:not(.active),.page-nav:hover { background:rgba(186,117,23,.08); }
+.page-ellipsis { display:inline-flex; align-items:center; justify-content:center; width:36px; height:36px; color:#9B9994; }
 
+@media (max-width:780px) {
+  .nw-hero-in { grid-template-columns:1fr; }
+  .nw-hero-img { order:-1; }
+}
 @media (max-width:640px) {
-  .article-card { flex-direction:column; }
+  .article-card { flex-wrap:wrap; }
   .art-thumb { width:100%; height:160px; }
+  .art-arrow { display:none; }
 }
 </style>
