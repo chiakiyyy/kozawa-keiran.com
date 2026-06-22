@@ -2,332 +2,269 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import LineButton from '../components/LineButton.astro';
 
-const LINE_URL = "https://line.me/ti/p/@215bpskd";
+const LINE_URL  = 'https://line.me/ti/p/@215bpskd';
+const SITE_URL  = 'https://kozawa-keiran.com';
+const OG_IMG    = `${SITE_URL}/images/shop/og-shop.jpg`;
+
+const reasons = [
+  { emoji: '🛒', title: '買い忘れがなくなる',        body: '「あ、卵が切れてた」という朝のプチストレスがゼロになります。' },
+  { emoji: '🌅', title: 'いつも新鮮な卵が届く',      body: '朝どれ・生産者直送だから、届くたびに黄身がぷりっと立っています。' },
+  { emoji: '⏱️', title: 'スーパーへ行く手間が減る', body: '重い卵を運ぶ必要なし。玄関で受け取るだけ。週1回の買い物が少し楽になります。' },
+  { emoji: '👨‍👩‍👧', title: '家族が喜ぶ',               body: '黄身の濃さ、卵本来のコク。「この卵おいしい！」が聞けるようになります。' },
+];
+
+const commitments = [
+  { emoji: '🐔', title: '平飼い飼育',    body: '広い鶏舎でのびのびと育てた鶏が産む卵。ストレスの少ない環境が、卵の質に直結します。', img: '/images/feature/feature-chicken.jpg' },
+  { emoji: '🌄', title: '朝どれ卵',      body: '毎朝採卵したその日の卵をお届け。鮮度の高さが黄身の盛り上がりや味わいに現れます。', img: '/images/feature/feature-egg.jpg' },
+  { emoji: '❄️', title: 'チルド配送',    body: '冷蔵温度を保ったまま全国配送。夏場でも品質を損なわず、安心してお届けします。', img: '/images/flow/flow-hero.jpg' },
+  { emoji: '👤', title: '生産者の顔が見える', body: '富山・小澤鶏卵場から直送。LINEでいつでも生産者に直接質問できます。', img: '/images/about/about-hero.jpg' },
+];
 
 const reviews = [
-  { name: "富山市 M.K. さん（30代・主婦）", text: "届いた卵を卵かけご飯にしたら、黄身が濃くてびっくり！子どもが「この卵おいしい！」と言ってくれて、それから定期便にしました。冷蔵庫に卵が切れなくなったのも地味に嬉しいです。", star: 5 },
-  { name: "富山市 T.Y. さん（40代・会社員）", text: "スーパーで卵を買い忘れることが多かったので試してみました。朝どれなので黄身がしっかり立っていて新鮮さを実感できます。チルド配送なのも安心感があります。", star: 5 },
-  { name: "射水市 A.N. さん（50代）", text: "生産者さんの顔が見えるのが一番の決め手でした。LINEでやり取りできて、質問にも丁寧に答えていただけるので信頼感があります。これからもよろしくお願いします。", star: 5 },
+  { name: 'M.K. さん（富山市・30代主婦）', text: '届いた卵で卵かけご飯にしたら、黄身が濃くてびっくり！子どもが「この卵おいしい！」と言ってくれて、それから定期便にしました。冷蔵庫に卵が切れなくなったのも地味に嬉しいです。', stars: 5 },
+  { name: 'T.Y. さん（富山市・40代会社員）', text: 'スーパーで卵を買い忘れることが多かったので試してみました。朝どれなので黄身がしっかり立っていて新鮮さを実感。チルド配送なのも安心感があります。', stars: 5 },
+  { name: 'A.N. さん（射水市・50代）', text: '生産者さんの顔が見えるのが一番の決め手でした。LINEで質問にも丁寧に答えていただけるので信頼感があります。これからもよろしくお願いします。', stars: 5 },
 ];
 
 const faqs = [
-  { q: "定期便はいつでも停止できますか？", a: "はい、いつでも停止・再開できます。縛りは一切ありません。LINEにてご連絡ください。" },
-  { q: "配送日は選べますか？", a: "はい、ご希望の曜日・時間帯をLINEでお知らせください。できる限りご希望に合わせます。" },
-  { q: "卵が割れていた場合は？", a: "お届け時に割れがあった場合は、写真をLINEにお送りください。すぐに対応いたします。" },
-  { q: "支払い方法は？", a: "クレジットカード（Square決済）をご利用いただけます。LINEでのお申し込み後にご案内します。" },
-  { q: "対応エリアはどこですか？", a: "全国へお届けできます。送料は商品価格に含まれています（送料込み価格）。" },
+  { q: '定期便はいつでも停止できますか？',   a: 'はい、いつでも停止・再開できます。縛りは一切ありません。LINEにてご連絡ください。' },
+  { q: '配送日は選べますか？',               a: 'はい、ご希望の曜日・時間帯をLINEでお知らせください。できる限りご希望に合わせます。' },
+  { q: '卵が割れていた場合は？',             a: 'お届け時に割れがあった場合は、写真をLINEにお送りください。すぐに対応いたします。' },
+  { q: '支払い方法は？',                     a: 'クレジットカード（Square決済）をご利用いただけます。LINEでのお申し込み後にご案内します。' },
+  { q: '対応エリアはどこですか？',           a: '全国へお届けできます。送料は商品価格に含まれています（送料込み価格）。' },
 ];
+
+// 構造化データ (JSON-LD)
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "小澤鶏卵場 平飼い朝どれ卵 定期便",
+  "description": "富山の平飼い・朝どれ卵を2週間ごとにお届けする定期便。チルド配送・生産者直送・縛りなし。",
+  "brand": { "@type": "Brand", "name": "小澤鶏卵場" },
+  "offers": {
+    "@type": "Offer",
+    "price": "2780",
+    "priceCurrency": "JPY",
+    "availability": "https://schema.org/InStock",
+    "url": `${SITE_URL}/shop/`
+  }
+};
 ---
 <Layout
   title="富山の平飼い朝どれ卵 定期便｜小澤鶏卵場"
-  description="富山の生産者直送。平飼い・朝どれ・チルド配送の新鮮な卵を2週間ごとにお届けする定期便サービス。LINEで簡単お申し込み。いつでも停止可能・縛りなし。"
+  description="富山・小澤鶏卵場から直送。平飼い・朝どれ・チルド配送の新鮮な卵を2週間ごとにお届けする定期便。2,780円（税込・送料込）。いつでも停止可能・縛りなし。LINEで簡単お申し込み。"
 >
+  <!-- OGP / Twitter Card -->
+  <meta slot="head" property="og:title"       content="富山の平飼い朝どれ卵 定期便｜小澤鶏卵場"/>
+  <meta slot="head" property="og:description" content="富山・小澤鶏卵場から直送。平飼い・朝どれ・チルド配送の卵定期便。2,780円（税込・送料込）。縛りなし。"/>
+  <meta slot="head" property="og:image"       content={OG_IMG}/>
+  <meta slot="head" property="og:url"         content={`${SITE_URL}/shop/`}/>
+  <meta slot="head" property="og:type"        content="website"/>
+  <meta slot="head" name="twitter:card"       content="summary_large_image"/>
+
+  <!-- 構造化データ -->
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(jsonLd)}></script>
+
   <Header/>
   <main>
 
-    <!-- ① HERO -->
-    <section class="lp-hero">
-      <div class="lp-hero-bg"></div>
-      <div class="container lp-hero-in">
-        <div class="lp-hero-text">
-          <span class="lp-catch">富山の生産者から直送</span>
-          <h1>朝の卵を<br/>切らさない暮らし。</h1>
-          <p>富山の平飼い朝どれ卵を<br/>定期便でお届けします。</p>
-          <a href={LINE_URL} target="_blank" rel="noopener" class="lp-btn-line lp-btn-line--lg">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.07 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
-            LINEで定期便について相談する
-          </a>
-          <p class="lp-hero-note">無理な営業はいたしません。まずはお気軽にどうぞ。</p>
+    <!-- ①────────────────── HERO ────────────────── -->
+    <section class="relative overflow-hidden bg-[#FFFDF7]" style="margin-top:76px">
+      <!-- 背景装飾 -->
+      <div class="pointer-events-none absolute inset-0"
+        style="background:radial-gradient(ellipse at 75% 40%,rgba(240,178,60,.2) 0,transparent 55%),radial-gradient(circle at 8% 85%,rgba(186,117,23,.1) 0,transparent 45%)">
+      </div>
+
+      <div class="relative mx-auto max-w-5xl px-6 py-16 sm:py-24 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+        <div>
+          <span class="inline-block mb-4 rounded-full bg-[rgba(186,117,23,0.12)] px-4 py-1.5 text-xs font-bold tracking-widest text-[#BA7517]">
+            富山の生産者から直送
+          </span>
+          <h1 class="font-['Zen_Kaku_Gothic_New',sans-serif] text-4xl sm:text-5xl font-bold text-[#2C2A24] leading-tight mb-4">
+            朝の卵を<br/>切らさない<br/>暮らし。
+          </h1>
+          <p class="text-[#6B6860] text-base leading-relaxed mb-8">
+            富山の平飼い朝どれ卵を<br/>定期便でお届けします。
+          </p>
+          <LineButton size="lg"/>
+          <p class="mt-3 text-xs text-[#9B9994]">無理な営業はいたしません。まずはお気軽にどうぞ。</p>
         </div>
-        <div class:list={["lp-hero-img", {"img-fallback": true}]}>
-          <img src="/images/shop/shop-hero.jpg" alt="朝どれ卵" loading="eager" onerror="this.closest('.lp-hero-img').classList.add('img-fallback')"/>
+        <div class="rounded-3xl overflow-hidden aspect-[4/3] bg-gradient-to-br from-[#FCE9B8] to-[#F0B23C] flex items-center justify-center text-6xl">
+          <img src="/images/shop/shop-hero.jpg" alt="富山の朝どれ卵" loading="eager" class="w-full h-full object-cover" onerror="this.style.display='none'"/>
+          🥚
         </div>
       </div>
     </section>
 
-    <!-- ② ありがとうメッセージ -->
-    <section class="lp-thanks">
-      <div class="container">
-        <div class="lp-thanks-card">
-          <span class="lp-thanks-icon">🥚</span>
-          <div class="lp-thanks-text">
-            <h2>ご購入ありがとうございます。<br/>まずは卵を楽しんでいただけましたか？</h2>
-            <p>富山からお届けした卵は、いかがでしたでしょうか。卵かけご飯、ゆで卵、だし巻き卵…何にしても、素材の味がしっかり感じられましたか？</p>
-            <p>「次もまた食べたい」と思っていただけたなら、ぜひ定期便をご検討ください。冷蔵庫に卵が切れることなく、いつも新鮮な卵が届く暮らしをご提案します。</p>
+    <!-- ②──────────────── ありがとう ──────────────── -->
+    <section class="py-16 bg-white">
+      <div class="mx-auto max-w-3xl px-6">
+        <div class="flex gap-5 rounded-2xl border-2 border-[rgba(186,117,23,0.2)] bg-[#FFFDF7] p-8">
+          <span class="text-4xl flex-shrink-0">🥚</span>
+          <div>
+            <h2 class="font-['Zen_Kaku_Gothic_New',sans-serif] text-xl font-bold text-[#2C2A24] mb-4 leading-snug">
+              ご購入ありがとうございます。<br/>
+              まずは卵を楽しんでいただけましたか？
+            </h2>
+            <p class="text-sm text-[#6B6860] leading-relaxed mb-3">
+              富山からお届けした卵は、いかがでしたでしょうか。卵かけご飯、ゆで卵、だし巻き卵…何にしても、素材の味がしっかり感じられましたか？
+            </p>
+            <p class="text-sm text-[#6B6860] leading-relaxed">
+              「次もまた食べたい」と思っていただけたなら、ぜひ定期便をご検討ください。冷蔵庫に卵が切れることなく、いつも新鮮な卵が届く暮らしをご提案します。
+            </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ③ なぜ定期便か -->
-    <section class="lp-why">
-      <div class="container">
-        <div class="lp-sec-head">
-          <span class="lp-sec-en">WHY SUBSCRIPTION</span>
-          <h2>定期便にすると、こんなに楽に</h2>
+    <!-- ③──────────────── なぜ定期便か ──────────────── -->
+    <section class="py-16 bg-[#F9F7F2]">
+      <div class="mx-auto max-w-4xl px-6">
+        <div class="text-center mb-12">
+          <span class="block font-['Manrope',sans-serif] text-xs tracking-[.22em] text-[#BA7517] mb-2">WHY SUBSCRIPTION</span>
+          <h2 class="font-['Zen_Kaku_Gothic_New',sans-serif] text-2xl sm:text-3xl font-bold text-[#2C2A24]">定期便にすると、こんなに楽に</h2>
         </div>
-        <div class="lp-why-grid">
-          {[
-            { icon:"🛒", title:"買い忘れがなくなる", body:"スーパーで「あ、卵がない」という朝のストレスがなくなります。" },
-            { icon:"🌅", title:"いつも新鮮な卵が届く", body:"朝どれ・生産者直送だから、届くたびに新鮮。スーパーとは鮮度が違います。" },
-            { icon:"⏱️", title:"買い物の手間が減る", body:"重い卵を運ぶ必要なし。玄関で受け取るだけで毎回完結します。" },
-            { icon:"👨‍👩‍👧", title:"家族が喜ぶ", body:"黄身の濃さ、卵本来のコク。家族から「この卵おいしい！」が聞けます。" },
-          ].map(w => (
-            <div class="lp-why-card">
-              <span class="lp-why-icon">{w.icon}</span>
-              <h3>{w.title}</h3>
-              <p>{w.body}</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {reasons.map(r => (
+            <div class="bg-white rounded-2xl p-6 border border-[rgba(186,117,23,0.1)] shadow-sm">
+              <span class="text-3xl block mb-3">{r.emoji}</span>
+              <h3 class="font-['Zen_Kaku_Gothic_New',sans-serif] text-base font-bold text-[#2C2A24] mb-2">{r.title}</h3>
+              <p class="text-sm text-[#6B6860] leading-relaxed">{r.body}</p>
             </div>
           ))}
         </div>
       </div>
     </section>
 
-    <!-- ④ こだわり -->
-    <section class="lp-feature">
-      <div class="container">
-        <div class="lp-sec-head">
-          <span class="lp-sec-en">OUR EGG</span>
-          <h2>小澤鶏卵場のこだわり</h2>
+    <!-- ④──────────────── こだわり ──────────────── -->
+    <section class="py-16 bg-white">
+      <div class="mx-auto max-w-4xl px-6">
+        <div class="text-center mb-12">
+          <span class="block font-['Manrope',sans-serif] text-xs tracking-[.22em] text-[#BA7517] mb-2">OUR EGG</span>
+          <h2 class="font-['Zen_Kaku_Gothic_New',sans-serif] text-2xl sm:text-3xl font-bold text-[#2C2A24]">小澤鶏卵場のこだわり</h2>
         </div>
-        <div class="lp-feature-grid">
-          {[
-            { icon:"🐔", title:"平飼い飼育", body:"広い鶏舎でのびのびと育てた鶏が産む卵。ストレスの少ない環境が、卵の質に直結します。" },
-            { icon:"🌄", title:"朝どれ卵", body:"毎朝採卵したその日の卵をお届け。鮮度の高さが、黄身の盛り上がりや味わいに現れます。" },
-            { icon:"❄️", title:"チルド配送", body:"冷蔵温度を保ったまま配送。夏場でも品質を損なわず、安心してお届けします。" },
-            { icon:"👤", title:"生産者直送", body:"中間業者なし。富山の生産者から直接お届けするから、新鮮で価格も適正です。" },
-          ].map(f => (
-            <div class="lp-feature-card">
-              <span class="lp-feature-icon">{f.icon}</span>
-              <h3>{f.title}</h3>
-              <p>{f.body}</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+          {commitments.map(c => (
+            <div class="rounded-2xl overflow-hidden border border-[rgba(186,117,23,0.12)] bg-[#FFFDF7] shadow-sm">
+              <div class="aspect-[16/7] bg-gradient-to-br from-[#FCE9B8] to-[#F0B23C] flex items-center justify-center text-5xl overflow-hidden">
+                <img src={c.img} alt={c.title} loading="lazy" class="w-full h-full object-cover" onerror="this.style.display='none'"/>
+                {c.emoji}
+              </div>
+              <div class="p-5">
+                <h3 class="font-['Zen_Kaku_Gothic_New',sans-serif] font-bold text-[#2C2A24] mb-2">{c.title}</h3>
+                <p class="text-sm text-[#6B6860] leading-relaxed">{c.body}</p>
+              </div>
             </div>
           ))}
         </div>
       </div>
     </section>
 
-    <!-- ⑤ お客様の声 -->
-    <section class="lp-reviews">
-      <div class="container">
-        <div class="lp-sec-head">
-          <span class="lp-sec-en">REVIEWS</span>
-          <h2>お客様の声</h2>
+    <!-- ⑤──────────────── お客様の声 ──────────────── -->
+    <section class="py-16 bg-[#F9F7F2]">
+      <div class="mx-auto max-w-4xl px-6">
+        <div class="text-center mb-12">
+          <span class="block font-['Manrope',sans-serif] text-xs tracking-[.22em] text-[#BA7517] mb-2">REVIEWS</span>
+          <h2 class="font-['Zen_Kaku_Gothic_New',sans-serif] text-2xl sm:text-3xl font-bold text-[#2C2A24]">お客様の声</h2>
         </div>
-        <div class="lp-review-grid">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
           {reviews.map(r => (
-            <div class="lp-review-card">
-              <div class="lp-review-stars">{"★".repeat(r.star)}</div>
-              <p class="lp-review-text">「{r.text}」</p>
-              <span class="lp-review-name">{r.name}</span>
+            <div class="bg-white rounded-2xl p-6 shadow-sm border border-[rgba(186,117,23,0.1)]">
+              <div class="text-[#F0B23C] text-lg mb-3">{"★".repeat(r.stars)}</div>
+              <p class="text-sm text-[#6B6860] leading-loose mb-4 italic">「{r.text}」</p>
+              <span class="text-xs text-[#9B9994]">{r.name}</span>
             </div>
           ))}
         </div>
       </div>
     </section>
 
-    <!-- ⑥ 定期便プラン -->
-    <section class="lp-plan">
-      <div class="container">
-        <div class="lp-sec-head">
-          <span class="lp-sec-en">PLAN</span>
-          <h2>定期便プラン</h2>
+    <!-- ⑥──────────────── 定期便プラン ──────────────── -->
+    <section class="py-16 bg-white">
+      <div class="mx-auto max-w-3xl px-6">
+        <div class="text-center mb-12">
+          <span class="block font-['Manrope',sans-serif] text-xs tracking-[.22em] text-[#BA7517] mb-2">PLAN</span>
+          <h2 class="font-['Zen_Kaku_Gothic_New',sans-serif] text-2xl sm:text-3xl font-bold text-[#2C2A24]">定期便プラン</h2>
         </div>
-        <div class="lp-plan-grid">
-          <!-- お試し① -->
-          <div class="lp-plan-card">
-            <span class="lp-plan-label">お試し</span>
-            <h3>平飼い卵 20個</h3>
-            <div class="lp-plan-price">¥2,980<span>（送料込み）</span></div>
-            <ul>
-              <li>✓ 平飼い朝どれ卵20個</li>
-              <li>✓ チルド配送</li>
-              <li>✓ 生産者直送</li>
-            </ul>
-            <a href={LINE_URL} target="_blank" rel="noopener" class="lp-btn-line lp-btn-line--sm">LINEで注文する</a>
+
+        <!-- おすすめ定期便カード -->
+        <div class="relative rounded-3xl border-2 border-[#06C755] bg-[#F0FFF4] p-8 shadow-[0_8px_32px_rgba(6,199,85,0.12)]">
+          <span class="absolute -top-4 left-1/2 -translate-x-1/2 rounded-full bg-[#06C755] px-5 py-1.5 text-xs font-bold text-white tracking-wide">おすすめ</span>
+
+          <div class="text-center mb-6">
+            <span class="block font-['Manrope',sans-serif] text-xs tracking-widest text-[#06C755] mb-1">おすすめ定期便</span>
+            <h3 class="font-['Zen_Kaku_Gothic_New',sans-serif] text-xl font-bold text-[#2C2A24] mb-4">平飼い卵 20個入り<br/>2週間ごとお届け</h3>
+            <div class="flex items-end justify-center gap-1 mb-1">
+              <span class="font-['Manrope',sans-serif] text-5xl font-bold text-[#2C2A24]">2,780</span>
+              <span class="text-base text-[#6B6860] mb-2">円（税込）</span>
+            </div>
+            <p class="text-xs text-[#9B9994]">送料込み</p>
           </div>
-          <!-- お試し② -->
-          <div class="lp-plan-card">
-            <span class="lp-plan-label">お試し＋</span>
-            <h3>平飼い卵20個<br/>＋卵かけご飯醤油</h3>
-            <div class="lp-plan-price">¥3,500<span>（送料込み）</span></div>
-            <ul>
-              <li>✓ 平飼い朝どれ卵20個</li>
-              <li>✓ 卵かけご飯専用醤油</li>
-              <li>✓ チルド配送</li>
-            </ul>
-            <a href={LINE_URL} target="_blank" rel="noopener" class="lp-btn-line lp-btn-line--sm">LINEで注文する</a>
-          </div>
-          <!-- 定期便 おすすめ -->
-          <div class="lp-plan-card lp-plan-card--main">
-            <span class="lp-plan-badge">おすすめ</span>
-            <span class="lp-plan-label">定期便</span>
-            <h3>平飼い卵 20個入り<br/>2週間ごと配送</h3>
-            <div class="lp-plan-price">¥2,780<span>（税込・送料込み）</span></div>
-            <ul>
-              <li>✓ 2週間ごとに自動でお届け</li>
-              <li>✓ いつでも停止・再開OK</li>
-              <li>✓ 縛りなし・解約手数料なし</li>
-              <li>✓ LINEで配送日相談可</li>
-            </ul>
-            <a href={LINE_URL} target="_blank" rel="noopener" class="lp-btn-line lp-btn-line--lg">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.07 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
-              LINEで申し込む
-            </a>
+
+          <ul class="mb-8 space-y-3 max-w-xs mx-auto">
+            {[
+              '2週間ごとに自動でお届け',
+              'いつでも停止・再開OK',
+              '縛りなし・解約手数料なし',
+              'LINEで配送日の相談ができる',
+              '朝どれ・チルド配送・生産者直送',
+            ].map(item => (
+              <li class="flex items-center gap-2 text-sm text-[#2C2A24]">
+                <span class="flex-shrink-0 w-5 h-5 rounded-full bg-[#06C755] text-white text-xs flex items-center justify-center font-bold">✓</span>
+                {item}
+              </li>
+            ))}
+          </ul>
+
+          <div class="flex justify-center">
+            <LineButton text="LINEで申し込む" size="lg"/>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ⑦ FAQ -->
-    <section class="lp-faq">
-      <div class="container">
-        <div class="lp-sec-head">
-          <span class="lp-sec-en">FAQ</span>
-          <h2>よくあるご質問</h2>
+    <!-- ⑦──────────────── FAQ ──────────────── -->
+    <section class="py-16 bg-[#F9F7F2]">
+      <div class="mx-auto max-w-2xl px-6">
+        <div class="text-center mb-12">
+          <span class="block font-['Manrope',sans-serif] text-xs tracking-[.22em] text-[#BA7517] mb-2">FAQ</span>
+          <h2 class="font-['Zen_Kaku_Gothic_New',sans-serif] text-2xl sm:text-3xl font-bold text-[#2C2A24]">よくあるご質問</h2>
         </div>
-        <div class="lp-faq-list">
+        <div class="space-y-4">
           {faqs.map(f => (
-            <div class="lp-faq-item">
-              <div class="lp-faq-q"><span>Q</span>{f.q}</div>
-              <div class="lp-faq-a"><span>A</span>{f.a}</div>
+            <div class="bg-white rounded-2xl p-6 border border-[rgba(186,117,23,0.1)] shadow-sm">
+              <div class="flex gap-3 mb-3">
+                <span class="flex-shrink-0 w-7 h-7 rounded-full bg-[#F0B23C] text-white text-xs font-bold flex items-center justify-center">Q</span>
+                <p class="font-bold text-[#2C2A24] text-sm leading-relaxed pt-1">{f.q}</p>
+              </div>
+              <div class="flex gap-3">
+                <span class="flex-shrink-0 w-7 h-7 rounded-full bg-[rgba(186,117,23,0.12)] text-[#BA7517] text-xs font-bold flex items-center justify-center">A</span>
+                <p class="text-sm text-[#6B6860] leading-relaxed pt-1">{f.a}</p>
+              </div>
             </div>
           ))}
         </div>
       </div>
     </section>
 
-    <!-- ⑧ 最終CTA -->
-    <section class="lp-final-cta">
-      <div class="container">
-        <div class="lp-final-inner">
-          <span class="lp-final-icon">🥚</span>
-          <h2>まずはお気軽にご相談ください。</h2>
-          <p>無理な営業はいたしません。<br/>「興味はあるけど…」くらいのお気持ちで大丈夫です。</p>
-          <a href={LINE_URL} target="_blank" rel="noopener" class="lp-btn-line lp-btn-line--lg lp-btn-line--white">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.07 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
-            LINEで相談する（無料）
-          </a>
-          <p class="lp-final-note">友だち追加後、トーク画面からご相談ください</p>
-        </div>
+    <!-- ⑧──────────────── 最終CTA ──────────────── -->
+    <section class="py-20" style="background:linear-gradient(135deg,#F0B23C,#BA7517)">
+      <div class="mx-auto max-w-xl px-6 text-center">
+        <span class="text-4xl block mb-6">🥚</span>
+        <h2 class="font-['Zen_Kaku_Gothic_New',sans-serif] text-2xl sm:text-3xl font-bold text-white mb-4">
+          まずはお気軽にご相談ください。
+        </h2>
+        <p class="text-white/90 text-base leading-relaxed mb-8">
+          無理な営業はいたしません。<br/>
+          「興味はあるけど…」くらいのお気持ちで大丈夫です。
+        </p>
+        <LineButton text="LINEで相談する（無料）" size="lg" variant="white"/>
+        <p class="mt-4 text-xs text-white/75">友だち追加後、トーク画面からご相談ください</p>
       </div>
     </section>
 
   </main>
   <Footer/>
 </Layout>
-<style>
-.container { max-width:960px; margin:0 auto; padding:0 2rem; }
-
-/* ── ヒーロー ── */
-.lp-hero { margin-top:76px; position:relative; min-height:560px; background:#FFFDF7; overflow:hidden; }
-.lp-hero-bg {
-  position:absolute; inset:0;
-  background:radial-gradient(ellipse at 80% 50%, rgba(240,178,60,.18) 0, transparent 60%),
-             radial-gradient(circle at 10% 90%, rgba(186,117,23,.1) 0, transparent 50%);
-}
-.lp-hero-in { position:relative; display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:center; padding:4.5rem 2rem; }
-.lp-catch { display:inline-block; font-size:.72rem; font-weight:700; letter-spacing:.1em; color:#BA7517; background:rgba(186,117,23,.1); padding:.3rem .9rem; border-radius:999px; margin-bottom:1rem; }
-.lp-hero-text h1 { font-family:'Zen Kaku Gothic New',sans-serif; font-size:clamp(2rem,5vw,3rem); font-weight:700; color:#2C2A24; line-height:1.4; margin-bottom:1rem; }
-.lp-hero-text > p { font-size:.9rem; color:#6B6860; line-height:1.8; margin-bottom:2rem; }
-.lp-hero-note { font-size:.72rem; color:#9B9994; margin-top:.75rem; }
-.lp-hero-img { border-radius:24px; overflow:hidden; aspect-ratio:4/3; }
-.lp-hero-img img { width:100%; height:100%; object-fit:cover; display:block; }
-.lp-hero-img.img-fallback { background:linear-gradient(135deg,#FCE9B8,#F0B23C); display:flex; align-items:center; justify-content:center; }
-.lp-hero-img.img-fallback img { display:none; }
-.lp-hero-img.img-fallback::after { content:'🥚'; font-size:4rem; }
-
-/* ── LINE ボタン ── */
-.lp-btn-line {
-  display:inline-flex; align-items:center; justify-content:center; gap:.6rem;
-  background:#06C755; color:white; font-weight:700; text-decoration:none;
-  border-radius:999px; transition:opacity .2s; white-space:nowrap;
-}
-.lp-btn-line:hover { opacity:.88; }
-.lp-btn-line--lg { padding:.9rem 2rem; font-size:1rem; box-shadow:0 6px 20px rgba(6,199,85,.3); }
-.lp-btn-line--sm { padding:.65rem 1.5rem; font-size:.85rem; width:100%; justify-content:center; }
-.lp-btn-line--white { background:white; color:#06C755; box-shadow:0 6px 20px rgba(0,0,0,.12); }
-
-/* ── セクション共通 ── */
-.lp-sec-head { text-align:center; margin-bottom:3rem; }
-.lp-sec-en { font-family:Manrope,sans-serif; font-size:.68rem; letter-spacing:.22em; color:#BA7517; display:block; margin-bottom:.5rem; }
-.lp-sec-head h2 { font-family:'Zen Kaku Gothic New',sans-serif; font-size:clamp(1.3rem,2.8vw,1.8rem); font-weight:700; color:#2C2A24; }
-
-/* ② ありがとう */
-.lp-thanks { padding:4rem 0; background:#fff; }
-.lp-thanks-card { display:flex; gap:2rem; align-items:flex-start; background:#FFFDF7; border:1.5px solid rgba(186,117,23,.2); border-radius:20px; padding:2.5rem; }
-.lp-thanks-icon { font-size:2.5rem; flex-shrink:0; }
-.lp-thanks-text h2 { font-family:'Zen Kaku Gothic New',sans-serif; font-size:1.15rem; font-weight:700; color:#2C2A24; margin-bottom:1rem; }
-.lp-thanks-text p { font-size:.86rem; color:#6B6860; line-height:1.9; margin-bottom:.75rem; }
-
-/* ③ なぜ定期便 */
-.lp-why { padding:4rem 0; background:#F9F7F2; }
-.lp-why-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:1.25rem; }
-.lp-why-card { background:white; border-radius:16px; padding:1.75rem; border:1px solid rgba(186,117,23,.1); box-shadow:0 2px 14px rgba(44,44,42,.04); }
-.lp-why-icon { font-size:2rem; display:block; margin-bottom:.75rem; }
-.lp-why-card h3 { font-family:'Zen Kaku Gothic New',sans-serif; font-size:.95rem; font-weight:700; color:#2C2A24; margin-bottom:.5rem; }
-.lp-why-card p { font-size:.82rem; color:#6B6860; line-height:1.8; margin:0; }
-
-/* ④ こだわり */
-.lp-feature { padding:4rem 0; background:#fff; }
-.lp-feature-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1.25rem; }
-.lp-feature-card { text-align:center; background:#FFFDF7; border-radius:16px; padding:1.75rem 1.25rem; border:1px solid rgba(186,117,23,.12); }
-.lp-feature-icon { font-size:2.2rem; display:block; margin-bottom:.85rem; }
-.lp-feature-card h3 { font-family:'Zen Kaku Gothic New',sans-serif; font-size:.9rem; font-weight:700; color:#2C2A24; margin-bottom:.5rem; }
-.lp-feature-card p { font-size:.78rem; color:#6B6860; line-height:1.75; margin:0; }
-
-/* ⑤ レビュー */
-.lp-reviews { padding:4rem 0; background:#F9F7F2; }
-.lp-review-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.25rem; }
-.lp-review-card { background:white; border-radius:16px; padding:1.75rem; box-shadow:0 2px 14px rgba(44,44,42,.05); }
-.lp-review-stars { color:#F0B23C; font-size:1rem; margin-bottom:.75rem; }
-.lp-review-text { font-size:.82rem; color:#6B6860; line-height:1.85; margin-bottom:.85rem; font-style:italic; }
-.lp-review-name { font-size:.72rem; color:#9B9994; }
-
-/* ⑥ プラン */
-.lp-plan { padding:4rem 0; background:#fff; }
-.lp-plan-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; align-items:stretch; }
-.lp-plan-card { position:relative; border-radius:20px; padding:2rem 1.75rem 1.75rem; border:1.5px solid rgba(186,117,23,.2); background:#FFFDF7; display:flex; flex-direction:column; gap:.85rem; }
-.lp-plan-card--main { border-color:#06C755; background:#F0FFF4; box-shadow:0 8px 28px rgba(6,199,85,.12); }
-.lp-plan-badge { position:absolute; top:-14px; left:50%; transform:translateX(-50%); background:#06C755; color:white; font-size:.68rem; font-weight:700; padding:.35rem 1.1rem; border-radius:999px; white-space:nowrap; }
-.lp-plan-label { font-family:Manrope,sans-serif; font-size:.66rem; letter-spacing:.15em; color:#BA7517; }
-.lp-plan-card--main .lp-plan-label { color:#06C755; }
-.lp-plan-card h3 { font-family:'Zen Kaku Gothic New',sans-serif; font-size:1rem; font-weight:700; color:#2C2A24; line-height:1.5; margin:0; }
-.lp-plan-price { font-family:Manrope,sans-serif; font-size:1.65rem; font-weight:700; color:#2C2A24; }
-.lp-plan-price span { font-size:.72rem; color:#9B9994; margin-left:.3rem; }
-.lp-plan-card ul { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:.4rem; flex:1; }
-.lp-plan-card li { font-size:.8rem; color:#6B6860; }
-
-/* ⑦ FAQ */
-.lp-faq { padding:4rem 0; background:#F9F7F2; }
-.lp-faq-list { display:flex; flex-direction:column; gap:1rem; max-width:720px; margin:0 auto; }
-.lp-faq-item { background:white; border-radius:14px; padding:1.5rem; border:1px solid rgba(186,117,23,.1); box-shadow:0 2px 12px rgba(44,44,42,.04); }
-.lp-faq-q,.lp-faq-a { display:flex; gap:.85rem; font-size:.86rem; line-height:1.75; }
-.lp-faq-q { font-weight:700; color:#2C2A24; margin-bottom:.6rem; }
-.lp-faq-a { color:#6B6860; }
-.lp-faq-q span,.lp-faq-a span { flex-shrink:0; width:24px; height:24px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:.75rem; font-weight:700; }
-.lp-faq-q span { background:#F0B23C; color:white; }
-.lp-faq-a span { background:rgba(186,117,23,.12); color:#BA7517; }
-
-/* ⑧ 最終CTA */
-.lp-final-cta { padding:5rem 0; background:linear-gradient(135deg,#F0B23C,#BA7517); }
-.lp-final-inner { text-align:center; }
-.lp-final-icon { font-size:3rem; display:block; margin-bottom:1rem; }
-.lp-final-inner h2 { font-family:'Zen Kaku Gothic New',sans-serif; font-size:clamp(1.4rem,3vw,2rem); font-weight:700; color:white; margin-bottom:.85rem; }
-.lp-final-inner > p { font-size:.9rem; color:rgba(255,255,255,.9); line-height:1.8; margin-bottom:2rem; }
-.lp-final-note { font-size:.72rem; color:rgba(255,255,255,.8); margin-top:.85rem; }
-
-@media (max-width:900px) {
-  .lp-hero-in { grid-template-columns:1fr; padding:3.5rem 2rem; }
-  .lp-hero-img { order:-1; }
-  .lp-feature-grid { grid-template-columns:repeat(2,1fr); }
-  .lp-review-grid { grid-template-columns:1fr; }
-  .lp-plan-grid { grid-template-columns:1fr; max-width:420px; margin:0 auto; }
-}
-@media (max-width:600px) {
-  .lp-why-grid { grid-template-columns:1fr; }
-  .lp-feature-grid { grid-template-columns:1fr 1fr; }
-  .lp-thanks-card { flex-direction:column; }
-}
-</style>
