@@ -98,20 +98,17 @@ const jsonLd = {
   <main class="font-['Zen_Kaku_Gothic_New',sans-serif]">
 
     <!-- ① HERO ─────────────────────────────────── -->
-    <section id="hero" class="relative overflow-hidden" style="margin-top:76px;min-height:520px">
+    <section id="hero" class="relative overflow-hidden" style="margin-top:76px;min-height:560px">
       <!-- 背景画像 全面 -->
-      <div class="absolute inset-0">
-        <img src="/images/shop/hero-family.jpg" alt="" loading="eager" class="w-full h-full object-cover object-center" aria-hidden="true"/>
-        <!-- 左側：テキストが読めるよう白グラデ -->
-        <div class="absolute inset-0" style="background:linear-gradient(to right, rgba(255,253,245,0.97) 0%, rgba(255,253,245,0.92) 40%, rgba(255,253,245,0.4) 65%, transparent 100%)"></div>
-        <!-- 下部：次セクションへ白フェード -->
-        <div class="absolute bottom-0 left-0 right-0 h-24" style="background:linear-gradient(to bottom, transparent, #FFFDF5)"></div>
-      </div>
-      <!-- 葉っぱ装飾 -->
-      <span class="absolute left-4 top-20 text-3xl opacity-25 rotate-[-20deg] select-none pointer-events-none">🌿</span>
+      <img src="/images/shop/hero-family.jpg" alt="" loading="eager" class="absolute inset-0 w-full h-full object-cover object-center" aria-hidden="true"/>
+      <!-- 左側グラデ：テキスト可読性 -->
+      <div class="absolute inset-0" style="background:linear-gradient(to right, rgba(255,253,245,1) 0%, rgba(255,253,245,0.95) 35%, rgba(255,253,245,0.5) 60%, transparent 100%)"></div>
+      <!-- 下部フェード -->
+      <div class="absolute bottom-0 left-0 right-0 h-28" style="background:linear-gradient(to bottom, transparent, #FFFDF5)"></div>
 
-      <div class="relative mx-auto max-w-5xl px-6 py-16 sm:py-24 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-        <div>
+      <!-- コンテンツ：左半分のみ使用 -->
+      <div class="relative mx-auto max-w-5xl px-8 py-20 sm:py-28">
+        <div class="max-w-md">
           <span class="inline-block mb-4 rounded-full bg-[rgba(186,117,23,0.12)] px-4 py-1.5 text-xs font-bold tracking-widest text-[#BA7517]">
             富山の生産者から直送
           </span>
@@ -123,8 +120,6 @@ const jsonLd = {
           </p>
           <LineButton text="LINEで注文・相談する" size="lg"/>
         </div>
-        <!-- 右半分は背景画像が見える空エリア -->
-        <div class="hidden md:block"></div>
       </div>
     </section>
 
