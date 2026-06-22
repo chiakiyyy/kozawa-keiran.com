@@ -252,35 +252,49 @@ const jsonLd = {
     </section>
 
     <!-- ⑥ 定期便 ──────────────────────────────── -->
-    <section id="subscription" class="py-14 bg-white">
-      <div class="mx-auto max-w-4xl px-6">
-        <div class="rounded-3xl overflow-hidden border border-[rgba(186,117,23,.2)] shadow-sm grid grid-cols-1 md:grid-cols-2">
-          <!-- 左：テキスト -->
-          <div class="bg-[#FFFDF5] p-8 flex flex-col justify-center">
-            <span class="inline-block mb-2 rounded-full bg-[#BA7517] px-3 py-1 text-xs font-bold text-white w-fit">人気 No.1</span>
-            <h2 class="text-xl font-bold text-[#2C2A24] mb-5">定期便のご案内</h2>
-            <ul class="space-y-2.5 mb-7">
-              {[
-                '20個入りを2週間ごとにお届け',
-                '2,780円（税込）／1回あたり',
-                'いつでも停止OK・縛りなし',
-              ].map(item => (
-                <li class="flex items-center gap-2 text-sm text-[#2C2A24]">
-                  <span class="w-5 h-5 flex-shrink-0 rounded-full bg-[#06C755] text-white text-xs flex items-center justify-center font-bold">✓</span>
-                  {item}
-                </li>
-              ))}
-            </ul>
-            <LineButton text="LINEで定期便を相談する" size="md"/>
+    <section id="subscription" class="relative py-20 overflow-hidden">
+      <!-- 背景画像 -->
+      <div class="absolute inset-0">
+        <img src="/images/shop/subscription-bg.jpg" alt="" class="w-full h-full object-cover" aria-hidden="true"/>
+        <div class="absolute inset-0 bg-white/75"></div>
+      </div>
+      <div class="relative mx-auto max-w-3xl px-6">
+        <div class="rounded-3xl bg-white/90 backdrop-blur-sm border border-[rgba(186,117,23,.2)] shadow-lg p-8 sm:p-10">
+          <div class="text-center mb-8">
+            <span class="inline-block mb-3 rounded-full bg-[#BA7517] px-4 py-1.5 text-xs font-bold text-white tracking-wide">人気 No.1</span>
+            <h2 class="text-2xl font-bold text-[#2C2A24] mb-2">定期便のご案内</h2>
+            <p class="text-sm text-[#6B6860]">富山から、いつも新鮮な卵が届く暮らし。</p>
           </div>
-          <!-- 右：画像 -->
-          <div class="aspect-[4/3] md:aspect-auto bg-gradient-to-br from-[#FCE9B8] to-[#F0B23C] flex items-center justify-center text-6xl overflow-hidden">
-            <img src="/images/shop/subscription-eggs.jpg" alt="定期便の卵" loading="lazy" class="w-full h-full object-cover"
-              onerror="this.parentElement.style.cssText='display:flex;align-items:center;justify-content:center;font-size:4rem';this.style.display='none'"/>
-            🥚
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8 text-center">
+            {[
+              { label:'お届け頻度', value:'2週間ごと' },
+              { label:'内容量', value:'20個入り' },
+              { label:'お値段', value:'2,780円（税込）' },
+            ].map(item => (
+              <div class="rounded-2xl bg-[#FFFDF5] border border-[rgba(186,117,23,.15)] p-4">
+                <p class="text-xs text-[#BA7517] font-bold mb-1">{item.label}</p>
+                <p class="text-base font-bold text-[#2C2A24]">{item.value}</p>
+              </div>
+            ))}
           </div>
+          <ul class="space-y-2.5 mb-8 max-w-xs mx-auto">
+            {[
+              '送料込み',
+              'いつでも停止・再開OK',
+              '縛りなし・解約手数料なし',
+              'LINEで配送日の相談ができる',
+            ].map(item => (
+              <li class="flex items-center gap-2 text-sm text-[#2C2A24]">
+                <span class="w-5 h-5 flex-shrink-0 rounded-full bg-[#06C755] text-white text-xs flex items-center justify-center font-bold">✓</span>
+                {item}
+              </li>
+            ))}
+          </ul>
+          <div class="flex justify-center">
+            <LineButton text="LINEで定期便を相談する" size="lg"/>
+          </div>
+          <p class="text-center text-xs text-[#9B9994] mt-3">買い忘れの心配なし！いつも新鮮なたまごをお届けします。</p>
         </div>
-        <p class="text-center text-xs text-[#9B9994] mt-4">買い忘れの心配なし！いつも新鮮なたまごをお届けします。</p>
       </div>
     </section>
 
