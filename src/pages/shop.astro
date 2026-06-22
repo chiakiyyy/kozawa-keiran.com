@@ -9,10 +9,10 @@ const SITE_URL = 'https://kozawa-keiran.com';
 const OG_IMG   = `${SITE_URL}/images/shop/og-shop.jpg`;
 
 const worries = [
-  { icon:'👶', text:'子どもに安心できる\n食材を選びたい' },
-  { icon:'🍳', text:'毎日の朝食を\nちゃんとしたい' },
-  { icon:'🛒', text:'スーパーの卵との\n違いを知りたい' },
-  { icon:'🥣', text:'離乳食や幼児食に\n使う卵を選びたい' },
+  { pos:'0%',   text:'子どもに安心できる\n食材を選びたい' },
+  { pos:'33.3%',text:'毎日の朝食を\nちゃんとしたい' },
+  { pos:'66.6%',text:'スーパーの卵との\n違いを知りたい' },
+  { pos:'100%', text:'離乳食や幼児食に\n使う卵を選びたい' },
 ];
 
 const points = [
@@ -132,7 +132,15 @@ const jsonLd = {
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
           {worries.map(w => (
             <div class="flex flex-col items-center gap-3 rounded-2xl border border-[rgba(186,117,23,.2)] bg-[#FFFDF5] p-5 text-center shadow-sm">
-              <span class="text-3xl">{w.icon}</span>
+              <div class="w-16 h-16 overflow-hidden flex-shrink-0">
+                <img
+                  src="/images/shop/worries-icons.png"
+                  alt=""
+                  loading="lazy"
+                  style={`width:400%;object-fit:cover;margin-left:-${w.pos};height:100%;`}
+                  class="block"
+                />
+              </div>
               <p class="text-xs text-[#5a4a2a] font-semibold leading-snug whitespace-pre-line">{w.text}</p>
             </div>
           ))}
