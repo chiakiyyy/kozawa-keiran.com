@@ -4,157 +4,234 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import LineButton from '../components/LineButton.astro';
 
-const LINE_URL  = 'https://line.me/ti/p/@215bpskd';
-const SITE_URL  = 'https://kozawa-keiran.com';
-const OG_IMG    = `${SITE_URL}/images/shop/og-shop.jpg`;
+const LINE_URL = 'https://line.me/ti/p/@215bpskd';
+const SITE_URL = 'https://kozawa-keiran.com';
+const OG_IMG   = `${SITE_URL}/images/shop/og-shop.jpg`;
 
-const reasons = [
-  { emoji: '🛒', title: '買い忘れがなくなる',        body: '「あ、卵が切れてた」という朝のプチストレスがゼロになります。' },
-  { emoji: '🌅', title: 'いつも新鮮な卵が届く',      body: '朝どれ・生産者直送だから、届くたびに黄身がぷりっと立っています。' },
-  { emoji: '⏱️', title: 'スーパーへ行く手間が減る', body: '重い卵を運ぶ必要なし。玄関で受け取るだけ。週1回の買い物が少し楽になります。' },
-  { emoji: '👨‍👩‍👧', title: '家族が喜ぶ',               body: '黄身の濃さ、卵本来のコク。「この卵おいしい！」が聞けるようになります。' },
+const worries = [
+  { icon:'👶', text:'子どもに安心できる\n食材を選びたい' },
+  { icon:'🍳', text:'毎日の朝食を\nちゃんとしたい' },
+  { icon:'🛒', text:'スーパーの卵との\n違いを知りたい' },
+  { icon:'🥣', text:'離乳食や幼児食に\n使う卵を選びたい' },
 ];
 
-const commitments = [
-  { emoji: '🐔', title: '平飼い飼育',    body: '広い鶏舎でのびのびと育てた鶏が産む卵。ストレスの少ない環境が、卵の質に直結します。', img: '/images/feature/feature-chicken.jpg' },
-  { emoji: '🌄', title: '朝どれ卵',      body: '毎朝採卵したその日の卵をお届け。鮮度の高さが黄身の盛り上がりや味わいに現れます。', img: '/images/feature/feature-egg.jpg' },
-  { emoji: '❄️', title: 'チルド配送',    body: '冷蔵温度を保ったまま全国配送。夏場でも品質を損なわず、安心してお届けします。', img: '/images/flow/flow-hero.jpg' },
-  { emoji: '👤', title: '生産者の顔が見える', body: '富山・小澤鶏卵場から直送。LINEでいつでも生産者に直接質問できます。', img: '/images/about/about-hero.jpg' },
+const points = [
+  { num:'01', title:'富山の自然', body:'澄んだ水と空気、豊かな自然環境に恵まれた富山で、健康な鶏を育てています。', img:'/images/shop/point1.jpg' },
+  { num:'02', title:'平飼いで育った鶏', body:'のびのびと平飼いで育つ環境だから、自然な形で健康な鶏に育ちます。', img:'/images/feature/feature-chicken.jpg' },
+  { num:'03', title:'健康的な餌', body:'鶏の健康を第一に考えた餌を与え、安全第一に考えています。', img:'/images/shop/point3.jpg' },
+  { num:'04', title:'チルド配送', body:'採れたての鮮度をチルド（冷蔵）でそのままお届けしています。', img:'/images/shop/point4.jpg' },
+  { num:'05', title:'生産者の顔が見える', body:'家族に食べさせたい卵を、責任をもってお届けしています。', img:'/images/shop/point5.jpg' },
+];
+
+const nutrients = [
+  { icon:'💪', title:'良質なたんぱく質', body:'体をつくる土台となるたんぱく質をバランスよく含んでいます。' },
+  { icon:'🧠', title:'コリン・レシチン', body:'卵黄に含まれるコリンやレシチンは、学習や記憶に関わる栄養素です。' },
+  { icon:'🌱', title:'成長期の体づくりをサポート', body:'成長期の子どもに必要な栄養を、毎日の食事で手軽にとれます。' },
+  { icon:'🍼', title:'離乳食・幼児食にも使いやすい', body:'やさしい味わいで、いろいろな料理に使いやすい食材です。' },
+  { icon:'😋', title:'シンプルでもおいしい', body:'素材が良いから、シンプルな料理でもおいしく食べられます。' },
+  { icon:'✨', title:'食への興味・関心につながる', body:'おいしい体験が、子どもの食への興味や「食べる力」を育みます。' },
+];
+
+const products = [
+  {
+    id: 'egg20',
+    badge: null,
+    img: '/images/shop/product1.jpg',
+    name: '平飼い卵 20個',
+    price: '2,980円（税込・送料込み）',
+    lead: 'まずはシンプルに、鮮度そのものの\nおいしさを確かめてください。',
+  },
+  {
+    id: 'egg-soy',
+    badge: null,
+    img: '/images/shop/product2.jpg',
+    name: '平飼い卵 20個\n＋卵かけご飯醤油',
+    price: '3,500円（税込・送料込み）',
+    lead: '卵かけご飯専用の醤油がついた、\n卵の美味しさが引き立つセットです。',
+  },
+  {
+    id: 'morning',
+    badge: 'おすすめ',
+    img: '/images/shop/product3.jpg',
+    name: '富山の朝ごはんセット',
+    price: '5,000円（税込・送料込み）',
+    lead: '富山のおいしいものを詰め合わせた、\n特別な朝ごはん体験セットです。',
+    contents: ['平飼い卵 10個', '卵かけご飯醤油', '富山県産 ぶり節', '富山産 お米（少量）', 'その他、富山産食材'],
+  },
 ];
 
 const reviews = [
-  { name: 'M.K. さん（富山市・30代主婦）', text: '届いた卵で卵かけご飯にしたら、黄身が濃くてびっくり！子どもが「この卵おいしい！」と言ってくれて、それから定期便にしました。冷蔵庫に卵が切れなくなったのも地味に嬉しいです。', stars: 5 },
-  { name: 'T.Y. さん（富山市・40代会社員）', text: 'スーパーで卵を買い忘れることが多かったので試してみました。朝どれなので黄身がしっかり立っていて新鮮さを実感。チルド配送なのも安心感があります。', stars: 5 },
-  { name: 'A.N. さん（射水市・50代）', text: '生産者さんの顔が見えるのが一番の決め手でした。LINEで質問にも丁寧に答えていただけるので信頼感があります。これからもよろしくお願いします。', stars: 5 },
+  { name:'S.さん（富山市・30代・お子さま2人）', img:'/images/shop/review1.jpg', text:'子どもが「この卵おいしい！」と言って食べてくれます。卵かけご飯が食卓の楽しみになりました！', stars:5 },
+  { name:'K.さん（高岡市・40代・お子さま1人）', img:'/images/shop/review2.jpg', text:'卵かけご飯が大好きになって、朝ごはんが楽しみになりました！黄身の濃さが全然違います。', stars:5 },
+  { name:'M.さん（射水市・30代・お子さま1人）', img:'/images/shop/review3.jpg', text:'離乳食にも安心して使えるので、本当に助かっています。生産者さんの顔が見えるのも安心。', stars:5 },
 ];
 
 const faqs = [
-  { q: '定期便はいつでも停止できますか？',   a: 'はい、いつでも停止・再開できます。縛りは一切ありません。LINEにてご連絡ください。' },
-  { q: '配送日は選べますか？',               a: 'はい、ご希望の曜日・時間帯をLINEでお知らせください。できる限りご希望に合わせます。' },
-  { q: '卵が割れていた場合は？',             a: 'お届け時に割れがあった場合は、写真をLINEにお送りください。すぐに対応いたします。' },
-  { q: '支払い方法は？',                     a: 'クレジットカード（Square決済）をご利用いただけます。LINEでのお申し込み後にご案内します。' },
-  { q: '対応エリアはどこですか？',           a: '全国へお届けできます。送料は商品価格に含まれています（送料込み価格）。' },
+  { q:'配送料について教えてください', a:'商品価格に送料を含んでいます。別途送料はかかりません。' },
+  { q:'お支払い方法はありますか？', a:'クレジットカード（Square決済）をご利用いただけます。LINEでのご相談後にご案内します。' },
+  { q:'定期便はいつでも停止できますか？', a:'はい、いつでも停止・再開できます。縛りや解約手数料は一切ありません。' },
+  { q:'卵は生で食べても大丈夫ですか？', a:'新鮮な状態でお届けしていますが、卵の取り扱いには適切な保管・加熱をお勧めします。' },
+  { q:'卵が割れていた場合はどうすればいいですか？', a:'お届け時に割れがあった場合は、写真をLINEにお送りください。すぐに対応いたします。' },
+  { q:'離乳食に使っても大丈夫ですか？', a:'赤ちゃんの月齢や体調、アレルギーに配慮し、必要に応じて医師や専門家にご相談のうえご使用ください。' },
 ];
 
-// 構造化データ (JSON-LD)
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Product",
-  "name": "小澤鶏卵場 平飼い朝どれ卵 定期便",
-  "description": "富山の平飼い・朝どれ卵を2週間ごとにお届けする定期便。チルド配送・生産者直送・縛りなし。",
+  "name": "小澤鶏卵場 富山の平飼い朝どれ卵",
+  "description": "富山の自然で育った平飼い卵。子どもにも安心して食べさせたい朝食を提案。チルド配送・生産者直送・定期便あり。",
   "brand": { "@type": "Brand", "name": "小澤鶏卵場" },
-  "offers": {
-    "@type": "Offer",
-    "price": "2780",
-    "priceCurrency": "JPY",
-    "availability": "https://schema.org/InStock",
-    "url": `${SITE_URL}/shop/`
-  }
+  "offers": { "@type": "Offer", "price": "2980", "priceCurrency": "JPY", "availability": "https://schema.org/InStock", "url": `${SITE_URL}/shop/` }
 };
 ---
 <Layout
-  title="富山の平飼い朝どれ卵 定期便｜小澤鶏卵場"
-  description="富山・小澤鶏卵場から直送。平飼い・朝どれ・チルド配送の新鮮な卵を2週間ごとにお届けする定期便。2,780円（税込・送料込）。いつでも停止可能・縛りなし。LINEで簡単お申し込み。"
+  title="子どもに食べさせたい卵があります｜富山の平飼い卵・小澤鶏卵場"
+  description="富山の自然で育った平飼い卵を家族の朝ごはんに。チルド配送・生産者直送・定期便あり。30〜40代の子育て家族に選ばれる小澤鶏卵場の卵をLINEでご注文・ご相談ください。"
 >
-  <!-- OGP / Twitter Card -->
-  <meta slot="head" property="og:title"       content="富山の平飼い朝どれ卵 定期便｜小澤鶏卵場"/>
-  <meta slot="head" property="og:description" content="富山・小澤鶏卵場から直送。平飼い・朝どれ・チルド配送の卵定期便。2,780円（税込・送料込）。縛りなし。"/>
+  <meta slot="head" property="og:title"       content="子どもに食べさせたい卵があります｜小澤鶏卵場"/>
+  <meta slot="head" property="og:description" content="富山の平飼い・朝どれ卵。家族の朝ごはんに。チルド配送・縛りなし定期便。"/>
   <meta slot="head" property="og:image"       content={OG_IMG}/>
   <meta slot="head" property="og:url"         content={`${SITE_URL}/shop/`}/>
-  <meta slot="head" property="og:type"        content="website"/>
-  <meta slot="head" name="twitter:card"       content="summary_large_image"/>
-
-  <!-- 構造化データ -->
   <script slot="head" type="application/ld+json" set:html={JSON.stringify(jsonLd)}></script>
 
   <Header/>
-  <main>
+  <main class="font-['Zen_Kaku_Gothic_New',sans-serif]">
 
-    <!-- ①────────────────── HERO ────────────────── -->
-    <section class="relative overflow-hidden bg-[#FFFDF7]" style="margin-top:76px">
-      <!-- 背景装飾 -->
-      <div class="pointer-events-none absolute inset-0"
-        style="background:radial-gradient(ellipse at 75% 40%,rgba(240,178,60,.2) 0,transparent 55%),radial-gradient(circle at 8% 85%,rgba(186,117,23,.1) 0,transparent 45%)">
+    <!-- ① HERO ─────────────────────────────────── -->
+    <section id="hero" class="relative overflow-hidden bg-[#FFFDF5]" style="margin-top:76px">
+      <div class="pointer-events-none absolute inset-0 opacity-60"
+        style="background:radial-gradient(ellipse at 70% 40%,rgba(240,210,100,.25) 0,transparent 55%)">
       </div>
+      <!-- 葉っぱ装飾 -->
+      <span class="absolute left-4 top-20 text-3xl opacity-30 rotate-[-20deg] select-none">🌿</span>
+      <span class="absolute right-8 bottom-16 text-2xl opacity-20 rotate-[15deg] select-none">🌿</span>
 
-      <div class="relative mx-auto max-w-5xl px-6 py-16 sm:py-24 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+      <div class="relative mx-auto max-w-5xl px-6 py-14 sm:py-20 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
         <div>
-          <span class="inline-block mb-4 rounded-full bg-[rgba(186,117,23,0.12)] px-4 py-1.5 text-xs font-bold tracking-widest text-[#BA7517]">
-            富山の生産者から直送
-          </span>
-          <h1 class="font-['Zen_Kaku_Gothic_New',sans-serif] text-4xl sm:text-5xl font-bold text-[#2C2A24] leading-tight mb-4">
-            朝の卵を<br/>切らさない<br/>暮らし。
+          <h1 class="text-4xl sm:text-5xl font-bold text-[#2C2A24] leading-tight mb-5">
+            子どもに<br/>食べさせたい<br/>卵があります。
           </h1>
-          <p class="text-[#6B6860] text-base leading-relaxed mb-8">
-            富山の平飼い朝どれ卵を<br/>定期便でお届けします。
+          <p class="text-[#6B6860] text-base leading-relaxed mb-7">
+            富山の自然で育った平飼い卵を、<br/>家族の朝ごはんに。
           </p>
-          <LineButton size="lg"/>
-          <p class="mt-3 text-xs text-[#9B9994]">無理な営業はいたしません。まずはお気軽にどうぞ。</p>
+          <LineButton text="LINEで注文・相談する" size="lg"/>
         </div>
-        <div class="rounded-3xl overflow-hidden aspect-[4/3] bg-gradient-to-br from-[#FCE9B8] to-[#F0B23C] flex items-center justify-center text-6xl">
-          <img src="/images/shop/shop-hero.jpg" alt="富山の朝どれ卵" loading="eager" class="w-full h-full object-cover" onerror="this.style.display='none'"/>
-          🥚
+        <div class="rounded-3xl overflow-hidden aspect-[4/3]">
+          <img src="/images/shop/hero-family.jpg" alt="家族の朝ごはん" loading="eager" class="w-full h-full object-cover"
+            onerror="this.parentElement.style.cssText='background:linear-gradient(135deg,#FCE9B8,#F0B23C);display:flex;align-items:center;justify-content:center;font-size:4rem';this.style.display='none'"/>
         </div>
       </div>
     </section>
 
-    <!-- ②──────────────── ありがとう ──────────────── -->
-    <section class="py-16 bg-white">
+    <!-- ② 悩み提起 ──────────────────────────────── -->
+    <section id="worries" class="py-14 bg-white">
       <div class="mx-auto max-w-3xl px-6">
-        <div class="flex gap-5 rounded-2xl border-2 border-[rgba(186,117,23,0.2)] bg-[#FFFDF7] p-8">
-          <span class="text-4xl flex-shrink-0">🥚</span>
-          <div>
-            <h2 class="font-['Zen_Kaku_Gothic_New',sans-serif] text-xl font-bold text-[#2C2A24] mb-4 leading-snug">
-              ご購入ありがとうございます。<br/>
-              まずは卵を楽しんでいただけましたか？
-            </h2>
-            <p class="text-sm text-[#6B6860] leading-relaxed mb-3">
-              富山からお届けした卵は、いかがでしたでしょうか。卵かけご飯、ゆで卵、だし巻き卵…何にしても、素材の味がしっかり感じられましたか？
-            </p>
-            <p class="text-sm text-[#6B6860] leading-relaxed">
-              「次もまた食べたい」と思っていただけたなら、ぜひ定期便をご検討ください。冷蔵庫に卵が切れることなく、いつも新鮮な卵が届く暮らしをご提案します。
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ③──────────────── なぜ定期便か ──────────────── -->
-    <section class="py-16 bg-[#F9F7F2]">
-      <div class="mx-auto max-w-4xl px-6">
-        <div class="text-center mb-12">
-          <span class="block font-['Manrope',sans-serif] text-xs tracking-[.22em] text-[#BA7517] mb-2">WHY SUBSCRIPTION</span>
-          <h2 class="font-['Zen_Kaku_Gothic_New',sans-serif] text-2xl sm:text-3xl font-bold text-[#2C2A24]">定期便にすると、こんなに楽に</h2>
-        </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {reasons.map(r => (
-            <div class="bg-white rounded-2xl p-6 border border-[rgba(186,117,23,0.1)] shadow-sm">
-              <span class="text-3xl block mb-3">{r.emoji}</span>
-              <h3 class="font-['Zen_Kaku_Gothic_New',sans-serif] text-base font-bold text-[#2C2A24] mb-2">{r.title}</h3>
-              <p class="text-sm text-[#6B6860] leading-relaxed">{r.body}</p>
+        <h2 class="text-center text-xl sm:text-2xl font-bold text-[#2C2A24] mb-10">
+          こんなお悩みありませんか？
+        </h2>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+          {worries.map(w => (
+            <div class="flex flex-col items-center gap-3 rounded-2xl border border-[rgba(186,117,23,.2)] bg-[#FFFDF5] p-5 text-center shadow-sm">
+              <span class="text-3xl">{w.icon}</span>
+              <p class="text-xs text-[#5a4a2a] font-semibold leading-snug whitespace-pre-line">{w.text}</p>
             </div>
           ))}
         </div>
       </div>
     </section>
 
-    <!-- ④──────────────── こだわり ──────────────── -->
-    <section class="py-16 bg-white">
-      <div class="mx-auto max-w-4xl px-6">
-        <div class="text-center mb-12">
-          <span class="block font-['Manrope',sans-serif] text-xs tracking-[.22em] text-[#BA7517] mb-2">OUR EGG</span>
-          <h2 class="font-['Zen_Kaku_Gothic_New',sans-serif] text-2xl sm:text-3xl font-bold text-[#2C2A24]">小澤鶏卵場のこだわり</h2>
+    <!-- ③ 選ばれる理由 POINT形式 ───────────────── -->
+    <section id="reasons" class="py-14 bg-[#F9F7F0]">
+      <div class="mx-auto max-w-5xl px-6">
+        <h2 class="text-xl sm:text-2xl font-bold text-[#2C2A24] mb-8">
+          小澤鶏卵場の卵が<br class="sm:hidden"/>選ばれる理由
+        </h2>
+        <!-- 写真5枚横スクロール / PC横並び -->
+        <div class="flex gap-4 overflow-x-auto pb-3 sm:grid sm:grid-cols-5 sm:overflow-visible snap-x snap-mandatory">
+          {points.map(p => (
+            <div class="flex-shrink-0 w-44 sm:w-auto snap-start">
+              <div class="rounded-2xl overflow-hidden aspect-square bg-gradient-to-br from-[#FCE9B8] to-[#F0B23C] mb-3">
+                <img src={p.img} alt={p.title} loading="lazy" class="w-full h-full object-cover"
+                  onerror="this.parentElement.style.cssText='display:flex;align-items:center;justify-content:center;font-size:2.5rem';this.style.display='none'"/>
+              </div>
+              <p class="text-[#BA7517] font-['Manrope',sans-serif] font-bold text-sm mb-1">{p.num}</p>
+              <p class="font-bold text-sm text-[#2C2A24] mb-1">{p.title}</p>
+              <p class="text-xs text-[#6B6860] leading-relaxed">{p.body}</p>
+            </div>
+          ))}
         </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-          {commitments.map(c => (
-            <div class="rounded-2xl overflow-hidden border border-[rgba(186,117,23,0.12)] bg-[#FFFDF7] shadow-sm">
-              <div class="aspect-[16/7] bg-gradient-to-br from-[#FCE9B8] to-[#F0B23C] flex items-center justify-center text-5xl overflow-hidden">
-                <img src={c.img} alt={c.title} loading="lazy" class="w-full h-full object-cover" onerror="this.style.display='none'"/>
-                {c.emoji}
+      </div>
+    </section>
+
+    <!-- ④ 健康メリット ───────────────────────── -->
+    <section id="health" class="py-14 bg-white">
+      <div class="mx-auto max-w-5xl px-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+          <div>
+            <span class="block font-['Manrope',sans-serif] text-xs tracking-widest text-[#BA7517] mb-2">NUTRITION</span>
+            <h2 class="text-2xl sm:text-3xl font-bold text-[#2C2A24] leading-snug mb-6">
+              毎日の卵を、<br/>ちゃんと選ぶ理由。
+            </h2>
+            <p class="text-sm text-[#6B6860] leading-relaxed mb-6">
+              卵は「完全栄養食品」と呼ばれるほど<br/>栄養バランスに優れた食材。<br/>良い環境と餌で育った卵は、<br/>家族みんなの毎日を支えます。
+            </p>
+            <ul class="space-y-3">
+              {nutrients.map(n => (
+                <li class="flex items-start gap-3">
+                  <span class="text-xl flex-shrink-0">{n.icon}</span>
+                  <div>
+                    <p class="text-sm font-bold text-[#2C2A24]">{n.title}</p>
+                    <p class="text-xs text-[#6B6860] leading-relaxed">{n.body}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div class="rounded-3xl overflow-hidden aspect-[4/3] bg-gradient-to-br from-[#FCE9B8] to-[#F0B23C] flex items-center justify-center text-6xl">
+            <img src="/images/shop/health-baby.jpg" alt="赤ちゃんと卵" loading="lazy" class="w-full h-full object-cover"
+              onerror="this.parentElement.style.cssText='display:flex;align-items:center;justify-content:center;font-size:4rem';this.style.display='none'"/>
+          </div>
+        </div>
+        <div class="mt-6 rounded-xl bg-[#FFF8EC] border border-[rgba(186,117,23,.2)] p-4 text-xs text-[#9B9994] leading-relaxed">
+          ※アレルギーや月齢に配慮し、必要に応じて医師や専門家にご相談ください。離乳食での卵の使用は、赤ちゃんの体調や発育段階に合わせて判断してください。
+        </div>
+      </div>
+    </section>
+
+    <!-- ⑤ 商品一覧 ─────────────────────────────── -->
+    <section id="products" class="py-14 bg-[#F9F7F0]">
+      <div class="mx-auto max-w-5xl px-6">
+        <!-- 葉っぱ装飾 -->
+        <div class="flex items-center justify-center gap-3 mb-8">
+          <span class="text-xl opacity-50">🌿</span>
+          <h2 class="text-xl sm:text-2xl font-bold text-[#2C2A24]">商品一覧</h2>
+          <span class="text-xl opacity-50">🌿</span>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+          {products.map(p => (
+            <div class:list={["relative rounded-3xl overflow-hidden bg-white shadow-sm border", p.badge ? "border-[#BA7517]" : "border-[rgba(186,117,23,.15)]"]}>
+              {p.badge && (
+                <span class="absolute top-3 right-3 z-10 rounded-full bg-[#BA7517] px-3 py-1 text-xs font-bold text-white">{p.badge}</span>
+              )}
+              <div class="aspect-[4/3] bg-gradient-to-br from-[#FCE9B8] to-[#F0B23C] flex items-center justify-center text-5xl overflow-hidden">
+                <img src={p.img} alt={p.name} loading="lazy" class="w-full h-full object-cover"
+                  onerror="this.parentElement.style.cssText='display:flex;align-items:center;justify-content:center;font-size:3.5rem';this.style.display='none'"/>
+                🥚
               </div>
               <div class="p-5">
-                <h3 class="font-['Zen_Kaku_Gothic_New',sans-serif] font-bold text-[#2C2A24] mb-2">{c.title}</h3>
-                <p class="text-sm text-[#6B6860] leading-relaxed">{c.body}</p>
+                <h3 class="font-bold text-[#2C2A24] text-base mb-1 whitespace-pre-line leading-snug">{p.name}</h3>
+                <p class="text-[#BA7517] font-['Manrope',sans-serif] font-bold text-sm mb-3">{p.price}</p>
+                <p class="text-xs text-[#6B6860] leading-relaxed mb-4 whitespace-pre-line">{p.lead}</p>
+                {p.contents && (
+                  <div class="mb-4 rounded-xl bg-[#FFFDF5] border border-[rgba(186,117,23,.2)] p-3">
+                    <p class="text-xs font-bold text-[#BA7517] mb-2">セット内容</p>
+                    <ul class="space-y-1">
+                      {p.contents.map(c => <li class="text-xs text-[#6B6860] before:content-['＋_'] before:text-[#BA7517]">{c}</li>)}
+                    </ul>
+                    <p class="text-[10px] text-[#9B9994] mt-2">※セット内容は変更になる場合があります</p>
+                  </div>
+                )}
+                <LineButton text="詳しく見る" size="sm"/>
               </div>
             </div>
           ))}
@@ -162,86 +239,81 @@ const jsonLd = {
       </div>
     </section>
 
-    <!-- ⑤──────────────── お客様の声 ──────────────── -->
-    <section class="py-16 bg-[#F9F7F2]">
+    <!-- ⑥ 定期便 ──────────────────────────────── -->
+    <section id="subscription" class="py-14 bg-white">
       <div class="mx-auto max-w-4xl px-6">
-        <div class="text-center mb-12">
-          <span class="block font-['Manrope',sans-serif] text-xs tracking-[.22em] text-[#BA7517] mb-2">REVIEWS</span>
-          <h2 class="font-['Zen_Kaku_Gothic_New',sans-serif] text-2xl sm:text-3xl font-bold text-[#2C2A24]">お客様の声</h2>
+        <div class="rounded-3xl overflow-hidden border border-[rgba(186,117,23,.2)] shadow-sm grid grid-cols-1 md:grid-cols-2">
+          <!-- 左：テキスト -->
+          <div class="bg-[#FFFDF5] p-8 flex flex-col justify-center">
+            <span class="inline-block mb-2 rounded-full bg-[#BA7517] px-3 py-1 text-xs font-bold text-white w-fit">人気 No.1</span>
+            <h2 class="text-xl font-bold text-[#2C2A24] mb-5">定期便のご案内</h2>
+            <ul class="space-y-2.5 mb-7">
+              {[
+                '20個入りを2週間ごとにお届け',
+                '2,780円（税込）／1回あたり',
+                'いつでも停止OK・縛りなし',
+              ].map(item => (
+                <li class="flex items-center gap-2 text-sm text-[#2C2A24]">
+                  <span class="w-5 h-5 flex-shrink-0 rounded-full bg-[#06C755] text-white text-xs flex items-center justify-center font-bold">✓</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <LineButton text="LINEで定期便を相談する" size="md"/>
+          </div>
+          <!-- 右：画像 -->
+          <div class="aspect-[4/3] md:aspect-auto bg-gradient-to-br from-[#FCE9B8] to-[#F0B23C] flex items-center justify-center text-6xl overflow-hidden">
+            <img src="/images/shop/subscription-eggs.jpg" alt="定期便の卵" loading="lazy" class="w-full h-full object-cover"
+              onerror="this.parentElement.style.cssText='display:flex;align-items:center;justify-content:center;font-size:4rem';this.style.display='none'"/>
+            🥚
+          </div>
         </div>
+        <p class="text-center text-xs text-[#9B9994] mt-4">買い忘れの心配なし！いつも新鮮なたまごをお届けします。</p>
+      </div>
+    </section>
+
+    <!-- ⑦ お客様の声 ─────────────────────────── -->
+    <section id="reviews" class="py-14 bg-[#F9F7F0]">
+      <div class="mx-auto max-w-4xl px-6">
+        <h2 class="text-center text-xl sm:text-2xl font-bold text-[#2C2A24] mb-10">お客様の声</h2>
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
           {reviews.map(r => (
-            <div class="bg-white rounded-2xl p-6 shadow-sm border border-[rgba(186,117,23,0.1)]">
-              <div class="text-[#F0B23C] text-lg mb-3">{"★".repeat(r.stars)}</div>
-              <p class="text-sm text-[#6B6860] leading-loose mb-4 italic">「{r.text}」</p>
-              <span class="text-xs text-[#9B9994]">{r.name}</span>
+            <div class="bg-white rounded-2xl p-6 shadow-sm border border-[rgba(186,117,23,.1)]">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-12 h-12 rounded-full overflow-hidden bg-gradient-to-br from-[#FCE9B8] to-[#F0B23C] flex items-center justify-center text-xl flex-shrink-0">
+                  <img src={r.img} alt="" loading="lazy" class="w-full h-full object-cover"
+                    onerror="this.style.display='none'"/>
+                  👩
+                </div>
+                <span class="text-xs text-[#9B9994] leading-snug">{r.name}</span>
+              </div>
+              <p class="text-sm text-[#6B6860] leading-loose">{r.text}</p>
+              <div class="mt-3 text-[#F0B23C] text-sm">{"★".repeat(r.stars)}</div>
             </div>
           ))}
+        </div>
+        <!-- ドット装飾 -->
+        <div class="flex justify-center gap-2 mt-8">
+          <span class="w-2.5 h-2.5 rounded-full bg-[#F0B23C]"></span>
+          <span class="w-2.5 h-2.5 rounded-full bg-[rgba(186,117,23,.3)]"></span>
+          <span class="w-2.5 h-2.5 rounded-full bg-[rgba(186,117,23,.3)]"></span>
         </div>
       </div>
     </section>
 
-    <!-- ⑥──────────────── 定期便プラン ──────────────── -->
-    <section class="py-16 bg-white">
+    <!-- ⑧ FAQ ───────────────────────────────────── -->
+    <section id="faq" class="py-14 bg-white">
       <div class="mx-auto max-w-3xl px-6">
-        <div class="text-center mb-12">
-          <span class="block font-['Manrope',sans-serif] text-xs tracking-[.22em] text-[#BA7517] mb-2">PLAN</span>
-          <h2 class="font-['Zen_Kaku_Gothic_New',sans-serif] text-2xl sm:text-3xl font-bold text-[#2C2A24]">定期便プラン</h2>
-        </div>
-
-        <!-- おすすめ定期便カード -->
-        <div class="relative rounded-3xl border-2 border-[#06C755] bg-[#F0FFF4] p-8 shadow-[0_8px_32px_rgba(6,199,85,0.12)]">
-          <span class="absolute -top-4 left-1/2 -translate-x-1/2 rounded-full bg-[#06C755] px-5 py-1.5 text-xs font-bold text-white tracking-wide">おすすめ</span>
-
-          <div class="text-center mb-6">
-            <span class="block font-['Manrope',sans-serif] text-xs tracking-widest text-[#06C755] mb-1">おすすめ定期便</span>
-            <h3 class="font-['Zen_Kaku_Gothic_New',sans-serif] text-xl font-bold text-[#2C2A24] mb-4">平飼い卵 20個入り<br/>2週間ごとお届け</h3>
-            <div class="flex items-end justify-center gap-1 mb-1">
-              <span class="font-['Manrope',sans-serif] text-5xl font-bold text-[#2C2A24]">2,780</span>
-              <span class="text-base text-[#6B6860] mb-2">円（税込）</span>
-            </div>
-            <p class="text-xs text-[#9B9994]">送料込み</p>
-          </div>
-
-          <ul class="mb-8 space-y-3 max-w-xs mx-auto">
-            {[
-              '2週間ごとに自動でお届け',
-              'いつでも停止・再開OK',
-              '縛りなし・解約手数料なし',
-              'LINEで配送日の相談ができる',
-              '朝どれ・チルド配送・生産者直送',
-            ].map(item => (
-              <li class="flex items-center gap-2 text-sm text-[#2C2A24]">
-                <span class="flex-shrink-0 w-5 h-5 rounded-full bg-[#06C755] text-white text-xs flex items-center justify-center font-bold">✓</span>
-                {item}
-              </li>
-            ))}
-          </ul>
-
-          <div class="flex justify-center">
-            <LineButton text="LINEで申し込む" size="lg"/>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ⑦──────────────── FAQ ──────────────── -->
-    <section class="py-16 bg-[#F9F7F2]">
-      <div class="mx-auto max-w-2xl px-6">
-        <div class="text-center mb-12">
-          <span class="block font-['Manrope',sans-serif] text-xs tracking-[.22em] text-[#BA7517] mb-2">FAQ</span>
-          <h2 class="font-['Zen_Kaku_Gothic_New',sans-serif] text-2xl sm:text-3xl font-bold text-[#2C2A24]">よくあるご質問</h2>
-        </div>
-        <div class="space-y-4">
+        <h2 class="text-center text-xl sm:text-2xl font-bold text-[#2C2A24] mb-10">よくあるご質問</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {faqs.map(f => (
-            <div class="bg-white rounded-2xl p-6 border border-[rgba(186,117,23,0.1)] shadow-sm">
-              <div class="flex gap-3 mb-3">
-                <span class="flex-shrink-0 w-7 h-7 rounded-full bg-[#F0B23C] text-white text-xs font-bold flex items-center justify-center">Q</span>
-                <p class="font-bold text-[#2C2A24] text-sm leading-relaxed pt-1">{f.q}</p>
+            <div class="rounded-2xl border border-[rgba(186,117,23,.15)] bg-[#FFFDF5] p-5">
+              <div class="flex gap-2 mb-2">
+                <span class="flex-shrink-0 w-6 h-6 rounded-full bg-[#F0B23C] text-white text-xs font-bold flex items-center justify-center">Q</span>
+                <p class="text-sm font-bold text-[#2C2A24] leading-snug">{f.q}</p>
               </div>
-              <div class="flex gap-3">
-                <span class="flex-shrink-0 w-7 h-7 rounded-full bg-[rgba(186,117,23,0.12)] text-[#BA7517] text-xs font-bold flex items-center justify-center">A</span>
-                <p class="text-sm text-[#6B6860] leading-relaxed pt-1">{f.a}</p>
+              <div class="flex gap-2 pl-8">
+                <p class="text-xs text-[#6B6860] leading-relaxed">{f.a}</p>
               </div>
             </div>
           ))}
@@ -249,19 +321,27 @@ const jsonLd = {
       </div>
     </section>
 
-    <!-- ⑧──────────────── 最終CTA ──────────────── -->
-    <section class="py-20" style="background:linear-gradient(135deg,#F0B23C,#BA7517)">
-      <div class="mx-auto max-w-xl px-6 text-center">
-        <span class="text-4xl block mb-6">🥚</span>
-        <h2 class="font-['Zen_Kaku_Gothic_New',sans-serif] text-2xl sm:text-3xl font-bold text-white mb-4">
-          まずはお気軽にご相談ください。
-        </h2>
-        <p class="text-white/90 text-base leading-relaxed mb-8">
-          無理な営業はいたしません。<br/>
-          「興味はあるけど…」くらいのお気持ちで大丈夫です。
-        </p>
-        <LineButton text="LINEで相談する（無料）" size="lg" variant="white"/>
-        <p class="mt-4 text-xs text-white/75">友だち追加後、トーク画面からご相談ください</p>
+    <!-- ⑨ 最終CTA ──────────────────────────────── -->
+    <section id="cta" class="relative py-16 overflow-hidden bg-[#FFF8EC]">
+      <div class="pointer-events-none absolute inset-0"
+        style="background:radial-gradient(ellipse at 30% 60%,rgba(240,178,60,.15) 0,transparent 50%)">
+      </div>
+      <div class="relative mx-auto max-w-5xl px-6 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+        <div>
+          <h2 class="text-2xl sm:text-3xl font-bold text-[#2C2A24] leading-snug mb-4">
+            まずはLINEで<br/>お気軽にご相談ください。
+          </h2>
+          <p class="text-sm text-[#6B6860] leading-relaxed mb-7">
+            商品のこと、定期便のこと、<br/>どんなことでも大歓迎です。
+          </p>
+          <LineButton text="LINEで注文・相談する" size="lg"/>
+          <p class="mt-3 text-xs text-[#9B9994]">無理な営業はいたしません</p>
+        </div>
+        <div class="rounded-3xl overflow-hidden aspect-[4/3] bg-gradient-to-br from-[#FCE9B8] to-[#F0B23C] flex items-center justify-center text-6xl">
+          <img src="/images/feature/feature-egg.jpg" alt="富山の卵" loading="lazy" class="w-full h-full object-cover"
+            onerror="this.parentElement.style.cssText='display:flex;align-items:center;justify-content:center;font-size:4rem';this.style.display='none'"/>
+          🥚
+        </div>
       </div>
     </section>
 
