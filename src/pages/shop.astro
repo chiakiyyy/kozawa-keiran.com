@@ -98,18 +98,23 @@ const jsonLd = {
   <main class="font-['Zen_Kaku_Gothic_New',sans-serif]">
 
     <!-- ① HERO ─────────────────────────────────── -->
-    <section id="hero" class="relative overflow-hidden bg-[#FFFDF5]" style="margin-top:76px;padding-bottom:0">
-      <!-- セクション下部の白フェード -->
-      <div class="absolute bottom-0 left-0 right-0 h-20 pointer-events-none" style="background:linear-gradient(to bottom, transparent, #FFFDF5)"></div>
-      <div class="pointer-events-none absolute inset-0 opacity-60"
-        style="background:radial-gradient(ellipse at 70% 40%,rgba(240,210,100,.25) 0,transparent 55%)">
+    <section id="hero" class="relative overflow-hidden" style="margin-top:76px;min-height:520px">
+      <!-- 背景画像 全面 -->
+      <div class="absolute inset-0">
+        <img src="/images/shop/hero-family.jpg" alt="" loading="eager" class="w-full h-full object-cover object-center" aria-hidden="true"/>
+        <!-- 左側：テキストが読めるよう白グラデ -->
+        <div class="absolute inset-0" style="background:linear-gradient(to right, rgba(255,253,245,0.97) 0%, rgba(255,253,245,0.92) 40%, rgba(255,253,245,0.4) 65%, transparent 100%)"></div>
+        <!-- 下部：次セクションへ白フェード -->
+        <div class="absolute bottom-0 left-0 right-0 h-24" style="background:linear-gradient(to bottom, transparent, #FFFDF5)"></div>
       </div>
       <!-- 葉っぱ装飾 -->
-      <span class="absolute left-4 top-20 text-3xl opacity-30 rotate-[-20deg] select-none">🌿</span>
-      <span class="absolute right-8 bottom-16 text-2xl opacity-20 rotate-[15deg] select-none">🌿</span>
+      <span class="absolute left-4 top-20 text-3xl opacity-25 rotate-[-20deg] select-none pointer-events-none">🌿</span>
 
-      <div class="relative mx-auto max-w-5xl px-6 py-14 sm:py-20 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+      <div class="relative mx-auto max-w-5xl px-6 py-16 sm:py-24 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
         <div>
+          <span class="inline-block mb-4 rounded-full bg-[rgba(186,117,23,0.12)] px-4 py-1.5 text-xs font-bold tracking-widest text-[#BA7517]">
+            富山の生産者から直送
+          </span>
           <h1 class="text-4xl sm:text-5xl font-bold text-[#2C2A24] leading-tight mb-5">
             子どもに<br/>食べさせたい<br/>卵があります。
           </h1>
@@ -118,13 +123,8 @@ const jsonLd = {
           </p>
           <LineButton text="LINEで注文・相談する" size="lg"/>
         </div>
-        <div class="relative rounded-3xl overflow-hidden aspect-[4/3]">
-          <img src="/images/shop/hero-family.jpg" alt="家族の朝ごはん" loading="eager" class="w-full h-full object-cover"
-            onerror="this.parentElement.style.cssText='background:linear-gradient(135deg,#FCE9B8,#F0B23C);display:flex;align-items:center;justify-content:center;font-size:4rem';this.style.display='none'"/>
-          <!-- 下部・左側を白くフェード -->
-          <div class="absolute inset-0" style="background:linear-gradient(to bottom, transparent 40%, rgba(255,253,245,0.95) 100%)"></div>
-          <div class="absolute inset-0" style="background:linear-gradient(to right, rgba(255,253,245,0.6) 0%, transparent 40%)"></div>
-        </div>
+        <!-- 右半分は背景画像が見える空エリア -->
+        <div class="hidden md:block"></div>
       </div>
     </section>
 
