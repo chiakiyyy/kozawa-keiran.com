@@ -311,10 +311,8 @@ const jsonLd = {
           {reviews.map(r => (
             <div class="bg-white rounded-2xl p-6 shadow-sm border border-[rgba(186,117,23,.1)]">
               <div class="flex items-center gap-3 mb-4">
-                <div class="w-12 h-12 rounded-full overflow-hidden bg-gradient-to-br from-[#FCE9B8] to-[#F0B23C] flex items-center justify-center text-xl flex-shrink-0">
-                  <img src={r.img} alt="" loading="lazy" class="w-full h-full object-cover"
-                    onerror="this.style.display='none'"/>
-                  👩
+                <div class="w-12 h-12 rounded-full overflow-hidden bg-[#FFF8EC] flex-shrink-0">
+                  <img src="/images/shop/review-avatar.png" alt="" loading="lazy" class="w-full h-full object-cover"/>
                 </div>
                 <span class="text-xs text-[#9B9994] leading-snug">{r.name}</span>
               </div>
