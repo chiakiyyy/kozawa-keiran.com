@@ -9,69 +9,75 @@ const SITE_URL = 'https://kozawa-keiran.com';
 const OG_IMG   = `${SITE_URL}/images/shop/og-shop.jpg`;
 
 const worries = [
-  { pos:'0%',    text:'子どもに安心できる\n食材を選びたい' },
-  { pos:'33.3%', text:'毎日の朝食を\nちゃんとしたい' },
-  { pos:'66.6%', text:'スーパーの卵との\n違いを知りたい' },
-  { pos:'100%',  text:'離乳食や幼児食に\n使う卵を選びたい' },
+  { img:'/images/shop/worries-icons.png', pos:'0%',    text:'子どもに安心できる\n食材を選びたい' },
+  { img:'/images/shop/worries-icons.png', pos:'33.3%', text:'毎日の朝食を\nちゃんとしたい' },
+  { img:'/images/shop/worries-icons.png', pos:'66.6%', text:'スーパーの卵との\n違いを知りたい' },
+  { img:'/images/shop/worries-icons.png', pos:'100%',  text:'離乳食や幼児食に\n使う卵を選びたい' },
 ];
 
 const points = [
-  { num:'01', title:'富山の自然',       body:'澄んだ水と空気、豊かな自然環境に恵まれた富山で、健康な鶏を育てています。', img:'/images/shop/point1.jpg' },
-  { num:'02', title:'平飼いで育った鶏', body:'のびのびと平飼いで育つ環境だから、自然な形で健康な鶏に育ちます。',         img:'/images/feature/feature-chicken.jpg' },
-  { num:'03', title:'健康的な餌',       body:'鶏の健康を第一に考えた餌を与え、安全第一に考えています。',                 img:'/images/shop/point3.jpg' },
-  { num:'04', title:'チルド配送',       body:'採れたての鮮度をチルド（冷蔵）でそのままお届けしています。',                img:'/images/shop/point4.jpg' },
-  { num:'05', title:'生産者の顔が見える', body:'家族に食べさせたい卵を、責任をもってお届けしています。',                  img:'/images/shop/point5.jpg' },
+  { num:'01', title:'富山の自然',        body:'澄んだ水と空気、豊かな自然環境に恵まれた富山で、健康な鶏を育てています。', img:'/images/shop/point1.jpg' },
+  { num:'02', title:'平飼いで育った鶏',  body:'のびのびと平飼いで育つ環境だから、自然な形で健康な鶏に育ちます。',         img:'/images/feature/feature-chicken.jpg' },
+  { num:'03', title:'健康的な餌',        body:'鶏の健康を第一に考えた餌を与え、安全第一に考えています。',                   img:'/images/shop/point3.jpg' },
+  { num:'04', title:'チルド配送',        body:'採れたての鮮度をチルド（冷蔵）でそのままお届けしています。',                   img:'/images/shop/point4.jpg' },
+  { num:'05', title:'生産者の顔が見える',body:'家族に食べさせたい卵を、責任をもってお届けしています。',                       img:'/images/shop/point5.jpg' },
 ];
 
 const nutrients = [
   { icon:'💪', title:'良質なたんぱく質',       body:'体をつくる土台となるたんぱく質をバランスよく含んでいます。' },
-  { icon:'🧠', title:'コリン・レシチン',       body:'卵黄に含まれるコリンやレシチンは、学習や記憶に関わる栄養素です。' },
+  { icon:'🧠', title:'コリン・レシチン',        body:'卵黄に含まれるコリンやレシチンは、学習や記憶に関わる栄養素です。' },
   { icon:'🌱', title:'成長期の体づくりをサポート', body:'成長期の子どもに必要な栄養を、毎日の食事で手軽にとれます。' },
   { icon:'🍼', title:'離乳食・幼児食にも使いやすい', body:'やさしい味わいで、いろいろな料理に使いやすい食材です。' },
-  { icon:'😋', title:'シンプルでもおいしい',   body:'素材が良いから、シンプルな料理でもおいしく食べられます。' },
+  { icon:'😋', title:'シンプルでもおいしい',    body:'素材が良いから、シンプルな料理でもおいしく食べられます。' },
   { icon:'✨', title:'食への興味・関心につながる', body:'おいしい体験が、子どもの食への興味や「食べる力」を育みます。' },
 ];
 
 const products = [
   {
-    id:'egg20', badge:null, img:'/images/shop/product1.jpg',
-    name:'平飼い卵 20個', price:'2,980円（税込・送料込み）',
+    id:'egg20', badge:null, highlight:false,
+    img:'/images/shop/product1.jpg',
+    name:'平飼い卵 20個',
+    price:'2,980円（税込・送料込み）',
     lead:'まずはシンプルに、鮮度そのものの\nおいしさを確かめてください。',
     contents: null,
   },
   {
-    id:'egg-soy', badge:null, img:'/images/shop/product2.jpg',
-    name:'平飼い卵 20個\n＋卵かけご飯醤油', price:'3,500円（税込・送料込み）',
+    id:'egg-soy', badge:null, highlight:false,
+    img:'/images/shop/product2.jpg',
+    name:'平飼い卵 20個\n＋卵かけご飯醤油',
+    price:'3,500円（税込・送料込み）',
     lead:'卵かけご飯専用の醤油がついた、\n卵の美味しさが引き立つセットです。',
     contents: null,
   },
   {
-    id:'morning', badge:'おすすめ', img:'/images/shop/product3.jpg',
-    name:'富山の朝ごはんセット', price:'5,000円（税込・送料込み）',
+    id:'morning', badge:'おすすめ', highlight:true,
+    img:'/images/shop/product3.jpg',
+    name:'富山の朝ごはんセット',
+    price:'5,000円（税込・送料込み）',
     lead:'富山のおいしいものを詰め合わせた、特別な朝ごはん体験セットです。',
     contents: ['平飼い卵 20個（10個×2パック）','卵かけご飯醤油 1本（150ml）','富山県産米 富富富 2合（300g）','富山の味 お漬物・味噌汁の素（例）'],
   },
 ];
 
 const reviews = [
-  { name:'S.さん（富山市・30代・お子さま2人）', img:'/images/shop/review1.jpg', text:'子どもが「この卵おいしい！」と言って食べてくれます。卵かけご飯が食卓の楽しみになりました！', stars:5 },
-  { name:'K.さん（高岡市・40代・お子さま1人）', img:'/images/shop/review2.jpg', text:'卵かけご飯が大好きになって、朝ごはんが楽しみになりました！黄身の濃さが全然違います。', stars:5 },
-  { name:'M.さん（射水市・30代・お子さま1人）', img:'/images/shop/review3.jpg', text:'離乳食にも安心して使えるので、本当に助かっています。生産者さんの顔が見えるのも安心。', stars:5 },
+  { name:'S.さん（富山市・30代・お子さま2人）', img:'/images/shop/review-avatar.png', text:'子どもが「この卵おいしい！」と言って食べてくれます。卵かけご飯が食卓の楽しみになりました！', stars:5 },
+  { name:'K.さん（高岡市・40代・お子さま1人）', img:'/images/shop/review-avatar.png', text:'卵かけご飯が大好きになって、朝ごはんが楽しみになりました！黄身の濃さが全然違います。', stars:5 },
+  { name:'M.さん（射水市・30代・お子さま1人）', img:'/images/shop/review-avatar.png', text:'離乳食にも安心して使えるので、本当に助かっています。生産者さんの顔が見えるのも安心。', stars:5 },
 ];
 
 const faqs = [
-  { q:'配送料について教えてください',       a:'商品価格に送料を含んでいます。別途送料はかかりません。' },
-  { q:'お支払い方法はありますか？',         a:'クレジットカード（Square決済）をご利用いただけます。LINEでのご相談後にご案内します。' },
-  { q:'定期便はいつでも停止できますか？',   a:'はい、いつでも停止・再開できます。縛りや解約手数料は一切ありません。' },
-  { q:'卵は生で食べても大丈夫ですか？',     a:'新鮮な状態でお届けしていますが、適切な保管・加熱をお勧めします。' },
+  { q:'配送料について教えてください',           a:'商品価格に送料を含んでいます。別途送料はかかりません。' },
+  { q:'お支払い方法はありますか？',             a:'クレジットカード（Square決済）をご利用いただけます。LINEでのお申し込み後にご案内します。' },
+  { q:'定期便はいつでも停止できますか？',       a:'はい、いつでも停止・再開できます。縛りや解約手数料は一切ありません。' },
+  { q:'卵は生で食べても大丈夫ですか？',         a:'新鮮な状態でお届けしていますが、適切な保管・加熱をお勧めします。' },
   { q:'卵が割れていた場合はどうすればいいですか？', a:'お届け時に割れがあった場合は、写真をLINEにお送りください。すぐに対応いたします。' },
-  { q:'離乳食に使っても大丈夫ですか？',     a:'赤ちゃんの月齢や体調、アレルギーに配慮し、必要に応じて医師や専門家にご相談のうえご使用ください。' },
+  { q:'離乳食に使っても大丈夫ですか？',         a:'赤ちゃんの月齢や体調、アレルギーに配慮し、必要に応じて医師や専門家にご相談のうえご使用ください。' },
 ];
 
 const jsonLd = {
   "@context":"https://schema.org","@type":"Product",
   "name":"小澤鶏卵場 富山の平飼い朝どれ卵",
-  "description":"富山の自然で育った平飼い卵。子どもにも安心して食べさせたい朝食を提案。",
+  "description":"富山の自然で育った平飼い卵。子どもにも安心な朝食提案。チルド配送・生産者直送・定期便あり。",
   "brand":{"@type":"Brand","name":"小澤鶏卵場"},
   "offers":{"@type":"Offer","price":"2980","priceCurrency":"JPY","availability":"https://schema.org/InStock","url":`${SITE_URL}/shop/`}
 };
@@ -86,83 +92,74 @@ const jsonLd = {
   <meta slot="head" property="og:url"         content={`${SITE_URL}/shop/`}/>
   <script slot="head" type="application/ld+json" set:html={JSON.stringify(jsonLd)}></script>
 
-  <!-- LP専用ヘッダーナビ -->
   <Header/>
-  <div class="lp-subnav">
-    <div class="lp-subnav-in">
-      <a href="#reasons">こだわり</a>
-      <a href="#health">健康のこと</a>
-      <a href="#products">商品一覧</a>
-      <a href="#morning-set">朝ごはんセット</a>
-      <a href="#subscription">定期便</a>
-      <a href="#reviews">お客様の声</a>
-      <a href="#faq">よくある質問</a>
-    </div>
-    <a href={LINE_URL} target="_blank" rel="noopener" class="lp-subnav-cta">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.07 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
-      LINEで注文・相談する
-    </a>
-  </div>
+  <main class="font-['Zen_Kaku_Gothic_New',sans-serif] bg-[#FFFDF5]">
 
-  <main>
+    <!-- ① HERO ──────────────────────────────────────── -->
+    <section id="hero" class="relative bg-[#FFFDF5] overflow-hidden" style="margin-top:76px">
+      <!-- 卵の丸装飾 -->
+      <div class="pointer-events-none absolute left-[48%] top-8 w-20 h-20 rounded-full bg-[rgba(240,178,60,0.15)]"></div>
 
-    <!-- ① HERO -->
-    <section id="hero" class="lp-hero">
-      <div class="lp-hero-inner">
-        <div class="lp-hero-text">
-          <span class="lp-brand-label">小澤鶏卵場<br/><small>富山の平飼い卵</small></span>
-          <h1>子どもに<br/>食べさせたい<br/>卵があります。</h1>
-          <p>富山の自然で育った平飼い卵を、<br/>家族の朝ごはんに。</p>
-          <a href={LINE_URL} target="_blank" rel="noopener" class="lp-line-btn">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.07 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
-            LINEで注文・相談する
-          </a>
+      <div class="mx-auto max-w-5xl px-8 py-14 sm:py-20 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+        <!-- 左：テキスト -->
+        <div>
+          <p class="text-sm text-[#BA7517] mb-3 font-semibold">富山の生産者から直送</p>
+          <h1 class="text-4xl sm:text-5xl font-bold text-[#2C2A24] leading-tight mb-5">
+            子どもに<br/>食べさせたい<br/>卵があります。
+          </h1>
+          <p class="text-[#6B6860] text-sm leading-relaxed mb-7">
+            富山の自然で育った平飼い卵を、<br/>家族の朝ごはんに。
+          </p>
+          <LineButton text="LINEで注文・相談する" size="lg"/>
         </div>
-        <div class="lp-hero-photo">
-          <img src="/images/shop/hero-family.jpg" alt="家族の朝ごはん" loading="eager"/>
-          <div class="lp-hero-photo-fade"></div>
+        <!-- 右：丸角写真 -->
+        <div class="rounded-3xl overflow-hidden aspect-[4/3] shadow-lg">
+          <img src="/images/shop/hero-family.jpg" alt="家族の朝ごはん" loading="eager" class="w-full h-full object-cover" style="object-position:30% center"/>
         </div>
       </div>
-      <div class="lp-hero-deco-leaf lp-hero-deco-leaf--l">🌿</div>
-      <div class="lp-hero-deco-leaf lp-hero-deco-leaf--r">🌿</div>
     </section>
 
-    <!-- ② お悩み -->
-    <section class="lp-sec bg-white">
-      <div class="lp-container">
-        <h2 class="lp-sec-title">こんなお悩みありませんか？</h2>
-        <div class="lp-worries-grid">
+    <!-- ② お悩み ───────────────────────────────────── -->
+    <section id="worries" class="py-14 bg-[#FFFDF5]">
+      <div class="mx-auto max-w-3xl px-6">
+        <h2 class="text-center text-lg sm:text-xl font-bold text-[#2C2A24] mb-8">こんなお悩みありませんか？</h2>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
           {worries.map(w => (
-            <div class="lp-worry-card">
-              <div class="lp-worry-icon">
-                <img src="/images/shop/worries-icons.png" alt=""
-                  style={`width:400%;margin-left:-${w.pos};height:100%;object-fit:cover;display:block`}/>
+            <div class="flex flex-col items-center gap-3 rounded-2xl bg-white border border-[rgba(186,117,23,.15)] p-5 text-center shadow-sm">
+              <div class="w-14 h-14 overflow-hidden flex-shrink-0">
+                <img src={w.img} alt="" loading="lazy"
+                  style={`width:400%;object-fit:cover;margin-left:-${w.pos};height:100%;`}
+                  class="block"/>
               </div>
-              <p>{w.text}</p>
+              <p class="text-xs text-[#5a4a2a] font-semibold leading-snug whitespace-pre-line">{w.text}</p>
             </div>
           ))}
         </div>
       </div>
     </section>
 
-    <!-- ③ 選ばれる理由 -->
-    <section id="reasons" class="lp-sec lp-sec--cream">
-      <div class="lp-container">
-        <div class="lp-reasons-layout">
-          <div class="lp-reasons-head">
-            <div class="lp-deco-chick">🐣</div>
-            <h2>小澤鶏卵場の卵が<br/>選ばれる理由</h2>
-            <div class="lp-deco-chick">🐣</div>
+    <!-- ③ 選ばれる理由 ───────────────────────────────── -->
+    <section id="reasons" class="py-14 bg-[#FFFDF5]">
+      <div class="mx-auto max-w-5xl px-6">
+        <div class="grid grid-cols-1 md:grid-cols-[auto_1fr] gap-8 items-start">
+          <!-- 左：見出し -->
+          <div class="md:w-36 flex-shrink-0">
+            <h2 class="text-lg font-bold text-[#2C2A24] leading-snug">
+              小澤鶏卵場の卵が<br/>選ばれる理由
+            </h2>
+            <span class="block w-8 h-0.5 bg-[#F0B23C] mt-3"></span>
           </div>
-          <div class="lp-points-row">
+          <!-- 右：5枚グリッド -->
+          <div class="grid grid-cols-5 gap-3">
             {points.map(p => (
-              <div class="lp-point-item">
-                <div class="lp-point-img">
-                  <img src={p.img} alt={p.title} loading="lazy"/>
+              <div>
+                <div class="rounded-2xl overflow-hidden aspect-square bg-gradient-to-br from-[#FCE9B8] to-[#F0B23C] mb-2">
+                  <img src={p.img} alt={p.title} loading="lazy" class="w-full h-full object-cover"
+                    onerror="this.style.display='none'"/>
                 </div>
-                <p class="lp-point-num">{p.num}</p>
-                <p class="lp-point-title">{p.title}</p>
-                <p class="lp-point-body">{p.body}</p>
+                <p class="text-[#BA7517] font-['Manrope',sans-serif] font-bold text-xs mb-0.5">{p.num}</p>
+                <p class="font-bold text-xs text-[#2C2A24] mb-1 leading-snug">{p.title}</p>
+                <p class="text-[10px] text-[#6B6860] leading-relaxed">{p.body}</p>
               </div>
             ))}
           </div>
@@ -170,63 +167,81 @@ const jsonLd = {
       </div>
     </section>
 
-    <!-- ④ 健康メリット -->
-    <section id="health" class="lp-sec bg-white">
-      <div class="lp-container">
-        <div class="lp-health-layout">
-          <div class="lp-health-text">
-            <h2>毎日の卵を、<br/>ちゃんと選ぶ理由。</h2>
-            <p class="lp-health-lead">卵は「完全栄養食品」と呼ばれるほど<br/>栄養バランスに優れた食材。<br/>良い環境と餌で育った卵は、<br/>家族みんなの毎日を支えます。</p>
-            <ul class="lp-nutrient-list">
+    <!-- ④ 健康メリット ──────────────────────────────── -->
+    <section id="health" class="py-14 bg-white">
+      <div class="mx-auto max-w-5xl px-6">
+        <div class="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-8 items-start">
+          <!-- 左：見出し＋卵黄写真 -->
+          <div>
+            <h2 class="text-2xl sm:text-3xl font-bold text-[#2C2A24] leading-snug mb-4">
+              毎日の卵を、<br/>ちゃんと選ぶ理由。
+            </h2>
+            <p class="text-sm text-[#6B6860] leading-relaxed mb-5">
+              卵は「完全栄養食品」と呼ばれるほど<br/>栄養バランスに優れた食材。<br/>良い環境と健康で育った卵は、<br/>家族みんなの毎日を支えます。
+            </p>
+            <div class="rounded-2xl overflow-hidden aspect-[16/9]">
+              <img src="/images/shop/health-egg.jpg" alt="卵黄" loading="lazy" class="w-full h-full object-cover"/>
+            </div>
+          </div>
+          <!-- 中：栄養リスト -->
+          <div class="md:w-56">
+            <ul class="space-y-3 mt-2">
               {nutrients.map(n => (
-                <li>
-                  <span class="lp-nutrient-icon">{n.icon}</span>
+                <li class="flex items-start gap-2">
+                  <span class="text-lg flex-shrink-0 leading-tight">{n.icon}</span>
                   <div>
-                    <strong>{n.title}</strong>
-                    <span>{n.body}</span>
+                    <p class="text-xs font-bold text-[#2C2A24] leading-snug">{n.title}</p>
+                    <p class="text-[11px] text-[#6B6860] leading-relaxed">{n.body}</p>
                   </div>
                 </li>
               ))}
             </ul>
+            <div class="mt-4 rounded-xl bg-[#FFF8EC] border border-[rgba(186,117,23,.2)] p-3 text-[10px] text-[#9B9994] leading-relaxed">
+              ※アレルギーや月齢に配慮し、必要に応じて医師や専門家にご相談ください。
+            </div>
           </div>
-          <div class="lp-health-photos">
-            <div class="lp-health-photo">
-              <img src="/images/shop/health-egg.jpg" alt="卵黄" loading="lazy"/>
+          <!-- 右：赤ちゃん写真 -->
+          <div>
+            <div class="rounded-2xl overflow-hidden aspect-[3/4] mt-2">
+              <img src="/images/shop/health-baby.jpg" alt="離乳食にも安心な卵" loading="lazy" class="w-full h-full object-cover"/>
             </div>
-            <div class="lp-health-photo">
-              <img src="/images/shop/health-baby.jpg" alt="離乳食" loading="lazy"/>
-            </div>
-            <p class="lp-health-note">※アレルギーや月齢に配慮し、必要に応じて医師や専門家にご相談ください。</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ⑤ 商品一覧 -->
-    <section id="products" class="lp-sec lp-sec--cream">
-      <div class="lp-container">
-        <div class="lp-sec-head-deco">
-          <span>🌿</span><h2>商品一覧</h2><span>🌿</span>
+    <!-- ⑤ 商品一覧 ─────────────────────────────────── -->
+    <section id="products" class="py-14 bg-[#FFFDF5]">
+      <div class="mx-auto max-w-5xl px-6">
+        <div class="flex items-center justify-center gap-3 mb-10">
+          <span class="text-lg opacity-40">🌿</span>
+          <h2 class="text-xl sm:text-2xl font-bold text-[#2C2A24]">商品一覧</h2>
+          <span class="text-lg opacity-40">🌿</span>
         </div>
-        <div class="lp-products-grid">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
           {products.map(p => (
-            <div class:list={["lp-product-card", { "lp-product-card--featured": p.badge }]} id={p.id === 'morning' ? 'morning-set' : ''}>
-              {p.badge && <span class="lp-product-badge">{p.badge}</span>}
-              <div class="lp-product-img">
-                <img src={p.img} alt={p.name} loading="lazy"/>
+            <div class:list={["relative rounded-3xl overflow-hidden bg-white shadow-sm flex flex-col", p.highlight ? "border-2 border-[#BA7517]" : "border border-[rgba(186,117,23,.15)]"]}>
+              {p.badge && (
+                <span class="absolute top-3 right-3 z-10 rounded-full bg-[#BA7517] px-3 py-1 text-xs font-bold text-white">{p.badge}</span>
+              )}
+              <div class="aspect-[4/3] bg-gradient-to-br from-[#FCE9B8] to-[#F0B23C] overflow-hidden">
+                <img src={p.img} alt={p.name} loading="lazy" class="w-full h-full object-cover"
+                  onerror="this.parentElement.style.cssText='display:flex;align-items:center;justify-content:center;font-size:3rem';this.style.display='none'"/>
               </div>
-              <div class="lp-product-body">
-                <h3>{p.name}</h3>
-                <p class="lp-product-price">{p.price}</p>
-                <p class="lp-product-lead">{p.lead}</p>
+              <div class="p-5 flex flex-col flex-1">
+                <h3 class="font-bold text-[#2C2A24] text-base mb-1 whitespace-pre-line leading-snug">{p.name}</h3>
+                <p class="text-[#BA7517] font-['Manrope',sans-serif] font-bold text-sm mb-2">{p.price}</p>
+                <p class="text-xs text-[#6B6860] leading-relaxed mb-3 whitespace-pre-line flex-1">{p.lead}</p>
                 {p.contents && (
-                  <div class="lp-product-contents">
-                    <p class="lp-product-contents-title">セット内容</p>
-                    <ul>{p.contents.map(c => <li>＋ {c}</li>)}</ul>
-                    <p class="lp-product-contents-note">※セット内容は変更になる場合があります</p>
+                  <div class="mb-3 rounded-xl bg-[#FDF6E9] border border-[rgba(186,117,23,.2)] p-3">
+                    <p class="text-xs font-bold text-[#BA7517] mb-1.5">セット内容</p>
+                    <ul class="space-y-1">
+                      {p.contents.map(c => <li class="text-xs text-[#6B6860]">＋ {c}</li>)}
+                    </ul>
+                    <p class="text-[10px] text-[#9B9994] mt-1.5">※セット内容は変更になる場合があります</p>
                   </div>
                 )}
-                <a href={LINE_URL} target="_blank" rel="noopener" class="lp-product-btn">詳しく見る</a>
+                <LineButton text="詳しく見る" size="sm"/>
               </div>
             </div>
           ))}
@@ -234,86 +249,97 @@ const jsonLd = {
       </div>
     </section>
 
-    <!-- ⑥ 定期便 -->
-    <section id="subscription" class="lp-subscription">
-      <div class="lp-subscription-bg">
-        <img src="/images/shop/subscription-bg.jpg" alt="" aria-hidden="true"/>
-        <div class="lp-subscription-overlay"></div>
+    <!-- ⑥ 定期便 ──────────────────────────────────── -->
+    <section id="subscription" class="relative py-0 overflow-hidden">
+      <!-- 背景画像 -->
+      <div class="absolute inset-0">
+        <img src="/images/shop/subscription-bg.jpg" alt="" class="w-full h-full object-cover" aria-hidden="true"/>
+        <div class="absolute inset-0 bg-white/70"></div>
       </div>
-      <div class="lp-container lp-subscription-inner">
-        <div class="lp-subscription-card">
-          <span class="lp-subscription-badge">人気 No.1</span>
-          <h2>定期便のご案内</h2>
-          <ul class="lp-subscription-list">
-            <li>✓ 20個入りを2週間ごとにお届け</li>
-            <li>✓ 2,780円（税込）／1回あたり</li>
-            <li>✓ いつでも停止OK・縛りなし</li>
+      <div class="relative mx-auto max-w-5xl px-6 py-16 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        <!-- 左：白カード -->
+        <div class="rounded-3xl bg-white shadow-lg p-8 border border-[rgba(186,117,23,.15)]">
+          <span class="inline-block mb-3 rounded-full bg-[#BA7517] px-4 py-1 text-xs font-bold text-white">人気 No.1</span>
+          <h2 class="text-xl font-bold text-[#2C2A24] mb-5">定期便のご案内</h2>
+          <ul class="space-y-2.5 mb-6">
+            {['20個入りを2週間ごとにお届け','2,780円（税込）／1回あたり','いつでも停止OK・縛りなし'].map(item => (
+              <li class="flex items-center gap-2 text-sm text-[#2C2A24]">
+                <span class="w-5 h-5 flex-shrink-0 rounded-full bg-[#06C755] text-white text-xs flex items-center justify-center font-bold">✓</span>
+                {item}
+              </li>
+            ))}
           </ul>
-          <a href={LINE_URL} target="_blank" rel="noopener" class="lp-line-btn">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.07 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
-            LINEで定期便を相談する
-          </a>
+          <LineButton text="LINEで定期便を相談する" size="md" class="w-full justify-center"/>
         </div>
-        <div class="lp-subscription-photo">
-          <img src="/images/feature/feature-egg.jpg" alt="新鮮な卵" loading="lazy"/>
-          <p>買い忘れの心配なし！<br/>いつも新鮮なたまごを<br/>お届けします。</p>
+        <!-- 右：テキスト -->
+        <div>
+          <p class="text-base text-[#2C2A24] font-bold mb-2">買い忘れの心配なし！</p>
+          <p class="text-sm text-[#6B6860] leading-relaxed">いつも新鮮なたまごをお届けします。</p>
         </div>
       </div>
     </section>
 
-    <!-- ⑦ お客様の声 -->
-    <section id="reviews" class="lp-sec bg-white">
-      <div class="lp-container">
-        <h2 class="lp-sec-title">お客様の声</h2>
-        <div class="lp-reviews-grid">
+    <!-- ⑦ お客様の声 ───────────────────────────────── -->
+    <section id="reviews" class="py-14 bg-[#FFFDF5]">
+      <div class="mx-auto max-w-4xl px-6">
+        <h2 class="text-center text-xl sm:text-2xl font-bold text-[#2C2A24] mb-10">お客様の声</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
           {reviews.map(r => (
-            <div class="lp-review-card">
-              <div class="lp-review-photo">
-                <img src="/images/shop/review-avatar.png" alt="" loading="lazy"/>
+            <div class="bg-white rounded-2xl p-6 shadow-sm border border-[rgba(186,117,23,.1)]">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-12 h-12 rounded-full overflow-hidden border-2 border-[#F0B23C] flex-shrink-0">
+                  <img src={r.img} alt="" loading="lazy" class="w-full h-full object-cover"/>
+                </div>
+                <span class="text-xs text-[#9B9994] leading-snug">{r.name}</span>
               </div>
-              <div class="lp-review-body">
-                <p class="lp-review-text">{r.text}</p>
-                <p class="lp-review-name">{r.name}</p>
-              </div>
+              <p class="text-sm text-[#6B6860] leading-loose mb-3">{r.text}</p>
+              <div class="text-[#F0B23C] text-sm">{"★".repeat(r.stars)}</div>
             </div>
           ))}
         </div>
-        <div class="lp-review-dots">
-          <span class="active"></span><span></span><span></span>
+        <div class="flex justify-center gap-2 mt-8">
+          <span class="w-2.5 h-2.5 rounded-full bg-[#F0B23C]"></span>
+          <span class="w-2.5 h-2.5 rounded-full bg-[rgba(186,117,23,.3)]"></span>
+          <span class="w-2.5 h-2.5 rounded-full bg-[rgba(186,117,23,.3)]"></span>
         </div>
       </div>
     </section>
 
-    <!-- ⑧ FAQ -->
-    <section id="faq" class="lp-sec lp-sec--cream">
-      <div class="lp-container">
-        <h2 class="lp-sec-title">よくあるご質問</h2>
-        <div class="lp-faq-grid">
+    <!-- ⑧ FAQ ──────────────────────────────────────── -->
+    <section id="faq" class="py-14 bg-white">
+      <div class="mx-auto max-w-4xl px-6">
+        <h2 class="text-center text-xl sm:text-2xl font-bold text-[#2C2A24] mb-10">よくあるご質問</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
           {faqs.map(f => (
-            <div class="lp-faq-item">
-              <p class="lp-faq-q">
-                <span>＋</span>{f.q}
-              </p>
-              <p class="lp-faq-a">{f.a}</p>
-            </div>
+            <details class="group rounded-2xl border border-[rgba(186,117,23,.15)] bg-[#FFFDF5] overflow-hidden">
+              <summary class="flex items-center justify-between gap-3 px-5 py-4 cursor-pointer list-none">
+                <span class="text-sm font-bold text-[#2C2A24] leading-snug">{f.q}</span>
+                <span class="text-[#BA7517] font-bold text-lg flex-shrink-0 group-open:rotate-45 transition-transform">＋</span>
+              </summary>
+              <div class="px-5 pb-4 text-sm text-[#6B6860] leading-relaxed border-t border-[rgba(186,117,23,.1)] pt-3">
+                {f.a}
+              </div>
+            </details>
           ))}
         </div>
       </div>
     </section>
 
-    <!-- ⑨ 最終CTA -->
-    <section class="lp-final-cta">
-      <div class="lp-container lp-final-inner">
-        <div class="lp-final-text">
-          <h2>まずはLINEで<br/>お気軽にご相談ください。</h2>
-          <p>商品のこと、定期便のこと、<br/>どんなことでも大歓迎です。</p>
-          <a href={LINE_URL} target="_blank" rel="noopener" class="lp-line-btn">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.07 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
-            LINEで注文・相談する
-          </a>
+    <!-- ⑨ 最終CTA ─────────────────────────────────── -->
+    <section id="cta" class="py-14 bg-[#FFF8EC]">
+      <div class="mx-auto max-w-5xl px-6 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+        <div>
+          <h2 class="text-2xl sm:text-3xl font-bold text-[#2C2A24] leading-snug mb-3">
+            まずはLINEで<br/>お気軽にご相談ください。
+          </h2>
+          <p class="text-sm text-[#6B6860] leading-relaxed mb-6">
+            商品のこと、定期便のこと、<br/>どんなことでも大歓迎です。
+          </p>
+          <LineButton text="LINEで注文・相談する" size="lg"/>
+          <p class="mt-3 text-xs text-[#9B9994]">無理な営業はいたしません</p>
         </div>
-        <div class="lp-final-photo">
-          <img src="/images/feature/feature-egg.jpg" alt="富山の卵" loading="lazy"/>
+        <div class="rounded-3xl overflow-hidden aspect-[4/3]">
+          <img src="/images/feature/feature-egg.jpg" alt="富山の卵" loading="lazy" class="w-full h-full object-cover"/>
         </div>
       </div>
     </section>
@@ -321,204 +347,3 @@ const jsonLd = {
   </main>
   <Footer/>
 </Layout>
-
-<style>
-/* ─── LP専用ナビ ─── */
-.lp-subnav {
-  position: sticky; top: 76px; z-index: 190;
-  background: white; border-bottom: 1px solid rgba(186,117,23,.15);
-  display: flex; align-items: center; justify-content: center; gap: 0;
-  padding: 0 1.5rem;
-}
-.lp-subnav-in { display: flex; gap: 0; flex: 1; justify-content: center; overflow-x: auto; }
-.lp-subnav a { padding: .7rem .85rem; font-size: .72rem; color: #6B6860; text-decoration: none; white-space: nowrap; transition: color .15s; }
-.lp-subnav a:hover { color: #BA7517; }
-.lp-subnav-cta {
-  flex-shrink: 0; display: flex; align-items: center; gap: .4rem;
-  background: #06C755; color: white; font-size: .75rem; font-weight: 700;
-  padding: .5rem 1.1rem; border-radius: 999px; text-decoration: none; white-space: nowrap;
-  transition: opacity .15s;
-}
-.lp-subnav-cta:hover { opacity: .85; }
-
-/* ─── 共通 ─── */
-.lp-container { max-width: 1000px; margin: 0 auto; padding: 0 2rem; }
-.lp-sec { padding: 4.5rem 0; }
-.lp-sec--cream { background: #FFF8EC; }
-.lp-sec-title { text-align: center; font-size: clamp(1.2rem,2.5vw,1.6rem); font-weight: 700; color: #2C2A24; margin-bottom: 2.5rem; }
-.lp-sec-head-deco { display: flex; align-items: center; justify-content: center; gap: .75rem; margin-bottom: 2.5rem; }
-.lp-sec-head-deco h2 { font-size: clamp(1.2rem,2.5vw,1.6rem); font-weight: 700; color: #2C2A24; margin: 0; }
-.lp-sec-head-deco span { font-size: 1.25rem; opacity: .5; }
-.lp-line-btn {
-  display: inline-flex; align-items: center; gap: .5rem;
-  background: #06C755; color: white; font-weight: 700; text-decoration: none;
-  padding: .85rem 1.75rem; border-radius: 999px; font-size: .95rem;
-  box-shadow: 0 4px 16px rgba(6,199,85,.3); transition: opacity .2s;
-}
-.lp-line-btn:hover { opacity: .85; }
-
-/* ─── HERO ─── */
-.lp-hero {
-  position: relative; margin-top: 76px; background: #FFFDF5;
-  overflow: hidden; min-height: 480px;
-}
-.lp-hero-inner {
-  max-width: 1000px; margin: 0 auto; padding: 3.5rem 2rem;
-  display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: center;
-}
-.lp-brand-label {
-  display: inline-block; font-size: .72rem; font-weight: 700;
-  color: #BA7517; border: 1px solid rgba(186,117,23,.4); border-radius: 6px;
-  padding: .3rem .75rem; margin-bottom: 1rem; line-height: 1.5; text-align: center;
-}
-.lp-brand-label small { display: block; font-size: .66rem; font-weight: 400; }
-.lp-hero-text h1 {
-  font-size: clamp(2rem,4.5vw,3rem); font-weight: 700; color: #2C2A24;
-  line-height: 1.35; margin-bottom: 1rem;
-}
-.lp-hero-text p { font-size: .88rem; color: #6B6860; line-height: 1.8; margin-bottom: 1.75rem; }
-.lp-hero-photo { position: relative; border-radius: 20px; overflow: hidden; aspect-ratio: 4/3; }
-.lp-hero-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 20% center; display: block; }
-.lp-hero-photo-fade {
-  position: absolute; inset: 0;
-  background: linear-gradient(to bottom, transparent 55%, rgba(255,253,245,.95) 100%);
-}
-.lp-hero-deco-leaf { position: absolute; font-size: 2rem; opacity: .2; pointer-events: none; }
-.lp-hero-deco-leaf--l { left: 1rem; top: 3rem; transform: rotate(-20deg); }
-.lp-hero-deco-leaf--r { right: 1.5rem; bottom: 2rem; transform: rotate(15deg); }
-
-/* ─── お悩み ─── */
-.lp-worries-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1rem; }
-.lp-worry-card {
-  border: 1px solid rgba(186,117,23,.2); border-radius: 14px;
-  background: #FFFDF5; padding: 1.25rem 1rem; text-align: center;
-}
-.lp-worry-icon { width: 64px; height: 64px; margin: 0 auto .75rem; overflow: hidden; }
-.lp-worry-card p { font-size: .75rem; font-weight: 700; color: #4a3a1a; white-space: pre-line; line-height: 1.6; }
-
-/* ─── 選ばれる理由 ─── */
-.lp-reasons-layout { display: grid; grid-template-columns: 180px 1fr; gap: 2rem; align-items: start; }
-.lp-reasons-head { display: flex; flex-direction: column; align-items: center; gap: .5rem; padding-top: .5rem; }
-.lp-reasons-head h2 { font-size: 1rem; font-weight: 700; color: #2C2A24; text-align: center; line-height: 1.6; margin: 0; }
-.lp-deco-chick { font-size: 1.5rem; }
-.lp-points-row { display: grid; grid-template-columns: repeat(5,1fr); gap: .75rem; }
-.lp-point-item {}
-.lp-point-img { border-radius: 12px; overflow: hidden; aspect-ratio: 1; margin-bottom: .6rem; background: linear-gradient(135deg,#FCE9B8,#F0B23C); }
-.lp-point-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.lp-point-num { font-family: Manrope,sans-serif; font-size: .7rem; font-weight: 700; color: #BA7517; margin: 0 0 .2rem; }
-.lp-point-title { font-size: .8rem; font-weight: 700; color: #2C2A24; margin: 0 0 .3rem; }
-.lp-point-body { font-size: .7rem; color: #6B6860; line-height: 1.6; margin: 0; }
-
-/* ─── 健康メリット ─── */
-.lp-health-layout { display: grid; grid-template-columns: 1fr 280px; gap: 3rem; align-items: start; }
-.lp-health-text h2 { font-size: clamp(1.3rem,2.8vw,1.8rem); font-weight: 700; color: #2C2A24; margin-bottom: .75rem; }
-.lp-health-lead { font-size: .85rem; color: #6B6860; line-height: 1.85; margin-bottom: 1.5rem; }
-.lp-nutrient-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: .75rem; }
-.lp-nutrient-list li { display: flex; gap: .75rem; align-items: flex-start; }
-.lp-nutrient-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: .1rem; }
-.lp-nutrient-list strong { display: block; font-size: .82rem; color: #2C2A24; margin-bottom: .1rem; }
-.lp-nutrient-list span { font-size: .75rem; color: #6B6860; line-height: 1.6; }
-.lp-health-photos { display: flex; flex-direction: column; gap: .75rem; }
-.lp-health-photo { border-radius: 14px; overflow: hidden; aspect-ratio: 4/3; }
-.lp-health-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.lp-health-note { font-size: .68rem; color: #9B9994; line-height: 1.6; margin: .5rem 0 0; }
-
-/* ─── 商品一覧 ─── */
-.lp-products-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.25rem; }
-.lp-product-card {
-  position: relative; border-radius: 18px; overflow: hidden;
-  background: white; border: 1.5px solid rgba(186,117,23,.15);
-  box-shadow: 0 2px 16px rgba(44,44,42,.05);
-}
-.lp-product-card--featured { border-color: #BA7517; }
-.lp-product-badge {
-  position: absolute; top: .75rem; right: .75rem; z-index: 2;
-  background: #BA7517; color: white; font-size: .65rem; font-weight: 700;
-  padding: .2rem .6rem; border-radius: 999px;
-}
-.lp-product-img { aspect-ratio: 4/3; overflow: hidden; background: linear-gradient(135deg,#FCE9B8,#F0B23C); }
-.lp-product-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.lp-product-body { padding: 1.1rem; }
-.lp-product-body h3 { font-size: .9rem; font-weight: 700; color: #2C2A24; white-space: pre-line; line-height: 1.45; margin-bottom: .3rem; }
-.lp-product-price { font-size: .8rem; font-weight: 700; color: #BA7517; margin-bottom: .5rem; }
-.lp-product-lead { font-size: .72rem; color: #6B6860; line-height: 1.7; margin-bottom: .75rem; white-space: pre-line; }
-.lp-product-contents { background: #FFF8EC; border-radius: 10px; padding: .75rem; margin-bottom: .75rem; }
-.lp-product-contents-title { font-size: .68rem; font-weight: 700; color: #BA7517; margin: 0 0 .4rem; }
-.lp-product-contents ul { list-style: none; margin: 0; padding: 0; }
-.lp-product-contents li { font-size: .68rem; color: #6B6860; line-height: 1.7; }
-.lp-product-contents-note { font-size: .62rem; color: #9B9994; margin: .4rem 0 0; }
-.lp-product-btn {
-  display: block; text-align: center; background: #2C2A24; color: white;
-  font-size: .75rem; font-weight: 700; padding: .55rem; border-radius: 8px;
-  text-decoration: none; transition: opacity .15s;
-}
-.lp-product-btn:hover { opacity: .8; }
-
-/* ─── 定期便 ─── */
-.lp-subscription { position: relative; overflow: hidden; padding: 4rem 0; }
-.lp-subscription-bg { position: absolute; inset: 0; }
-.lp-subscription-bg img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.lp-subscription-overlay { position: absolute; inset: 0; background: rgba(255,255,255,.78); }
-.lp-subscription-inner { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: center; }
-.lp-subscription-card {
-  background: white; border-radius: 20px; padding: 2.25rem;
-  border: 1px solid rgba(186,117,23,.2); box-shadow: 0 4px 24px rgba(44,44,42,.07); position: relative;
-}
-.lp-subscription-badge {
-  position: absolute; top: -12px; left: 1.5rem;
-  background: #BA7517; color: white; font-size: .68rem; font-weight: 700;
-  padding: .3rem .9rem; border-radius: 999px;
-}
-.lp-subscription-card h2 { font-size: 1.2rem; font-weight: 700; color: #2C2A24; margin-bottom: 1.25rem; }
-.lp-subscription-list { list-style: none; margin: 0 0 1.5rem; padding: 0; display: flex; flex-direction: column; gap: .6rem; }
-.lp-subscription-list li { font-size: .85rem; color: #2C2A24; }
-.lp-subscription-photo { text-align: center; }
-.lp-subscription-photo img { width: 100%; max-width: 320px; border-radius: 16px; object-fit: cover; aspect-ratio: 4/3; display: block; margin: 0 auto .75rem; }
-.lp-subscription-photo p { font-size: .78rem; color: #6B6860; line-height: 1.8; }
-
-/* ─── お客様の声 ─── */
-.lp-reviews-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.25rem; margin-bottom: 1.5rem; }
-.lp-review-card { background: #FFFDF5; border-radius: 16px; padding: 1.5rem; border: 1px solid rgba(186,117,23,.12); }
-.lp-review-photo { width: 48px; height: 48px; border-radius: 50%; overflow: hidden; border: 2px solid #F0B23C; margin-bottom: .85rem; }
-.lp-review-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.lp-review-text { font-size: .82rem; color: #6B6860; line-height: 1.8; margin-bottom: .6rem; }
-.lp-review-name { font-size: .7rem; color: #9B9994; }
-.lp-review-dots { display: flex; justify-content: center; gap: .4rem; }
-.lp-review-dots span { width: 8px; height: 8px; border-radius: 50%; background: rgba(186,117,23,.25); }
-.lp-review-dots span.active { background: #F0B23C; }
-
-/* ─── FAQ ─── */
-.lp-faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; }
-.lp-faq-item { border-bottom: 1px solid rgba(186,117,23,.2); padding: 1rem 0; }
-.lp-faq-q { display: flex; align-items: flex-start; gap: .75rem; font-size: .85rem; font-weight: 700; color: #2C2A24; margin: 0 0 .5rem; }
-.lp-faq-q span { flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%; border: 1.5px solid #BA7517; color: #BA7517; font-size: .8rem; display: flex; align-items: center; justify-content: center; font-weight: 400; }
-.lp-faq-a { font-size: .78rem; color: #6B6860; line-height: 1.75; margin: 0; padding-left: 2rem; }
-
-/* ─── 最終CTA ─── */
-.lp-final-cta { background: #FFF8EC; padding: 4rem 0; }
-.lp-final-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
-.lp-final-text h2 { font-size: clamp(1.3rem,2.8vw,1.8rem); font-weight: 700; color: #2C2A24; margin-bottom: .75rem; }
-.lp-final-text p { font-size: .85rem; color: #6B6860; line-height: 1.8; margin-bottom: 1.5rem; }
-.lp-final-photo { border-radius: 18px; overflow: hidden; aspect-ratio: 4/3; }
-.lp-final-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
-
-/* ─── レスポンシブ ─── */
-@media (max-width:900px) {
-  .lp-hero-inner { grid-template-columns:1fr; gap:2rem; }
-  .lp-reasons-layout { grid-template-columns:1fr; }
-  .lp-reasons-head { flex-direction:row; }
-  .lp-points-row { grid-template-columns:repeat(3,1fr); }
-  .lp-health-layout { grid-template-columns:1fr; }
-  .lp-health-photos { flex-direction:row; }
-  .lp-products-grid { grid-template-columns:1fr; max-width:360px; margin:0 auto; }
-  .lp-subscription-inner { grid-template-columns:1fr; }
-  .lp-reviews-grid { grid-template-columns:1fr; }
-  .lp-faq-grid { grid-template-columns:1fr; }
-  .lp-final-inner { grid-template-columns:1fr; }
-  .lp-worries-grid { grid-template-columns:repeat(2,1fr); }
-}
-@media (max-width:600px) {
-  .lp-points-row { grid-template-columns:repeat(2,1fr); }
-  .lp-subnav-in { display:none; }
-}
-</style>
