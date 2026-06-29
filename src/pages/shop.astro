@@ -347,30 +347,33 @@ const jsonLd = {
 .lp-sec { padding:4.5rem 0; }
 .lp-sec--white { background:#fff; }
 .lp-sec--cream { background:#FFFDF5; }
-.lp-sec-title { text-align:center; font-size:1.5rem; font-weight:700; color:#2C2A24; margin-bottom:2.5rem; }
+.lp-sec-title { text-align:center; font-size:1.6rem; font-weight:700; color:#2C2A24; margin-bottom:2.5rem; }
 .lp-sec-head-deco { display:flex; align-items:center; justify-content:center; gap:.75rem; margin-bottom:2.5rem; }
 .lp-sec-head-deco h2 { font-size:1.5rem; font-weight:700; color:#2C2A24; }
 
 /* ── ① HERO ── */
-.lp-hero { position:relative; background:#FFFDF5; overflow:hidden; padding-top:76px; }
-.lp-hero-in { max-width:1080px; margin:0 auto; padding:3.5rem 2rem 0; display:grid; grid-template-columns:1fr 1.1fr; gap:2.5rem; align-items:flex-end; }
-.lp-hero-text { padding-bottom:3.5rem; position:relative; z-index:2; }
-.lp-hero-text h1 { font-size:clamp(2rem,4.5vw,3.2rem); font-weight:700; color:#2C2A24; line-height:1.45; margin-bottom:1rem; }
-.lp-hero-text p { font-size:.9rem; color:#6B6860; line-height:1.8; margin-bottom:1.75rem; }
-.lp-hero-egg-deco { position:absolute; bottom:2.5rem; right:0; font-size:4rem; opacity:.5; transform:rotate(-15deg); }
-.lp-hero-img { position:relative; border-radius:20px 20px 0 0; overflow:hidden; aspect-ratio:4/3; }
+.lp-hero { position:relative; background:#FFFDF5; overflow:hidden; padding-top:76px; min-height:540px; }
+/* 写真を右半分背景に */
+.lp-hero-img { position:absolute; top:0; right:0; width:62%; height:100%; }
 .lp-hero-img img { width:100%; height:100%; object-fit:cover; object-position:20% 30%; display:block; }
-.lp-hero-img-fade-b { position:absolute; bottom:0; left:0; right:0; height:40%; background:linear-gradient(to bottom, transparent, #FFFDF5); }
-.lp-hero-img-fade-l { position:absolute; top:0; left:0; bottom:0; width:30%; background:linear-gradient(to right, rgba(255,253,245,.6), transparent); }
+/* 写真の左側フェード */
+.lp-hero-img-fade-l { position:absolute; top:0; left:0; bottom:0; width:55%; background:linear-gradient(to right, #FFFDF5 0%, #FFFDF5 30%, rgba(255,253,245,.85) 60%, transparent 100%); }
+/* 写真の下部フェード */
+.lp-hero-img-fade-b { position:absolute; bottom:0; left:0; right:0; height:30%; background:linear-gradient(to bottom, transparent, #FFFDF5); }
+.lp-hero-in { position:relative; z-index:2; max-width:1080px; margin:0 auto; padding:4rem 2rem 4.5rem; }
+.lp-hero-text { max-width:480px; }
+.lp-hero-text h1 { font-size:clamp(2.2rem,4.8vw,3.6rem); font-weight:700; color:#2C2A24; line-height:1.35; margin-bottom:1.1rem; letter-spacing:-.01em; }
+.lp-hero-text > p { font-size:.95rem; color:#6B6860; line-height:1.85; margin-bottom:2rem; }
+.lp-hero-egg-deco { display:none; }
 .lp-leaf { position:absolute; font-size:2.5rem; opacity:.3; pointer-events:none; }
 .lp-leaf--tl { top:5rem; left:1rem; transform:rotate(-20deg); }
 .lp-leaf--bl { bottom:2rem; left:2rem; transform:rotate(10deg) scaleX(-1); font-size:1.8rem; }
 
 /* ── ② 悩み ── */
 .lp-worries { display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; }
-.lp-worry-card { display:flex; flex-direction:column; align-items:center; gap:.75rem; border:1px solid rgba(186,117,23,.2); background:#FFFDF5; border-radius:16px; padding:1.25rem .75rem; text-align:center; box-shadow:0 2px 8px rgba(0,0,0,.04); }
-.lp-worry-icon { width:72px; height:72px; overflow:hidden; border-radius:4px; }
-.lp-worry-card p { font-size:.75rem; font-weight:700; color:#5a4a2a; line-height:1.5; white-space:pre-line; }
+.lp-worry-card { display:flex; flex-direction:column; align-items:center; gap:.75rem; border:1px solid rgba(186,117,23,.2); background:#FFFDF5; border-radius:16px; padding:1.5rem 1rem; text-align:center; box-shadow:0 2px 8px rgba(0,0,0,.04); }
+.lp-worry-icon { width:110px; height:110px; overflow:hidden; border-radius:4px; }
+.lp-worry-card p { font-size:.82rem; font-weight:700; color:#5a4a2a; line-height:1.6; white-space:pre-line; }
 
 /* ── ③ 選ばれる理由 ── */
 .lp-reasons-head { display:flex; align-items:center; gap:1rem; margin-bottom:2rem; }
@@ -461,13 +464,17 @@ const jsonLd = {
 .lp-faq-a p { font-size:.78rem; color:#6B6860; line-height:1.7; }
 
 /* ── ⑨ 最終CTA ── */
-.lp-final { background:#FFFDF5; padding:5rem 0; border-top:1px solid rgba(186,117,23,.1); }
-.lp-final-in { display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:center; }
-.lp-final-text h2 { font-size:clamp(1.4rem,3vw,2rem); font-weight:700; color:#2C2A24; line-height:1.5; margin-bottom:.75rem; }
-.lp-final-text > p { font-size:.88rem; color:#6B6860; line-height:1.8; margin-bottom:1.75rem; }
-.lp-final-note { font-size:.72rem; color:#9B9994; margin-top:.75rem; }
-.lp-final-img { border-radius:20px; overflow:hidden; }
-.lp-final-img img { width:100%; display:block; object-fit:cover; height:320px; }
+.lp-final { position:relative; padding:6rem 0; overflow:hidden; min-height:380px; }
+/* 写真を右半分背景に（ヒーローと同じ構造） */
+.lp-final-img { position:absolute; top:0; right:0; width:55%; height:100%; }
+.lp-final-img img { width:100%; height:100%; object-fit:cover; display:block; }
+.lp-final-img::before { content:''; position:absolute; top:0; left:0; bottom:0; width:60%; background:linear-gradient(to right, #FFFDF5 0%, #FFFDF5 20%, rgba(255,253,245,.9) 55%, transparent 100%); z-index:1; }
+.lp-final-img::after { content:''; position:absolute; top:0; left:0; right:0; bottom:0; background:rgba(255,253,245,.25); }
+.lp-final-in { position:relative; z-index:2; display:block; }
+.lp-final-text { max-width:480px; }
+.lp-final-text h2 { font-size:clamp(1.6rem,3.5vw,2.4rem); font-weight:700; color:#2C2A24; line-height:1.4; margin-bottom:.85rem; letter-spacing:-.01em; }
+.lp-final-text > p { font-size:.9rem; color:#6B6860; line-height:1.85; margin-bottom:1.75rem; }
+.lp-final-note { font-size:.75rem; color:#9B9994; margin-top:.75rem; }
 
 /* ── レスポンシブ ── */
 @media (max-width:1024px) {
