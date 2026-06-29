@@ -97,23 +97,20 @@ const jsonLd = {
 
     <!-- ① HERO -->
     <section class="lp-hero">
+      <!-- 全面背景画像 -->
+      <img src="/images/shop/hero-family.jpg" alt="" loading="eager" class="lp-hero-bg" aria-hidden="true"/>
+      <div class="lp-hero-fade-l"></div>
+      <div class="lp-hero-fade-b"></div>
+      <!-- 葉っぱ装飾 -->
+      <span class="lp-leaf lp-leaf--tl">🌿</span>
+      <span class="lp-leaf lp-leaf--bl">🌿</span>
       <div class="lp-hero-in">
         <div class="lp-hero-text">
           <h1>子どもに<br/>食べさせたい<br/>卵があります。</h1>
           <p>富山の自然で育った平飼い卵を、<br/>家族の朝ごはんに。</p>
           <LineButton text="LINEで注文・相談する" size="lg"/>
-          <!-- 卵の丸装飾 -->
-          <div class="lp-hero-egg-deco">🥚</div>
-        </div>
-        <div class="lp-hero-img">
-          <img src="/images/shop/hero-family.jpg" alt="家族の朝ごはん" loading="eager"/>
-          <div class="lp-hero-img-fade-b"></div>
-          <div class="lp-hero-img-fade-l"></div>
         </div>
       </div>
-      <!-- 葉っぱ装飾 -->
-      <span class="lp-leaf lp-leaf--tl">🌿</span>
-      <span class="lp-leaf lp-leaf--bl">🌿</span>
     </section>
 
     <!-- ② 悩み提起 -->
@@ -310,6 +307,10 @@ const jsonLd = {
 
     <!-- ⑨ 最終CTA -->
     <section id="cta" class="lp-final">
+      <!-- 全面背景画像（右側に卵） -->
+      <img src="/images/feature/feature-egg.jpg" alt="" class="lp-final-bg" aria-hidden="true" loading="lazy"/>
+      <div class="lp-final-fade-r"></div>
+      <div class="lp-final-fade-t"></div>
       <div class="lp-container lp-final-in">
         <div class="lp-final-text">
           <h2>まずはLINEで<br/>お気軽にご相談ください。</h2>
@@ -317,9 +318,7 @@ const jsonLd = {
           <LineButton text="LINEで注文・相談する" size="lg"/>
           <p class="lp-final-note">無理な営業はいたしません</p>
         </div>
-        <div class="lp-final-img">
-          <img src="/images/feature/feature-egg.jpg" alt="" loading="lazy"/>
-        </div>
+        <div class="lp-final-img"></div>
       </div>
     </section>
 
@@ -377,7 +376,7 @@ const jsonLd = {
 
 /* ── ③ 選ばれる理由 ── */
 .lp-reasons-head { display:flex; align-items:center; gap:1rem; margin-bottom:2rem; }
-.lp-reasons-head h2 { font-size:1.4rem; font-weight:700; color:#2C2A24; }
+.lp-reasons-head h2 { font-size:1.6rem; font-weight:700; color:#2C2A24; }
 .lp-reasons-chick { font-size:2rem; }
 .lp-points { display:grid; grid-template-columns:repeat(5,1fr); gap:1.25rem; }
 .lp-point { display:flex; flex-direction:column; }
@@ -410,7 +409,7 @@ const jsonLd = {
 .lp-product-img { aspect-ratio:4/3; overflow:hidden; background:linear-gradient(135deg,#FCE9B8,#F0B23C); }
 .lp-product-img img { width:100%; height:100%; object-fit:cover; display:block; }
 .lp-product-body { padding:1.25rem; display:flex; flex-direction:column; gap:.5rem; flex:1; }
-.lp-product-body h3 { font-size:.95rem; font-weight:700; color:#2C2A24; line-height:1.4; }
+.lp-product-body h3 { font-size:1.05rem; font-weight:700; color:#2C2A24; line-height:1.4; }
 .lp-product-price { font-family:Manrope,sans-serif; font-size:.82rem; font-weight:700; color:#BA7517; }
 .lp-product-lead { font-size:.75rem; color:#6B6860; line-height:1.65; flex:1; }
 .lp-product-contents { background:#FFFDF5; border:1px solid rgba(186,117,23,.2); border-radius:10px; padding:.75rem; margin:.25rem 0; }
@@ -447,7 +446,7 @@ const jsonLd = {
 .lp-review-avatar img { width:100%; height:100%; object-fit:cover; display:block; }
 .lp-review-name { font-size:.82rem; font-weight:700; color:#2C2A24; }
 .lp-review-detail { font-size:.68rem; color:#9B9994; }
-.lp-review-text { font-size:.78rem; color:#6B6860; line-height:1.8; }
+.lp-review-text { font-size:.85rem; color:#6B6860; line-height:1.8; }
 .lp-review-stars { color:#F0B23C; font-size:.85rem; margin-top:.75rem; }
 .lp-review-dots { display:flex; justify-content:center; gap:.5rem; margin-top:1.5rem; }
 .lp-review-dots span { width:10px; height:10px; border-radius:50%; background:rgba(186,117,23,.25); }
@@ -458,7 +457,7 @@ const jsonLd = {
 .lp-faq { border:1px solid rgba(186,117,23,.15); border-radius:12px; background:white; overflow:hidden; }
 .lp-faq-q { display:flex; align-items:center; gap:.75rem; padding:1rem 1.1rem; }
 .lp-faq-q > span:first-child { width:24px; height:24px; border-radius:50%; background:#F0B23C; color:white; font-size:.72rem; font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
-.lp-faq-q p { font-size:.82rem; font-weight:700; color:#2C2A24; flex:1; line-height:1.45; }
+.lp-faq-q p { font-size:.88rem; font-weight:700; color:#2C2A24; flex:1; line-height:1.45; }
 .lp-faq-plus { font-size:1.1rem; color:#BA7517; flex-shrink:0; }
 .lp-faq-a { padding:.75rem 1.1rem 1rem 3.25rem; }
 .lp-faq-a p { font-size:.78rem; color:#6B6860; line-height:1.7; }
