@@ -8,126 +8,122 @@ const LINE_URL = 'https://line.me/ti/p/@215bpskd';
 const SITE_URL = 'https://kozawa-keiran.com';
 const OG_IMG   = `${SITE_URL}/images/shop/og-shop.jpg`;
 
+const worries = [
+  { pos:'0%',    text:'子どもに安心できる\n食材を選びたい' },
+  { pos:'33.3%', text:'毎日の朝食を\nちゃんとしたい' },
+  { pos:'66.6%', text:'スーパーの卵との\n違いを知りたい' },
+  { pos:'100%',  text:'離乳食や幼児食に\n使う卵を選びたい' },
+];
+
 const points = [
-  { num:'01', title:'富山の自然',       body:'澄んだ水と空気、豊かな自然環境に恵まれた富山で、健康な鶏を育てています。',        img:'/images/shop/point1.jpg' },
-  { num:'02', title:'平飼いで育った鶏', body:'のびのびと平飼いで育つ環境だから、自然な形で健康な鶏に育ちます。',                img:'/images/feature/feature-chicken.jpg' },
-  { num:'03', title:'健康的な餌',       body:'鶏の健康を第一に考えた餌を与え、安全第一に考えています。',                        img:'/images/shop/point3.jpg' },
-  { num:'04', title:'チルド配送',       body:'採れたての鮮度をチルド（冷蔵）でそのままお届けしています。',                      img:'/images/shop/point4.jpg' },
-  { num:'05', title:'生産者の顔が見える', body:'家族に食べさせたい卵を、責任をもってお届けしています。',                       img:'/images/shop/point5.jpg' },
+  { num:'01', title:'富山の自然',       body:'澄んだ水と空気、豊かな自然環境に恵まれた富山で、健康な鶏を育てています。', img:'/images/shop/point1.jpg' },
+  { num:'02', title:'平飼いで育った鶏', body:'のびのびと平飼いで育つ環境だから、自然な形で健康な鶏に育ちます。',         img:'/images/feature/feature-chicken.jpg' },
+  { num:'03', title:'健康的な餌',       body:'鶏の健康を第一に考えた餌を与え、安全第一に考えています。',                 img:'/images/shop/point3.jpg' },
+  { num:'04', title:'チルド配送',       body:'採れたての鮮度をチルド（冷蔵）でそのままお届けしています。',               img:'/images/shop/point4.jpg' },
+  { num:'05', title:'生産者の顔が見える',body:'家族に食べさせたい卵を、責任をもってお届けしています。',                  img:'/images/shop/point5.jpg' },
 ];
 
 const nutrients = [
-  { icon:'💪', title:'良質なたんぱく質',        body:'体をつくる土台となるたんぱく質をバランスよく含んでいます。' },
-  { icon:'🧠', title:'コリン・レシチン',        body:'卵黄に含まれるコリンやレシチンは、学習や記憶に関わる栄養素です。' },
+  { icon:'💪', title:'良質なたんぱく質',       body:'体をつくる土台となるたんぱく質をバランスよく含んでいます。' },
+  { icon:'🧠', title:'コリン・レシチン',       body:'卵黄に含まれるコリンやレシチンは、学習や記憶に関わる栄養素です。' },
   { icon:'🌱', title:'成長期の体づくりをサポート', body:'成長期の子どもに必要な栄養を、毎日の食事で手軽にとれます。' },
   { icon:'🍼', title:'離乳食・幼児食にも使いやすい', body:'やさしい味わいで、いろいろな料理に使いやすい食材です。' },
-  { icon:'😋', title:'シンプルでもおいしい',    body:'素材が良いから、シンプルな料理でもおいしく食べられます。' },
+  { icon:'😋', title:'シンプルでもおいしい',   body:'素材が良いから、シンプルな料理でもおいしく食べられます。' },
   { icon:'✨', title:'食への興味・関心につながる', body:'おいしい体験が、子どもの食への興味や「食べる力」を育みます。' },
 ];
 
 const products = [
-  { id:'egg20',   img:'/images/shop/product1.jpg', badge:null,    name:'平飼い卵 20個', price:'2,980円（税込・送料込み）', lead:'まずはシンプルに、鮮度そのもののおいしさを確かめてください。', contents:null },
-  { id:'egg-soy', img:'/images/shop/product2.jpg', badge:null,    name:'平飼い卵 20個\n＋卵かけご飯醤油', price:'3,500円（税込・送料込み）', lead:'卵かけご飯専用の醤油がついた、卵の美味しさが引き立つセットです。', contents:null },
-  { id:'morning', img:'/images/shop/product3.jpg', badge:'おすすめ', name:'富山の朝ごはんセット', price:'5,000円（税込・送料込み）', lead:'富山のおいしいものを詰め合わせた、特別な朝ごはん体験セットです。', contents:['平飼い卵 20個（10個×2パック）','卵かけご飯醤油 1本（150ml）','富山県産米 富富富 2合（300g）','富山の味 お漬物・味噌汁の素（例）'] },
+  { id:'egg20',   badge:null,      img:'/images/shop/product1.jpg', name:'平飼い卵 20個',                    price:'2,980円（税込・送料込み）', lead:'まずはシンプルに、鮮度そのものの\nおいしさを確かめてください。',                          contents:null },
+  { id:'egg-soy', badge:null,      img:'/images/shop/product2.jpg', name:'平飼い卵 20個\n＋卵かけご飯醤油', price:'3,500円（税込・送料込み）', lead:'卵かけご飯専用の醤油がついた、\n卵の美味しさが引き立つセットです。',                      contents:null },
+  { id:'morning', badge:'おすすめ', img:'/images/shop/product3.jpg', name:'富山の朝ごはんセット',             price:'5,000円（税込・送料込み）', lead:'富山のおいしいものを詰め合わせた、\n特別な朝ごはん体験セットです。', contents:['平飼い卵 20個（10個×2パック）','卵かけご飯醤油 1本（150ml）','富山県産米 富富富 2合（300g）','富山の味 お漬物・味噌汁の素（例）'] },
 ];
 
 const reviews = [
-  { name:'S.さん', detail:'富山市・30代・お子さま2人', img:'/images/shop/review1.jpg', text:'子どもが「この卵おいしい！」と言って食べてくれます。卵かけご飯が食卓の楽しみになりました！', stars:5 },
-  { name:'K.さん', detail:'高岡市・40代・お子さま1人', img:'/images/shop/review2.jpg', text:'卵かけご飯が大好きになって、朝ごはんが楽しみになりました！黄身の濃さが全然違います。', stars:5 },
-  { name:'M.さん', detail:'射水市・30代・お子さま1人', img:'/images/shop/review3.jpg', text:'離乳食にも安心して使えるので、本当に助かっています。生産者さんの顔が見えるのも安心。', stars:5 },
+  { name:'S.さん（富山市・30代・お子さま2人）', img:'/images/shop/review1.jpg', text:'子どもが「この卵おいしい！」と言って食べてくれます。卵かけご飯が食卓の楽しみになりました！', stars:5 },
+  { name:'K.さん（高岡市・40代・お子さま1人）', img:'/images/shop/review2.jpg', text:'卵かけご飯が大好きになって、朝ごはんが楽しみになりました！黄身の濃さが全然違います。',     stars:5 },
+  { name:'M.さん（射水市・30代・お子さま1人）', img:'/images/shop/review3.jpg', text:'離乳食にも安心して使えるので、本当に助かっています。生産者さんの顔が見えるのも安心。',     stars:5 },
 ];
 
 const faqs = [
-  { q:'配送料について教えてください',       a:'商品価格に送料を含んでいます。別途送料はかかりません。' },
-  { q:'お支払い方法はありますか？',         a:'クレジットカード（Square決済）をご利用いただけます。LINEでのご相談後にご案内します。' },
-  { q:'定期便はいつでも停止できますか？',   a:'はい、いつでも停止・再開できます。縛りや解約手数料は一切ありません。' },
-  { q:'卵は生で食べても大丈夫ですか？',     a:'新鮮な状態でお届けしていますが、適切な保管と加熱をお勧めします。' },
-  { q:'卵が割れていた場合はどうすればいいですか？', a:'写真をLINEにお送りください。すぐに対応いたします。' },
-  { q:'離乳食に使っても大丈夫ですか？',     a:'赤ちゃんの月齢や体調、アレルギーに配慮し、必要に応じて医師や専門家にご相談ください。' },
+  { q:'配送料について教えてください',         a:'商品価格に送料を含んでいます。別途送料はかかりません。' },
+  { q:'お支払い方法はありますか？',           a:'クレジットカード（Square決済）をご利用いただけます。LINEでのご相談後にご案内します。' },
+  { q:'定期便はいつでも停止できますか？',     a:'はい、いつでも停止・再開できます。縛りや解約手数料は一切ありません。' },
+  { q:'卵は生で食べても大丈夫ですか？',       a:'新鮮な状態でお届けしていますが、卵の取り扱いには適切な保管・加熱をお勧めします。' },
+  { q:'卵が割れていた場合はどうすればいいですか？', a:'お届け時に割れがあった場合は、写真をLINEにお送りください。すぐに対応いたします。' },
+  { q:'離乳食に使っても大丈夫ですか？',       a:'赤ちゃんの月齢や体調、アレルギーに配慮し、必要に応じて医師や専門家にご相談のうえご使用ください。' },
 ];
 
 const jsonLd = {
   "@context":"https://schema.org","@type":"Product",
   "name":"小澤鶏卵場 富山の平飼い朝どれ卵",
-  "description":"富山の自然で育った平飼い卵。子どもにも安心して食べさせたい朝食を提案。チルド配送・生産者直送・定期便あり。",
+  "description":"富山の自然で育った平飼い卵。チルド配送・生産者直送・定期便あり。",
   "brand":{"@type":"Brand","name":"小澤鶏卵場"},
   "offers":{"@type":"Offer","price":"2980","priceCurrency":"JPY","availability":"https://schema.org/InStock","url":`${SITE_URL}/shop/`}
 };
 ---
-<Layout
-  title="子どもに食べさせたい卵があります｜富山の平飼い卵・小澤鶏卵場"
-  description="富山の自然で育った平飼い卵を家族の朝ごはんに。チルド配送・生産者直送・定期便あり。30〜40代の子育て家族に選ばれる小澤鶏卵場の卵をLINEでご注文・ご相談ください。"
->
+<Layout title="子どもに食べさせたい卵があります｜富山の平飼い卵・小澤鶏卵場"
+  description="富山の自然で育った平飼い卵を家族の朝ごはんに。チルド配送・生産者直送・定期便あり。30〜40代の子育て家族に選ばれる小澤鶏卵場の卵をLINEでご注文・ご相談ください。">
   <meta slot="head" property="og:title"       content="子どもに食べさせたい卵があります｜小澤鶏卵場"/>
   <meta slot="head" property="og:description" content="富山の平飼い・朝どれ卵。家族の朝ごはんに。チルド配送・縛りなし定期便。"/>
   <meta slot="head" property="og:image"       content={OG_IMG}/>
   <meta slot="head" property="og:url"         content={`${SITE_URL}/shop/`}/>
   <script slot="head" type="application/ld+json" set:html={JSON.stringify(jsonLd)}></script>
 
-  <!-- LP専用ヘッダー（通常ヘッダーの下に表示） -->
-  <Header/>
-
-  <!-- LP専用サブナビ -->
-  <div class="lp-subnav">
-    <div class="lp-subnav-in">
-      <div class="lp-subnav-brand">
-        <img src="/images/icon.png" alt="" class="lp-subnav-icon"/>
+  <!-- LP専用ヘッダー -->
+  <header class="lp-hdr">
+    <div class="lp-hdr-in">
+      <div class="lp-hdr-logo">
+        <img src="/images/icon.png" alt="" class="lp-hdr-icon"/>
         <div>
-          <span class="lp-subnav-name">小澤鶏卵場</span>
-          <span class="lp-subnav-sub">富山の平飼い卵</span>
+          <span class="lp-hdr-jp">小澤鶏卵場</span>
+          <span class="lp-hdr-sub">富山の平飼い卵</span>
         </div>
       </div>
-      <nav class="lp-subnav-links">
+      <nav class="lp-hdr-nav">
         <a href="#reasons">こだわり</a>
         <a href="#health">健康のこと</a>
         <a href="#products">商品一覧</a>
-        <a href="#morning-set">朝ごはんセット</a>
+        <a href="#morning">朝ごはんセット</a>
         <a href="#subscription">定期便</a>
         <a href="#reviews">お客様の声</a>
         <a href="#faq">よくある質問</a>
       </nav>
-      <a href={LINE_URL} target="_blank" rel="noopener" class="lp-subnav-cta">
+      <a href={LINE_URL} target="_blank" rel="noopener" class="lp-hdr-btn">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.07 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
         LINEで注文・相談する
       </a>
     </div>
-  </div>
+  </header>
 
   <main class="lp-main">
 
     <!-- ① HERO -->
-    <section class="lp-hero">
-      <!-- 全面背景画像 -->
+    <section id="hero" class="lp-hero">
       <img src="/images/shop/hero-family.jpg" alt="" loading="eager" class="lp-hero-bg" aria-hidden="true"/>
-      <div class="lp-hero-fade-l"></div>
+      <div class="lp-hero-fade-r"></div>
       <div class="lp-hero-fade-b"></div>
-      <!-- 葉っぱ装飾 -->
-      <span class="lp-leaf lp-leaf--tl">🌿</span>
-      <span class="lp-leaf lp-leaf--bl">🌿</span>
-      <div class="lp-hero-in">
-        <div class="lp-hero-text">
-          <h1>子どもに<br/>食べさせたい<br/>卵があります。</h1>
-          <p>富山の自然で育った平飼い卵を、<br/>家族の朝ごはんに。</p>
-          <LineButton text="LINEで注文・相談する" size="lg"/>
-        </div>
+      <span class="lp-hero-leaf lp-hero-leaf--tl">🌿</span>
+      <span class="lp-hero-leaf lp-hero-leaf--bl">🌿</span>
+      <div class="lp-hero-body">
+        <h1>子どもに<br/>食べさせたい<br/>卵があります。</h1>
+        <p>富山の自然で育った平飼い卵を、<br/>家族の朝ごはんに。</p>
+        <a href={LINE_URL} target="_blank" rel="noopener" class="lp-line-btn lp-line-btn--lg">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.07 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+          LINEで注文・相談する
+        </a>
       </div>
     </section>
 
-    <!-- ② 悩み提起 -->
-    <section class="lp-sec lp-sec--white">
-      <div class="lp-container">
+    <!-- ② お悩み -->
+    <section id="worries" class="lp-sec lp-sec--white">
+      <div class="lp-inner lp-inner--sm">
         <h2 class="lp-sec-title">こんなお悩みありませんか？</h2>
-        <div class="lp-worries">
-          {[
-            { pos:'0%',    text:'子どもに安心できる\n食材を選びたい' },
-            { pos:'33.3%', text:'毎日の朝食を\nちゃんとしたい' },
-            { pos:'66.6%', text:'スーパーの卵との\n違いを知りたい' },
-            { pos:'100%',  text:'離乳食や幼児食に\n使う卵を選びたい' },
-          ].map(w => (
-            <div class="lp-worry-card">
-              <div class="lp-worry-icon">
+        <div class="worry-grid">
+          {worries.map(w => (
+            <div class="worry-card">
+              <div class="worry-icon">
                 <img src="/images/shop/worries-icons.png" alt="" loading="lazy"
-                  style={`width:400%;margin-left:-${w.pos};height:100%;object-fit:cover;display:block`}/>
+                  style={`width:400%;margin-left:-${w.pos};height:100%;object-fit:cover;`}/>
               </div>
               <p>{w.text}</p>
             </div>
@@ -138,86 +134,85 @@ const jsonLd = {
 
     <!-- ③ 選ばれる理由 -->
     <section id="reasons" class="lp-sec lp-sec--cream">
-      <div class="lp-container">
-        <div class="lp-reasons-head">
-          <h2>小澤鶏卵場の卵が<br/>選ばれる理由</h2>
-          <span class="lp-reasons-chick">🐔</span>
-        </div>
-        <div class="lp-points">
+      <div class="lp-inner">
+        <h2 class="lp-sec-title--left">小澤鶏卵場の卵が<br/>選ばれる理由</h2>
+        <div class="point-row">
           {points.map(p => (
-            <div class="lp-point">
-              <div class="lp-point-img">
+            <div class="point-card">
+              <div class="point-img">
                 <img src={p.img} alt={p.title} loading="lazy"/>
               </div>
-              <p class="lp-point-num">{p.num}</p>
-              <p class="lp-point-title">{p.title}</p>
-              <p class="lp-point-body">{p.body}</p>
+              <span class="point-num">{p.num}</span>
+              <h3>{p.title}</h3>
+              <p>{p.body}</p>
             </div>
           ))}
         </div>
       </div>
     </section>
 
-    <!-- ④ 健康メリット -->
+    <!-- ④ 健康メリット（3カラム） -->
     <section id="health" class="lp-sec lp-sec--white">
-      <div class="lp-container">
-        <div class="lp-health-grid">
-          <!-- 左：卵黄写真 -->
-          <div class="lp-health-img">
-            <img src="/images/shop/health-egg.jpg" alt="毎日の卵をちゃんと選ぶ理由" loading="lazy"/>
+      <div class="lp-inner">
+        <div class="health-grid">
+          <!-- 左：見出し＋本文＋卵黄写真 -->
+          <div class="health-left">
+            <h2>毎日の卵を、<br/>ちゃんと選ぶ理由。</h2>
+            <p class="health-lead">卵は「完全栄養食品」と呼ばれるほど<br/>栄養バランスに優れた食材。<br/>良い環境と健康で育った卵は、<br/>家族みんなの毎日を支えます。</p>
+            <div class="health-egg-img">
+              <img src="/images/shop/health-egg.jpg" alt="卵黄" loading="lazy"/>
+            </div>
           </div>
           <!-- 中：栄養リスト -->
-          <div class="lp-health-list">
-            <h2>毎日の卵を、<br/>ちゃんと選ぶ理由。</h2>
-            <p class="lp-health-lead">卵は「完全栄養食品」と呼ばれるほど<br/>栄養バランスに優れた食材。<br/>良い環境と餌で育った卵は、<br/>家族みんなの毎日を支えます。</p>
-            <ul class="lp-nutrients">
+          <div class="health-center">
+            <ul class="health-list">
               {nutrients.map(n => (
                 <li>
-                  <span class="lp-nut-icon">{n.icon}</span>
+                  <span class="health-icon">{n.icon}</span>
                   <div>
-                    <p class="lp-nut-title">{n.title}</p>
-                    <p class="lp-nut-body">{n.body}</p>
+                    <strong>{n.title}</strong>
+                    <span>{n.body}</span>
                   </div>
                 </li>
               ))}
             </ul>
-            <p class="lp-health-note">※アレルギーや月齢に配慮し、必要に応じて医師や専門家にご相談ください。</p>
+            <div class="health-note">
+              ※アレルギーや月齢に配慮し、必要に応じて医師や専門家にご相談ください。
+            </div>
           </div>
           <!-- 右：赤ちゃん写真 -->
-          <div class="lp-health-baby">
-            <img src="/images/shop/health-baby.jpg" alt="離乳食にも安心" loading="lazy"/>
+          <div class="health-right">
+            <img src="/images/shop/health-baby.jpg" alt="離乳食と赤ちゃん" loading="lazy"/>
           </div>
         </div>
       </div>
     </section>
 
     <!-- ⑤ 商品一覧 -->
-    <section id="products" class="lp-sec lp-sec--cream">
-      <div class="lp-container">
-        <div class="lp-sec-head-deco">
-          <span>🌿</span><h2>商品一覧</h2><span>🌿</span>
+    <section id="products" class="lp-sec lp-sec--white">
+      <div class="lp-inner">
+        <div class="prod-head-deco">
+          <span>🌿</span><h2 class="lp-sec-title">商品一覧</h2><span>🌿</span>
         </div>
-        <div class="lp-products">
+        <div class="prod-grid">
           {products.map(p => (
-            <div class:list={["lp-product-card", { "lp-product-card--featured": p.badge }]}>
-              {p.badge && <span class="lp-product-badge">{p.badge}</span>}
-              <div class="lp-product-img">
+            <div class:list={["prod-card", p.badge && "prod-card--main"]} id={p.id}>
+              {p.badge && <span class="prod-badge">{p.badge}</span>}
+              <div class="prod-img">
                 <img src={p.img} alt={p.name} loading="lazy"/>
               </div>
-              <div class="lp-product-body">
-                <h3 class="whitespace-pre-line">{p.name}</h3>
-                <p class="lp-product-price">{p.price}</p>
-                <p class="lp-product-lead">{p.lead}</p>
+              <div class="prod-body">
+                <h3>{p.name}</h3>
+                <p class="prod-price">{p.price}</p>
+                <p class="prod-lead">{p.lead}</p>
                 {p.contents && (
-                  <div class="lp-product-contents" id="morning-set">
-                    <p class="lp-product-contents-title">セット内容</p>
-                    <ul>
-                      {p.contents.map(c => <li>＋ {c}</li>)}
-                    </ul>
-                    <p class="lp-product-note">※セット内容は変更になる場合があります</p>
+                  <div class="prod-set-box">
+                    <p class="prod-set-label">セット内容</p>
+                    <ul>{p.contents.map(c => <li>＋ {c}</li>)}</ul>
+                    <p class="prod-set-note">※セット内容は変更になる場合があります</p>
                   </div>
                 )}
-                <LineButton text="詳しく見る" size="sm"/>
+                <a href={LINE_URL} target="_blank" rel="noopener" class="prod-btn">詳しく見る</a>
               </div>
             </div>
           ))}
@@ -226,59 +221,55 @@ const jsonLd = {
     </section>
 
     <!-- ⑥ 定期便 -->
-    <section id="subscription" class="lp-subscription">
-      <!-- 背景画像 -->
-      <img src="/images/shop/subscription-bg.jpg" alt="" class="lp-subscription-bg" aria-hidden="true"/>
-      <div class="lp-subscription-overlay"></div>
-      <div class="lp-container lp-subscription-in">
-        <div class="lp-subscription-card">
-          <span class="lp-subscription-badge">人気 No.1</span>
-          <h2>定期便のご案内</h2>
-          <div class="lp-subscription-specs">
-            {[{l:'お届け頻度',v:'2週間ごと'},{l:'内容量',v:'20個入り'},{l:'お値段',v:'2,780円（税込）'}].map(s => (
-              <div class="lp-subscription-spec">
-                <p class="lp-spec-label">{s.l}</p>
-                <p class="lp-spec-value">{s.v}</p>
-              </div>
-            ))}
+    <section id="subscription" class="lp-sec lp-sub-sec">
+      <div class="lp-inner">
+        <div class="sub-card">
+          <!-- 左：山の写真 -->
+          <div class="sub-img">
+            <img src="/images/shop/subscription-bg.jpg" alt="富山の自然" loading="lazy"/>
           </div>
-          <ul class="lp-subscription-checks">
-            {['送料込み','いつでも停止・再開OK','縛りなし・解約手数料なし','LINEで配送日の相談ができる'].map(item => (
-              <li><span>✓</span>{item}</li>
-            ))}
-          </ul>
-          <LineButton text="LINEで定期便を相談する" size="lg"/>
-          <p class="lp-subscription-note">買い忘れの心配なし！いつも新鮮なたまごをお届けします。</p>
-        </div>
-        <div class="lp-subscription-right">
-          <img src="/images/feature/feature-egg.jpg" alt="" loading="lazy"/>
-          <p>いつも新鮮なたまごを<br/>お届けします。</p>
+          <!-- 中：テキスト -->
+          <div class="sub-body">
+            <span class="sub-badge">人気 No.1</span>
+            <h2>定期便のご案内</h2>
+            <ul class="sub-checks">
+              <li>✓ 20個入りを2週間ごとにお届け</li>
+              <li>✓ 2,780円（税込）／1回あたり</li>
+              <li>✓ いつでも停止OK・縛りなし</li>
+            </ul>
+            <a href={LINE_URL} target="_blank" rel="noopener" class="lp-line-btn lp-line-btn--md">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.07 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+              LINEで定期便を相談する
+            </a>
+          </div>
+          <!-- 右：卵の写真 -->
+          <div class="sub-egg-img">
+            <p class="sub-egg-copy">買い忘れの心配なし！<br/>いつも新鮮なたまごを<br/>お届けします。</p>
+            <img src="/images/feature/feature-egg.jpg" alt="定期便の卵" loading="lazy"/>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- ⑦ お客様の声 -->
     <section id="reviews" class="lp-sec lp-sec--white">
-      <div class="lp-container">
+      <div class="lp-inner lp-inner--sm">
         <h2 class="lp-sec-title">お客様の声</h2>
-        <div class="lp-reviews">
+        <div class="review-grid">
           {reviews.map(r => (
-            <div class="lp-review-card">
-              <div class="lp-review-header">
-                <div class="lp-review-avatar">
+            <div class="review-card">
+              <div class="review-head">
+                <div class="review-avatar">
                   <img src="/images/shop/review-avatar.png" alt="" loading="lazy"/>
                 </div>
-                <div>
-                  <p class="lp-review-name">{r.name}</p>
-                  <p class="lp-review-detail">{r.detail}</p>
-                </div>
+                <span>{r.name}</span>
               </div>
-              <p class="lp-review-text">{r.text}</p>
-              <div class="lp-review-stars">{"★".repeat(r.stars)}</div>
+              <p>{r.text}</p>
+              <div class="review-stars">{"★".repeat(r.stars)}</div>
             </div>
           ))}
         </div>
-        <div class="lp-review-dots">
+        <div class="review-dots">
           <span class="active"></span><span></span><span></span>
         </div>
       </div>
@@ -286,19 +277,13 @@ const jsonLd = {
 
     <!-- ⑧ FAQ -->
     <section id="faq" class="lp-sec lp-sec--cream">
-      <div class="lp-container">
+      <div class="lp-inner lp-inner--sm">
         <h2 class="lp-sec-title">よくあるご質問</h2>
-        <div class="lp-faqs">
+        <div class="faq-grid">
           {faqs.map(f => (
-            <div class="lp-faq">
-              <div class="lp-faq-q">
-                <span>Q</span>
-                <p>{f.q}</p>
-                <span class="lp-faq-plus">＋</span>
-              </div>
-              <div class="lp-faq-a">
-                <p>{f.a}</p>
-              </div>
+            <div class="faq-item">
+              <div class="faq-q"><span>Q</span>{f.q}</div>
+              <div class="faq-a">{f.a}</div>
             </div>
           ))}
         </div>
@@ -306,193 +291,204 @@ const jsonLd = {
     </section>
 
     <!-- ⑨ 最終CTA -->
-    <section id="cta" class="lp-final">
-      <!-- 全面背景画像（右側に卵） -->
-      <img src="/images/feature/feature-egg.jpg" alt="" class="lp-final-bg" aria-hidden="true" loading="lazy"/>
-      <div class="lp-final-fade-r"></div>
-      <div class="lp-final-fade-t"></div>
-      <div class="lp-container lp-final-in">
-        <div class="lp-final-text">
+    <section id="cta" class="lp-cta">
+      <div class="lp-cta-grid">
+        <div class="lp-cta-text">
           <h2>まずはLINEで<br/>お気軽にご相談ください。</h2>
           <p>商品のこと、定期便のこと、<br/>どんなことでも大歓迎です。</p>
-          <LineButton text="LINEで注文・相談する" size="lg"/>
-          <p class="lp-final-note">無理な営業はいたしません</p>
+          <a href={LINE_URL} target="_blank" rel="noopener" class="lp-line-btn lp-line-btn--lg">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.07 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+            LINEで注文・相談する
+          </a>
         </div>
-        <div class="lp-final-img"></div>
+        <div class="lp-cta-img">
+          <img src="/images/feature/feature-egg.jpg" alt="" loading="lazy"/>
+        </div>
       </div>
     </section>
 
+    <!-- LP専用フッター -->
+    <footer class="lp-footer">
+      <div class="lp-footer-nav">
+        <a href="#reasons">こだわり</a>
+        <a href="#health">健康のこと</a>
+        <a href="#products">商品一覧</a>
+        <a href="#subscription">定期便</a>
+        <a href="#reviews">お客様の声</a>
+        <a href="#faq">よくある質問</a>
+        <a href="/about">農場について</a>
+      </div>
+      <p class="lp-footer-copy">&copy; {new Date().getFullYear()} KOZAWA KEIRAN. All rights reserved.</p>
+    </footer>
+
   </main>
-  <Footer/>
 </Layout>
 
 <style>
-/* ── LP専用サブナビ ── */
-.lp-subnav { position:sticky; top:76px; z-index:100; background:white; border-bottom:1px solid rgba(186,117,23,.12); box-shadow:0 2px 8px rgba(0,0,0,.04); }
-.lp-subnav-in { max-width:1200px; margin:0 auto; padding:0 1.5rem; height:48px; display:flex; align-items:center; gap:1.5rem; }
-.lp-subnav-brand { display:flex; align-items:center; gap:.5rem; flex-shrink:0; }
-.lp-subnav-icon { height:28px; width:auto; }
-.lp-subnav-name { display:block; font-size:.8rem; font-weight:700; color:#2C2A24; line-height:1.2; }
-.lp-subnav-sub { display:block; font-size:.6rem; color:#9B9994; }
-.lp-subnav-links { display:flex; gap:1.5rem; flex:1; justify-content:center; }
-.lp-subnav-links a { font-size:.72rem; color:#6B6860; text-decoration:none; white-space:nowrap; transition:color .15s; }
-.lp-subnav-links a:hover { color:#BA7517; }
-.lp-subnav-cta { display:inline-flex; align-items:center; gap:.4rem; background:#06C755; color:white; font-size:.72rem; font-weight:700; padding:.4rem 1rem; border-radius:999px; text-decoration:none; flex-shrink:0; transition:opacity .15s; }
-.lp-subnav-cta:hover { opacity:.88; }
+/* ── フォント ── */
+.lp-main, .lp-hdr { font-family: 'Zen Kaku Gothic New', Manrope, sans-serif; }
 
-/* ── メイン ── */
-.lp-main { font-family:'Zen Kaku Gothic New',sans-serif; }
-.lp-container { max-width:1080px; margin:0 auto; padding:0 2rem; }
+/* ── LP専用ヘッダー ── */
+.lp-hdr { position:fixed; top:0; left:0; right:0; z-index:300; background:rgba(255,253,245,.97); border-bottom:1px solid rgba(186,117,23,.12); backdrop-filter:blur(12px); }
+.lp-hdr-in { max-width:1280px; margin:0 auto; padding:0 1.5rem; height:60px; display:flex; align-items:center; gap:1.5rem; }
+.lp-hdr-logo { display:flex; align-items:center; gap:.6rem; flex-shrink:0; }
+.lp-hdr-icon { height:36px; width:auto; }
+.lp-hdr-jp { display:block; font-size:.9rem; font-weight:700; color:#2C2A24; letter-spacing:.08em; line-height:1.2; }
+.lp-hdr-sub { display:block; font-size:.55rem; color:#9B9994; letter-spacing:.08em; }
+.lp-hdr-nav { flex:1; display:flex; gap:.1rem; justify-content:center; }
+.lp-hdr-nav a { font-size:.72rem; color:#5a4a2a; padding:.3rem .6rem; border-radius:6px; text-decoration:none; white-space:nowrap; transition:background .15s; }
+.lp-hdr-nav a:hover { background:rgba(186,117,23,.1); color:#BA7517; }
+.lp-hdr-btn { display:inline-flex; align-items:center; gap:.4rem; background:#06C755; color:white; font-size:.75rem; font-weight:700; padding:.5rem 1.1rem; border-radius:999px; text-decoration:none; white-space:nowrap; flex-shrink:0; transition:opacity .15s; }
+.lp-hdr-btn:hover { opacity:.88; }
+
+/* ── 共通 ── */
+.lp-main { margin-top:60px; }
 .lp-sec { padding:4.5rem 0; }
 .lp-sec--white { background:#fff; }
-.lp-sec--cream { background:#FFFDF5; }
-.lp-sec-title { text-align:center; font-size:1.6rem; font-weight:700; color:#2C2A24; margin-bottom:2.5rem; }
-.lp-sec-head-deco { display:flex; align-items:center; justify-content:center; gap:.75rem; margin-bottom:2.5rem; }
-.lp-sec-head-deco h2 { font-size:1.5rem; font-weight:700; color:#2C2A24; }
+.lp-sec--cream { background:#F9F7F0; }
+.lp-inner { max-width:1100px; margin:0 auto; padding:0 2rem; }
+.lp-inner--sm { max-width:860px; }
+.lp-sec-title { text-align:center; font-size:clamp(1.2rem,2.5vw,1.6rem); font-weight:700; color:#2C2A24; margin-bottom:2.5rem; }
+.lp-sec-title--left { font-size:clamp(1.2rem,2.5vw,1.5rem); font-weight:700; color:#2C2A24; margin-bottom:2rem; }
 
-/* ── ① HERO ── */
-.lp-hero { position:relative; background:#FFFDF5; overflow:hidden; padding-top:76px; min-height:540px; }
-/* 写真を右半分背景に */
-.lp-hero-img { position:absolute; top:0; right:0; width:62%; height:100%; }
-.lp-hero-img img { width:100%; height:100%; object-fit:cover; object-position:20% 30%; display:block; }
-/* 写真の左側フェード */
-.lp-hero-img-fade-l { position:absolute; top:0; left:0; bottom:0; width:55%; background:linear-gradient(to right, #FFFDF5 0%, #FFFDF5 30%, rgba(255,253,245,.85) 60%, transparent 100%); }
-/* 写真の下部フェード */
-.lp-hero-img-fade-b { position:absolute; bottom:0; left:0; right:0; height:30%; background:linear-gradient(to bottom, transparent, #FFFDF5); }
-.lp-hero-in { position:relative; z-index:2; max-width:1080px; margin:0 auto; padding:4rem 2rem 4.5rem; }
-.lp-hero-text { max-width:480px; }
-.lp-hero-text h1 { font-size:clamp(2.2rem,4.8vw,3.6rem); font-weight:700; color:#2C2A24; line-height:1.35; margin-bottom:1.1rem; letter-spacing:-.01em; }
-.lp-hero-text > p { font-size:.95rem; color:#6B6860; line-height:1.85; margin-bottom:2rem; }
-.lp-hero-egg-deco { display:none; }
-.lp-leaf { position:absolute; font-size:2.5rem; opacity:.3; pointer-events:none; }
-.lp-leaf--tl { top:5rem; left:1rem; transform:rotate(-20deg); }
-.lp-leaf--bl { bottom:2rem; left:2rem; transform:rotate(10deg) scaleX(-1); font-size:1.8rem; }
+/* ── LINE ボタン ── */
+.lp-line-btn { display:inline-flex; align-items:center; gap:.5rem; background:#06C755; color:white; font-weight:700; border-radius:999px; text-decoration:none; transition:opacity .2s; }
+.lp-line-btn:hover { opacity:.88; }
+.lp-line-btn--lg { padding:.9rem 2rem; font-size:1rem; box-shadow:0 6px 20px rgba(6,199,85,.3); }
+.lp-line-btn--md { padding:.75rem 1.5rem; font-size:.88rem; }
 
-/* ── ② 悩み ── */
-.lp-worries { display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; }
-.lp-worry-card { display:flex; flex-direction:column; align-items:center; gap:.75rem; border:1px solid rgba(186,117,23,.2); background:#FFFDF5; border-radius:16px; padding:1.5rem 1rem; text-align:center; box-shadow:0 2px 8px rgba(0,0,0,.04); }
-.lp-worry-icon { width:110px; height:110px; overflow:hidden; border-radius:4px; }
-.lp-worry-card p { font-size:.82rem; font-weight:700; color:#5a4a2a; line-height:1.6; white-space:pre-line; }
+/* ── HERO ── */
+.lp-hero { position:relative; min-height:580px; overflow:hidden; background:#FFFDF5; }
+.lp-hero-bg { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:20% center; }
+.lp-hero-fade-r { position:absolute; inset:0; background:linear-gradient(to right, rgba(255,253,245,1) 0%, rgba(255,253,245,.97) 32%, rgba(255,253,245,.6) 55%, transparent 75%); }
+.lp-hero-fade-b { position:absolute; bottom:0; left:0; right:0; height:120px; background:linear-gradient(to bottom, transparent, #fff); }
+.lp-hero-leaf { position:absolute; font-size:2rem; opacity:.25; user-select:none; pointer-events:none; }
+.lp-hero-leaf--tl { left:1.5rem; top:5rem; transform:rotate(-25deg); }
+.lp-hero-leaf--bl { left:2rem; bottom:6rem; transform:rotate(15deg); opacity:.15; }
+.lp-hero-body { position:relative; max-width:1100px; margin:0 auto; padding:5rem 2rem 6rem; }
+.lp-hero-body h1 { font-size:clamp(2.2rem,5vw,3.2rem); font-weight:700; color:#2C2A24; line-height:1.4; margin-bottom:1rem; }
+.lp-hero-body > p { font-size:.92rem; color:#6B6860; line-height:1.8; margin-bottom:2rem; }
 
-/* ── ③ 選ばれる理由 ── */
-.lp-reasons-head { display:flex; align-items:center; gap:1rem; margin-bottom:2rem; }
-.lp-reasons-head h2 { font-size:1.6rem; font-weight:700; color:#2C2A24; }
-.lp-reasons-chick { font-size:2rem; }
-.lp-points { display:grid; grid-template-columns:repeat(5,1fr); gap:1.25rem; }
-.lp-point { display:flex; flex-direction:column; }
-.lp-point-img { border-radius:14px; overflow:hidden; aspect-ratio:1; margin-bottom:.75rem; background:linear-gradient(135deg,#FCE9B8,#F0B23C); }
-.lp-point-img img { width:100%; height:100%; object-fit:cover; display:block; }
-.lp-point-num { font-family:Manrope,sans-serif; font-size:.85rem; font-weight:700; color:#BA7517; margin-bottom:.2rem; }
-.lp-point-title { font-size:.85rem; font-weight:700; color:#2C2A24; margin-bottom:.3rem; }
-.lp-point-body { font-size:.72rem; color:#6B6860; line-height:1.65; }
+/* ── お悩み ── */
+.worry-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; }
+.worry-card { display:flex; flex-direction:column; align-items:center; gap:.75rem; border:1px solid rgba(186,117,23,.18); border-radius:16px; background:#FFFDF5; padding:1.25rem .75rem; text-align:center; }
+.worry-icon { width:72px; height:72px; overflow:hidden; }
+.worry-icon img { width:400%; height:100%; object-fit:cover; display:block; }
+.worry-card p { font-size:.75rem; font-weight:600; color:#5a4a2a; line-height:1.5; white-space:pre-line; }
 
-/* ── ④ 健康メリット ── */
-.lp-health-grid { display:grid; grid-template-columns:1fr 1.4fr 1fr; gap:2.5rem; align-items:start; }
-.lp-health-img { border-radius:16px; overflow:hidden; }
-.lp-health-img img { width:100%; display:block; border-radius:16px; }
-.lp-health-list h2 { font-size:1.4rem; font-weight:700; color:#2C2A24; line-height:1.5; margin-bottom:.75rem; }
-.lp-health-lead { font-size:.82rem; color:#6B6860; line-height:1.8; margin-bottom:1.25rem; }
-.lp-nutrients { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:.75rem; }
-.lp-nutrients li { display:flex; gap:.6rem; align-items:flex-start; }
-.lp-nut-icon { font-size:1.1rem; flex-shrink:0; margin-top:.1rem; }
-.lp-nut-title { font-size:.8rem; font-weight:700; color:#2C2A24; margin-bottom:.15rem; }
-.lp-nut-body { font-size:.72rem; color:#6B6860; line-height:1.55; }
-.lp-health-note { font-size:.68rem; color:#9B9994; margin-top:1rem; line-height:1.6; border:1px solid rgba(186,117,23,.15); background:#FFFDF5; border-radius:8px; padding:.6rem .75rem; }
-.lp-health-baby { border-radius:16px; overflow:hidden; }
-.lp-health-baby img { width:100%; display:block; border-radius:16px; }
+/* ── 選ばれる理由 ── */
+.point-row { display:flex; gap:1.25rem; overflow-x:auto; padding-bottom:.5rem; }
+.point-card { flex:0 0 180px; }
+.point-img { border-radius:14px; overflow:hidden; aspect-ratio:1/1; background:linear-gradient(135deg,#FCE9B8,#F0B23C); margin-bottom:.6rem; }
+.point-img img { width:100%; height:100%; object-fit:cover; display:block; }
+.point-num { font-family:Manrope,sans-serif; font-size:.82rem; font-weight:700; color:#BA7517; display:block; margin-bottom:.2rem; }
+.point-card h3 { font-size:.85rem; font-weight:700; color:#2C2A24; margin-bottom:.3rem; }
+.point-card p { font-size:.72rem; color:#6B6860; line-height:1.65; }
 
-/* ── ⑤ 商品 ── */
-.lp-products { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
-.lp-product-card { position:relative; background:white; border:1px solid rgba(186,117,23,.15); border-radius:20px; overflow:hidden; display:flex; flex-direction:column; box-shadow:0 4px 16px rgba(0,0,0,.05); }
-.lp-product-card--featured { border-color:#BA7517; border-width:2px; }
-.lp-product-badge { position:absolute; top:.75rem; right:.75rem; background:#BA7517; color:white; font-size:.65rem; font-weight:700; padding:.25rem .65rem; border-radius:999px; z-index:1; }
-.lp-product-img { aspect-ratio:4/3; overflow:hidden; background:linear-gradient(135deg,#FCE9B8,#F0B23C); }
-.lp-product-img img { width:100%; height:100%; object-fit:cover; display:block; }
-.lp-product-body { padding:1.25rem; display:flex; flex-direction:column; gap:.5rem; flex:1; }
-.lp-product-body h3 { font-size:1.05rem; font-weight:700; color:#2C2A24; line-height:1.4; }
-.lp-product-price { font-family:Manrope,sans-serif; font-size:.82rem; font-weight:700; color:#BA7517; }
-.lp-product-lead { font-size:.75rem; color:#6B6860; line-height:1.65; flex:1; }
-.lp-product-contents { background:#FFFDF5; border:1px solid rgba(186,117,23,.2); border-radius:10px; padding:.75rem; margin:.25rem 0; }
-.lp-product-contents-title { font-size:.68rem; font-weight:700; color:#BA7517; margin-bottom:.4rem; }
-.lp-product-contents ul { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:.25rem; }
-.lp-product-contents li { font-size:.68rem; color:#6B6860; }
-.lp-product-note { font-size:.6rem; color:#9B9994; margin-top:.35rem; }
+/* ── 健康メリット（3カラム） ── */
+.health-grid { display:grid; grid-template-columns:1fr 1.2fr 1fr; gap:2.5rem; align-items:start; }
+.health-left h2 { font-size:1.35rem; font-weight:700; color:#2C2A24; line-height:1.5; margin-bottom:.85rem; }
+.health-lead { font-size:.82rem; color:#6B6860; line-height:1.85; margin-bottom:1.25rem; }
+.health-egg-img { border-radius:14px; overflow:hidden; aspect-ratio:4/3; }
+.health-egg-img img { width:100%; height:100%; object-fit:cover; display:block; }
+.health-list { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:.85rem; }
+.health-list li { display:flex; gap:.75rem; align-items:flex-start; }
+.health-icon { font-size:1.1rem; flex-shrink:0; margin-top:.1rem; }
+.health-list strong { display:block; font-size:.8rem; color:#2C2A24; margin-bottom:.15rem; }
+.health-list span { font-size:.72rem; color:#6B6860; line-height:1.65; }
+.health-note { margin-top:1rem; font-size:.7rem; color:#9B9994; background:#FFF8EC; border:1px solid rgba(186,117,23,.15); border-radius:8px; padding:.65rem .85rem; line-height:1.65; }
+.health-right { border-radius:14px; overflow:hidden; aspect-ratio:3/4; }
+.health-right img { width:100%; height:100%; object-fit:cover; display:block; }
 
-/* ── ⑥ 定期便 ── */
-.lp-subscription { position:relative; overflow:hidden; padding:5rem 0; }
-.lp-subscription-bg { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
-.lp-subscription-overlay { position:absolute; inset:0; background:rgba(255,253,245,.82); }
-.lp-subscription-in { position:relative; display:grid; grid-template-columns:1.1fr 1fr; gap:3rem; align-items:center; }
-.lp-subscription-card { background:white; border-radius:20px; padding:2rem 2.25rem; border:1px solid rgba(186,117,23,.2); box-shadow:0 8px 24px rgba(0,0,0,.08); position:relative; }
-.lp-subscription-badge { position:absolute; top:-14px; left:1.5rem; background:#BA7517; color:white; font-size:.68rem; font-weight:700; padding:.35rem 1rem; border-radius:999px; }
-.lp-subscription-card h2 { font-size:1.2rem; font-weight:700; color:#2C2A24; margin:0 0 1.25rem; }
-.lp-subscription-specs { display:grid; grid-template-columns:repeat(3,1fr); gap:.75rem; margin-bottom:1.25rem; }
-.lp-subscription-spec { background:#FFFDF5; border:1px solid rgba(186,117,23,.15); border-radius:10px; padding:.75rem; text-align:center; }
-.lp-spec-label { font-size:.65rem; color:#BA7517; font-weight:700; margin-bottom:.25rem; }
-.lp-spec-value { font-size:.82rem; font-weight:700; color:#2C2A24; }
-.lp-subscription-checks { list-style:none; margin:0 0 1.5rem; padding:0; display:flex; flex-direction:column; gap:.5rem; }
-.lp-subscription-checks li { display:flex; align-items:center; gap:.5rem; font-size:.82rem; color:#2C2A24; }
-.lp-subscription-checks span { width:20px; height:20px; border-radius:50%; background:#06C755; color:white; font-size:.65rem; font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
-.lp-subscription-note { font-size:.7rem; color:#9B9994; margin-top:.75rem; text-align:center; }
-.lp-subscription-right { display:flex; flex-direction:column; align-items:center; gap:1rem; }
-.lp-subscription-right img { border-radius:16px; width:100%; object-fit:cover; max-height:280px; }
-.lp-subscription-right p { font-size:.82rem; color:#2C2A24; text-align:center; line-height:1.7; }
+/* ── 商品一覧 ── */
+.prod-head-deco { display:flex; align-items:center; justify-content:center; gap:.75rem; margin-bottom:2.5rem; }
+.prod-head-deco span { font-size:1.2rem; opacity:.5; }
+.prod-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
+.prod-card { position:relative; border-radius:20px; overflow:hidden; background:#fff; border:1px solid rgba(186,117,23,.15); box-shadow:0 4px 18px rgba(44,44,42,.05); display:flex; flex-direction:column; }
+.prod-card--main { border-color:#BA7517; box-shadow:0 6px 24px rgba(186,117,23,.15); }
+.prod-badge { position:absolute; top:.75rem; left:.75rem; z-index:2; background:#BA7517; color:white; font-size:.65rem; font-weight:700; padding:.25rem .7rem; border-radius:999px; }
+.prod-img { aspect-ratio:4/3; overflow:hidden; }
+.prod-img img { width:100%; height:100%; object-fit:cover; display:block; }
+.prod-body { padding:1.25rem; display:flex; flex-direction:column; flex:1; gap:.5rem; }
+.prod-body h3 { font-size:.95rem; font-weight:700; color:#2C2A24; line-height:1.45; white-space:pre-line; }
+.prod-price { font-family:Manrope,sans-serif; font-size:.82rem; font-weight:700; color:#BA7517; }
+.prod-lead { font-size:.75rem; color:#6B6860; line-height:1.7; white-space:pre-line; }
+.prod-set-box { background:#FFF8EC; border:1px solid rgba(186,117,23,.2); border-radius:10px; padding:.75rem; margin-top:.25rem; }
+.prod-set-label { font-size:.68rem; font-weight:700; color:#BA7517; margin-bottom:.4rem; }
+.prod-set-box ul { list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:.2rem; }
+.prod-set-box li { font-size:.7rem; color:#6B6860; }
+.prod-set-note { font-size:.62rem; color:#9B9994; margin-top:.35rem; }
+.prod-btn { display:inline-flex; align-items:center; justify-content:center; margin-top:auto; padding:.6rem 1rem; border-radius:8px; background:#06C755; color:white; font-size:.78rem; font-weight:700; text-decoration:none; transition:opacity .15s; }
+.prod-btn:hover { opacity:.88; }
 
-/* ── ⑦ 口コミ ── */
-.lp-reviews { display:grid; grid-template-columns:repeat(3,1fr); gap:1.25rem; }
-.lp-review-card { background:white; border:1px solid rgba(186,117,23,.12); border-radius:16px; padding:1.5rem; box-shadow:0 2px 12px rgba(0,0,0,.04); }
-.lp-review-header { display:flex; align-items:center; gap:.75rem; margin-bottom:1rem; }
-.lp-review-avatar { width:44px; height:44px; border-radius:50%; overflow:hidden; border:2px solid #F0B23C; flex-shrink:0; }
-.lp-review-avatar img { width:100%; height:100%; object-fit:cover; display:block; }
-.lp-review-name { font-size:.82rem; font-weight:700; color:#2C2A24; }
-.lp-review-detail { font-size:.68rem; color:#9B9994; }
-.lp-review-text { font-size:.85rem; color:#6B6860; line-height:1.8; }
-.lp-review-stars { color:#F0B23C; font-size:.85rem; margin-top:.75rem; }
-.lp-review-dots { display:flex; justify-content:center; gap:.5rem; margin-top:1.5rem; }
-.lp-review-dots span { width:10px; height:10px; border-radius:50%; background:rgba(186,117,23,.25); }
-.lp-review-dots span.active { background:#F0B23C; }
+/* ── 定期便 ── */
+.lp-sub-sec { background:#F9F7F0; padding:3rem 0; }
+.sub-card { display:grid; grid-template-columns:1fr 1.2fr 1fr; border-radius:20px; overflow:hidden; box-shadow:0 6px 28px rgba(44,44,42,.08); }
+.sub-img img { width:100%; height:100%; object-fit:cover; display:block; min-height:280px; }
+.sub-body { background:white; padding:2.25rem 2rem; display:flex; flex-direction:column; justify-content:center; gap:1rem; }
+.sub-badge { display:inline-block; background:#BA7517; color:white; font-size:.65rem; font-weight:700; padding:.25rem .7rem; border-radius:999px; width:fit-content; }
+.sub-body h2 { font-size:1.2rem; font-weight:700; color:#2C2A24; }
+.sub-checks { list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:.6rem; }
+.sub-checks li { font-size:.82rem; color:#2C2A24; font-weight:600; }
+.sub-egg-img { background:#FFFDF5; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:1.5rem; gap:.75rem; }
+.sub-egg-copy { font-size:.75rem; color:#6B6860; text-align:center; line-height:1.7; }
+.sub-egg-img img { width:100%; border-radius:12px; object-fit:cover; aspect-ratio:4/3; }
 
-/* ── ⑧ FAQ ── */
-.lp-faqs { display:grid; grid-template-columns:1fr 1fr; gap:.75rem; }
-.lp-faq { border:1px solid rgba(186,117,23,.15); border-radius:12px; background:white; overflow:hidden; }
-.lp-faq-q { display:flex; align-items:center; gap:.75rem; padding:1rem 1.1rem; }
-.lp-faq-q > span:first-child { width:24px; height:24px; border-radius:50%; background:#F0B23C; color:white; font-size:.72rem; font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
-.lp-faq-q p { font-size:.88rem; font-weight:700; color:#2C2A24; flex:1; line-height:1.45; }
-.lp-faq-plus { font-size:1.1rem; color:#BA7517; flex-shrink:0; }
-.lp-faq-a { padding:.75rem 1.1rem 1rem 3.25rem; }
-.lp-faq-a p { font-size:.78rem; color:#6B6860; line-height:1.7; }
+/* ── 口コミ ── */
+.review-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.25rem; }
+.review-card { background:white; border-radius:16px; padding:1.5rem; border:1px solid rgba(186,117,23,.1); box-shadow:0 2px 12px rgba(44,44,42,.04); }
+.review-head { display:flex; align-items:center; gap:.75rem; margin-bottom:.85rem; }
+.review-avatar { width:44px; height:44px; border-radius:50%; overflow:hidden; border:2px solid #F0B23C; flex-shrink:0; }
+.review-avatar img { width:100%; height:100%; object-fit:cover; }
+.review-head span { font-size:.72rem; color:#9B9994; line-height:1.4; }
+.review-card p { font-size:.8rem; color:#6B6860; line-height:1.8; }
+.review-stars { color:#F0B23C; font-size:.9rem; margin-top:.6rem; }
+.review-dots { display:flex; justify-content:center; gap:.4rem; margin-top:1.5rem; }
+.review-dots span { width:10px; height:10px; border-radius:50%; background:rgba(186,117,23,.25); }
+.review-dots span.active { background:#F0B23C; }
 
-/* ── ⑨ 最終CTA ── */
-.lp-final { position:relative; padding:6rem 0; overflow:hidden; min-height:380px; }
-/* 写真を右半分背景に（ヒーローと同じ構造） */
-.lp-final-img { position:absolute; top:0; right:0; width:55%; height:100%; }
-.lp-final-img img { width:100%; height:100%; object-fit:cover; display:block; }
-.lp-final-img::before { content:''; position:absolute; top:0; left:0; bottom:0; width:60%; background:linear-gradient(to right, #FFFDF5 0%, #FFFDF5 20%, rgba(255,253,245,.9) 55%, transparent 100%); z-index:1; }
-.lp-final-img::after { content:''; position:absolute; top:0; left:0; right:0; bottom:0; background:rgba(255,253,245,.25); }
-.lp-final-in { position:relative; z-index:2; display:block; }
-.lp-final-text { max-width:480px; }
-.lp-final-text h2 { font-size:clamp(1.6rem,3.5vw,2.4rem); font-weight:700; color:#2C2A24; line-height:1.4; margin-bottom:.85rem; letter-spacing:-.01em; }
-.lp-final-text > p { font-size:.9rem; color:#6B6860; line-height:1.85; margin-bottom:1.75rem; }
-.lp-final-note { font-size:.75rem; color:#9B9994; margin-top:.75rem; }
+/* ── FAQ ── */
+.faq-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+.faq-item { background:white; border-radius:14px; padding:1.25rem; border:1px solid rgba(186,117,23,.12); }
+.faq-q { display:flex; gap:.65rem; font-size:.82rem; font-weight:700; color:#2C2A24; margin-bottom:.5rem; align-items:flex-start; }
+.faq-q span { flex-shrink:0; width:22px; height:22px; border-radius:50%; background:#F0B23C; color:white; font-size:.7rem; display:flex; align-items:center; justify-content:center; font-weight:700; margin-top:.1rem; }
+.faq-a { font-size:.78rem; color:#6B6860; line-height:1.75; padding-left:1.65rem; }
+
+/* ── 最終CTA ── */
+.lp-cta { background:#FFF8EC; border-top:2px solid rgba(186,117,23,.15); }
+.lp-cta-grid { max-width:1100px; margin:0 auto; padding:4rem 2rem; display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:center; }
+.lp-cta-text h2 { font-size:clamp(1.4rem,3vw,2rem); font-weight:700; color:#2C2A24; line-height:1.45; margin-bottom:.75rem; }
+.lp-cta-text p { font-size:.88rem; color:#6B6860; line-height:1.8; margin-bottom:1.75rem; }
+.lp-cta-img { border-radius:20px; overflow:hidden; aspect-ratio:4/3; }
+.lp-cta-img img { width:100%; height:100%; object-fit:cover; display:block; }
+
+/* ── LP専用フッター ── */
+.lp-footer { background:#2C2A24; padding:2rem; text-align:center; }
+.lp-footer-nav { display:flex; flex-wrap:wrap; justify-content:center; gap:.25rem 1.25rem; margin-bottom:1rem; }
+.lp-footer-nav a { font-size:.72rem; color:rgba(255,255,255,.6); text-decoration:none; }
+.lp-footer-nav a:hover { color:white; }
+.lp-footer-copy { font-size:.68rem; color:rgba(255,255,255,.35); }
 
 /* ── レスポンシブ ── */
 @media (max-width:1024px) {
-  .lp-subnav-links { display:none; }
-  .lp-points { grid-template-columns:repeat(3,1fr); }
-  .lp-health-grid { grid-template-columns:1fr; }
-  .lp-health-img,.lp-health-baby { max-width:480px; }
-  .lp-subscription-in { grid-template-columns:1fr; }
-  .lp-subscription-right { display:none; }
+  .lp-hdr-nav { display:none; }
+  .health-grid { grid-template-columns:1fr 1fr; }
+  .health-right { display:none; }
+  .sub-card { grid-template-columns:1fr 1.4fr; }
+  .sub-egg-img { display:none; }
 }
 @media (max-width:768px) {
-  .lp-hero-in { grid-template-columns:1fr; }
-  .lp-hero-img { border-radius:20px; }
-  .lp-worries { grid-template-columns:repeat(2,1fr); }
-  .lp-points { grid-template-columns:repeat(2,1fr); }
-  .lp-products { grid-template-columns:1fr; max-width:420px; margin:0 auto; }
-  .lp-reviews { grid-template-columns:1fr; }
-  .lp-faqs { grid-template-columns:1fr; }
-  .lp-final-in { grid-template-columns:1fr; }
-  .lp-final-img { display:none; }
+  .worry-grid { grid-template-columns:repeat(2,1fr); }
+  .health-grid { grid-template-columns:1fr; }
+  .prod-grid { grid-template-columns:1fr; max-width:360px; margin:0 auto; }
+  .sub-card { grid-template-columns:1fr; }
+  .sub-img { display:none; }
+  .review-grid { grid-template-columns:1fr; }
+  .faq-grid { grid-template-columns:1fr; }
+  .lp-cta-grid { grid-template-columns:1fr; }
+  .lp-hero-fade-r { background:linear-gradient(to bottom, rgba(255,253,245,.9) 0%, rgba(255,253,245,.7) 50%, transparent 100%); }
+}
+@media (max-width:480px) {
+  .point-card { flex:0 0 148px; }
 }
 </style>
