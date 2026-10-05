@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://kozawa-keiran.chiyyy1111.workers.dev',
+  site: 'https://kozawa-keiran.com',
   output: 'static',
   integrations: [sitemap()],
   vite: {
