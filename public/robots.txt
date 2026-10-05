@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://kozawa-keiran.chiyyy1111.workers.dev/sitemap-index.xml
+Sitemap: https://kozawa-keiran.com/sitemap-index.xml
