@@ -1,0 +1,26 @@
+---
+// 下層ページ共通のヒーロー（切り欠き付きの大きな写真）
+interface Props {
+  en: string;          // 例: Service
+  ja: string;          // 例: 事業内容
+  img: string;
+  alt?: string;
+  lead?: string;
+}
+const { en, ja, img, alt = '', lead } = Astro.props;
+---
+<section class="hf">
+  <div class="hf-img">
+    <img src={img} alt={alt} loading="eager"/>
+    <div class="hf-title">
+      <h1>{en}</h1>
+      <p>{ja}</p>
+    </div>
+  </div>
+  {lead && <p class="hf-lead">{lead}</p>}
+  <slot/>
+</section>
+
+<style>
+.hf-lead { max-width: 760px; margin: 2.5rem auto 1rem; padding: 0 1rem; text-align: center; font-size: .92rem; line-height: 2.2; letter-spacing: .06em; color: var(--muted); }
+</style>

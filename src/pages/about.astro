@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
+import PageHero from '../components/PageHero.astro';
 import Footer from '../components/Footer.astro';
 import ContactSection from '../components/ContactSection.astro';
 
@@ -42,29 +43,12 @@ const company = [
 <Layout title="私たちについて｜小澤鶏卵" description="小澤鶏卵は富山の自然とともに歩み、安心・安全・おいしいたまごをお届けしてきました。私たちの想い・代表あいさつ・沿革・会社概要をご紹介します。">
   <Header/>
   <main>
-    <!-- パンくず -->
-    <div class="breadcrumb">
-      <div class="container"><a href="/">TOP</a> <span>&gt;</span> <span>ABOUT</span></div>
-    </div>
-
-    <!-- ヒーロー -->
-    <section class="ab-hero">
-      <div class="container ab-hero-in">
-        <div class="ab-hero-text">
-          <span class="ab-en">ABOUT</span>
-          <h1>私たちについて</h1>
-          <p>小澤鶏卵は、富山の自然とともに歩み、<br/>「安心・安全・おいしい」たまごをお届けしてきました。<br/>地域の食卓を支える存在でありたいという想いのもと、<br/>これからも誠実に、まっすぐに卵づくりに向き合っていきます。</p>
-        </div>
-        <div class:list={["ab-hero-img", { "img-fallback": true }]}>
-          <img src="/images/about/about-hero.jpg" alt="新鮮なたまご" loading="eager" onerror="this.closest('.ab-hero-img').classList.add('img-fallback')"/>
-        </div>
-      </div>
-    </section>
+    <PageHero en="About us" ja="私たちについて" img="/images/shop/point1.jpg" lead="小澤鶏卵は、富山の自然とともに歩み、「安心・安全・おいしい」たまごをお届けしてきました。地域の食卓を支える存在でありたいという想いのもと、これからも誠実に、まっすぐに卵づくりに向き合っていきます。"/>
 
     <!-- 小澤鶏卵の想い -->
     <section class="ab-thoughts">
       <div class="container">
-        <div class="ttl"><h2 class="ttl-en">PHILOSOPHY</h2><p class="ttl-ja">小澤鶏卵の想い</p></div>
+        <div class="ttl"><h2 class="ttl-en">Philosophy</h2><p class="ttl-ja">小澤鶏卵の想い</p></div>
         <div class="ab-thoughts-grid">
           {thoughts.map((t, i) => (
             <>

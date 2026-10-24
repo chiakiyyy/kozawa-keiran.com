@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
+import PageHero from '../components/PageHero.astro';
 import Footer from '../components/Footer.astro';
 // Google Apps Script ウェブアプリのURL（gas/README.md の手順で発行して貼り付け）
 const FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycbwrMTrF_xGZw_xx5gorTiYiqP6bcTxgDRWJjVn4lInl_7lg55dEQc0Cxy_lF73HMFm6/exec';
@@ -14,18 +15,7 @@ const faqs = [
 <Layout title="お問い合わせ｜小澤鶏卵" description="小澤鶏卵へのご注文・ご相談はお気軽にどうぞ。法人取引・個人向け・ギフトなどあらゆるお問い合わせに対応します。">
   <Header/>
   <main>
-    <!-- Hero -->
-    <section class="contact-hero">
-      <div class="contact-hero-bg">
-        <img src="/images/contact_bg.svg" alt="" aria-hidden="true" loading="eager"/>
-        <div class="ch-ov"></div>
-      </div>
-      <div class="ch-content">
-        <span class="ch-en">CONTACT</span>
-        <h1 class="ch-title">お問い合わせ</h1>
-        <p class="ch-sub">ご注文・ご質問など、お気軽にお問い合わせください。</p>
-      </div>
-    </section>
+    <PageHero en="Contact" ja="お問い合わせ" img="/images/hero_main.png" lead="ご注文・ご質問など、お気軽にお問い合わせください。"/>
 
     <!-- 連絡先 -->
     <section class="sec">
@@ -72,7 +62,7 @@ const faqs = [
     <!-- FAQ -->
     <section class="sec sec--cream">
       <div class="container faq-wrap">
-        <div class="ttl"><h2 class="ttl-en">FAQ</h2><p class="ttl-ja">よくある質問</p>
+        <div class="ttl"><h2 class="ttl-en">Faq</h2><p class="ttl-ja">よくある質問</p>
         </div>
         <div class="faq-list">
           {faqs.map(f => (

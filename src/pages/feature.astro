@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
+import PageHero from '../components/PageHero.astro';
 import Footer from '../components/Footer.astro';
 import ContactSection from '../components/ContactSection.astro';
 
@@ -50,31 +51,12 @@ const points = [
 <Layout title="こだわり｜小澤鶏卵" description="小澤鶏卵のこだわり。健康な鶏・新鮮さ・品質管理・配送・地域への想い、おいしさと安心のための5つのこだわりをご紹介します。">
   <Header/>
   <main>
-    <!-- パンくず -->
-    <div class="breadcrumb">
-      <div class="container">
-        <a href="/">TOP</a> <span>&gt;</span> <span>FEATURE</span>
-      </div>
-    </div>
-
-    <!-- ヒーロー -->
-    <section class="fe-hero">
-      <div class="container fe-hero-in">
-        <div class="fe-hero-text">
-          <span class="fe-en">FEATURE</span>
-          <h1>小澤鶏卵の<br/>こだわり</h1>
-          <p>おいしくて安全な卵を、毎日の食卓へ。<br/>小澤鶏卵は、鶏の飼育環境から配送まで、<br/>すべての工程にこだわりを持って取り組んでいます。</p>
-        </div>
-        <div class="fe-hero-img">
-          <img src="/images/feature/feature-hero.jpg" alt="新鮮なたまご" loading="eager" onerror="this.closest('.fe-hero-img').classList.add('img-fallback')"/>
-        </div>
-      </div>
-    </section>
+    <PageHero en="Feature" ja="小澤鶏卵のこだわり" img="/images/feature/feature-hero.jpg" lead="おいしくて安全な卵を、毎日の食卓へ。鶏の飼育環境から配送まで、すべての工程にこだわっています。"/>
 
     <!-- 5つのこだわり -->
     <section class="fe-points">
       <div class="container">
-        <div class="ttl"><h2 class="ttl-en">POINTS</h2><p class="ttl-ja">おいしさと安心のための 5つのこだわり</p></div>
+        <div class="ttl"><h2 class="ttl-en">Points</h2><p class="ttl-ja">おいしさと安心のための 5つのこだわり</p></div>
 
         <div class="fe-list">
           {points.map(p => (

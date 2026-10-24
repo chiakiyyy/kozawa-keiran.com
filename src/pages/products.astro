@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
+import PageHero from '../components/PageHero.astro';
 import Footer from '../components/Footer.astro';
 import { products } from '../data/products';
 import ContactSection from '../components/ContactSection.astro';
@@ -20,29 +21,12 @@ const steps = [
 <Layout title="商品紹介｜小澤鶏卵" description="小澤鶏卵の商品紹介。小澤のたまご・業務用たまご・アローカナのたまご・うずらのたまごなど幅広いラインナップ。">
   <Header/>
   <main>
-    <!-- パンくず -->
-    <div class="breadcrumb">
-      <div class="container"><a href="/">TOP</a> <span>&gt;</span> <span>商品紹介</span></div>
-    </div>
-
-    <!-- ヒーロー -->
-    <section class="pd-hero">
-      <div class="container pd-hero-in">
-        <div class="pd-hero-text">
-          <span class="pd-en">LINE UP</span>
-          <h1>商品紹介</h1>
-          <p>小澤鶏卵が自信をもってお届けする、<br/>新鮮でおいしい卵のラインナップです。<br/>用途やご希望に合わせてお選びいただけます。</p>
-        </div>
-        <div class:list={["pd-hero-img", { "img-fallback": true }]}>
-          <img src="/images/products/products-hero.jpg" alt="新鮮なたまご" loading="eager" onerror="this.closest('.pd-hero-img').classList.add('img-fallback')"/>
-        </div>
-      </div>
-    </section>
+    <PageHero en="Products" ja="商品紹介" img="/images/hero_main.png" lead="小澤鶏卵が自信をもってお届けする、新鮮でおいしい卵のラインナップです。用途やご希望に合わせてお選びください。"/>
 
     <!-- 取り扱い商品 -->
     <section class="pd-lineup">
       <div class="container">
-        <div class="ttl"><h2 class="ttl-en">LINE UP</h2><p class="ttl-ja">取り扱い商品</p></div>
+        <div class="ttl"><h2 class="ttl-en">Line Up</h2><p class="ttl-ja">取り扱い商品</p></div>
         <div class="pd-grid">
           {lineup.map(p => (
             <a href={`#${p.id}`} class="pd-card">
