@@ -1,0 +1,81 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ContactSection from '../components/ContactSection.astro';
+import { metrics, works } from '../data/works';
+---
+<Layout title="卸売の実績｜小澤鶏卵" description="小澤鶏卵の卸売実績。飲食店・洋菓子店・ホテル・スーパー・給食施設・催事など、富山県内の様々な業態へたまごをお届けしています。">
+  <Header/>
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <span class="page-hero-label">TRACK RECORD</span>
+        <h1 class="page-hero-title">卸売の実績</h1>
+        <p class="page-hero-sub">100年以上にわたり、富山の食を支える事業者様へたまごをお届けしています。</p>
+      </div>
+    </section>
+
+    <section class="sec">
+      <div class="container">
+        <div class="ttl fade-up"><h2 class="ttl-en">NUMBERS</h2><p class="ttl-ja">数字で見る小澤鶏卵</p>
+        </div>
+        <div class="metric-grid">
+          {metrics.map((m, i) => (
+            <div class={`metric fade-up fade-up-d${i + 1}`}>
+              <div class="metric-num">{m.num}<small>{m.unit}</small></div>
+              <div class="metric-label">{m.label}</div>
+              {m.note && <div class="metric-note">{m.note}</div>}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="sec sec--pale">
+      <div class="container">
+        <div class="ttl fade-up"><h2 class="ttl-en">CASE</h2><p class="ttl-ja">納品事例</p>
+        </div>
+        <div class="case-grid">
+          {works.map((w, i) => (
+            <article class={`card case-card fade-up fade-up-d${(i % 3) + 1}`}>
+              <span class="case-cat">{w.category}</span>
+              <h3>{w.title}</h3>
+              <p>{w.body}</p>
+              <dl>
+                <dt>取引先</dt><dd>{w.client}</dd>
+                <dt>エリア</dt><dd>{w.area}</dd>
+                <dt>お取引開始</dt><dd>{w.since}</dd>
+              </dl>
+            </article>
+          ))}
+        </div>
+        <div style="text-align:center;margin-top:3rem">
+          <a href="/stores" class="btn-circle">取扱店舗一覧を見る</a>
+        </div>
+      </div>
+    </section>
+
+    <ContactSection title="お取引のご相談" lead="業態・数量・配送のご希望をお聞かせください。お見積もりをご提案します。"/>
+  </main>
+  <Footer/>
+</Layout>
+
+<style>
+.metric-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+.metric { text-align: center; padding: 2rem 1rem; border-top: 2px solid var(--amber-lt); background: var(--amber-pale); border-radius: 0 0 var(--radius-md) var(--radius-md); }
+.metric-num { font-family: Manrope, sans-serif; font-size: clamp(2.2rem, 4vw, 3rem); font-weight: 700; color: var(--amber); line-height: 1.2; }
+.metric-num small { font-size: 1rem; margin-left: .2rem; }
+.metric-label { font-size: .88rem; font-weight: 700; margin-top: .5rem; }
+.metric-note { font-size: .7rem; color: var(--muted); margin-top: .25rem; }
+.case-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.75rem; }
+.case-card { padding: 2rem; display: flex; flex-direction: column; gap: .8rem; }
+.case-cat { align-self: flex-start; background: var(--amber-bg); color: var(--amber); font-size: .72rem; font-weight: 700; padding: .25rem .9rem; border-radius: 999px; letter-spacing: .06em; }
+.case-card h3 { font-size: 1.02rem; margin: 0; line-height: 1.7; }
+.case-card p { font-size: .83rem; color: var(--muted); line-height: 1.9; margin: 0; }
+.case-card dl { display: grid; grid-template-columns: auto 1fr; gap: .3rem .9rem; font-size: .76rem; margin: .5rem 0 0; padding-top: 1rem; border-top: .5px solid var(--border); }
+.case-card dt { color: var(--amber); font-weight: 700; }
+.case-card dd { margin: 0; }
+@media (max-width: 960px) { .metric-grid { grid-template-columns: repeat(2, 1fr); } .case-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .case-grid { grid-template-columns: 1fr; } }
+</style>

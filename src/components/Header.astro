@@ -1,10 +1,18 @@
 ---
 const nav = [
   { en: 'ABOUT',   ja: '私たちについて', href: '/about' },
-  { en: 'FEATURE', ja: 'こだわり',       href: '/feature' },
   { en: 'LINE UP', ja: '商品紹介',       href: '/products' },
-  { en: 'FLOW',    ja: '出荷の流れ',     href: '/flow' },
+  { en: 'WORKS',   ja: '卸売の実績',     href: '/works' },
+  { en: 'STORES',  ja: '取扱店舗',       href: '/stores' },
+  { en: 'GIFT',    ja: 'ギフト',         href: '/gift' },
   { en: 'NEWS',    ja: 'お知らせ',       href: '/news' },
+];
+// ドロワーのみに表示する項目
+const navMore = [
+  { en: 'FEATURE',  ja: 'こだわり',     href: '/feature' },
+  { en: 'FLOW',     ja: '出荷の流れ',   href: '/flow' },
+  { en: 'BUSINESS', ja: '法人のお客様', href: '/business' },
+  { en: 'CONTACT',  ja: 'お問い合わせ', href: '/contact' },
 ];
 const path = Astro.url.pathname;
 ---
@@ -82,9 +90,14 @@ const path = Astro.url.pathname;
         </a>
       </li>
     ))}
-    <li><a href="/flow"><span class="d-en">FLOW</span><span class="d-ja">出荷の流れ</span></a></li>
-    <li><a href="/contact"><span class="d-en">CONTACT</span><span class="d-ja">お問い合わせ</span></a></li>
-    <li><a href="/business"><span class="d-en">BUSINESS</span><span class="d-ja">法人のお客様</span></a></li>
+    {navMore.map(item => (
+      <li>
+        <a href={item.href}>
+          <span class="d-en">{item.en}</span>
+          <span class="d-ja">{item.ja}</span>
+        </a>
+      </li>
+    ))}
   </ul>
   <div class="drw-ft">
     <a href="tel:076-466-3815" class="drw-tel">076-466-3815</a>
@@ -124,7 +137,7 @@ const path = Astro.url.pathname;
 .hdr-nav ul { display: flex; list-style: none; margin: 0; padding: 0; gap: .35rem; }
 .hdr-nav a {
   display: flex; flex-direction: column; align-items: center;
-  padding: .6rem 1.1rem; text-decoration: none;
+  padding: .6rem .9rem; text-decoration: none;
   border-radius: 10px; transition: background .18s; gap: 3px; position: relative;
 }
 .hdr-nav a::after {
