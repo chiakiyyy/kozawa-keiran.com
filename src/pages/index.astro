@@ -7,6 +7,7 @@ import { products } from '../data/products';
 import { metrics, works } from '../data/works';
 import { stores } from '../data/stores';
 import { gifts } from '../data/gifts';
+import { commitments, processSteps } from '../data/commitment';
 
 const gift = gifts[0];
 const yen = (n: number) => n.toLocaleString('ja-JP');
@@ -56,6 +57,47 @@ const news = [
       </div>
     </section>
 
+    <!-- STORY -->
+    <section class="story">
+      <div class="story-in">
+        <div class="story-head fade-up">
+          <div class="ttl ttl--left"><h2 class="ttl-en">Story</h2><p class="ttl-ja">これまでの歩み</p></div>
+          <p class="story-catch serif">たまごひとつに、<br/>百年分の毎日がある。</p>
+        </div>
+        <div class="story-body fade-up">
+          <p>大正の頃から、私たちはたまごを扱ってきました。</p>
+          <p>朝、鶏舎で産みたてのたまごを手に取る。その毎日を、受け継ぎながら重ねてきました。</p>
+          <p>時代が変わり、食卓も、お店も変わりました。それでも変わらないのは、食べる人の顔を思い浮かべて、たまごを届けるということです。</p>
+          <p>ラーメン店の厨房へ、菓子店の仕込み場へ、給食室へ、そして家族の朝ごはんへ。</p>
+          <p>富山の暮らしのすぐそばで、これからもたまごを届けつづけます。</p>
+          <ol class="story-line">
+            <li><b>大正時代</b><span>富山で鶏卵の商いを始める</span></li>
+            <li><b>それから100年以上</b><span>鶏卵ひと筋に、富山の食卓と飲食店を支える</span></li>
+            <li><b>現在</b><span>飲食店・菓子店・スーパー・施設など、{stores.length}件の取引先へお届け</span></li>
+            <li><b>これから</b><span>ギフトのオンライン注文を始め、より多くの食卓へ</span></li>
+          </ol>
+          <a href="/about" class="circle-link">私たちについて</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMMITMENT -->
+    <section class="sec">
+      <div class="container wide">
+        <div class="ttl fade-up"><h2 class="ttl-en">Commitment</h2><p class="ttl-ja">小澤鶏卵のこだわり</p></div>
+        <div class="cm-grid">
+          {commitments.map(c => (
+            <article class="cm fade-up">
+              <div class="cm-img"><img src={c.img} alt="" loading="lazy"/><span class="cm-num">{c.num}</span></div>
+              <h3>{c.title}</h3>
+              <p>{c.body}</p>
+            </article>
+          ))}
+        </div>
+        <div style="text-align:center;margin-top:3.5rem"><a href="/feature" class="btn-circle">こだわりをもっと見る</a></div>
+      </div>
+    </section>
+
     <!-- SERVICE -->
     <section class="band">
       <div class="band-in">
@@ -99,6 +141,23 @@ const news = [
             <h3>{w.title}</h3>
           </a>
         ))}
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="sec sec--panel">
+      <div class="container wide">
+        <div class="ttl fade-up"><h2 class="ttl-en">Process</h2><p class="ttl-ja">採卵から食卓へ・出荷までの流れ</p></div>
+        <ol class="pr-list">
+          {processSteps.map(st => (
+            <li class="pr fade-up">
+              <span class="pr-num">{st.num}</span>
+              <h3>{st.title}</h3>
+              <p>{st.body}</p>
+            </li>
+          ))}
+        </ol>
+        <div style="text-align:center;margin-top:3rem"><a href="/flow" class="btn-circle">出荷の流れを見る</a></div>
       </div>
     </section>
 
@@ -179,11 +238,40 @@ const news = [
 </script>
 
 <style>
+.story { background: var(--deep); color: #F4EBDD; padding: 6.5rem 0; }
+.story .ttl-en { color: #fff; } .story .ttl-ja { color: #E8C98F; }
+.story-in { max-width: 1100px; margin: 0 auto; padding: 0 2.5rem; display: grid; grid-template-columns: 1fr 1.25fr; gap: 4rem; }
+.story-catch { font-size: clamp(1.7rem, 3.4vw, 2.5rem); line-height: 1.9; letter-spacing: .14em; margin: 2.5rem 0 0; color: #fff; font-weight: 500; }
+.story-body p { font-family: 'Shippori Mincho', 'Zen Kaku Gothic New', serif; font-size: 1.02rem; line-height: 2.5; letter-spacing: .12em; margin: 0 0 1.4rem; color: rgba(244,235,221,.92); }
+.story-line { list-style: none; margin: 2.5rem 0 2rem; padding: 0 0 0 1.5rem; border-left: 1px solid rgba(232,201,143,.5); display: grid; gap: 1.4rem; }
+.story-line li { position: relative; display: grid; gap: .2rem; }
+.story-line li::before { content: ''; position: absolute; left: calc(-1.5rem - 5px); top: .7em; width: 9px; height: 9px; border-radius: 50%; background: #E8C98F; }
+.story-line b { font-family: 'Shippori Mincho', serif; font-size: 1.05rem; color: #E8C98F; letter-spacing: .1em; font-weight: 500; }
+.story-line span { font-size: .9rem; color: rgba(244,235,221,.85); line-height: 1.9; }
+@media (max-width: 860px) { .story-in { grid-template-columns: 1fr; gap: 1rem; padding: 0 1.5rem; } }
+.wide { max-width: 1180px; }
+.sec--panel { background: var(--panel); }
+.cm-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 3rem 2rem; }
+.cm { grid-column: span 2; }
+.cm:nth-child(n+4) { grid-column: span 3; }
+.cm-img { position: relative; border-radius: 16px; overflow: hidden; aspect-ratio: 3/2; background: var(--panel); }
+.cm-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.cm-num { position: absolute; left: 1rem; top: .6rem; color: #fff; font-family: Manrope, sans-serif; font-weight: 300; font-size: 2.2rem; letter-spacing: .06em; text-shadow: 0 1px 10px rgba(0,0,0,.35); }
+.cm h3 { margin: 1.1rem 0 .5rem; font-size: 1.1rem; color: var(--amber); letter-spacing: .08em; }
+.cm p { margin: 0; font-size: .92rem; line-height: 2; color: var(--muted); }
+.pr-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(6, 1fr); gap: 1.5rem; position: relative; }
+.pr-list::before { content: ''; position: absolute; top: 26px; left: 8%; right: 8%; border-top: 1px dashed rgba(186,117,23,.5); }
+.pr { position: relative; text-align: center; }
+.pr-num { display: inline-grid; place-items: center; width: 52px; height: 52px; border-radius: 50%; background: var(--amber); color: #fff; font-family: Manrope, sans-serif; font-weight: 500; letter-spacing: .04em; position: relative; z-index: 1; }
+.pr h3 { margin: 1rem 0 .4rem; font-size: 1rem; }
+.pr p { margin: 0; font-size: .85rem; line-height: 1.9; color: var(--muted); text-align: left; }
+@media (max-width: 960px) { .cm-grid { grid-template-columns: 1fr 1fr; } .cm, .cm:nth-child(n+4) { grid-column: span 1; } .pr-list { grid-template-columns: repeat(2, 1fr); } .pr-list::before { display: none; } }
+@media (max-width: 600px) { .cm-grid { grid-template-columns: 1fr; } }
 .intro { background: #fff; padding: 5rem 1.5rem 6rem; }
 .intro-panel { max-width: 1100px; margin: 0 auto; background: var(--panel); padding: 6% 9% 9%; }
 .intro-panel img { width: 100%; aspect-ratio: 2/1; object-fit: cover; border-radius: 16px; display: block; }
 .intro-copy { max-width: 1100px; margin: -5rem auto 0; padding-left: 9%; position: relative; }
-.intro-catch { font-size: clamp(1.8rem, 4vw, 2.8rem); color: var(--amber); letter-spacing: .12em; line-height: 1.8; font-weight: 400; margin: 0; background: #fff; display: inline-block; padding: 1rem 2rem 0 0; }
+.intro-catch { font-family: 'Shippori Mincho', 'Zen Kaku Gothic New', serif; font-size: clamp(1.8rem, 4vw, 2.8rem); color: var(--amber); letter-spacing: .12em; line-height: 1.8; font-weight: 400; margin: 0; background: #fff; display: inline-block; padding: 1rem 2rem 0 0; }
 .intro-en { color: var(--amber-lt); font-family: Manrope, sans-serif; font-size: .85rem; letter-spacing: .12em; margin: .6rem 0 2rem; }
 .intro-body { color: var(--amber); font-size: .92rem; line-height: 2.3; letter-spacing: .1em; margin: 0 0 2rem; }
 .works-sec { padding-bottom: 5rem; }

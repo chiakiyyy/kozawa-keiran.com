@@ -12,6 +12,7 @@ const nav = [
 const navMore = [
   { en: 'FEATURE',  ja: 'こだわり',     href: '/feature' },
   { en: 'FLOW',     ja: '出荷の流れ',   href: '/flow' },
+  { en: 'DELIVERY', ja: '送料とお届け', href: '/delivery' },
   { en: 'BUSINESS', ja: '法人のお客様', href: '/business' },
   { en: 'SHOP',     ja: '個人のお客様', href: '/shop' },
 ];
@@ -82,11 +83,11 @@ const path = Astro.url.pathname;
 .hdr > * { pointer-events: auto; }
 .hdr-brand { display: flex; align-items: center; gap: .7rem; text-decoration: none; background: var(--panel, #F6F1E6); padding: .9rem 2rem .9rem 1.5rem; border-radius: 0 0 var(--notch-r, 28px) 0; }
 .hdr-logo-icon { height: 40px; width: auto; display: block; object-fit: contain; }
-.logo-jp { display: block; font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 1.1rem; font-weight: 500; color: #2C2A24; letter-spacing: .2em; line-height: 1.2; }
-.logo-en { display: block; font-family: Manrope, sans-serif; font-size: .5rem; letter-spacing: .3em; color: #8d8a82; margin-top: 4px; }
+.logo-jp { display: block; font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 1.15rem; font-weight: 500; color: #2C2A24; letter-spacing: .2em; line-height: 1.2; }
+.logo-en { display: block; font-family: Manrope, sans-serif; font-size: .56rem; letter-spacing: .3em; color: #8d8a82; margin-top: 4px; }
 .hdr-right { display: flex; align-items: center; gap: 1.2rem; background: var(--panel, #F6F1E6); padding: 1rem 1.5rem 1rem 2.2rem; border-radius: 0 0 0 var(--notch-r, 28px); }
-.hdr-nav ul { display: flex; list-style: none; margin: 0; padding: 0; gap: 1.6rem; }
-.hdr-nav a { font-size: .78rem; font-weight: 700; letter-spacing: .12em; color: #1E1E1C; text-decoration: none; padding: .3rem 0; border-bottom: 1.5px solid transparent; transition: border-color .2s, color .2s; white-space: nowrap; }
+.hdr-nav ul { display: flex; list-style: none; margin: 0; padding: 0; gap: .4rem; }
+.hdr-nav a { display: block; font-size: 14px; font-weight: 700; letter-spacing: .08em; padding: .3rem .8rem !important; color: #1E1E1C; text-decoration: none; padding: .3rem 0; border-bottom: 1.5px solid transparent; transition: border-color .2s, color .2s; white-space: nowrap; }
 .hdr-nav a:hover, .hdr-nav a.act { color: var(--amber, #BA7517); border-color: var(--amber-lt, #EF9F27); }
 .hdr-ham { display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 6px; width: 54px; height: 54px; border-radius: 50%; border: 1px solid #5a564c; background: transparent; cursor: pointer; padding: 0; flex-shrink: 0; transition: background .2s; }
 .hdr-ham:hover { background: rgba(186,117,23,.1); }
@@ -129,7 +130,7 @@ const path = Astro.url.pathname;
 .drw-hours { font-size: .72rem; color: #9B9994; text-align: center; margin: 0; }
 
 
-@media (max-width: 1180px) { .hdr-nav { display: none; } .hdr-right { padding: .8rem .9rem .9rem 1.4rem; } }
+@media (max-width: 1260px) { .hdr-nav { display: none; } .hdr-right { padding: .8rem .9rem .9rem 1.4rem; } }
 @media (max-width: 640px) { .hdr-brand { padding: .7rem 1.2rem .7rem .9rem; } .hdr-logo-icon { height: 32px; } .logo-jp { font-size: .95rem; } .hdr-ham { width: 46px; height: 46px; } }
 </style>
 
