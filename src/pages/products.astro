@@ -42,10 +42,7 @@ const steps = [
     <!-- 取り扱い商品 -->
     <section class="pd-lineup">
       <div class="container">
-        <div class="pd-head">
-          <h2>取り扱い商品</h2>
-          <span class="pd-head-line"></span>
-        </div>
+        <div class="ttl"><h2 class="ttl-en">LINE UP</h2><p class="ttl-ja">取り扱い商品</p></div>
         <div class="pd-grid">
           {lineup.map(p => (
             <a href={`#${p.id}`} class="pd-card">
