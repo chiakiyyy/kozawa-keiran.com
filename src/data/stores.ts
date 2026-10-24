@@ -1,26 +1,29 @@
 // 取扱店舗データ（/stores ページ・トップページ共通）
-// ※店舗名・住所・URLはすべて仮の値です。掲載許可を得た実在の店舗情報に差し替えてください。
-// 個人情報や、取引先との秘密保持契約に関わる情報は掲載しないでください。
+// 取引先の店名は掲載しない方針のため、業態と市区町村のみを保持する。
+// 取引先シート（得意先管理表）から、同一事業者の重複を除き、同業の鶏卵業者を除外して集計。
+// 1件だけの業態は特定につながるため、「その他」に統合している。
+// 業態は店名からの推定を含む。実態と異なる場合は、下の件数を直してください。
 
-export type StoreCategory = '飲食店' | '洋菓子・パン' | 'ホテル・宿泊' | 'スーパー・小売' | '給食・施設';
+export type StoreCategory = '飲食店' | '菓子・パン' | 'スーパー・小売' | '食品卸・加工' | '団体・施設' | 'その他';
 
 export interface Store {
-  name: string;
   category: StoreCategory;
-  area: string;     // 市区町村
-  note?: string;    // 取扱商品など
-  url?: string;
+  area: string; // 市区町村
 }
 
-export const storeCategories: StoreCategory[] = ['飲食店', '洋菓子・パン', 'ホテル・宿泊', 'スーパー・小売', '給食・施設'];
+export const storeCategories: StoreCategory[] = ['飲食店', '菓子・パン', 'スーパー・小売', '食品卸・加工', '団体・施設', 'その他'];
 
-export const stores: Store[] = [
-  { name: '（店舗名を入力）', category: '飲食店', area: '富山市', note: 'こだわりのたまご' },
-  { name: '（店舗名を入力）', category: '飲食店', area: '富山市', note: 'こだわりのたまご' },
-  { name: '（店舗名を入力）', category: '洋菓子・パン', area: '富山市', note: 'こだわりのたまご' },
-  { name: '（店舗名を入力）', category: '洋菓子・パン', area: '高岡市', note: 'ピンクたまご' },
-  { name: '（施設名を入力）', category: 'ホテル・宿泊', area: '富山市', note: '業務用たまご' },
-  { name: '（店舗名を入力）', category: 'スーパー・小売', area: '射水市', note: 'パックたまご' },
-  { name: '（店舗名を入力）', category: 'スーパー・小売', area: '富山市', note: 'ギフトセット' },
-  { name: '（施設名を入力）', category: '給食・施設', area: '富山市', note: '業務用たまご' },
+// [業態, 市区町村, 件数]
+const counts: [StoreCategory, string, number][] = [
+  ['飲食店', '富山市', 9],
+  ['菓子・パン', '富山市', 5],
+  ['スーパー・小売', '富山市', 3],
+  ['食品卸・加工', '富山市', 3],
+  ['団体・施設', '富山市', 4],
+  ['その他', '富山市', 6],
+  ['その他', '射水市', 1],
 ];
+
+export const stores: Store[] = counts.flatMap(([category, area, n]) =>
+  Array.from({ length: n }, () => ({ category, area })),
+);
