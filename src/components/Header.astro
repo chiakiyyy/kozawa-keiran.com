@@ -6,64 +6,36 @@ const nav = [
   { en: 'STORES',  ja: '取扱店舗',       href: '/stores' },
   { en: 'GIFT',    ja: 'ギフト',         href: '/gift' },
   { en: 'NEWS',    ja: 'お知らせ',       href: '/news' },
+  { en: 'CONTACT', ja: 'お問い合わせ',   href: '/contact' },
 ];
 // ドロワーのみに表示する項目
 const navMore = [
   { en: 'FEATURE',  ja: 'こだわり',     href: '/feature' },
   { en: 'FLOW',     ja: '出荷の流れ',   href: '/flow' },
   { en: 'BUSINESS', ja: '法人のお客様', href: '/business' },
-  { en: 'CONTACT',  ja: 'お問い合わせ', href: '/contact' },
+  { en: 'SHOP',     ja: '個人のお客様', href: '/shop' },
 ];
 const path = Astro.url.pathname;
 ---
 
 <header class="hdr" id="hdr">
-  <div class="hdr-in">
-    <a href="/" class="hdr-logo">
-      <img src="/images/icon.png" alt="" aria-hidden="true" class="hdr-logo-icon"/>
-      <div>
-        <span class="logo-jp">小澤鶏卵</span>
-        <span class="logo-en">KOZAWA KEIRAN</span>
-      </div>
-    </a>
-
+  <a href="/" class="hdr-brand" aria-label="小澤鶏卵 トップへ">
+    <img src="/images/icon.png" alt="" aria-hidden="true" class="hdr-logo-icon"/>
+    <span>
+      <span class="logo-jp">小澤鶏卵</span>
+      <span class="logo-en">KOZAWA KEIRAN</span>
+    </span>
+  </a>
+  <div class="hdr-right">
     <nav class="hdr-nav" aria-label="メインナビゲーション">
       <ul>
         {nav.map(item => (
-          <li>
-            <a href={item.href} class={path.startsWith(item.href) ? 'act' : ''}>
-              <span class="nav-en">{item.en}</span>
-              <span class="nav-ja">{item.ja}</span>
-            </a>
-          </li>
+          <li><a href={item.href} class={path.startsWith(item.href) ? 'act' : ''}>{item.ja}</a></li>
         ))}
       </ul>
     </nav>
-
-    <div class="hdr-contact">
-      <a href="tel:076-466-3815" class="hdr-contact-btn">
-        <svg width="13" height="13" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M3 3.5C3 3.5 4.5 2 6 2c.5 0 1 .3 1.3.8l1.4 2.4c.3.5.2 1.1-.2 1.5L7.2 8c.8 1.5 2 2.8 3.5 3.6l1.3-1.3c.4-.4 1-.5 1.5-.2l2.4 1.4c.5.3.8.8.8 1.3 0 1.5-1.5 3-1.5 3C6 18 2 10 3 3.5z"/>
-        </svg>
-        <span class="hdr-contact-num">076-466-3815</span>
-      </a>
-      <a href="https://line.me/ti/p/@215bpskd" target="_blank" rel="noopener" class="hdr-contact-btn hdr-contact-icon">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.070 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/>
-        </svg>
-        <span class="hdr-contact-label">LINE</span>
-      </a>
-      <a href="/contact" class="hdr-contact-btn hdr-contact-icon">
-        <svg width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="2" y="4" width="16" height="12" rx="2"/>
-          <path d="M2 7l8 5 8-5"/>
-        </svg>
-        <span class="hdr-contact-label">メール</span>
-      </a>
-    </div>
-
     <button class="hdr-ham" id="hdr-ham" aria-label="メニューを開く" aria-expanded="false">
-      <span></span><span></span><span></span>
+      <span></span><span></span>
     </button>
   </div>
 </header>
@@ -106,73 +78,21 @@ const path = Astro.url.pathname;
 </nav>
 
 <style>
-.hdr {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-  background: rgba(255,255,255,0.95);
-  border-bottom: 0.5px solid rgba(44,44,42,0.08);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  transition: box-shadow .3s;
-}
-.hdr.scrolled { box-shadow: 0 4px 32px rgba(44,44,42,0.07); }
-.hdr-in {
-  max-width: 1450px; margin: 0 auto; padding: 0 2.5rem;
-  height: 76px; display: flex; align-items: center; gap: 1rem;
-}
-.hdr-logo {
-  display: flex; align-items: center; gap: .7rem;
-  text-decoration: none; flex-shrink: 0;
-}
-.hdr-logo-icon { height: 44px; width: auto; display: block; object-fit: contain; }
-.logo-jp {
-  display: block; font-family: 'Zen Kaku Gothic New', sans-serif;
-  font-size: 1.05rem; font-weight: 400; color: #2C2A24; letter-spacing: .18em; line-height: 1.2;
-}
-.logo-en {
-  display: block; font-family: Manrope, sans-serif;
-  font-size: .46rem; letter-spacing: .28em; color: #9B9994; margin-top: 4px;
-}
-/* ナビ */
-.hdr-nav { flex: 1; display: flex; justify-content: flex-end; }
-.hdr-nav ul { display: flex; list-style: none; margin: 0; padding: 0; gap: .35rem; }
-.hdr-nav a {
-  display: flex; flex-direction: column; align-items: center;
-  padding: .6rem .9rem; text-decoration: none;
-  border-radius: 10px; transition: background .18s; gap: 3px; position: relative;
-}
-.hdr-nav a::after {
-  content: ''; position: absolute; bottom: 6px; left: 50%; transform: translateX(-50%);
-  width: 0; height: 1.5px; background: #f6b937;
-  border-radius: 2px; transition: width .22s;
-}
-.hdr-nav a:hover::after, .hdr-nav a.act::after { width: 18px; }
-.hdr-nav a:hover, .hdr-nav a.act { background: rgba(186,117,23,0.08); }
-.nav-en { font-family: Manrope, sans-serif; font-size: .78rem; font-weight: 700; letter-spacing: .1em; color: #1E1E1C; }
-.nav-ja { font-size: .64rem; color: #9B9994; letter-spacing: .04em; }
-/* コンタクトボタン群 */
-.hdr-contact { display: flex; align-items: center; gap: .5rem; flex-shrink: 0; margin-left: .5rem; }
-.hdr-contact-btn {
-  display: inline-flex; align-items: center; gap: .4rem;
-  padding: .45rem .9rem;
-  background: transparent; color: #BA7517; border: 1.5px solid #BA7517;
-  border-radius: 6px; text-decoration: none;
-  font-family: Manrope, sans-serif; font-size: .78rem; font-weight: 700;
-  letter-spacing: .03em; white-space: nowrap;
-  transition: opacity .18s;
-}
-.hdr-contact-btn:hover { background: rgba(186,117,23,0.08); }
-.hdr-contact-num { font-size: .82rem; letter-spacing: .06em; }
-.hdr-contact-icon { padding: .45rem .75rem; }
-.hdr-contact-label { font-size: .72rem; }
-/* ハンバーガー */
-.hdr-ham {
-  display: none; flex-direction: column; gap: 5px;
-  background: none; border: none; cursor: pointer; padding: 4px; flex-shrink: 0;
-}
-.hdr-ham span { display: block; width: 22px; height: 1.5px; background: #1E1E1C; border-radius: 2px; transition: all .3s; }
-.hdr-ham.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
-.hdr-ham.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-.hdr-ham.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+.hdr { position: fixed; top: 0; left: 0; right: 0; z-index: 200; display: flex; justify-content: space-between; align-items: flex-start; pointer-events: none; }
+.hdr > * { pointer-events: auto; }
+.hdr-brand { display: flex; align-items: center; gap: .7rem; text-decoration: none; background: var(--panel, #F6F1E6); padding: .9rem 2rem .9rem 1.5rem; border-radius: 0 0 var(--notch-r, 28px) 0; }
+.hdr-logo-icon { height: 40px; width: auto; display: block; object-fit: contain; }
+.logo-jp { display: block; font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 1.1rem; font-weight: 500; color: #2C2A24; letter-spacing: .2em; line-height: 1.2; }
+.logo-en { display: block; font-family: Manrope, sans-serif; font-size: .5rem; letter-spacing: .3em; color: #8d8a82; margin-top: 4px; }
+.hdr-right { display: flex; align-items: center; gap: 1.2rem; background: var(--panel, #F6F1E6); padding: 1rem 1.5rem 1rem 2.2rem; border-radius: 0 0 0 var(--notch-r, 28px); }
+.hdr-nav ul { display: flex; list-style: none; margin: 0; padding: 0; gap: 1.6rem; }
+.hdr-nav a { font-size: .78rem; font-weight: 700; letter-spacing: .12em; color: #1E1E1C; text-decoration: none; padding: .3rem 0; border-bottom: 1.5px solid transparent; transition: border-color .2s, color .2s; white-space: nowrap; }
+.hdr-nav a:hover, .hdr-nav a.act { color: var(--amber, #BA7517); border-color: var(--amber-lt, #EF9F27); }
+.hdr-ham { display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 6px; width: 54px; height: 54px; border-radius: 50%; border: 1px solid #5a564c; background: transparent; cursor: pointer; padding: 0; flex-shrink: 0; transition: background .2s; }
+.hdr-ham:hover { background: rgba(186,117,23,.1); }
+.hdr-ham span { display: block; width: 24px; height: 1px; background: #1E1E1C; transition: all .3s; }
+.hdr-ham.open span:nth-child(1) { transform: translateY(3.5px) rotate(20deg); }
+.hdr-ham.open span:nth-child(2) { transform: translateY(-3.5px) rotate(-20deg); }
 /* ドロワー */
 .drw-ov {
   display: none; position: fixed; inset: 0;
@@ -208,12 +128,9 @@ const path = Astro.url.pathname;
 .drw-tel:hover { color: #f6b937; }
 .drw-hours { font-size: .72rem; color: #9B9994; text-align: center; margin: 0; }
 
-@media (max-width:1100px) {
-  .hdr-contact-num { display: none; }
-  .hdr-contact-btn { padding: .45rem .65rem; }
-}
-@media (max-width:1024px) { .hdr-nav, .hdr-contact { display: none; } .hdr-ham { display: flex; } }
-@media (max-width:640px) { .hdr-in { padding: 0 1.25rem; height: 64px; } }
+
+@media (max-width: 1180px) { .hdr-nav { display: none; } .hdr-right { padding: .8rem .9rem .9rem 1.4rem; } }
+@media (max-width: 640px) { .hdr-brand { padding: .7rem 1.2rem .7rem .9rem; } .hdr-logo-icon { height: 32px; } .logo-jp { font-size: .95rem; } .hdr-ham { width: 46px; height: 46px; } }
 </style>
 
 <script>

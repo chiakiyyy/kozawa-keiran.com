@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
+import PageHero from '../components/PageHero.astro';
 import Footer from '../components/Footer.astro';
 import ContactSection from '../components/ContactSection.astro';
 
@@ -16,24 +17,7 @@ const articles = [
 <Layout title="お知らせ｜小澤鶏卵" description="小澤鶏卵からのお知らせや最新情報をお届けします。">
   <Header/>
   <main>
-    <!-- パンくず -->
-    <div class="breadcrumb">
-      <div class="container"><a href="/">TOP</a> <span>&gt;</span> <span>NEWS</span></div>
-    </div>
-
-    <!-- ヒーロー -->
-    <section class="nw-hero">
-      <div class="container nw-hero-in">
-        <div class="nw-hero-text">
-          <span class="nw-en">NEWS</span>
-          <h1>お知らせ</h1>
-          <p>小澤鶏卵からのお知らせや最新情報をお届けします。</p>
-        </div>
-        <div class:list={["nw-hero-img", { "img-fallback": true }]}>
-          <img src="/images/news/news-hero.jpg" alt="新鮮なたまご" loading="eager" onerror="this.closest('.nw-hero-img').classList.add('img-fallback')"/>
-        </div>
-      </div>
-    </section>
+    <PageHero en="News" ja="お知らせ" img="/images/feature/feature-egg.jpg" lead="小澤鶏卵からのお知らせや最新情報をお届けします。"/>
 
     <section class="news-sec">
       <div class="container">

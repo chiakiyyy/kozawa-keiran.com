@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
+import PageHero from '../../components/PageHero.astro';
 import Footer from '../../components/Footer.astro';
 import ContactSection from '../../components/ContactSection.astro';
 import { gifts, giftNotes } from '../../data/gifts';
@@ -12,18 +13,11 @@ const yen = (g: { price: number; shippingFee: number }) =>
 <Layout title="ギフト・オンラインショップ｜小澤鶏卵" description="富山の鶏卵専門店・小澤鶏卵のギフトセット。お中元・お歳暮・内祝いに。こだわりのたまご、ピンクたまご、アローカナのたまごをオンラインでご購入いただけます。">
   <Header/>
   <main>
-    <section class="page-hero">
-      <div class="container">
-        <span class="page-hero-label">GIFT &amp; ONLINE SHOP</span>
-        <h1 class="page-hero-title">大切な方へ、<br/>富山のたまごを。</h1>
-        <p class="page-hero-sub">お中元・お歳暮・内祝いに。化粧箱入りのギフトをオンラインでご注文いただけます。</p>
-        <div style="margin-top:2rem"><a href="#lineup" class="btn btn-primary">ギフトを選ぶ ↓</a></div>
-      </div>
-    </section>
+    <PageHero en="Gift" ja="ギフト・オンラインショップ" img="/images/gift/tkg-set.webp" lead="お中元・お歳暮・内祝いに。富山のおいしいを、大切な方へお届けします。"><p style="text-align:center;margin:1.5rem 0 .5rem"><a href="#lineup" class="btn btn-primary">ギフトを選ぶ ↓</a></p></PageHero>
 
     <section class="sec">
       <div class="container">
-        <div class="ttl fade-up"><h2 class="ttl-en">SCENE</h2><p class="ttl-ja">贈るシーン</p>
+        <div class="ttl fade-up"><h2 class="ttl-en">Scene</h2><p class="ttl-ja">贈るシーン</p>
         </div>
         <ul class="scene-list">
           {scenes.map(s => <li class="scene-tag">{s}</li>)}
@@ -33,7 +27,7 @@ const yen = (g: { price: number; shippingFee: number }) =>
 
     <section class="sec sec--pale" id="lineup">
       <div class="container">
-        <div class="ttl fade-up"><h2 class="ttl-en">LINE UP</h2><p class="ttl-ja">ギフト商品一覧</p>
+        <div class="ttl fade-up"><h2 class="ttl-en">Line Up</h2><p class="ttl-ja">ギフト商品一覧</p>
         </div>
         <div class="gift-grid">
           {gifts.map((g, i) => (
@@ -63,7 +57,7 @@ const yen = (g: { price: number; shippingFee: number }) =>
 
     <section class="sec">
       <div class="container">
-        <div class="ttl fade-up"><h2 class="ttl-en">GUIDE</h2><p class="ttl-ja">ご注文について</p>
+        <div class="ttl fade-up"><h2 class="ttl-en">Guide</h2><p class="ttl-ja">ご注文について</p>
         </div>
         <ol class="guide-steps">
           <li><span>01</span><div><h3>ギフトを選ぶ</h3><p>上の一覧からお好みのギフトをお選びください。</p></div></li>

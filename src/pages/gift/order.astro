@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
+import PageHero from '../../components/PageHero.astro';
 import Footer from '../../components/Footer.astro';
 import { gifts, paymentMethods, rakutenPayGuide } from '../../data/gifts';
 
@@ -11,13 +12,7 @@ const FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycbwrMTrF_xGZw_xx5g
 <Layout title="ギフト注文フォーム｜小澤鶏卵" description="小澤鶏卵のギフトのご注文フォームです。商品・数量・お届け先を入力して送信してください。">
   <Header/>
   <main>
-    <section class="page-hero">
-      <div class="container">
-        <span class="page-hero-label">ORDER</span>
-        <h1 class="page-hero-title">ギフト注文フォーム</h1>
-        <p class="page-hero-sub">ご注文内容を入力してください。確認後、担当者よりお支払い方法とお届け日をメールでご案内します。</p>
-      </div>
-    </section>
+    <PageHero en="Order" ja="ギフト注文フォーム" img="/images/gift/tkg-wrapping.webp" lead="ご注文内容を入力してください。送信後、お支払い手順をご案内します。"/>
 
     <section class="sec">
       <div class="container od-wrap">

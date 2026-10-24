@@ -2,496 +2,214 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { products } from '../data/products';
 import ContactSection from '../components/ContactSection.astro';
+import { products } from '../data/products';
 import { metrics, works } from '../data/works';
 import { stores } from '../data/stores';
 import { gifts } from '../data/gifts';
+
+const gift = gifts[0];
+const yen = (n: number) => n.toLocaleString('ja-JP');
+
+// 画像は仮。差し替える場合はここのパスを変更する
+const services = [
+  { label: '業務用たまご（法人のお客様）', href: '/business', img: '/images/business_hero.png' },
+  { label: 'ギフト・オンライン注文',       href: '/gift',     img: '/images/gift/tkg-set.webp' },
+  { label: '個人のお客様',                 href: '/shop',     img: '/images/shop/hero-family.jpg' },
+];
+const workImgs = ['/images/feature/feature-egg.jpg', '/images/hero_main.png', '/images/shop/point4.jpg', '/images/feature/feature-factory.jpg', '/images/shop/hero-family.jpg', '/images/business_hero.png'];
+const news = [
+  { date: '2024.05.01', tag: 'お知らせ', title: 'ゴールデンウィーク期間の営業について' },
+  { date: '2024.04.10', tag: '重要',     title: '「こだわりのたまご」価格改定のお知らせ' },
+  { date: '2024.03.15', tag: 'お知らせ', title: 'ホームページをリニューアルしました' },
+];
 ---
-<Layout title="小澤鶏卵｜富山の業務用たまご・鶏卵専門店｜当日配達対応" description="富山県の鶏卵専門店・小澤鶏卵。大正時代創業100年以上。富山市を中心に飲食店・ホテル・給食施設・スーパーへ業務用たまごを当日配達。月・水・金9:30までのご注文で当日夕方お届け。定期納品・催事対応も承ります。">
+<Layout title="小澤鶏卵｜富山の業務用たまご・鶏卵専門店｜当日配達対応" description="富山県の鶏卵専門店・小澤鶏卵。大正時代創業100年以上。富山市を中心に飲食店・ホテル・給食施設・スーパーへ業務用たまごを当日配達。ギフトのオンライン注文、定期納品、催事対応も承ります。">
   <Header/>
   <main>
 
     <!-- HERO -->
-    <section class="hero">
-      <img class="hero-bg-img" src="/images/hero_main.png" alt="小澤鶏卵のたまご" loading="eager"/>
-      <div class="hero-inner">
-        <div class="hero-text">
-          <span class="hero-label">TOYAMA · EST. 1920s · EGG SUPPLIER</span>
-          <h1 class="sr-only">小澤鶏卵 - 富山の業務用たまご・鶏卵専門店。当日配達対応。</h1>
-          <p class="hero-title" aria-hidden="true">幸せは、<br/><em>たまご</em>のある<br/>食卓にある。</p>
-          <p class="hero-sub">おひさまを浴びる幸せ。新鮮なものを食べる幸せ。<br/>安心できるものを選べる幸せ。</p>
-          <div class="hero-btns">
-            <a href="/business" class="btn btn-primary">法人取引のご相談</a>
-            <a href="/products" class="btn btn-outline">商品を見る</a>
+    <section class="hf">
+      <div class="hf-img">
+        <img src="/images/hero_main.png" alt="小澤鶏卵のたまご" loading="eager"/>
+        <h1 class="sr-only">小澤鶏卵 - 富山の業務用たまご・鶏卵専門店。当日配達対応。</h1>
+        <div class="hf-news">
+          <div class="hf-news-body">
+            <div><b>News</b><span>{news[0].date}</span></div>
+            <div>{news[0].title}</div>
           </div>
+          <a href="/news" class="circle-link">View more</a>
         </div>
-      </div>
-      <div class="hero-scroll">
-        <span>SCROLL</span>
-        <div class="hero-scroll-line"></div>
       </div>
     </section>
 
-    <!-- STATS -->
-    <div class="stats-wrap">
-      <div class="stat-egg">
-        <div class="stat-egg-inner">
-          <div class="stat-icon">
-            <svg width="36" height="36" viewBox="0 0 36 36" fill="none" stroke="#BA7517" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="4" y="14" width="28" height="18" rx="3"/>
-              <path d="M12 14V10a6 6 0 0112 0v4"/>
-              <circle cx="18" cy="23" r="2.5"/>
-            </svg>
-          </div>
-          <div class="stat-deco"></div>
-          <div class="stat-num">100<span class="stat-unit">年+</span></div>
-          <div class="stat-label">創業からの歴史</div>
-          <div class="stat-desc">大正時代から続く鶏卵一筋の歩み。<br/>これからも信頼を積み重ねて<br/>まいります。</div>
-        </div>
+    <!-- INTRO -->
+    <section class="intro">
+      <div class="intro-panel fade-up">
+        <img src="/images/shop/hero-family.jpg" alt="たまごのある食卓" loading="lazy"/>
       </div>
-      <div class="stat-egg">
-        <div class="stat-egg-inner">
-          <div class="stat-icon">
-            <svg width="36" height="36" viewBox="0 0 36 36" fill="none" stroke="#BA7517" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="4" y="6" width="28" height="24" rx="3"/>
-              <path d="M4 13h28M12 4v4M24 4v4"/>
-              <rect x="10" y="18" width="4" height="4" rx="1"/>
-              <rect x="16" y="18" width="4" height="4" rx="1"/>
-              <rect x="22" y="18" width="4" height="4" rx="1"/>
-            </svg>
-          </div>
-          <div class="stat-deco"></div>
-          <div class="stat-num">月水金</div>
-          <div class="stat-label">注文受付日</div>
-          <div class="stat-desc">毎週 月・水・金は<br/>ご注文を受け付けています。<br/>計画的にお届けします。</div>
-        </div>
+      <div class="intro-copy fade-up">
+        <p class="intro-catch">幸せは、<br/>たまごのある食卓にある。</p>
+        <p class="intro-en">Happiness is a table with eggs.</p>
+        <p class="intro-body">おひさまを浴びる幸せ。新鮮なものを食べる幸せ。<br/>安心できるものを選べる幸せ。<br/><br/>大正時代の創業から100年以上、富山の食卓と飲食店を<br/>たまごで支えてきました。</p>
+        <a href="/about" class="circle-link">About us</a>
       </div>
-      <div class="stat-egg">
-        <div class="stat-egg-inner">
-          <div class="stat-icon">
-            <svg width="36" height="36" viewBox="0 0 36 36" fill="none" stroke="#BA7517" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="2" y="14" width="22" height="12" rx="2"/>
-              <path d="M24 18h4l4 4H24v-4z"/>
-              <circle cx="9" cy="28" r="3"/>
-              <circle cx="27" cy="28" r="3"/>
-              <path d="M6 14V10h12v4"/>
-            </svg>
-          </div>
-          <div class="stat-deco"></div>
-          <div class="stat-num">当日</div>
-          <div class="stat-label">夕方お届け対応</div>
-          <div class="stat-desc">ご注文は当日夕方にお届け。<br/>新鮮な卵をできるだけ<br/>早くお届けします。</div>
-        </div>
-      </div>
-    </div>
-    <p class="stats-note">※お届けエリアや時間帯は地域によって異なります。詳しくはお問い合わせください。</p>
+    </section>
 
-    <!-- FOR BUSINESS -->
-    <section class="sec">
-      <div class="container">
-        <div class="two-col">
-          <div class="two-col-img">
-            <img src="/images/business_hero.png" alt="業務用たまご" loading="lazy"/>
-          </div>
-          <div class="two-col-body">
-            <span class="sec-label">FOR BUSINESS</span>
-            <h2 class="sec-title">富山の飲食店・施設へ<br/>業務用たまごを安定配達</h2>
-            <span class="sec-deco"></span>
-            <p class="sec-lead">富山市を中心に、飲食店・ホテル・給食施設・スーパーなど業務用たまごの安定供給はお任せください。<br/>大量注文・定期納品・催事対応など柔軟に対応します。</p>
-            <div class="biz-tags">
-              {['ラーメン店','洋菓子店','ホテル','スーパー','給食施設','催事・イベント'].map(t => <span class="biz-tag">{t}</span>)}
-            </div>
-            <a href="/business" class="btn btn-primary" style="margin-top:2.5rem">法人取引のご相談はこちら →</a>
-          </div>
+    <!-- SERVICE -->
+    <section class="band">
+      <div class="band-in">
+        <div>
+          <div class="ttl ttl--left"><h2 class="ttl-en">Service</h2><p class="ttl-ja">事業内容</p></div>
+          <p>富山市を中心に、飲食店・ホテル・給食施設・スーパーなどへ業務用たまごの卸売をおこなっています。<br/><br/>大量注文・定期納品・催事対応のほか、ギフトのオンライン注文、個人のお客様への販売も承ります。</p>
+          <p id="svc-links" style="margin-top:2rem">
+            <a id="svc-link" href={services[0].href} class="circle-link circle-link--w">詳しく見る</a>
+          </p>
         </div>
+        <div class="halo" id="halo">
+          {services.map((s, i) => (
+            <a href={s.href} class={`halo-slide${i === 0 ? ' on' : ''}`} data-href={s.href} aria-label={s.label}>
+              <img src={s.img} alt="" loading="lazy"/>
+            </a>
+          ))}
+          <div class="halo-label" id="halo-label">{services[0].label}</div>
+          <button class="halo-btn halo-btn--prev" id="halo-prev" aria-label="前へ">&lt;</button>
+          <button class="halo-btn halo-btn--next" id="halo-next" aria-label="次へ">&gt;</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- WORKS -->
+    <section class="sec works-sec">
+      <div class="container">
+        <div class="works-head">
+          <div class="ttl ttl--left" style="margin:0"><h2 class="ttl-en">Works</h2><p class="ttl-ja">卸売の実績</p></div>
+          <a href="/works" class="circle-link">View all</a>
+        </div>
+        <ul class="metric-row">
+          {metrics.map(m => (
+            <li><span class="metric-row-num">{m.num}<small>{m.unit}</small></span><span class="metric-row-label">{m.label}</span></li>
+          ))}
+        </ul>
+      </div>
+      <div class="hscroll">
+        {works.map((w, i) => (
+          <a href="/works" class="hcard">
+            <div class="hcard-img"><img src={workImgs[i % workImgs.length]} alt="" loading="lazy"/><span class="hcard-tag">{w.category}</span></div>
+            <h3>{w.title}</h3>
+          </a>
+        ))}
       </div>
     </section>
 
     <!-- PRODUCTS -->
     <section class="sec">
       <div class="container">
-        <div class="ttl fade-up"><h2 class="ttl-en">LINE UP</h2><p class="ttl-ja">商品紹介</p>
-        </div>
-        <div class="prod-grid">
-          {products.filter(p => ['kodawari','pink','araucana','gift'].includes(p.id)).map((p, i) => (
-            <a href={`/products#${p.id}`} class={`prod-card card fade-up fade-up-d${i + 1}`}>
-              <div class="prod-img"><img src={p.img} alt={p.name} loading="lazy"/></div>
-              <div class="prod-body">
-                <h3>{p.name}</h3>
-                <p>{p.note}</p>
-                <span class="link-arrow">詳しく見る →</span>
-              </div>
+        <div class="ttl fade-up"><h2 class="ttl-en">Products handled</h2><p class="ttl-ja">取り扱い商品</p></div>
+        <p class="sec-lead" style="text-align:center;margin:-1.5rem auto 3.5rem;max-width:640px">富山の鶏卵専門店として、用途に合わせた各種たまごを取り揃えています。</p>
+        <div class="circ-grid">
+          {products.filter(p => ['kodawari','pink','araucana','gift'].includes(p.id)).map(p => (
+            <a href={`/products#${p.id}`} class="circ fade-up">
+              <div class="circ-ring"><img src={p.img} alt={p.name} loading="lazy"/></div>
+              <h3>{p.name}</h3>
+              <p>{p.note}</p>
             </a>
           ))}
         </div>
-      </div>
-    </section>
-
-    <!-- WORKS -->
-    <section class="sec sec--amber">
-      <div class="container">
-        <div class="ttl fade-up"><h2 class="ttl-en">TRACK RECORD</h2><p class="ttl-ja">卸売の実績</p>
-        </div>
-        <div class="home-metrics">
-          {metrics.map(m => (
-            <div class="home-metric fade-up">
-              <div class="home-metric-num">{m.num}<small>{m.unit}</small></div>
-              <div class="home-metric-label">{m.label}</div>
-            </div>
-          ))}
-        </div>
-        <ul class="home-tags">
-          {[...new Set(works.map(w => w.category))].map(c => <li class="biz-tag">{c}</li>)}
-        </ul>
-        <div style="text-align:center;margin-top:2.5rem">
-          <a href="/works" class="btn-circle">実績・納品事例を見る</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- STORES -->
-    <section class="sec">
-      <div class="container">
-        <div class="ttl fade-up"><h2 class="ttl-en">STORES</h2><p class="ttl-ja">取扱店舗</p>
-          <p class="sec-lead" style="text-align:center">飲食店・菓子店・スーパー・施設など、{stores.length}件の取引先を業態・エリア別にご紹介します。</p>
-        </div>
-        <div style="text-align:center"><a href="/stores" class="btn-circle">取扱店舗一覧を見る</a></div>
+        <div style="text-align:center;margin-top:3.5rem"><a href="/products" class="btn-circle">商品一覧を見る</a></div>
       </div>
     </section>
 
     <!-- GIFT -->
-    <section class="sec sec--pale">
-      <div class="container">
-        <div class="ttl fade-up"><h2 class="ttl-en">GIFT</h2><p class="ttl-ja">ギフト・オンラインショップ</p>
-          <p class="sec-lead" style="text-align:center">お中元・お歳暮・内祝いに。オンラインでご注文いただけます。</p>
+    <section class="gift-sec">
+      <div class="gift-in">
+        <div class="gift-photo fade-up"><img src={gift.img} alt={gift.name} loading="lazy"/></div>
+        <div class="fade-up">
+          <div class="ttl ttl--left"><h2 class="ttl-en">Gift</h2><p class="ttl-ja">ギフト・オンライン注文</p></div>
+          <h3 class="gift-name">{gift.name}</h3>
+          <p class="gift-desc">{gift.desc}</p>
+          <p class="gift-price"><strong>{yen(gift.price)}</strong>円<small>（送料込み）</small></p>
+          <div class="gift-btns">
+            <a href="/gift" class="btn-circle">ギフト一覧を見る</a>
+            <a href={`/gift/order?item=${gift.id}`} class="btn btn-primary">注文する</a>
+          </div>
         </div>
-        <div class="prod-grid">
-          {gifts.map((g, i) => (
-            <a href={`/gift#${g.id}`} class={`prod-card card fade-up fade-up-d${i + 1}`}>
-              <div class="prod-img"><img src={g.img} alt={g.name} loading="lazy"/></div>
-              <div class="prod-body">
-                <h3>{g.name}</h3>
-                <p>{g.price.toLocaleString('ja-JP')}円（{g.shippingFee ? '送料別' : '送料込み'}）</p>
-                <span class="link-arrow">詳しく見る →</span>
-              </div>
-            </a>
-          ))}
-        </div>
-        <div style="text-align:center;margin-top:2.5rem"><a href="/gift" class="btn-circle">ギフト一覧へ</a></div>
       </div>
     </section>
 
-    <!-- ABOUT -->
+    <!-- STORES + NEWS -->
     <section class="sec">
-      <div class="container">
-        <div class="two-col">
-          <div class="fade-up">
-            <span class="sec-label">ABOUT</span>
-            <h2 class="sec-title">私たちについて</h2>
-            <span class="sec-deco"></span>
-            <p class="sec-lead">小澤鶏卵は、自然豊かな環境の中で、鶏の健康を第一に考え、こだわりの飼料ときれいな水で鶏を育てています。創業100年以上、富山の食卓を支えてきました。</p>
-            <a href="/about" class="link-arrow" style="margin-top:1.75rem;display:inline-flex">詳しく見る →</a>
-          </div>
-          <div class="two-col-img fade-up fade-up-d2">
-            <img src="/images/about_chickens.svg" alt="小澤鶏卵について" loading="lazy"/>
-          </div>
+      <div class="container two">
+        <div>
+          <div class="ttl ttl--left"><h2 class="ttl-en">Stores</h2><p class="ttl-ja">取扱店舗</p></div>
+          <p class="sec-lead" style="margin:0 0 1.8rem">飲食店・菓子店・スーパー・施設など、{stores.length}件の取引先を業態・エリア別にご紹介します。</p>
+          <a href="/stores" class="circle-link">View all</a>
+        </div>
+        <div>
+          <div class="ttl ttl--left"><h2 class="ttl-en">News</h2><p class="ttl-ja">お知らせ</p></div>
+          <ul class="news-list2">
+            {news.map(n => (
+              <li><a href="/news"><span class="n-date">{n.date}</span><span class={`n-tag${n.tag === '重要' ? ' n-tag--imp' : ''}`}>{n.tag}</span><span class="n-title">{n.title}</span></a></li>
+            ))}
+          </ul>
+          <a href="/news" class="circle-link" style="margin-top:1.5rem">View all</a>
         </div>
       </div>
     </section>
 
-    <!-- FEATURE -->
-    <section class="sec sec--pale">
-      <div class="container">
-        <div class="ttl fade-up"><h2 class="ttl-en">FEATURE</h2><p class="ttl-ja">こだわり</p>
-        </div>
-        <div class="feat-grid">
-          {[
-            { img:'/images/feature_feed.svg',   title:'こだわりの飼料',       body:'鶏の健康を考え、厳選した原料を使用した自家配合飼料を与えています。', d:'fade-up-d1' },
-            { img:'/images/feature_env.svg',    title:'快適な飼育環境',       body:'清潔で風通しの良い鶏舎で、のびのびと育った鶏から産まれています。', d:'fade-up-d2' },
-            { img:'/images/feature_water.svg',  title:'おいしい水',           body:'地下から汲み上げたきれいな水をたっぷり与えています。', d:'fade-up-d3' },
-            { img:'/images/feature_safety.svg', title:'安心・安全への取り組み', body:'徹底した衛生管理のもと、安心・安全なたまごをお届けします。', d:'fade-up-d4' },
-          ].map(f => (
-            <div class={`feat-card card fade-up ${f.d}`}>
-              <div class="feat-img"><img src={f.img} alt={f.title} loading="lazy"/></div>
-              <div class="feat-body">
-                <h3>{f.title}</h3>
-                <p>{f.body}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    <!-- NEWS -->
-    <section class="sec sec--pale">
-      <div class="container">
-        <div class="news-head fade-up">
-          <div>
-            <span class="sec-label">NEWS</span>
-            <h2 class="sec-title">お知らせ</h2>
-          </div>
-          <a href="/news" class="link-arrow">すべて見る →</a>
-        </div>
-        <ul class="news-list">
-          {[
-            { date:'2024.05.01', tag:'お知らせ', title:'ゴールデンウィーク期間の営業について' },
-            { date:'2024.04.10', tag:'重要',     title:'「こだわりのたまご」価格改定のお知らせ' },
-            { date:'2024.03.15', tag:'お知らせ', title:'ホームページをリニューアルしました' },
-          ].map(n => (
-            <li class="news-item fade-up">
-              <a href="/news">
-                <span class="news-date">{n.date}</span>
-                <span class={`news-tag ${n.tag === '重要' ? 'news-tag--imp' : ''}`}>{n.tag}</span>
-                <span class="news-title">{n.title}</span>
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </section>
-
-    <!-- CTA -->
     <ContactSection/>
-
   </main>
   <Footer/>
 </Layout>
 
+<script>
+  const slides = Array.from(document.querySelectorAll<HTMLElement>('.halo-slide'));
+  const label = document.getElementById('halo-label');
+  const link = document.getElementById('svc-link') as HTMLAnchorElement | null;
+  const labels = slides.map(s => s.getAttribute('aria-label') || '');
+  let cur = 0;
+  const go = (n: number) => {
+    cur = (n + slides.length) % slides.length;
+    slides.forEach((s, i) => s.classList.toggle('on', i === cur));
+    if (label) label.textContent = labels[cur];
+    if (link) link.href = slides[cur].dataset.href || '/';
+  };
+  document.getElementById('halo-prev')?.addEventListener('click', () => go(cur - 1));
+  document.getElementById('halo-next')?.addEventListener('click', () => go(cur + 1));
+</script>
+
 <style>
-.home-metrics { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
-.home-metric { text-align: center; }
-.home-metric-num { font-family: Manrope, sans-serif; font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 700; color: var(--amber); }
-.home-metric-num small { font-size: .95rem; margin-left: .2rem; }
-.home-metric-label { font-size: .82rem; font-weight: 700; margin-top: .3rem; }
-.home-tags { list-style: none; margin: 2.5rem 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: .6rem; justify-content: center; }
-@media (max-width: 700px) { .home-metrics { grid-template-columns: repeat(2, 1fr); gap: 2rem 1rem; } }
-/* HERO */
-.hero {
-  position: relative;
-  min-height: 75svh;
-  display: flex;
-  align-items: center;
-  padding-top: 76px;
-  overflow: hidden;
-  background: #F9F7F2;
-}
-.hero-bg-img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center right;
-  display: block;
-}
-.hero::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to right, #F9F7F2 0%, #F9F7F2 28%, rgba(249,247,242,0.85) 48%, rgba(249,247,242,0.2) 65%, transparent 80%);
-  pointer-events: none;
-  z-index: 0;
-}
-.hero-inner {
-  position: relative;
-  z-index: 1;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 5rem;
-  width: 100%;
-  min-height: calc(75svh - 72px);
-  display: flex;
-  align-items: center;
-}
-.hero-text {
-  width: 44%;
-  padding: 4rem 0;
-}
-.hero-label {
-  font-family: Manrope, sans-serif;
-  font-size: .58rem;
-  letter-spacing: .3em;
-  color: #BA7517;
-  display: block;
-  margin-bottom: 2rem;
-  opacity: .8;
-}
-.hero-title {
-  font-family: 'Zen Kaku Gothic New', sans-serif;
-  font-size: clamp(2rem, 4.2vw, 3.4rem);
-  font-weight: 300;
-  color: #2C2A24;
-  line-height: 1.75;
-  margin-bottom: 1.75rem;
-  letter-spacing: .12em;
-}
-.hero-title em { font-style: normal; color: #BA7517; }
-.hero-sub {
-  font-size: .88rem;
-  color: #5C5A54;
-  line-height: 2.2;
-  margin-bottom: 3rem;
-  letter-spacing: .06em;
-  font-weight: 300;
-}
-.hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
-
-/* SCROLL インジケーター */
-.hero-scroll { position:absolute; bottom:2.5rem; left:50%; transform:translateX(-50%); z-index:2; display:flex; flex-direction:column; align-items:center; gap:.6rem; }
-.hero-scroll span { font-family:Manrope,sans-serif; font-size:.52rem; letter-spacing:.22em; color:rgba(186,117,23,.5); }
-.hero-scroll-line { width:1px; height:48px; background:linear-gradient(to bottom,rgba(186,117,23,.4),transparent); animation:scrollLine 1.8s ease-in-out infinite; }
-@keyframes scrollLine { 0%,100%{opacity:.3;transform:scaleY(.5);transform-origin:top} 50%{opacity:1;transform:scaleY(1)} }
-
-/* STATS 卵型カード */
-.stats-wrap {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 3.5rem;
-  padding: 5rem 2rem;
-  background: #F9F7F2;
-  flex-wrap: nowrap;
-}
-.stat-egg {
-  width: 220px;
-  flex-shrink: 0;
-  flex-grow: 0;
-  flex-basis: 220px;
-}
-.stat-egg-inner {
-  background: white;
-  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-  width: 220px;
-  height: 293px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 2.5rem 1.5rem;
-  text-align: center;
-  box-shadow: 0 8px 40px rgba(44,44,42,0.07);
-  border: 0.5px solid rgba(186,117,23,0.1);
-  gap: 0;
-  box-sizing: border-box;
-}
-.stat-icon {
-  color: #BA7517;
-  margin-bottom: .75rem;
-}
-.stat-deco {
-  width: 24px;
-  height: 1px;
-  background: #BA7517;
-  opacity: .4;
-  margin: .5rem auto .85rem;
-}
-.stat-num {
-  font-family: 'Zen Kaku Gothic New', sans-serif;
-  font-size: 2.2rem;
-  font-weight: 400;
-  color: #BA7517;
-  line-height: 1.1;
-  letter-spacing: .04em;
-  margin-bottom: .4rem;
-}
-.stat-unit {
-  font-size: 1rem;
-  font-weight: 400;
-}
-.stat-label {
-  font-size: .78rem;
-  font-weight: 500;
-  color: #2C2A24;
-  letter-spacing: .1em;
-  margin-bottom: .85rem;
-}
-.stat-desc {
-  font-size: .72rem;
-  color: #9B9994;
-  line-height: 1.9;
-  letter-spacing: .04em;
-}
-.stats-note {
-  text-align: center;
-  font-size: .72rem;
-  color: #9B9994;
-  padding-bottom: 3rem;
-  background: #F9F7F2;
-  letter-spacing: .04em;
-}
-
-/* TWO COL */
-.two-col { display:grid; grid-template-columns:1fr 1fr; gap:5.5rem; align-items:center; }
-.two-col--rev { direction:rtl; }
-.two-col--rev > * { direction:ltr; }
-.two-col-img { border-radius:var(--radius-lg); overflow:hidden; aspect-ratio:4/3; background:var(--amber-bg); }
-.two-col-img img { width:100%; height:100%; object-fit:cover; display:block; }
-
-.biz-tags { display:flex; flex-wrap:wrap; gap:.5rem; margin-top:1.75rem; }
-.biz-tag { background:var(--gray-lt); color:var(--muted); font-size:.72rem; padding:.35rem .9rem; border-radius:999px; border:.5px solid var(--border); }
-
-/* ORDER */
-.order-methods { display:grid; grid-template-columns:repeat(3,1fr); gap:1.25rem; margin-bottom:2rem; }
-.method-card { background:white; border-radius:var(--radius-md); border:.5px solid rgba(44,44,42,.08); padding:2.25rem 1.5rem; text-align:center; box-shadow:0 4px 24px rgba(44,44,42,.06); }
-.method-icon { font-size:1.75rem; display:block; margin-bottom:.85rem; }
-.method-card h3 { font-family:'Zen Kaku Gothic New',sans-serif; font-size:.95rem; font-weight:700; color:var(--text); margin-bottom:.45rem; }
-.method-detail { font-size:.85rem; color:var(--amber); font-weight:500; margin-bottom:.25rem; }
-.method-sub { font-size:.72rem; color:var(--muted); }
-.order-note { background:white; border-radius:var(--radius-sm); border:.5px solid rgba(186,117,23,.18); padding:1.5rem 2rem; font-size:.875rem; color:var(--muted); line-height:1.9; text-align:center; }
-.order-note strong { color:var(--text); font-weight:700; }
-
-/* FEAT */
-.feat-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1.25rem; }
-.feat-card { display:flex; flex-direction:column; }
-.feat-img { aspect-ratio:1; background:var(--amber-bg); overflow:hidden; }
-.feat-img img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .5s cubic-bezier(.25,.46,.45,.94); }
-.feat-card:hover .feat-img img { transform:scale(1.06); }
-.feat-body { padding:1.4rem; }
-.feat-body h3 { font-family:'Zen Kaku Gothic New',sans-serif; font-size:.9rem; font-weight:700; color:var(--text); margin-bottom:.45rem; }
-.feat-body p { font-size:.78rem; color:var(--muted); line-height:1.8; margin:0; }
-
-/* PRODUCTS */
-.prod-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1.25rem; }
-.prod-card { text-decoration:none; color:inherit; display:flex; flex-direction:column; }
-.prod-img { aspect-ratio:1; background:var(--amber-bg); overflow:hidden; }
-.prod-img img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .5s cubic-bezier(.25,.46,.45,.94); }
-.prod-card:hover .prod-img img { transform:scale(1.06); }
-.prod-body { padding:1.4rem; }
-.prod-body h3 { font-family:'Zen Kaku Gothic New',sans-serif; font-size:.9rem; font-weight:700; color:var(--text); margin-bottom:.35rem; }
-.prod-body p { font-size:.78rem; color:var(--muted); line-height:1.7; margin-bottom:.85rem; }
-
-/* NEWS */
-.news-head { display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:2.5rem; }
-.news-list { list-style:none; margin:0; padding:0; }
-.news-item { border-bottom:.5px solid var(--border); }
-.news-item a { display:flex; align-items:center; gap:1.25rem; padding:1.1rem 0; text-decoration:none; transition:padding-left .2s; }
-.news-item a:hover { padding-left:.5rem; }
-.news-date { font-family:Manrope,sans-serif; font-size:.76rem; color:var(--muted); white-space:nowrap; letter-spacing:.04em; }
-.news-tag { font-size:.66rem; font-weight:700; padding:.2rem .7rem; border-radius:999px; background:var(--gray-lt); color:var(--muted); white-space:nowrap; }
-.news-tag--imp { background:var(--amber-bg); color:var(--amber); }
-.news-title { font-size:.875rem; color:var(--text); }
-
-/* CTA */
-
-/* CENTER HEAD */
-.center-head { text-align:center; }
-
-@media (max-width:900px) {
-  .hero-text { width:70%; }
-  .two-col { grid-template-columns:1fr; gap:2.5rem; }
-  .two-col--rev { direction:ltr; }
-  .feat-grid,.prod-grid { grid-template-columns:repeat(2,1fr); }
-  .order-methods { grid-template-columns:repeat(3,1fr); }
-  .stats-wrap { gap:2rem; }
-}
-@media (max-width:640px) {
-  .feat-grid,.prod-grid { grid-template-columns:repeat(2,1fr); }
-  .order-methods { grid-template-columns:1fr; }
-  .stats-wrap { flex-direction:column; align-items:center; padding:3rem 2rem; gap:2rem; }
-  .stat-egg { width:220px; flex-basis:220px; }
-  .hero-scroll { display:none; }
-  .hero-title { font-size:clamp(1.8rem,8vw,2.4rem); }
-}
+.intro { background: #fff; padding: 5rem 1.5rem 6rem; }
+.intro-panel { max-width: 1100px; margin: 0 auto; background: var(--panel); padding: 6% 9% 9%; }
+.intro-panel img { width: 100%; aspect-ratio: 2/1; object-fit: cover; border-radius: 16px; display: block; }
+.intro-copy { max-width: 1100px; margin: -5rem auto 0; padding-left: 9%; position: relative; }
+.intro-catch { font-size: clamp(1.8rem, 4vw, 2.8rem); color: var(--amber); letter-spacing: .12em; line-height: 1.8; font-weight: 400; margin: 0; background: #fff; display: inline-block; padding: 1rem 2rem 0 0; }
+.intro-en { color: var(--amber-lt); font-family: Manrope, sans-serif; font-size: .85rem; letter-spacing: .12em; margin: .6rem 0 2rem; }
+.intro-body { color: var(--amber); font-size: .92rem; line-height: 2.3; letter-spacing: .1em; margin: 0 0 2rem; }
+.works-sec { padding-bottom: 5rem; }
+.works-sec :global(.container) { max-width: 1120px; }
+.works-sec :global(.hscroll) { padding-left: max(2.5rem, calc((100vw - 1120px) / 2 + 2.5rem)); }
+.works-head { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2.5rem; gap: 1rem; }
+.metric-row { list-style: none; margin: 0 0 3rem; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1.5rem; }
+.metric-row li { display: flex; flex-direction: column; gap: .3rem; border-top: 1px solid var(--border); padding-top: 1rem; }
+.metric-row-num { font-family: Manrope, sans-serif; font-weight: 300; font-size: clamp(1.9rem, 3.4vw, 2.6rem); color: var(--amber); line-height: 1.2; }
+.metric-row-num small { font-size: .85rem; margin-left: .2rem; font-weight: 500; }
+.metric-row-label { font-size: .8rem; letter-spacing: .1em; color: var(--muted); }
+.gift-sec { background: var(--panel); padding: 6rem 0; }
+.gift-in { max-width: 1100px; margin: 0 auto; padding: 0 2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+.gift-photo img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 24px; display: block; }
+.gift-name { font-size: 1.25rem; margin: 0 0 1rem; }
+.gift-desc { font-size: .88rem; line-height: 2.1; color: var(--muted); margin: 0 0 1.2rem; }
+.gift-price { margin: 0 0 1.8rem; font-size: 1rem; } .gift-price strong { font-family: Manrope, sans-serif; font-size: 2rem; font-weight: 500; }
+.gift-price small { font-size: .78rem; color: var(--muted); margin-left: .4rem; }
+.gift-btns { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
+.two { display: grid; grid-template-columns: 1fr 1.3fr; gap: 4rem; max-width: 1100px; }
+.news-list2 { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--border); }
+.news-list2 li { border-bottom: 1px solid var(--border); }
+.news-list2 a { display: flex; gap: 1rem; align-items: center; padding: 1.1rem .3rem; text-decoration: none; color: inherit; flex-wrap: wrap; }
+.n-date { font-family: Manrope, sans-serif; font-size: .78rem; color: var(--muted); }
+.n-tag { font-size: .68rem; background: var(--amber-bg); color: var(--amber); padding: .15rem .7rem; border-radius: 999px; font-weight: 700; }
+.n-tag--imp { background: #FBE3E0; color: #B3261E; }
+.n-title { font-size: .88rem; }
+@media (max-width: 860px) { .gift-in, .two { grid-template-columns: 1fr; gap: 2.5rem; } .intro-panel { padding: 8% 6% 12%; } .intro-copy { padding-left: 6%; margin-top: -3rem; } .intro-catch { padding-right: 1rem; } }
 </style>

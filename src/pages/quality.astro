@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
+import PageHero from '../components/PageHero.astro';
 import Footer from '../components/Footer.astro';
 ---
 
@@ -11,14 +12,7 @@ import Footer from '../components/Footer.astro';
   <Header />
   <main>
 
-    <!-- Page Hero -->
-    <section class="page-hero">
-      <div class="page-hero-inner">
-        <span class="section-label">Quality</span>
-        <h1 class="page-title">品質へのこだわり</h1>
-        <p class="page-subtitle">産地から食卓まで、妥協しない品質管理</p>
-      </div>
-    </section>
+    <PageHero en="Quality" ja="品質へのこだわり" img="/images/shop/point3.jpg" lead="産地から食卓まで、妥協しない品質管理。"/>
 
     <!-- Intro -->
     <section class="quality-intro">

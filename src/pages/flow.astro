@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
+import PageHero from '../components/PageHero.astro';
 import Footer from '../components/Footer.astro';
 import ContactSection from '../components/ContactSection.astro';
 
@@ -62,24 +63,7 @@ const points = [
 >
   <Header/>
   <main>
-    <!-- パンくず -->
-    <div class="breadcrumb">
-      <div class="container"><a href="/">TOP</a> <span>&gt;</span> <span>FLOW</span></div>
-    </div>
-
-    <!-- ヒーロー -->
-    <section class="fl-hero">
-      <div class="container fl-hero-in">
-        <div class="fl-hero-text">
-          <span class="fl-en">QUALITY &amp; FLOW</span>
-          <h1>採卵から食卓へ。<br/>品質を守る出荷の流れ</h1>
-          <p>小澤鶏卵では、採卵から富山市内への配送まで<br/>一貫した品質管理体制でたまごをお届けしています。</p>
-        </div>
-        <div class:list={["fl-hero-img", { "img-fallback": true }]}>
-          <img src="/images/flow/flow-hero.jpg" alt="新鮮なたまご" loading="eager" onerror="this.closest('.fl-hero-img').classList.add('img-fallback')"/>
-        </div>
-      </div>
-    </section>
+    <PageHero en="Flow" ja="採卵から食卓へ・出荷の流れ" img="/images/shop/point4.jpg" lead="採卵から富山市内への配送まで、一貫した品質管理体制でたまごをお届けしています。"/>
 
     <!-- フロー -->
     <section class="fl-steps-sec">
@@ -108,7 +92,7 @@ const points = [
     <!-- 品質へのこだわり -->
     <section class="fl-promise">
       <div class="container">
-        <div class="ttl"><h2 class="ttl-en">QUALITY</h2><p class="ttl-ja">品質へのこだわり</p></div>
+        <div class="ttl"><h2 class="ttl-en">Quality</h2><p class="ttl-ja">品質へのこだわり</p></div>
         <div class="points-grid">
           {points.map(p => (
             <div class="point-card">

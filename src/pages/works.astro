@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
+import PageHero from '../components/PageHero.astro';
 import Footer from '../components/Footer.astro';
 import ContactSection from '../components/ContactSection.astro';
 import { metrics, works } from '../data/works';
@@ -8,17 +9,11 @@ import { metrics, works } from '../data/works';
 <Layout title="卸売の実績｜小澤鶏卵" description="小澤鶏卵の卸売実績。飲食店・洋菓子店・ホテル・スーパー・給食施設・催事など、富山県内の様々な業態へたまごをお届けしています。">
   <Header/>
   <main>
-    <section class="page-hero">
-      <div class="container">
-        <span class="page-hero-label">TRACK RECORD</span>
-        <h1 class="page-hero-title">卸売の実績</h1>
-        <p class="page-hero-sub">100年以上にわたり、富山の食を支える事業者様へたまごをお届けしています。</p>
-      </div>
-    </section>
+    <PageHero en="Works" ja="卸売の実績" img="/images/business_hero.png" lead="100年以上にわたり、富山の食を支える事業者様へたまごをお届けしています。"/>
 
     <section class="sec">
       <div class="container">
-        <div class="ttl fade-up"><h2 class="ttl-en">NUMBERS</h2><p class="ttl-ja">数字で見る小澤鶏卵</p>
+        <div class="ttl fade-up"><h2 class="ttl-en">Numbers</h2><p class="ttl-ja">数字で見る小澤鶏卵</p>
         </div>
         <div class="metric-grid">
           {metrics.map((m, i) => (
@@ -34,7 +29,7 @@ import { metrics, works } from '../data/works';
 
     <section class="sec sec--pale">
       <div class="container">
-        <div class="ttl fade-up"><h2 class="ttl-en">CASE</h2><p class="ttl-ja">納品事例</p>
+        <div class="ttl fade-up"><h2 class="ttl-en">Case</h2><p class="ttl-ja">納品事例</p>
         </div>
         <div class="case-grid">
           {works.map((w, i) => (
