@@ -2,9 +2,10 @@
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
-import { gifts } from '../../data/gifts';
+import { gifts, paymentMethods, rakutenPayGuide } from '../../data/gifts';
 
 // お問い合わせフォームと同じ Google Apps Script に送信（gas/README.md 参照）
+const squareUrls = Object.fromEntries(gifts.map(g => [g.id, g.squareUrl]));
 const FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycbwrMTrF_xGZw_xx5gorTiYiqP6bcTxgDRWJjVn4lInl_7lg55dEQc0Cxy_lF73HMFm6/exec';
 ---
 <Layout title="ギフト注文フォーム｜小澤鶏卵" description="小澤鶏卵のギフトのご注文フォームです。商品・数量・お届け先を入力して送信してください。">
@@ -20,7 +21,7 @@ const FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycbwrMTrF_xGZw_xx5g
 
     <section class="sec">
       <div class="container od-wrap">
-        <form class="od-form" id="order-form" data-endpoint={FORM_ENDPOINT} novalidate>
+        <form class="od-form" id="order-form" data-endpoint={FORM_ENDPOINT} data-square={JSON.stringify(squareUrls)} data-rakuten={rakutenPayGuide} novalidate>
           <input type="hidden" name="form" value="order"/>
           <div class="hp" aria-hidden="true"><label>空欄のままにしてください<input type="text" name="website" tabindex="-1" autocomplete="off"/></label></div>
 
@@ -78,14 +79,32 @@ const FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycbwrMTrF_xGZw_xx5g
             <div class="od-group"><label class="form-label" for="memo">メッセージカード・備考</label><textarea class="form-textarea" id="memo" name="memo" rows="4" maxlength="500"></textarea></div>
           </fieldset>
 
+          <fieldset class="od-box">
+            <legend>4. お支払い方法</legend>
+            <div class="od-pay">
+              {paymentMethods.map((m, i) => (
+                <label class="od-check"><input type="radio" name="payment" value={m.label} required checked={i === 0}/> {m.label}</label>
+              ))}
+            </div>
+            <p class="od-hint">注文の送信後、選んだ方法でのお支払い手順を画面とメールでご案内します。</p>
+          </fieldset>
+
           <label class="od-check"><input type="checkbox" name="privacy" required/> <span><a href="/about" class="od-link">プライバシーポリシー</a>に同意する <span class="req">*</span></span></label>
 
           <div class="od-submit">
             <button type="submit" class="btn btn-primary">注文を送信する</button>
             <p class="od-status" id="od-status" role="status" aria-live="polite"></p>
-            <p class="od-hint">お支払い方法は、送信後にメールでご案内します。カード番号などは入力しないでください。<br/>お急ぎの場合はお電話（076-466-3815）またはLINEでご連絡ください。</p>
+            <p class="od-hint">お支払い手順は、送信後にご案内します。このフォームにカード番号などは入力しないでください。<br/>お急ぎの場合はお電話（076-466-3815）またはLINEでご連絡ください。</p>
           </div>
         </form>
+
+        <section class="od-next" id="od-next" hidden>
+          <h2>ご注文を受け付けました</h2>
+          <p id="od-next-lead"></p>
+          <a id="od-next-card" class="btn btn-primary" target="_blank" rel="noopener" hidden>カードで支払う（Square）</a>
+          <p id="od-next-rakuten" class="od-rakuten" hidden></p>
+          <p class="od-hint">お支払い手順の詳細は、ご入力のメールアドレスにもお送りします。<br/>ご不明な点は、お電話（076-466-3815）またはLINEでご連絡ください。</p>
+        </section>
       </div>
     </section>
   </main>
@@ -134,8 +153,27 @@ const FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycbwrMTrF_xGZw_xx5g
         const res = await fetch(endpoint, { method: 'POST', body: data });
         const json = await res.json();
         if (!json.ok) throw new Error('rejected');
-        form.reset(); update();
-        show('ご注文を受け付けました。確認メールをお送りしますので、しばらくお待ちください。', true);
+        const method = String(data.get('payment') || '');
+        const square = (JSON.parse(form.dataset.square || '{}') as Record<string, string>)[String(data.get('item'))];
+        const rakuten = form.dataset.rakuten || '';
+        const card = document.getElementById('od-next-card') as HTMLAnchorElement;
+        const rk = document.getElementById('od-next-rakuten')!;
+        const lead = document.getElementById('od-next-lead')!;
+        card.hidden = true; rk.hidden = true;
+        if (method.includes('Square') && square) {
+          card.href = square; card.hidden = false;
+          lead.textContent = '下のボタンからカード決済にお進みください。お支払い確認後に発送の手配をいたします。';
+        } else if (method.includes('楽天') && rakuten) {
+          rk.textContent = rakuten; rk.hidden = false;
+          lead.textContent = '楽天ペイの残高送金でお支払いください。送金の確認後に発送の手配をいたします。';
+        } else {
+          lead.textContent = '担当者より、お支払い方法とお届け日をメールでご案内します。';
+        }
+        form.hidden = true;
+        const next = document.getElementById('od-next')!;
+        next.hidden = false;
+        next.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        show('', true);
       } catch {
         show('送信に失敗しました。お手数ですがお電話またはLINEでご連絡ください。', false);
       } finally { btn.disabled = false; }
@@ -154,6 +192,11 @@ const FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycbwrMTrF_xGZw_xx5g
 .req { color: #C02828; font-size: .85em; }
 .od-total { margin: 0; font-size: .95rem; }
 .od-total strong { font-size: 1.4rem; color: var(--amber); font-family: Manrope, sans-serif; }
+.od-pay { display: flex; flex-direction: column; gap: .6rem; }
+.od-next { text-align: center; padding: 3rem 1.5rem; border: .5px solid var(--border); border-radius: var(--radius-md); background: var(--amber-pale); display: flex; flex-direction: column; align-items: center; gap: 1.25rem; }
+.od-next[hidden], .od-form[hidden] { display: none; }
+.od-next h2 { margin: 0; font-size: 1.3rem; }
+.od-rakuten { white-space: pre-line; background: #fff; padding: 1rem 1.5rem; border-radius: var(--radius-sm); font-size: .9rem; line-height: 1.9; margin: 0; }
 .od-hint { margin: 0; font-size: .75rem; color: var(--muted); line-height: 1.9; }
 .od-check { display: flex; gap: .6rem; align-items: center; font-size: .85rem; }
 .od-link { color: var(--amber); text-decoration: underline; }

@@ -63,13 +63,13 @@ function handleOrder_(p) {
   const row = [
     new Date(), clean_(p.item_name, 100), qty, clean_(p.total_estimate, 20),
     sName, sTel, sEmail, rName, rTel, rZip, rAddr,
-    clean_(p.desired_date, 20), clean_(p.noshi, 50), clean_(p.memo, 500), '未対応',
+    clean_(p.desired_date, 20), clean_(p.noshi, 50), clean_(p.memo, 500), clean_(p.payment, 50), '未対応',
   ];
   const ss = SpreadsheetApp.getActiveSpreadsheet();
   const sheet = ss.getSheetByName('ギフト注文') || ss.insertSheet('ギフト注文');
   if (sheet.getLastRow() === 0) {
     sheet.appendRow(['受信日時', '商品', '数量', '小計(目安)', '依頼主', '依頼主TEL', '依頼主メール',
-                     '届け先', '届け先TEL', '〒', '住所', '希望日', 'のし', 'メッセージ・備考', '状況']);
+                     '届け先', '届け先TEL', '〒', '住所', '希望日', 'のし', 'メッセージ・備考', '支払方法', '状況']);
   }
   sheet.appendRow(row);
   if (NOTIFY_TO) {
@@ -79,7 +79,7 @@ function handleOrder_(p) {
       body: ['商品: ' + row[1], '数量: ' + qty, '小計(目安): ' + row[3] + '円', '',
              '依頼主: ' + sName + ' / ' + sTel + ' / ' + sEmail,
              '届け先: ' + rName + ' / ' + rTel, '〒' + rZip + ' ' + rAddr,
-             '希望日: ' + row[11], 'のし: ' + row[12], '備考: ' + row[13]].join('\n'),
+             '希望日: ' + row[11], 'のし: ' + row[12], '備考: ' + row[13], '支払方法: ' + row[14]].join('\n'),
     });
   }
   return json_({ ok: true });
