@@ -1,0 +1,88 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ContactSection from '../components/ContactSection.astro';
+import { stores, storeCategories } from '../data/stores';
+
+const grouped = storeCategories
+  .map(c => ({ category: c, items: stores.filter(s => s.category === c) }))
+  .filter(g => g.items.length > 0);
+---
+<Layout title="取扱店舗一覧｜小澤鶏卵" description="小澤鶏卵のたまごをお取り扱いいただいている飲食店・洋菓子店・ホテル・スーパー・施設の一覧です。">
+  <Header/>
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <span class="page-hero-label">STORES</span>
+        <h1 class="page-hero-title">取扱店舗一覧</h1>
+        <p class="page-hero-sub">小澤鶏卵のたまごをお使いいただいている店舗・施設をご紹介します。</p>
+      </div>
+    </section>
+
+    <section class="sec">
+      <div class="container">
+        <nav class="st-tabs" aria-label="業態で絞り込む">
+          <button class="st-tab active" data-cat="all">すべて</button>
+          {grouped.map(g => <button class="st-tab" data-cat={g.category}>{g.category}</button>)}
+        </nav>
+
+        {grouped.map(g => (
+          <section class="st-group" data-cat={g.category}>
+            <h2 class="st-group-title">{g.category}</h2>
+            <ul class="st-list">
+              {g.items.map(s => (
+                <li class="st-item">
+                  <div>
+                    <span class="st-name">{s.url ? <a href={s.url} target="_blank" rel="noopener">{s.name}</a> : s.name}</span>
+                    {s.note && <span class="st-note">{s.note}</span>}
+                  </div>
+                  <span class="st-area">{s.area}</span>
+                </li>
+              ))}
+            </ul>
+          </section>
+        ))}
+
+        <p class="st-foot">※掲載は取扱店舗様の了承を得たもののみです。掲載内容は変更される場合があります。</p>
+      </div>
+    </section>
+
+    <section class="sec sec--amber">
+      <div class="container" style="text-align:center">
+        <h2 class="sec-title">取扱店舗になりませんか？</h2>
+        <p class="sec-lead">飲食店・小売店・施設のみなさま、卸売のお取引を承ります。</p>
+        <a href="/business" class="btn btn-primary" style="margin-top:1.75rem">法人のお客様はこちら →</a>
+      </div>
+    </section>
+
+    <ContactSection/>
+  </main>
+  <Footer/>
+</Layout>
+
+<style>
+.st-tabs { display: flex; flex-wrap: wrap; gap: .6rem; justify-content: center; margin-bottom: 3rem; }
+.st-tab { padding: .55rem 1.3rem; border: 1px solid rgba(186,117,23,.4); border-radius: 999px; background: #fff; color: var(--amber); font-size: .82rem; font-weight: 700; cursor: pointer; font-family: inherit; transition: all .2s; }
+.st-tab:hover, .st-tab.active { background: var(--amber); color: #FFFBF3; }
+.st-group { margin-bottom: 2.5rem; }
+.st-group[hidden] { display: none; }
+.st-group-title { font-size: 1.1rem; padding-left: .9rem; border-left: 3px solid var(--amber-lt); margin: 0 0 1rem; }
+.st-list { list-style: none; margin: 0; padding: 0; border-top: .5px solid var(--border); }
+.st-item { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: 1rem .5rem; border-bottom: .5px solid var(--border); }
+.st-name { font-weight: 700; font-size: .95rem; }
+.st-name a { color: inherit; text-decoration: underline; text-decoration-color: var(--amber-lt); }
+.st-note { display: block; font-size: .75rem; color: var(--muted); margin-top: .2rem; }
+.st-area { font-size: .8rem; color: var(--amber); font-weight: 700; white-space: nowrap; }
+.st-foot { font-size: .75rem; color: var(--muted); text-align: center; margin-top: 2rem; }
+</style>
+
+<script>
+const tabs = document.querySelectorAll<HTMLButtonElement>('.st-tab');
+const groups = document.querySelectorAll<HTMLElement>('.st-group');
+tabs.forEach(tab => tab.addEventListener('click', () => {
+  tabs.forEach(t => t.classList.toggle('active', t === tab));
+  const cat = tab.dataset.cat;
+  groups.forEach(g => { g.hidden = cat !== 'all' && g.dataset.cat !== cat; });
+}));
+</script>

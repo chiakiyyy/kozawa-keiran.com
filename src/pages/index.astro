@@ -4,6 +4,9 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { products } from '../data/products';
 import ContactSection from '../components/ContactSection.astro';
+import { metrics, works } from '../data/works';
+import { stores } from '../data/stores';
+import { gifts } from '../data/gifts';
 ---
 <Layout title="小澤鶏卵｜富山の業務用たまご・鶏卵専門店｜当日配達対応" description="富山県の鶏卵専門店・小澤鶏卵。大正時代創業100年以上。富山市を中心に飲食店・ホテル・給食施設・スーパーへ業務用たまごを当日配達。月・水・金9:30までのご注文で当日夕方お届け。定期納品・催事対応も承ります。">
   <Header/>
@@ -128,7 +131,69 @@ import ContactSection from '../components/ContactSection.astro';
       </div>
     </section>
 
-    <!-- NEWS -->
+    <!-- WORKS -->
+    <section class="sec sec--amber">
+      <div class="container">
+        <div class="center-head fade-up" style="margin-bottom:3rem">
+          <span class="sec-label" style="justify-content:center;display:flex">TRACK RECORD</span>
+          <h2 class="sec-title" style="text-align:center">卸売の実績</h2>
+          <span class="sec-deco sec-deco--center"></span>
+        </div>
+        <div class="home-metrics">
+          {metrics.map(m => (
+            <div class="home-metric fade-up">
+              <div class="home-metric-num">{m.num}<small>{m.unit}</small></div>
+              <div class="home-metric-label">{m.label}</div>
+            </div>
+          ))}
+        </div>
+        <ul class="home-tags">
+          {[...new Set(works.map(w => w.category))].map(c => <li class="biz-tag">{c}</li>)}
+        </ul>
+        <div style="text-align:center;margin-top:2.5rem">
+          <a href="/works" class="btn btn-primary">実績・納品事例を見る →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- STORES -->
+    <section class="sec">
+      <div class="container">
+        <div class="center-head fade-up" style="margin-bottom:2.5rem">
+          <span class="sec-label" style="justify-content:center;display:flex">STORES</span>
+          <h2 class="sec-title" style="text-align:center">取扱店舗</h2>
+          <span class="sec-deco sec-deco--center"></span>
+          <p class="sec-lead" style="text-align:center">飲食店・洋菓子店・ホテル・スーパーなど、{stores.length}件の取扱店舗を掲載しています。</p>
+        </div>
+        <div style="text-align:center"><a href="/stores" class="btn btn-outline">取扱店舗一覧を見る →</a></div>
+      </div>
+    </section>
+
+    <!-- GIFT -->
+    <section class="sec sec--pale">
+      <div class="container">
+        <div class="center-head fade-up" style="margin-bottom:3rem">
+          <span class="sec-label" style="justify-content:center;display:flex">GIFT</span>
+          <h2 class="sec-title" style="text-align:center">ギフト・オンラインショップ</h2>
+          <span class="sec-deco sec-deco--center"></span>
+          <p class="sec-lead" style="text-align:center">お中元・お歳暮・内祝いに。オンラインでご注文いただけます。</p>
+        </div>
+        <div class="prod-grid">
+          {gifts.map((g, i) => (
+            <a href={`/gift#${g.id}`} class={`prod-card card fade-up fade-up-d${i + 1}`}>
+              <div class="prod-img"><img src={g.img} alt={g.name} loading="lazy"/></div>
+              <div class="prod-body">
+                <h3>{g.name}</h3>
+                <p>{g.price.toLocaleString('ja-JP')}円（税込）</p>
+                <span class="link-arrow">詳しく見る →</span>
+              </div>
+            </a>
+          ))}
+        </div>
+        <div style="text-align:center;margin-top:2.5rem"><a href="/gift" class="btn btn-primary">ギフト一覧へ →</a></div>
+      </div>
+    </section>
+
     <!-- ABOUT -->
     <section class="sec">
       <div class="container">
@@ -210,6 +275,13 @@ import ContactSection from '../components/ContactSection.astro';
 </Layout>
 
 <style>
+.home-metrics { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+.home-metric { text-align: center; }
+.home-metric-num { font-family: Manrope, sans-serif; font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 700; color: var(--amber); }
+.home-metric-num small { font-size: .95rem; margin-left: .2rem; }
+.home-metric-label { font-size: .82rem; font-weight: 700; margin-top: .3rem; }
+.home-tags { list-style: none; margin: 2.5rem 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: .6rem; justify-content: center; }
+@media (max-width: 700px) { .home-metrics { grid-template-columns: repeat(2, 1fr); gap: 2rem 1rem; } }
 /* HERO */
 .hero {
   position: relative;
