@@ -6,7 +6,11 @@ import ContactSection from '../components/ContactSection.astro';
 import { stores, storeCategories } from '../data/stores';
 
 const grouped = storeCategories
-  .map(c => ({ category: c, items: stores.filter(s => s.category === c) }))
+  .map(c => {
+    const items = stores.filter(s => s.category === c);
+    const areas = [...new Set(items.map(s => s.area))].map(area => ({ area, n: items.filter(s => s.area === area).length }));
+    return { category: c, items, areas };
+  })
   .filter(g => g.items.length > 0);
 ---
 <Layout title="取扱店舗一覧｜小澤鶏卵" description="小澤鶏卵のたまごをお取り扱いいただいている飲食店・洋菓子店・ホテル・スーパー・施設の一覧です。">
@@ -16,7 +20,7 @@ const grouped = storeCategories
       <div class="container">
         <span class="page-hero-label">STORES</span>
         <h1 class="page-hero-title">取扱店舗一覧</h1>
-        <p class="page-hero-sub">小澤鶏卵のたまごをお使いいただいている店舗・施設をご紹介します。</p>
+        <p class="page-hero-sub">小澤鶏卵のたまごをお使いいただいている取引先を、業態とエリア別にご紹介します。</p>
       </div>
     </section>
 
@@ -29,22 +33,14 @@ const grouped = storeCategories
 
         {grouped.map(g => (
           <section class="st-group" data-cat={g.category}>
-            <h2 class="st-group-title">{g.category}</h2>
-            <ul class="st-list">
-              {g.items.map(s => (
-                <li class="st-item">
-                  <div>
-                    <span class="st-name">{s.url ? <a href={s.url} target="_blank" rel="noopener">{s.name}</a> : s.name}</span>
-                    {s.note && <span class="st-note">{s.note}</span>}
-                  </div>
-                  <span class="st-area">{s.area}</span>
-                </li>
-              ))}
+            <h2 class="st-group-title">{g.category}<span class="st-count">{g.items.length}件</span></h2>
+            <ul class="st-areas">
+              {g.areas.map(a => <li class="st-area-chip">{a.area}<span>{a.n}</span></li>)}
             </ul>
           </section>
         ))}
 
-        <p class="st-foot">※掲載は取扱店舗様の了承を得たもののみです。掲載内容は変更される場合があります。</p>
+        <p class="st-foot">※取引先のプライバシー保護のため、店舗名は掲載していません。件数は2026年時点の取引先の集計で、変更される場合があります。</p>
       </div>
     </section>
 
@@ -68,12 +64,10 @@ const grouped = storeCategories
 .st-group { margin-bottom: 2.5rem; }
 .st-group[hidden] { display: none; }
 .st-group-title { font-size: 1.1rem; padding-left: .9rem; border-left: 3px solid var(--amber-lt); margin: 0 0 1rem; }
-.st-list { list-style: none; margin: 0; padding: 0; border-top: .5px solid var(--border); }
-.st-item { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: 1rem .5rem; border-bottom: .5px solid var(--border); }
-.st-name { font-weight: 700; font-size: .95rem; }
-.st-name a { color: inherit; text-decoration: underline; text-decoration-color: var(--amber-lt); }
-.st-note { display: block; font-size: .75rem; color: var(--muted); margin-top: .2rem; }
-.st-area { font-size: .8rem; color: var(--amber); font-weight: 700; white-space: nowrap; }
+.st-count { margin-left: .8rem; font-size: .8rem; font-weight: 700; color: var(--amber); }
+.st-areas { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: .6rem; }
+.st-area-chip { display: inline-flex; align-items: center; gap: .6rem; padding: .6rem 1.2rem; border: 1px solid var(--border); border-radius: 999px; background: #fff; font-size: .88rem; font-weight: 700; }
+.st-area-chip span { background: var(--amber-bg); color: var(--amber); border-radius: 999px; padding: .1rem .6rem; font-size: .75rem; }
 .st-foot { font-size: .75rem; color: var(--muted); text-align: center; margin-top: 2rem; }
 </style>
 
