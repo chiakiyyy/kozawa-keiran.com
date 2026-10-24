@@ -31,7 +31,7 @@ const FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycbwrMTrF_xGZw_xx5g
               <div class="od-group od-grow">
                 <label class="form-label" for="item">商品 <span class="req">*</span></label>
                 <select class="form-select" id="item" name="item" required>
-                  {gifts.map(g => <option value={g.id} data-price={g.price}>{g.name}（{g.price.toLocaleString('ja-JP')}円）</option>)}
+                  {gifts.map(g => <option value={g.id} data-price={g.price} data-ship={g.shippingFee}>{g.name}（{g.price.toLocaleString('ja-JP')}円・{g.shippingFee ? '送料別' : '送料込み'}）</option>)}
                 </select>
               </div>
               <div class="od-group">
@@ -39,8 +39,8 @@ const FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycbwrMTrF_xGZw_xx5g
                 <input class="form-input" type="number" id="qty" name="qty" min="1" max="50" value="1" required inputmode="numeric"/>
               </div>
             </div>
-            <p class="od-total">小計（税込・送料別）：<strong id="total">0</strong> 円</p>
-            <p class="od-hint">※表示金額は目安です。送料を含む最終金額は、確認メールでご案内します。</p>
+            <p class="od-total">合計の目安（送料込み）：<strong id="total">0</strong> 円</p>
+            <p class="od-hint">※北海道は＋500円、沖縄は＋1,000円の送料を別途いただきます。お試し10個入りは、3点以上の送料を別途ご案内します。最終金額は、確認メールでご案内します。</p>
           </fieldset>
 
           <fieldset class="od-box">
@@ -123,8 +123,9 @@ const FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycbwrMTrF_xGZw_xx5g
 
     const update = () => {
       const price = Number(item.selectedOptions[0]?.dataset.price || 0);
+      const ship = Number(item.selectedOptions[0]?.dataset.ship || 0);
       const n = Math.max(1, Math.min(50, Number(qty.value) || 1));
-      total.textContent = (price * n).toLocaleString('ja-JP');
+      total.textContent = (price * n + ship).toLocaleString('ja-JP');
     };
     const q = new URLSearchParams(location.search).get('item');
     if (q && [...item.options].some(o => o.value === q)) item.value = q;

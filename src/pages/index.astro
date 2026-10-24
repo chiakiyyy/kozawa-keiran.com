@@ -172,7 +172,7 @@ import { gifts } from '../data/gifts';
               <div class="prod-img"><img src={g.img} alt={g.name} loading="lazy"/></div>
               <div class="prod-body">
                 <h3>{g.name}</h3>
-                <p>{g.price.toLocaleString('ja-JP')}円（税込）</p>
+                <p>{g.price.toLocaleString('ja-JP')}円（{g.shippingFee ? '送料別' : '送料込み'}）</p>
                 <span class="link-arrow">詳しく見る →</span>
               </div>
             </a>
