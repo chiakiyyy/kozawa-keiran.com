@@ -1,5 +1,5 @@
 // ギフト商品データ（/gift ページ用）
-// ※価格・内容量・購入URLは仮の値です。公開前に必ず実際の内容へ更新してください。
+// 商品情報は出品ページ（リベシティ市場）の記載に基づく。価格・内容は変更されることがあるため、更新時は出品ページと照合すること。
 
 // オンライン決済を行う外部ECサイト（既存の構造化データに記載のショップ）
 export const SHOP_URL = 'https://kozawa.theshop.jp/';
@@ -7,11 +7,14 @@ export const SHOP_URL = 'https://kozawa.theshop.jp/';
 export interface Gift {
   id: string;
   img: string;
+  img2?: string;      // 包装イメージなどの2枚目
   name: string;
   badge: string;
   desc: string;
   contents: string;
-  price: number;      // 税込（円）
+  price: number;      // 円。出品ページに税込・税抜の表記はないため、税表記は要確認
+  shippingFee: number; // 1注文あたりの送料（円）。0 は送料込み
+  shippingNote: string; // 送料などの補足
   scenes: string[];   // 贈答シーン
   squareUrl: string;  // Square「支払いリンク」のURL（未設定なら、メールで決済方法を案内）
   buyUrl: string;     // 外部の購入ページURLがある場合のみ設定（空なら /gift/order へ）
@@ -19,50 +22,45 @@ export interface Gift {
 
 export const gifts: Gift[] = [
   {
-    id: 'gift-kodawari',
-    img: '/images/product_kodawari.svg',
-    name: 'こだわりのたまご ギフト',
-    badge: '定番',
-    desc: 'コクと甘みが自慢の、当社の主力たまごを化粧箱に詰めました。',
-    contents: 'こだわりのたまご 10個入',
-    price: 1800,
-    scenes: ['お中元', 'お歳暮', '内祝い'],
-    squareUrl: '',
-    buyUrl: '',
-  },
-  {
-    id: 'gift-pink',
-    img: '/images/product_pink.svg',
-    name: 'ピンクたまご ギフト',
-    badge: '人気',
-    desc: 'やさしいピンク色の殻が映える、見た目にも華やかなギフトです。',
-    contents: 'ピンクたまご 10個入',
-    price: 2200,
-    scenes: ['誕生日', '内祝い', '手土産'],
-    squareUrl: '',
-    buyUrl: '',
-  },
-  {
-    id: 'gift-araucana',
-    img: '/images/product_araucana.svg',
-    name: 'アローカナのたまご ギフト',
-    badge: '希少',
-    desc: '南米原産の鶏が産む、青い殻の希少なたまごを贈り物に。',
-    contents: 'アローカナのたまご 6個入',
-    price: 2800,
-    scenes: ['お祝い', '記念日', '手土産'],
-    squareUrl: '',
-    buyUrl: '',
-  },
-  {
-    id: 'gift-assort',
-    img: '/images/product_gift.svg',
-    name: '食べ比べアソートセット',
+    id: 'tkg-set',
+    img: '/images/gift/tkg-set.webp',
+    img2: '/images/gift/tkg-wrapping.webp',
+    name: '卵かけご飯セット',
     badge: 'おすすめ',
-    desc: '3種のたまごを食べ比べできる、人気のアソートセットです。',
-    contents: 'こだわり 4個・ピンク 4個・アローカナ 4個（計12個）',
-    price: 3980,
-    scenes: ['お中元', 'お歳暮', '出産祝い'],
+    desc: '富山のおいしいを集めました。贈り物にも、自分へのご褒美にも。朝どれ卵、杉樽熟成の本醸造醤油、富山のお米を詰め合わせています。のし・内箱に対応しています。',
+    contents: '朝どれ卵 10個入／杉樽熟成本醸造醤油 100ml／富山のお米 2合',
+    price: 2980,
+    shippingFee: 0,
+    shippingNote: '送料込み（北海道＋500円、沖縄＋1,000円）／チルドゆうパックでお届け',
+    scenes: ['お中元', 'お歳暮', '内祝い', '手土産'],
+    squareUrl: '',
+    buyUrl: '',
+  },
+  {
+    id: 'egg-20',
+    img: '/images/gift/egg-20.webp',
+    name: '富山のおいしい朝どれ卵 20個入り',
+    badge: 'お得',
+    desc: '平飼いで育てた鶏の朝採れ卵。飼料には、富山県推奨品種の飼料用米を15％以上配合しています。採卵後は洗浄・乾燥、オゾン殺菌、ひび卵・血卵の検査を行っています。',
+    contents: '朝どれ卵 20個（10個×2パック）',
+    price: 2980,
+    shippingFee: 0,
+    shippingNote: '送料込み（北海道＋500円、沖縄＋1,000円）／チルドゆうパックでお届け',
+    scenes: ['手土産', 'お裾分け', 'ご自宅用'],
+    squareUrl: '',
+    buyUrl: '',
+  },
+  {
+    id: 'egg-10',
+    img: '/images/gift/egg-10.webp',
+    name: '富山のおいしい朝どれ卵 10個入り（お試し）',
+    badge: 'お試し価格',
+    desc: '平飼いで育った鶏の朝採れ卵。生臭さが少なく、卵かけご飯にもおすすめです。まずはお試しください。',
+    contents: '朝どれ卵 10個（10個×1パック）',
+    price: 980,
+    shippingFee: 1200,
+    shippingNote: '送料1,200円（同商品2点まで追加送料なし。3点以上は別途ご案内）／北海道＋500円、沖縄＋1,000円／チルドゆうパックでお届け',
+    scenes: ['お試し', 'ご自宅用'],
     squareUrl: '',
     buyUrl: '',
   },
@@ -71,6 +69,8 @@ export const gifts: Gift[] = [
 export const giftNotes = [
   'ご注文は注文フォームで承ります。クレジットカード情報などは、このフォームでは入力しません。',
   'お支払いは、クレジットカード（Square）または楽天ペイ残高送金をお選びいただけます。',
+  'たまごは生食の場合、採卵日より14日以内にお召し上がりください。',
+  '北海道は＋500円、沖縄は＋1,000円の送料を別途いただきます。',
   'のし・メッセージカードの対応可否は、お届け前にご確認ください。',
 ];
 
