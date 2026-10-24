@@ -1,9 +1,9 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import ContactSection from '../components/ContactSection.astro';
-import { gifts, giftNotes, SHOP_URL } from '../data/gifts';
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import ContactSection from '../../components/ContactSection.astro';
+import { gifts, giftNotes } from '../../data/gifts';
 
 const scenes = ['お中元', 'お歳暮', '内祝い', '誕生日・お祝い', '手土産'];
 const yen = (n: number) => `${n.toLocaleString('ja-JP')}円（税込）`;
@@ -49,12 +49,12 @@ const yen = (n: number) => `${n.toLocaleString('ja-JP')}円（税込）`;
                   <dt>おすすめ</dt><dd>{g.scenes.join('・')}</dd>
                 </dl>
                 <p class="gift-price">{yen(g.price)}</p>
-                <a href={g.buyUrl} target="_blank" rel="noopener" class="btn btn-primary gift-btn">オンラインで購入する</a>
+                <a href={g.buyUrl || `/gift/order?item=${g.id}`} class="btn btn-primary gift-btn">注文する</a>
               </div>
             </article>
           ))}
         </div>
-        <p class="gift-note-main">※価格・内容は変更になる場合があります。最新の情報は購入ページでご確認ください。</p>
+        <p class="gift-note-main">※価格・内容は変更になる場合があります。最新の情報は注文確認時にご案内します。</p>
       </div>
     </section>
 
@@ -64,14 +64,14 @@ const yen = (n: number) => `${n.toLocaleString('ja-JP')}円（税込）`;
         </div>
         <ol class="guide-steps">
           <li><span>01</span><div><h3>ギフトを選ぶ</h3><p>上の一覧からお好みのギフトをお選びください。</p></div></li>
-          <li><span>02</span><div><h3>ショップで注文</h3><p>「オンラインで購入する」からオンラインショップへ進み、お届け先・お支払いを入力します。</p></div></li>
-          <li><span>03</span><div><h3>お届け</h3><p>ご指定のお届け先へ、新鮮なたまごをお届けします。</p></div></li>
+          <li><span>02</span><div><h3>注文フォームで申込み</h3><p>「注文する」から注文フォームへ進み、数量・お届け先などを入力して送信します。</p></div></li>
+          <li><span>03</span><div><h3>お届け</h3><p>確認メールでお支払い方法をご案内します。ご入金確認後、ご指定のお届け先へ新鮮なたまごをお届けします。</p></div></li>
         </ol>
         <ul class="guide-notes">
           {giftNotes.map(n => <li>{n}</li>)}
         </ul>
         <div style="text-align:center;margin-top:2.5rem">
-          <a href={SHOP_URL} target="_blank" rel="noopener" class="btn-circle">オンラインショップを見る</a>
+          <a href="/gift/order" class="btn-circle">注文フォームへ</a>
         </div>
       </div>
     </section>

@@ -13,7 +13,7 @@ export interface Gift {
   contents: string;
   price: number;      // 税込（円）
   scenes: string[];   // 贈答シーン
-  buyUrl: string;     // 商品ごとの購入ページURL
+  buyUrl: string;     // 外部の購入ページURLがある場合のみ設定（空なら /gift/order へ）
 }
 
 export const gifts: Gift[] = [
@@ -26,7 +26,7 @@ export const gifts: Gift[] = [
     contents: 'こだわりのたまご 10個入',
     price: 1800,
     scenes: ['お中元', 'お歳暮', '内祝い'],
-    buyUrl: SHOP_URL,
+    buyUrl: '',
   },
   {
     id: 'gift-pink',
@@ -37,7 +37,7 @@ export const gifts: Gift[] = [
     contents: 'ピンクたまご 10個入',
     price: 2200,
     scenes: ['誕生日', '内祝い', '手土産'],
-    buyUrl: SHOP_URL,
+    buyUrl: '',
   },
   {
     id: 'gift-araucana',
@@ -48,7 +48,7 @@ export const gifts: Gift[] = [
     contents: 'アローカナのたまご 6個入',
     price: 2800,
     scenes: ['お祝い', '記念日', '手土産'],
-    buyUrl: SHOP_URL,
+    buyUrl: '',
   },
   {
     id: 'gift-assort',
@@ -59,12 +59,12 @@ export const gifts: Gift[] = [
     contents: 'こだわり 4個・ピンク 4個・アローカナ 4個（計12個）',
     price: 3980,
     scenes: ['お中元', 'お歳暮', '出産祝い'],
-    buyUrl: SHOP_URL,
+    buyUrl: '',
   },
 ];
 
 export const giftNotes = [
-  'ご注文はオンラインショップ（外部サイト）で承ります。',
+  'ご注文は注文フォームで承ります。クレジットカード情報などは、このフォームでは入力しません。',
+  'ご注文内容の確認後、担当者よりメールでお支払い方法とお届け日をご案内します。',
   'のし・メッセージカードの対応可否は、お届け前にご確認ください。',
-  '配送方法・送料・お届け日の指定は、ショップの案内に従います。',
 ];

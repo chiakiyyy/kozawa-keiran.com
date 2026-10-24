@@ -1,0 +1,165 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { gifts } from '../../data/gifts';
+
+// お問い合わせフォームと同じ Google Apps Script に送信（gas/README.md 参照）
+const FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycbwrMTrF_xGZw_xx5gorTiYiqP6bcTxgDRWJjVn4lInl_7lg55dEQc0Cxy_lF73HMFm6/exec';
+---
+<Layout title="ギフト注文フォーム｜小澤鶏卵" description="小澤鶏卵のギフトのご注文フォームです。商品・数量・お届け先を入力して送信してください。">
+  <Header/>
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <span class="page-hero-label">ORDER</span>
+        <h1 class="page-hero-title">ギフト注文フォーム</h1>
+        <p class="page-hero-sub">ご注文内容を入力してください。確認後、担当者よりお支払い方法とお届け日をメールでご案内します。</p>
+      </div>
+    </section>
+
+    <section class="sec">
+      <div class="container od-wrap">
+        <form class="od-form" id="order-form" data-endpoint={FORM_ENDPOINT} novalidate>
+          <input type="hidden" name="form" value="order"/>
+          <div class="hp" aria-hidden="true"><label>空欄のままにしてください<input type="text" name="website" tabindex="-1" autocomplete="off"/></label></div>
+
+          <fieldset class="od-box">
+            <legend>1. ご注文内容</legend>
+            <div class="od-row">
+              <div class="od-group od-grow">
+                <label class="form-label" for="item">商品 <span class="req">*</span></label>
+                <select class="form-select" id="item" name="item" required>
+                  {gifts.map(g => <option value={g.id} data-price={g.price}>{g.name}（{g.price.toLocaleString('ja-JP')}円）</option>)}
+                </select>
+              </div>
+              <div class="od-group">
+                <label class="form-label" for="qty">数量 <span class="req">*</span></label>
+                <input class="form-input" type="number" id="qty" name="qty" min="1" max="50" value="1" required inputmode="numeric"/>
+              </div>
+            </div>
+            <p class="od-total">小計（税込・送料別）：<strong id="total">0</strong> 円</p>
+            <p class="od-hint">※表示金額は目安です。送料を含む最終金額は、確認メールでご案内します。</p>
+          </fieldset>
+
+          <fieldset class="od-box">
+            <legend>2. ご依頼主（ご注文者）</legend>
+            <div class="od-row">
+              <div class="od-group od-grow"><label class="form-label" for="s_name">お名前 <span class="req">*</span></label><input class="form-input" id="s_name" name="sender_name" required autocomplete="name"/></div>
+              <div class="od-group od-grow"><label class="form-label" for="s_tel">電話番号 <span class="req">*</span></label><input class="form-input" type="tel" id="s_tel" name="sender_tel" required autocomplete="tel"/></div>
+            </div>
+            <div class="od-group"><label class="form-label" for="s_email">メールアドレス <span class="req">*</span></label><input class="form-input" type="email" id="s_email" name="sender_email" required autocomplete="email"/></div>
+          </fieldset>
+
+          <fieldset class="od-box">
+            <legend>3. お届け先</legend>
+            <label class="od-check"><input type="checkbox" id="same"/> ご依頼主と同じ（ご自宅などへお届け）</label>
+            <div class="od-row">
+              <div class="od-group od-grow"><label class="form-label" for="r_name">お名前 <span class="req">*</span></label><input class="form-input" id="r_name" name="recipient_name" required/></div>
+              <div class="od-group od-grow"><label class="form-label" for="r_tel">電話番号 <span class="req">*</span></label><input class="form-input" type="tel" id="r_tel" name="recipient_tel" required/></div>
+            </div>
+            <div class="od-row">
+              <div class="od-group"><label class="form-label" for="r_zip">郵便番号 <span class="req">*</span></label><input class="form-input" id="r_zip" name="recipient_zip" placeholder="939-2716" required autocomplete="postal-code"/></div>
+              <div class="od-group od-grow"><label class="form-label" for="r_addr">ご住所 <span class="req">*</span></label><input class="form-input" id="r_addr" name="recipient_address" required autocomplete="street-address"/></div>
+            </div>
+            <div class="od-row">
+              <div class="od-group od-grow">
+                <label class="form-label" for="date">お届け希望日</label>
+                <input class="form-input" type="date" id="date" name="desired_date"/>
+              </div>
+              <div class="od-group od-grow">
+                <label class="form-label" for="noshi">のし</label>
+                <select class="form-select" id="noshi" name="noshi">
+                  <option value="なし">なし</option><option value="お中元">お中元</option><option value="お歳暮">お歳暮</option>
+                  <option value="内祝い">内祝い</option><option value="御祝">御祝</option><option value="その他（備考に記入）">その他（備考に記入）</option>
+                </select>
+              </div>
+            </div>
+            <div class="od-group"><label class="form-label" for="memo">メッセージカード・備考</label><textarea class="form-textarea" id="memo" name="memo" rows="4" maxlength="500"></textarea></div>
+          </fieldset>
+
+          <label class="od-check"><input type="checkbox" name="privacy" required/> <span><a href="/about" class="od-link">プライバシーポリシー</a>に同意する <span class="req">*</span></span></label>
+
+          <div class="od-submit">
+            <button type="submit" class="btn btn-primary">注文を送信する</button>
+            <p class="od-status" id="od-status" role="status" aria-live="polite"></p>
+            <p class="od-hint">お支払い方法は、送信後にメールでご案内します。カード番号などは入力しないでください。<br/>お急ぎの場合はお電話（076-466-3815）またはLINEでご連絡ください。</p>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+  <Footer/>
+</Layout>
+
+<script>
+  const form = document.getElementById('order-form') as HTMLFormElement | null;
+  if (form) {
+    const status = document.getElementById('od-status')!;
+    const item = form.elements.namedItem('item') as HTMLSelectElement;
+    const qty = form.elements.namedItem('qty') as HTMLInputElement;
+    const total = document.getElementById('total')!;
+    const btn = form.querySelector('button[type=submit]') as HTMLButtonElement;
+    const show = (msg: string, ok: boolean) => { status.textContent = msg; status.className = 'od-status ' + (ok ? 'is-ok' : 'is-ng'); };
+
+    const update = () => {
+      const price = Number(item.selectedOptions[0]?.dataset.price || 0);
+      const n = Math.max(1, Math.min(50, Number(qty.value) || 1));
+      total.textContent = (price * n).toLocaleString('ja-JP');
+    };
+    const q = new URLSearchParams(location.search).get('item');
+    if (q && [...item.options].some(o => o.value === q)) item.value = q;
+    item.addEventListener('change', update);
+    qty.addEventListener('input', update);
+    update();
+
+    // ご依頼主と同じ
+    const same = document.getElementById('same') as HTMLInputElement;
+    same.addEventListener('change', () => {
+      if (!same.checked) return;
+      (form.elements.namedItem('recipient_name') as HTMLInputElement).value = (form.elements.namedItem('sender_name') as HTMLInputElement).value;
+      (form.elements.namedItem('recipient_tel') as HTMLInputElement).value = (form.elements.namedItem('sender_tel') as HTMLInputElement).value;
+    });
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+      const endpoint = form.dataset.endpoint;
+      if (!endpoint) { show('送信設定が未完了です。お手数ですがお電話またはLINEでご連絡ください。', false); return; }
+      btn.disabled = true; show('送信中です…', true);
+      try {
+        const data = new URLSearchParams(new FormData(form) as any);
+        data.set('item_name', item.selectedOptions[0].textContent || '');
+        data.set('total_estimate', total.textContent || '');
+        const res = await fetch(endpoint, { method: 'POST', body: data });
+        const json = await res.json();
+        if (!json.ok) throw new Error('rejected');
+        form.reset(); update();
+        show('ご注文を受け付けました。確認メールをお送りしますので、しばらくお待ちください。', true);
+      } catch {
+        show('送信に失敗しました。お手数ですがお電話またはLINEでご連絡ください。', false);
+      } finally { btn.disabled = false; }
+    });
+  }
+</script>
+
+<style>
+.od-wrap { max-width: 760px; }
+.od-form { display: flex; flex-direction: column; gap: 1.75rem; }
+.od-box { border: .5px solid var(--border); border-radius: var(--radius-md); padding: 1.5rem 1.75rem 1.75rem; background: #fff; display: flex; flex-direction: column; gap: 1.1rem; }
+.od-box legend { font-weight: 700; font-size: .95rem; color: var(--amber); padding: 0 .6rem; }
+.od-row { display: flex; gap: 1.1rem; flex-wrap: wrap; }
+.od-group { display: flex; flex-direction: column; min-width: 140px; }
+.od-grow { flex: 1; }
+.req { color: #C02828; font-size: .85em; }
+.od-total { margin: 0; font-size: .95rem; }
+.od-total strong { font-size: 1.4rem; color: var(--amber); font-family: Manrope, sans-serif; }
+.od-hint { margin: 0; font-size: .75rem; color: var(--muted); line-height: 1.9; }
+.od-check { display: flex; gap: .6rem; align-items: center; font-size: .85rem; }
+.od-link { color: var(--amber); text-decoration: underline; }
+.od-submit { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 1rem; }
+.od-status { margin: 0; font-size: .85rem; min-height: 1.2em; }
+.od-status.is-ok { color: #2A4A20; }
+.od-status.is-ng { color: #C02828; }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+</style>
