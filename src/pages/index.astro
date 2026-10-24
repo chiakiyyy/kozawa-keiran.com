@@ -111,10 +111,7 @@ import { gifts } from '../data/gifts';
     <!-- PRODUCTS -->
     <section class="sec">
       <div class="container">
-        <div class="center-head fade-up" style="margin-bottom:3.5rem">
-          <span class="sec-label" style="justify-content:center;display:flex">LINE UP</span>
-          <h2 class="sec-title" style="text-align:center">商品紹介</h2>
-          <span class="sec-deco sec-deco--center"></span>
+        <div class="ttl fade-up"><h2 class="ttl-en">LINE UP</h2><p class="ttl-ja">商品紹介</p>
         </div>
         <div class="prod-grid">
           {products.filter(p => ['kodawari','pink','araucana','gift'].includes(p.id)).map((p, i) => (
@@ -134,10 +131,7 @@ import { gifts } from '../data/gifts';
     <!-- WORKS -->
     <section class="sec sec--amber">
       <div class="container">
-        <div class="center-head fade-up" style="margin-bottom:3rem">
-          <span class="sec-label" style="justify-content:center;display:flex">TRACK RECORD</span>
-          <h2 class="sec-title" style="text-align:center">卸売の実績</h2>
-          <span class="sec-deco sec-deco--center"></span>
+        <div class="ttl fade-up"><h2 class="ttl-en">TRACK RECORD</h2><p class="ttl-ja">卸売の実績</p>
         </div>
         <div class="home-metrics">
           {metrics.map(m => (
@@ -151,7 +145,7 @@ import { gifts } from '../data/gifts';
           {[...new Set(works.map(w => w.category))].map(c => <li class="biz-tag">{c}</li>)}
         </ul>
         <div style="text-align:center;margin-top:2.5rem">
-          <a href="/works" class="btn btn-primary">実績・納品事例を見る →</a>
+          <a href="/works" class="btn-circle">実績・納品事例を見る</a>
         </div>
       </div>
     </section>
@@ -159,23 +153,17 @@ import { gifts } from '../data/gifts';
     <!-- STORES -->
     <section class="sec">
       <div class="container">
-        <div class="center-head fade-up" style="margin-bottom:2.5rem">
-          <span class="sec-label" style="justify-content:center;display:flex">STORES</span>
-          <h2 class="sec-title" style="text-align:center">取扱店舗</h2>
-          <span class="sec-deco sec-deco--center"></span>
+        <div class="ttl fade-up"><h2 class="ttl-en">STORES</h2><p class="ttl-ja">取扱店舗</p>
           <p class="sec-lead" style="text-align:center">飲食店・洋菓子店・ホテル・スーパーなど、{stores.length}件の取扱店舗を掲載しています。</p>
         </div>
-        <div style="text-align:center"><a href="/stores" class="btn btn-outline">取扱店舗一覧を見る →</a></div>
+        <div style="text-align:center"><a href="/stores" class="btn-circle">取扱店舗一覧を見る</a></div>
       </div>
     </section>
 
     <!-- GIFT -->
     <section class="sec sec--pale">
       <div class="container">
-        <div class="center-head fade-up" style="margin-bottom:3rem">
-          <span class="sec-label" style="justify-content:center;display:flex">GIFT</span>
-          <h2 class="sec-title" style="text-align:center">ギフト・オンラインショップ</h2>
-          <span class="sec-deco sec-deco--center"></span>
+        <div class="ttl fade-up"><h2 class="ttl-en">GIFT</h2><p class="ttl-ja">ギフト・オンラインショップ</p>
           <p class="sec-lead" style="text-align:center">お中元・お歳暮・内祝いに。オンラインでご注文いただけます。</p>
         </div>
         <div class="prod-grid">
@@ -190,7 +178,7 @@ import { gifts } from '../data/gifts';
             </a>
           ))}
         </div>
-        <div style="text-align:center;margin-top:2.5rem"><a href="/gift" class="btn btn-primary">ギフト一覧へ →</a></div>
+        <div style="text-align:center;margin-top:2.5rem"><a href="/gift" class="btn-circle">ギフト一覧へ</a></div>
       </div>
     </section>
 
@@ -215,10 +203,7 @@ import { gifts } from '../data/gifts';
     <!-- FEATURE -->
     <section class="sec sec--pale">
       <div class="container">
-        <div class="center-head fade-up" style="margin-bottom:3.5rem">
-          <span class="sec-label" style="justify-content:center;display:flex">FEATURE</span>
-          <h2 class="sec-title" style="text-align:center">こだわり</h2>
-          <span class="sec-deco sec-deco--center"></span>
+        <div class="ttl fade-up"><h2 class="ttl-en">FEATURE</h2><p class="ttl-ja">こだわり</p>
         </div>
         <div class="feat-grid">
           {[

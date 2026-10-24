@@ -151,6 +151,55 @@
     margin: 1rem auto 1.5rem;
   }
 
+
+  /* ========== 見出し・ボタン（包装社風：大きな英字＋小さな和文） ========== */
+  .ttl { text-align: center; margin-bottom: 3.5rem; }
+  .ttl-en {
+    font-family: Manrope, sans-serif;
+    font-size: clamp(2rem, 5vw, 3.375rem);
+    font-weight: 300;
+    letter-spacing: 0.08em;
+    line-height: 1.3;
+    color: var(--text);
+    margin: 0 0 0.6rem;
+    text-transform: uppercase;
+  }
+  .ttl-ja {
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    color: var(--amber);
+    margin: 0;
+  }
+  .btn-circle {
+    position: relative;
+    display: inline-block;
+    min-width: 280px;
+    padding: 1rem 3.5rem 1rem 2rem;
+    border: 1px solid #d6d9e1;
+    border-radius: 50vh;
+    background: #fff;
+    color: var(--text);
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-align: center;
+    text-decoration: none;
+    transition: border-color .3s;
+  }
+  .btn-circle::after, .btn-circle::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    border-radius: 100vh;
+    transition: all .4s cubic-bezier(.165,.84,.44,1);
+  }
+  .btn-circle::after { right: 1.6rem; width: 19px; height: 19px; background: var(--amber); transform: translateY(-50%); }
+  .btn-circle::before { right: calc(1.6rem + 7px); width: 5px; height: 5px; background: #fff; transform: translateY(-50%); z-index: 1; }
+  .btn-circle:hover { border-color: var(--amber); }
+  .btn-circle:hover::after { transform: translateY(-50%) scale(.7); }
+  .btn-circle:hover::before { opacity: 0; }
+
   /* ========== カード ========== */
   .card {
     background: white;

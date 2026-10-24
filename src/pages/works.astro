@@ -18,10 +18,7 @@ import { metrics, works } from '../data/works';
 
     <section class="sec">
       <div class="container">
-        <div class="center-head fade-up" style="margin-bottom:3rem">
-          <span class="sec-label" style="justify-content:center;display:flex">NUMBERS</span>
-          <h2 class="sec-title" style="text-align:center">数字で見る小澤鶏卵</h2>
-          <span class="sec-deco sec-deco--center"></span>
+        <div class="ttl fade-up"><h2 class="ttl-en">NUMBERS</h2><p class="ttl-ja">数字で見る小澤鶏卵</p>
         </div>
         <div class="metric-grid">
           {metrics.map((m, i) => (
@@ -37,10 +34,7 @@ import { metrics, works } from '../data/works';
 
     <section class="sec sec--pale">
       <div class="container">
-        <div class="center-head fade-up" style="margin-bottom:3.5rem">
-          <span class="sec-label" style="justify-content:center;display:flex">CASE</span>
-          <h2 class="sec-title" style="text-align:center">納品事例</h2>
-          <span class="sec-deco sec-deco--center"></span>
+        <div class="ttl fade-up"><h2 class="ttl-en">CASE</h2><p class="ttl-ja">納品事例</p>
         </div>
         <div class="case-grid">
           {works.map((w, i) => (
@@ -57,7 +51,7 @@ import { metrics, works } from '../data/works';
           ))}
         </div>
         <div style="text-align:center;margin-top:3rem">
-          <a href="/stores" class="btn btn-outline">取扱店舗一覧を見る →</a>
+          <a href="/stores" class="btn-circle">取扱店舗一覧を見る</a>
         </div>
       </div>
     </section>

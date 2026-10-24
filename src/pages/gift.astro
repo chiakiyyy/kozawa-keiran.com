@@ -22,10 +22,7 @@ const yen = (n: number) => `${n.toLocaleString('ja-JP')}円（税込）`;
 
     <section class="sec">
       <div class="container">
-        <div class="center-head fade-up">
-          <span class="sec-label" style="justify-content:center;display:flex">SCENE</span>
-          <h2 class="sec-title" style="text-align:center">贈るシーン</h2>
-          <span class="sec-deco sec-deco--center"></span>
+        <div class="ttl fade-up"><h2 class="ttl-en">SCENE</h2><p class="ttl-ja">贈るシーン</p>
         </div>
         <ul class="scene-list">
           {scenes.map(s => <li class="scene-tag">{s}</li>)}
@@ -35,10 +32,7 @@ const yen = (n: number) => `${n.toLocaleString('ja-JP')}円（税込）`;
 
     <section class="sec sec--pale" id="lineup">
       <div class="container">
-        <div class="center-head fade-up" style="margin-bottom:3.5rem">
-          <span class="sec-label" style="justify-content:center;display:flex">LINE UP</span>
-          <h2 class="sec-title" style="text-align:center">ギフト商品一覧</h2>
-          <span class="sec-deco sec-deco--center"></span>
+        <div class="ttl fade-up"><h2 class="ttl-en">LINE UP</h2><p class="ttl-ja">ギフト商品一覧</p>
         </div>
         <div class="gift-grid">
           {gifts.map((g, i) => (
@@ -66,10 +60,7 @@ const yen = (n: number) => `${n.toLocaleString('ja-JP')}円（税込）`;
 
     <section class="sec">
       <div class="container">
-        <div class="center-head fade-up" style="margin-bottom:2.5rem">
-          <span class="sec-label" style="justify-content:center;display:flex">GUIDE</span>
-          <h2 class="sec-title" style="text-align:center">ご注文について</h2>
-          <span class="sec-deco sec-deco--center"></span>
+        <div class="ttl fade-up"><h2 class="ttl-en">GUIDE</h2><p class="ttl-ja">ご注文について</p>
         </div>
         <ol class="guide-steps">
           <li><span>01</span><div><h3>ギフトを選ぶ</h3><p>上の一覧からお好みのギフトをお選びください。</p></div></li>
@@ -80,7 +71,7 @@ const yen = (n: number) => `${n.toLocaleString('ja-JP')}円（税込）`;
           {giftNotes.map(n => <li>{n}</li>)}
         </ul>
         <div style="text-align:center;margin-top:2.5rem">
-          <a href={SHOP_URL} target="_blank" rel="noopener" class="btn btn-outline">オンラインショップを見る</a>
+          <a href={SHOP_URL} target="_blank" rel="noopener" class="btn-circle">オンラインショップを見る</a>
         </div>
       </div>
     </section>
