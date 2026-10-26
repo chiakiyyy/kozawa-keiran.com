@@ -28,13 +28,15 @@
   }
 
   html {
+    font-size: 17px;
     font-family: Manrope, 'Zen Kaku Gothic New', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Hiragino Sans', 'ヒラギノ角ゴ ProN W3', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', YuGothic, Verdana, Meiryo, sans-serif;
     background: var(--bg);
     color: var(--text);
     scroll-behavior: smooth;
   }
 
-  body { -webkit-font-smoothing: antialiased; }
+  body { -webkit-font-smoothing: antialiased; font-size: 1rem; line-height: 1.9; letter-spacing: 0.04em; font-weight: 400; }
+  @media (max-width: 640px) { html { font-size: 16px; } }
 
   h1, h2, h3, h4 {
     font-family: Manrope, 'Zen Kaku Gothic New', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Hiragino Sans', sans-serif;
@@ -150,6 +152,7 @@
     margin: 1rem 0 1.5rem;
     border-radius: 2px;
   }
+  .serif { font-family: 'Shippori Mincho', 'Zen Kaku Gothic New', serif; }
   .sec-deco--center {
     margin: 1rem auto 1.5rem;
   }
