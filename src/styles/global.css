@@ -35,6 +35,10 @@
     scroll-behavior: smooth;
   }
 
+  /* 日本語の折り返し：文節で改行し、1〜2文字だけの行（孤立行）を避ける */
+  html { line-break: strict; word-break: auto-phrase; overflow-wrap: break-word; }
+  h1, h2, h3, h4, summary, .ttl-ja, .hf-lead, .sec-lead { text-wrap: balance; }
+  p, li, dd, dt { text-wrap: pretty; }
   body { -webkit-font-smoothing: antialiased; font-size: 1rem; line-height: 1.9; letter-spacing: 0.04em; font-weight: 400; }
   @media (max-width: 640px) { html { font-size: 16px; } }
 
