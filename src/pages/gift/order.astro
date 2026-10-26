@@ -41,7 +41,7 @@ const FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycbwrMTrF_xGZw_xx5g
           <fieldset class="od-box">
             <legend>2. ご依頼主（ご注文者）</legend>
             <div class="od-row">
-              <div class="od-group od-grow"><label class="form-label" for="s_name">お名前 <span class="req">*</span></label><input class="form-input" id="s_name" name="sender_name" required autocomplete="name"/></div>
+              <div class="od-group od-grow"><label class="form-label" for="s_name">お名前 <span class="req">*</span></label><input type="text" class="form-input" id="s_name" name="sender_name" required autocomplete="name"/></div>
               <div class="od-group od-grow"><label class="form-label" for="s_tel">電話番号 <span class="req">*</span></label><input class="form-input" type="tel" id="s_tel" name="sender_tel" required autocomplete="tel"/></div>
             </div>
             <div class="od-group"><label class="form-label" for="s_email">メールアドレス <span class="req">*</span></label><input class="form-input" type="email" id="s_email" name="sender_email" required autocomplete="email"/></div>
@@ -51,12 +51,12 @@ const FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycbwrMTrF_xGZw_xx5g
             <legend>3. お届け先</legend>
             <label class="od-check"><input type="checkbox" id="same"/> ご依頼主と同じ（ご自宅などへお届け）</label>
             <div class="od-row">
-              <div class="od-group od-grow"><label class="form-label" for="r_name">お名前 <span class="req">*</span></label><input class="form-input" id="r_name" name="recipient_name" required/></div>
+              <div class="od-group od-grow"><label class="form-label" for="r_name">お名前 <span class="req">*</span></label><input type="text" class="form-input" id="r_name" name="recipient_name" required/></div>
               <div class="od-group od-grow"><label class="form-label" for="r_tel">電話番号 <span class="req">*</span></label><input class="form-input" type="tel" id="r_tel" name="recipient_tel" required/></div>
             </div>
             <div class="od-row">
-              <div class="od-group"><label class="form-label" for="r_zip">郵便番号 <span class="req">*</span></label><input class="form-input" id="r_zip" name="recipient_zip" placeholder="939-2716" required autocomplete="postal-code"/></div>
-              <div class="od-group od-grow"><label class="form-label" for="r_addr">ご住所 <span class="req">*</span></label><input class="form-input" id="r_addr" name="recipient_address" required autocomplete="street-address"/></div>
+              <div class="od-group"><label class="form-label" for="r_zip">郵便番号 <span class="req">*</span></label><input type="text" class="form-input" id="r_zip" name="recipient_zip" placeholder="939-2716" required autocomplete="postal-code"/></div>
+              <div class="od-group od-grow"><label class="form-label" for="r_addr">ご住所 <span class="req">*</span></label><input type="text" class="form-input" id="r_addr" name="recipient_address" required autocomplete="address-line1"/></div>
             </div>
             <div class="od-row">
               <div class="od-group od-grow">
@@ -84,7 +84,7 @@ const FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycbwrMTrF_xGZw_xx5g
             <p class="od-hint">注文の送信後、選んだ方法でのお支払い手順を画面とメールでご案内します。</p>
           </fieldset>
 
-          <label class="od-check"><input type="checkbox" name="privacy" required/> <span><a href="/about" class="od-link">プライバシーポリシー</a>に同意する <span class="req">*</span></span></label>
+          <label class="od-check"><input type="checkbox" name="privacy" required/> <span><a href="/privacy" class="od-link">プライバシーポリシー</a>に同意する <span class="req">*</span></span></label>
 
           <div class="od-submit">
             <button type="submit" class="btn btn-primary">注文を送信する</button>
@@ -96,7 +96,7 @@ const FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycbwrMTrF_xGZw_xx5g
         <section class="od-next" id="od-next" hidden>
           <h2>ご注文を受け付けました</h2>
           <p id="od-next-lead"></p>
-          <a id="od-next-card" class="btn btn-primary" target="_blank" rel="noopener" hidden>カードで支払う（Square）</a>
+          <a id="od-next-card" href="#" class="btn btn-primary" target="_blank" rel="noopener" hidden>カードで支払う（Square）</a>
           <p id="od-next-rakuten" class="od-rakuten" hidden></p>
           <p class="od-hint">お支払い手順の詳細は、ご入力のメールアドレスにもお送りします。<br/>ご不明な点は、お電話（076-466-3815）またはLINEでご連絡ください。</p>
         </section>

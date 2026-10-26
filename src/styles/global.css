@@ -2,7 +2,7 @@
 
 @layer base {
   :root {
-    --amber:      #BA7517;
+    --amber:      #945810;
     --amber-lt:   #EF9F27;
     --amber-bg:   #FAEEDA;
     --amber-pale: #FFF8EE;
@@ -76,7 +76,7 @@
     box-shadow: 0 4px 18px rgba(186,117,23,0.28);
   }
   .btn-primary:hover {
-    background: #9C6010;
+    background: #7A4A0D;
     transform: translateY(-2px);
     box-shadow: 0 8px 28px rgba(186,117,23,0.35);
   }

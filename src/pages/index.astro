@@ -110,8 +110,8 @@ const workImgs = ['/images/feature/feature-egg.jpg', '/images/hero_main.png', '/
             </a>
           ))}
           <div class="halo-label" id="halo-label">{services[0].label}</div>
-          <button class="halo-btn halo-btn--prev" id="halo-prev" aria-label="前へ">&lt;</button>
-          <button class="halo-btn halo-btn--next" id="halo-next" aria-label="次へ">&gt;</button>
+          <button type="button" class="halo-btn halo-btn--prev" id="halo-prev" aria-label="前へ">&lt;</button>
+          <button type="button" class="halo-btn halo-btn--next" id="halo-next" aria-label="次へ">&gt;</button>
         </div>
       </div>
     </section>
@@ -258,7 +258,7 @@ const workImgs = ['/images/feature/feature-egg.jpg', '/images/hero_main.png', '/
 .intro-panel img { width: 100%; aspect-ratio: 2/1; object-fit: cover; object-position: center 58%; border-radius: 16px; display: block; }
 .intro-copy { max-width: 1100px; margin: -5rem auto 0; padding-left: 9%; position: relative; }
 .intro-catch { font-family: 'Shippori Mincho', 'Zen Kaku Gothic New', serif; font-size: clamp(1.5rem, 3.2vw, 2.3rem); color: var(--amber); letter-spacing: .12em; line-height: 1.8; font-weight: 400; margin: 0; background: #fff; display: inline-block; padding: 1rem 2rem 0 0; }
-.intro-en { color: var(--amber-lt); font-family: Manrope, sans-serif; font-size: .85rem; letter-spacing: .12em; margin: .6rem 0 2rem; }
+.intro-en { color: var(--amber); font-family: Manrope, sans-serif; font-size: .85rem; letter-spacing: .12em; margin: .6rem 0 2rem; }
 .intro-body { color: var(--amber); font-size: .92rem; line-height: 2.3; letter-spacing: .1em; margin: 0 0 2rem; }
 .works-sec { padding-bottom: 5rem; }
 .works-sec :global(.container) { max-width: 1120px; }

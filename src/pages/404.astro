@@ -1,0 +1,26 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+<Layout title="ページが見つかりません｜小澤鶏卵" description="お探しのページは見つかりませんでした。">
+  <Header/>
+  <main class="nf">
+    <p class="nf-en">404</p>
+    <h1>ページが見つかりません</h1>
+    <p class="nf-body">お探しのページは、移動または削除された可能性があります。<br/>お手数ですが、トップページからお探しください。</p>
+    <div class="nf-btns">
+      <a href="/" class="btn btn-primary">トップページへ</a>
+      <a href="/contact" class="btn-circle">お問い合わせ</a>
+    </div>
+  </main>
+  <Footer/>
+</Layout>
+
+<style>
+.nf { min-height: 70vh; display: grid; place-content: center; justify-items: center; text-align: center; padding: 9rem 1.5rem 5rem; background: var(--panel); }
+.nf-en { font-family: Manrope, sans-serif; font-weight: 300; font-size: clamp(4rem, 12vw, 8rem); letter-spacing: .08em; color: var(--amber); margin: 0; line-height: 1.1; }
+.nf h1 { font-size: 1.4rem; margin: .5rem 0 1rem; }
+.nf-body { color: var(--muted); line-height: 2.2; margin: 0 0 2rem; }
+.nf-btns { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; align-items: center; }
+</style>

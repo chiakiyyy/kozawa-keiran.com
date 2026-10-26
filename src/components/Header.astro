@@ -31,20 +31,24 @@ const path = Astro.url.pathname;
         ))}
       </ul>
     </nav>
-    <button class="hdr-ham" id="hdr-ham" aria-label="メニューを開く" aria-expanded="false">
+    <a href="tel:076-466-3815" class="hdr-tel" aria-label="電話をかける 076-466-3815">
+      <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3.5C3 3.5 4.5 2 6 2c.5 0 1 .3 1.3.8l1.4 2.4c.3.5.2 1.1-.2 1.5L7.2 8c.8 1.5 2 2.8 3.5 3.6l1.3-1.3c.4-.4 1-.5 1.5-.2l2.4 1.4c.5.3.8.8.8 1.3 0 1.5-1.5 3-1.5 3C6 18 2 10 3 3.5z"/></svg>
+      <span class="hdr-tel-num">076-466-3815</span>
+    </a>
+    <button type="button" class="hdr-ham" id="hdr-ham" aria-label="メニューを開く" aria-expanded="false">
       <span></span><span></span>
     </button>
   </div>
 </header>
 
 <div class="drw-ov" id="drw-ov"></div>
-<nav class="drw" id="drw" aria-label="ドロワーメニュー" aria-hidden="true">
+<nav class="drw" id="drw" aria-label="ドロワーメニュー" inert>
   <div class="drw-head">
     <a href="/" class="drw-logo">
       <img src="/images/icon.png" alt="" aria-hidden="true" style="height:36px;width:auto;"/>
       <span class="logo-jp" style="font-size:.95rem;letter-spacing:.14em;">小澤鶏卵</span>
     </a>
-    <button id="drw-cl" aria-label="メニューを閉じる">
+    <button type="button" id="drw-cl" aria-label="メニューを閉じる">
       <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
         <path d="M3 3l14 14M17 3L3 17" stroke="#1E1E1C" stroke-width="1.5" stroke-linecap="round"/>
       </svg>
@@ -84,7 +88,12 @@ const path = Astro.url.pathname;
 .hdr-right { display: flex; align-items: center; gap: 1.2rem; background: var(--panel, #F6F1E6); padding: 1rem 1.5rem 1rem 2.2rem; border-radius: 0 0 0 var(--notch-r, 28px); }
 .hdr-nav ul { display: flex; list-style: none; margin: 0; padding: 0; gap: .4rem; }
 .hdr-nav a { display: block; font-size: 14px; font-weight: 700; letter-spacing: .08em; padding: .3rem .8rem !important; color: #1E1E1C; text-decoration: none; padding: .3rem 0; border-bottom: 1.5px solid transparent; transition: border-color .2s, color .2s; white-space: nowrap; }
-.hdr-nav a:hover, .hdr-nav a.act { color: var(--amber, #BA7517); border-color: var(--amber-lt, #EF9F27); }
+.hdr-nav a:hover, .hdr-nav a.act { color: var(--amber, #945810); border-color: var(--amber-lt, #EF9F27); }
+.hdr-tel { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; height: 46px; min-width: 46px; padding: 0 .9rem; border-radius: 999px; background: var(--amber); color: #fff; text-decoration: none; font-family: Manrope, sans-serif; font-weight: 700; letter-spacing: .04em; font-size: 14px; white-space: nowrap; transition: background .2s; }
+.hdr-tel:hover { background: #7A4A0D; }
+.hdr-tel-num { display: none; }
+@media (min-width: 1500px) { .hdr-tel-num { display: inline; } }
+@media (max-width: 1499px) { .hdr-tel { padding: 0; width: 46px; } }
 .hdr-ham { display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 6px; width: 54px; height: 54px; border-radius: 50%; border: 1px solid #5a564c; background: transparent; cursor: pointer; padding: 0; flex-shrink: 0; transition: background .2s; }
 .hdr-ham:hover { background: rgba(186,117,23,.1); }
 .hdr-ham span { display: block; width: 24px; height: 1px; background: #1E1E1C; transition: all .3s; }
@@ -100,10 +109,10 @@ const path = Astro.url.pathname;
   position: fixed; top: 0; right: 0; bottom: 0; width: min(300px,88vw);
   background: white; z-index: 400;
   border-left: 0.5px solid rgba(44,44,42,0.08);
-  transform: translateX(100%); transition: transform .38s cubic-bezier(.25,.46,.45,.94);
+  transform: translateX(100%); visibility: hidden; transition: transform .38s cubic-bezier(.25,.46,.45,.94), visibility 0s .38s;
   display: flex; flex-direction: column; overflow-y: auto;
 }
-.drw.open { transform: translateX(0); }
+.drw.open { transform: translateX(0); visibility: visible; transition: transform .38s cubic-bezier(.25,.46,.45,.94), visibility 0s; }
 .drw-head {
   display: flex; align-items: center; justify-content: space-between;
   padding: 1.25rem 1.5rem; border-bottom: 0.5px solid rgba(44,44,42,0.08);
@@ -115,15 +124,15 @@ const path = Astro.url.pathname;
 .drw li { border-bottom: 0.5px solid rgba(44,44,42,0.05); }
 .drw a { display: flex; align-items: center; justify-content: space-between; padding: .95rem 1.5rem; text-decoration: none; transition: background .15s; }
 .drw a:hover { background: #FAFAF7; }
-.d-en { font-family: Manrope, sans-serif; font-size: .6rem; font-weight: 700; letter-spacing: .18em; color: #f6b937; }
+.d-en { font-family: Manrope, sans-serif; font-size: .6rem; font-weight: 700; letter-spacing: .18em; color: var(--amber); }
 .d-ja { font-size: .88rem; font-weight: 500; color: #1E1E1C; }
 .drw-ft {
   padding: 1.25rem 1.5rem; display: flex; flex-direction: column; gap: .75rem;
   border-top: 0.5px solid rgba(44,44,42,0.08); background: #FAFAF7;
 }
 .drw-tel { font-family: Manrope, sans-serif; font-size: 1.4rem; font-weight: 700; color: #1E1E1C; text-decoration: none; letter-spacing: .04em; text-align: center; transition: color .18s; }
-.drw-tel:hover { color: #f6b937; }
-.drw-hours { font-size: .72rem; color: #9B9994; text-align: center; margin: 0; }
+.drw-tel:hover { color: var(--amber); }
+.drw-hours { font-size: .76rem; color: #9B9994; text-align: center; margin: 0; }
 
 
 @media (max-width: 1260px) { .hdr-nav { display: none; } .hdr-right { padding: .8rem .9rem .9rem 1.4rem; } }
@@ -144,13 +153,13 @@ window.addEventListener('scroll', () => {
 const open  = () => {
   drw.classList.add('open'); ov.classList.add('open');
   ham.classList.add('open'); ham.setAttribute('aria-expanded', 'true');
-  drw.setAttribute('aria-hidden', 'false');
+  drw.removeAttribute('inert');
   document.body.style.overflow = 'hidden';
 };
 const close = () => {
   drw.classList.remove('open'); ov.classList.remove('open');
   ham.classList.remove('open'); ham.setAttribute('aria-expanded', 'false');
-  drw.setAttribute('aria-hidden', 'true');
+  drw.setAttribute('inert', '');
   document.body.style.overflow = '';
 };
 ham.addEventListener('click', () => drw.classList.contains('open') ? close() : open());
