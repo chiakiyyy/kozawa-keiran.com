@@ -222,6 +222,7 @@
     background: var(--panel); border-radius: var(--notch-r) 0 0 0;
     padding: 1.6rem 2rem 1.2rem 2.5rem; display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;
   }
+  a.hf-news { text-decoration: none; color: inherit; }
   .hf-news-body { display: flex; flex-direction: column; gap: .4rem; font-size: .8rem; }
   .hf-news-body b { font-weight: 700; margin-right: .8rem; }
   .hf-news-body span { color: var(--muted); }

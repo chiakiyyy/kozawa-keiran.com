@@ -11,3 +11,5 @@
 /stores/        /works     301
 /news/detail    /news                301
 /news/detail/   /news                301
+/news           /                    301
+/news/          /                    301

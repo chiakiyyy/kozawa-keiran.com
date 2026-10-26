@@ -31,7 +31,7 @@ const faqs = [
   { q:'最小発注量はどのくらいですか？', a:'1ケース（約10kg）から承ります。お気軽にご相談ください。' },
   { q:'配送エリアはどこですか？', a:'富山市内に対応しています。市外はお気軽にご相談ください。' },
   { q:'急な数量変更は可能ですか？', a:'できる限り柔軟に対応いたします。事前にご連絡いただければ幸いです。' },
-  { q:'規格・サイズの指定はできますか？', a:'はい、S・M・L・LLなど各サイズ、赤玉・白玉などの指定が可能です。' },
+  { q:'規格・サイズの指定はできますか？', a:'はい、10kg箱はLL・L・M・MS・Sの各サイズをご用意しています。赤玉などの指定もご相談ください。' },
   { q:'請求書払いは可能ですか？', a:'法人・個人事業主様には掛け売りに対応しています。詳しくはご相談ください。' },
 ];
 ---
@@ -85,12 +85,12 @@ const faqs = [
         </div>
         <div class="biz-products-grid">
           {[
-            { name:'赤玉', note:'コクと旨みが豊か', color:'#E8A060' },
-            { name:'白玉', note:'クセがなく万能', color:'#F0E8D0' },
-            { name:'ピンクたまご', note:'見た目も美しく人気', color:'#F5C0B0' },
-            { name:'アローカナ', note:'希少な青い殻', color:'#B0C8B0' },
-            { name:'温泉卵', note:'調理済みですぐ使える', color:'#F5D080' },
-            { name:'業務用ケース', note:'10kg〜大量対応', color:'#D0C098' },
+            { name:'とれたて', note:'10kg箱・パック', color:'#F0E8D0' },
+            { name:'赤玉', note:'10kg箱・パック', color:'#E8A060' },
+            { name:'ブランド卵', note:'ヨード卵ほか', color:'#F5D080' },
+            { name:'うずら卵', note:'お弁当・惣菜に', color:'#D0C098' },
+            { name:'温泉卵', note:'パック', color:'#F5C0B0' },
+            { name:'10kg箱', note:'LL・L・M・MS・S', color:'#B0C8B0' },
           ].map(p => (
             <div class="biz-product-card">
               <div class="biz-product-circle" style={`background:${p.color}`}></div>

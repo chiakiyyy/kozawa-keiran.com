@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import ContactSection from '../components/ContactSection.astro';
-import { products } from '../data/products';
+import { productGroups } from '../data/products';
 import { metrics, works } from '../data/works';
 import { stores } from '../data/stores';
 import { gifts } from '../data/gifts';
@@ -19,11 +19,6 @@ const services = [
   { label: '個人のお客様・ギフト',          href: '/gift',     img: '/images/shop/hero-family.jpg' },
 ];
 const workImgs = ['/images/feature/feature-egg.jpg', '/images/hero_main.png', '/images/shop/point4.jpg', '/images/feature/feature-factory.jpg', '/images/shop/hero-family.jpg', '/images/business_hero.png'];
-const news = [
-  { date: '2024.05.01', tag: 'お知らせ', title: 'ゴールデンウィーク期間の営業について' },
-  { date: '2024.04.10', tag: '重要',     title: '「こだわりのたまご」価格改定のお知らせ' },
-  { date: '2024.03.15', tag: 'お知らせ', title: 'ホームページをリニューアルしました' },
-];
 ---
 <Layout title="小澤鶏卵｜富山の業務用たまご・鶏卵専門店｜当日配達対応" description="富山県の鶏卵専門店・小澤鶏卵。大正時代創業100年以上。富山市を中心に飲食店・ホテル・給食施設・スーパーへ業務用たまごを当日配達。ギフトのオンライン注文、定期納品、催事対応も承ります。">
   <Header/>
@@ -34,13 +29,13 @@ const news = [
       <div class="hf-img">
         <img src="/images/hero_main.png" alt="小澤鶏卵のたまご" loading="eager"/>
         <h1 class="sr-only">小澤鶏卵 - 富山の業務用たまご・鶏卵専門店。当日配達対応。</h1>
-        <div class="hf-news">
+        <a href="/gift" class="hf-news">
           <div class="hf-news-body">
-            <div><b>News</b><span>{news[0].date}</span></div>
-            <div>{news[0].title}</div>
+            <div><b>Gift</b></div>
+            <div>ギフトのオンライン注文を受け付けています</div>
           </div>
-          <a href="/news" class="circle-link">View more</a>
-        </div>
+          <span class="circle-link">View more</span>
+        </a>
       </div>
     </section>
 
@@ -167,11 +162,11 @@ const news = [
         <div class="ttl fade-up"><h2 class="ttl-en">Products handled</h2><p class="ttl-ja">取り扱い商品</p></div>
         <p class="sec-lead" style="text-align:center;margin:-1.5rem auto 3.5rem;max-width:640px">富山の鶏卵専門店として、用途に合わせた各種たまごを取り揃えています。</p>
         <div class="circ-grid">
-          {products.filter(p => ['kodawari','pink','araucana','gift'].includes(p.id)).map(p => (
-            <a href={`/products#${p.id}`} class="circ fade-up">
-              <div class="circ-ring"><img src={p.img} alt={p.name} loading="lazy"/></div>
-              <h3>{p.name}</h3>
-              <p>{p.note}</p>
+          {productGroups.map(g => (
+            <a href={`/products#${g.id}`} class="circ fade-up">
+              <div class="circ-ring"><img src={g.img} alt={g.name} loading="lazy"/></div>
+              <h3>{g.name}</h3>
+              <p>{g.lead}</p>
             </a>
           ))}
         </div>
@@ -196,22 +191,13 @@ const news = [
       </div>
     </section>
 
-    <!-- STORES + NEWS -->
+    <!-- STORES -->
     <section class="sec">
-      <div class="container two">
+      <div class="container two two--solo">
         <div>
           <div class="ttl ttl--left"><h2 class="ttl-en">Stores</h2><p class="ttl-ja">取扱店舗</p></div>
           <p class="sec-lead" style="margin:0 0 1.8rem">飲食店・菓子店・スーパー・施設など、{stores.length}件の取引先を業態・エリア別にご紹介します。</p>
           <a href="/works#breakdown" class="circle-link">View all</a>
-        </div>
-        <div>
-          <div class="ttl ttl--left"><h2 class="ttl-en">News</h2><p class="ttl-ja">お知らせ</p></div>
-          <ul class="news-list2">
-            {news.map(n => (
-              <li><a href="/news"><span class="n-date">{n.date}</span><span class={`n-tag${n.tag === '重要' ? ' n-tag--imp' : ''}`}>{n.tag}</span><span class="n-title">{n.title}</span></a></li>
-            ))}
-          </ul>
-          <a href="/news" class="circle-link" style="margin-top:1.5rem">View all</a>
         </div>
       </div>
     </section>
@@ -291,13 +277,7 @@ const news = [
 .gift-price { margin: 0 0 1.8rem; font-size: 1rem; } .gift-price strong { font-family: Manrope, sans-serif; font-size: 2rem; font-weight: 500; }
 .gift-price small { font-size: .78rem; color: var(--muted); margin-left: .4rem; }
 .gift-btns { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
+.two--solo { grid-template-columns: 1fr; max-width: 760px; }
 .two { display: grid; grid-template-columns: 1fr 1.3fr; gap: 4rem; max-width: 1100px; }
-.news-list2 { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--border); }
-.news-list2 li { border-bottom: 1px solid var(--border); }
-.news-list2 a { display: flex; gap: 1rem; align-items: center; padding: 1.1rem .3rem; text-decoration: none; color: inherit; flex-wrap: wrap; }
-.n-date { font-family: Manrope, sans-serif; font-size: .78rem; color: var(--muted); }
-.n-tag { font-size: .68rem; background: var(--amber-bg); color: var(--amber); padding: .15rem .7rem; border-radius: 999px; font-weight: 700; }
-.n-tag--imp { background: #FBE3E0; color: #B3261E; }
-.n-title { font-size: .88rem; }
 @media (max-width: 860px) { .gift-in, .two { grid-template-columns: 1fr; gap: 2.5rem; } .intro-panel { padding: 8% 6% 12%; } .intro-copy { padding-left: 6%; margin-top: -3rem; } .intro-catch { padding-right: 1rem; } }
 </style>

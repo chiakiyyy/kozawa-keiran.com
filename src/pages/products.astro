@@ -3,14 +3,8 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import PageHero from '../components/PageHero.astro';
 import Footer from '../components/Footer.astro';
-import { products } from '../data/products';
+import { productGroups, sizes } from '../data/products';
 import ContactSection from '../components/ContactSection.astro';
-
-// 商品紹介で表示する4品（添付デザイン準拠：小澤のたまご/業務用たまご/アローカナ/うずら）
-const lineupIds = ['kodawari', 'business', 'araucana', 'uzura'];
-const lineup = lineupIds
-  .map(id => products.find(p => p.id === id))
-  .filter((p): p is NonNullable<typeof p> => Boolean(p));
 
 const steps = [
   { label: '下寧に梱包', icon: `<svg width="30" height="30" viewBox="0 0 30 30" fill="none" stroke="#BA7517" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="20" height="14" rx="2"/><path d="M5 16h20M11 11V8a4 4 0 018 0v3"/></svg>` },
@@ -18,7 +12,7 @@ const steps = [
   { label: '新鮮なままお届け', icon: `<svg width="30" height="30" viewBox="0 0 30 30" fill="none" stroke="#BA7517" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="10" width="18" height="15" rx="2"/><path d="M15 3v9M11 8l4-4 4 4"/></svg>` },
 ];
 ---
-<Layout title="商品紹介｜小澤鶏卵" description="小澤鶏卵の商品紹介。小澤のたまご・業務用たまご・アローカナのたまご・うずらのたまごなど幅広いラインナップ。">
+<Layout title="商品紹介｜小澤鶏卵" description="小澤鶏卵の商品紹介。業務用10kg箱・パック卵・ブランド卵・うずら卵・温泉卵など幅広いラインナップ。">
   <Header/>
   <main>
     <PageHero en="Products" ja="商品紹介" img="/images/hero_main.png" lead="小澤鶏卵が自信をもってお届けする、新鮮でおいしい卵のラインナップです。用途やご希望に合わせてお選びください。"/>
@@ -27,24 +21,21 @@ const steps = [
     <section class="pd-lineup">
       <div class="container">
         <div class="ttl"><h2 class="ttl-en">Line Up</h2><p class="ttl-ja">取り扱い商品</p></div>
-        <div class="pd-grid">
-          {lineup.map(p => (
-            <a href={`#${p.id}`} class="pd-card">
-              <div class="pd-card-img">
-                {p.badge === '人気NO.1' && <span class="pd-card-badge">人気NO.1</span>}
-                {p.id === 'kodawari' && <span class="pd-card-badge">人気NO.1</span>}
+        <div class="pg-list">
+          {productGroups.map(g => (
+            <article class="pg" id={g.id}>
+              <div class="pg-img"><img src={g.img} alt="" loading="lazy"/></div>
+              <div class="pg-body">
+                <h3>{g.name}</h3>
+                <p class="pg-lead">{g.lead}</p>
+                <ul class="pg-items">
+                  {g.items.map(i => <li>{i.name}{i.spec && <small>{i.spec}</small>}</li>)}
+                </ul>
               </div>
-              <div class="pd-card-body">
-                <h3>{p.name}</h3>
-                <p class="pd-card-note">{p.note}</p>
-                <dl class="pd-card-specs">
-                  <dt>内容量</dt><dd>{p.pack}</dd>
-                  <dt>特徴</dt><dd>{p.sizes}</dd>
-                </dl>
-              </div>
-            </a>
+            </article>
           ))}
         </div>
+        <p class="pg-note">10kg箱のサイズ：{sizes.join('・')}　※価格・在庫・規格のご相談は、お気軽にお問い合わせください。ギフトは<a href="/gift">ギフト・購入ページ</a>をご覧ください。</p>
       </div>
     </section>
 
@@ -96,6 +87,18 @@ const steps = [
   <Footer/>
 </Layout>
 <style>
+.pg-list { display: grid; gap: 2rem; }
+.pg { display: grid; grid-template-columns: 340px 1fr; gap: 2.5rem; align-items: center; background: #fff; border: .5px solid var(--border); border-radius: 20px; padding: 1.5rem; }
+.pg-img { border-radius: 14px; overflow: hidden; aspect-ratio: 4/3; background: var(--panel); }
+.pg-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.pg-body h3 { margin: 0 0 .5rem; font-size: 1.25rem; color: var(--amber); letter-spacing: .08em; }
+.pg-lead { margin: 0 0 1.2rem; font-size: .92rem; line-height: 2; color: var(--muted); }
+.pg-items { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: .5rem; }
+.pg-items li { background: var(--panel); border-radius: 999px; padding: .4rem 1rem; font-size: .88rem; font-weight: 700; }
+.pg-items small { margin-left: .5rem; font-weight: 400; color: var(--muted); font-size: .75rem; }
+.pg-note { text-align: center; font-size: .82rem; color: var(--muted); margin-top: 2rem; line-height: 2; }
+.pg-note a { color: var(--amber); text-decoration: underline; }
+@media (max-width: 860px) { .pg { grid-template-columns: 1fr; } }
 .container { max-width:1180px; margin:0 auto; padding:0 2rem; }
 
 /* パンくず */

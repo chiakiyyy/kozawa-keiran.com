@@ -35,6 +35,7 @@ const history = [
 
 const company = [
   ['会社名', '小澤鶏卵（KOZAWA KEIRAN）'],
+  ['代表者', '小澤 龍生'],
   ['創業', '大正時代'],
   ['所在地', '〒939-2716 富山県富山市婦中町下轡田25-1'],
   ['電話番号', '076-466-3815'],
@@ -66,6 +67,23 @@ const mapUrl = 'https://www.google.com/maps/search/?api=1&query=' + encodeURICom
               {i < thoughts.length - 1 && <div class="ab-thought-sep"></div>}
             </>
           ))}
+        </div>
+      </div>
+    </section>
+
+
+    <!-- 代表あいさつ -->
+    <section class="greet" id="message">
+      <div class="container">
+        <div class="ttl"><h2 class="ttl-en">Message</h2><p class="ttl-ja">代表あいさつ</p></div>
+        <div class="greet-body serif">
+          <p>小澤鶏卵のホームページをご覧いただき、ありがとうございます。<br/>代表の小澤龍生です。</p>
+          <p>当店は大正時代に創業し、百年以上にわたり、富山の地でたまごをお届けしてまいりました。これまで続けてこられたのは、ひとえにお客様のお支えがあったからこそと、心より感謝しております。</p>
+          <p>私たちが何より大切にしているのは、「お客様第一」という思いです。<br/>毎日お使いいただくものだからこそ、新鮮さと品質には妥協せず、ご注文やご要望には、できる限り柔軟に、そして誠実にお応えしてまいります。</p>
+          <p>たまごひとつにも、それを召し上がる方の笑顔があります。<br/>その顔を思い浮かべながら、一つひとつ丁寧にお届けすることが、私たちの仕事です。</p>
+          <p>飲食店様の厨房へ、ご家庭の食卓へ、そして大切な方への贈り物として。<br/>お困りごとやご要望がありましたら、どうぞお気軽にお声がけください。</p>
+          <p>これからも、お客様に信頼され、選んでいただける存在であり続けられるよう、私たち一同、心を込めてまいります。</p>
+          <p class="greet-sign"><span>小澤鶏卵　代表</span><b>小澤 龍生</b></p>
         </div>
       </div>
     </section>
@@ -117,6 +135,12 @@ const mapUrl = 'https://www.google.com/maps/search/?api=1&query=' + encodeURICom
   <Footer/>
 </Layout>
 <style>
+.greet { background: var(--panel); padding: 5.5rem 0; }
+.greet-body { max-width: 720px; margin: 0 auto; }
+.greet-body p { font-size: 1.02rem; line-height: 2.5; letter-spacing: .1em; margin: 0 0 1.6rem; color: #2C2A24; }
+.greet-sign { text-align: right; margin-top: 2.5rem !important; display: grid; gap: .2rem; }
+.greet-sign span { font-size: .85rem; color: var(--muted); }
+.greet-sign b { font-size: 1.3rem; letter-spacing: .25em; font-weight: 500; }
 .container { max-width:1180px; margin:0 auto; padding:0 2rem; }
 
 /* パンくず */
