@@ -58,13 +58,13 @@ const targets = ['ラーメン店', '飲食店全般', '洋菓子・パン', '�
           ))}
         </div>
         <div style="text-align:center;margin-top:3rem">
-          <a href="/stores" class="btn-circle">取扱店舗一覧を見る</a>
+          <a href="#breakdown" class="btn-circle">取引先の内訳を見る</a>
         </div>
       </div>
     </section>
 
 
-    <section class="sec">
+    <section class="sec" id="breakdown">
       <div class="container">
         <div class="ttl fade-up"><h2 class="ttl-en">Breakdown</h2><p class="ttl-ja">取引先の内訳</p></div>
         <p class="wk-lead">現在お取引のある事業者を、業態別に集計しています。（店舗名は掲載していません）</p>
@@ -116,7 +116,7 @@ const targets = ['ラーメン店', '飲食店全般', '洋菓子・パン', '�
             <li><span>{st.num}</span><div><h3>{st.title}</h3><p>{st.body}</p></div></li>
           ))}
         </ol>
-        <div style="text-align:center;margin-top:3rem"><a href="/flow" class="btn-circle">出荷の流れを見る</a></div>
+        <div style="text-align:center;margin-top:3rem"><a href="/feature#process" class="btn-circle">こだわり・出荷の流れを見る</a></div>
       </div>
     </section>
 

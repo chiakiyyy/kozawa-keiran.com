@@ -4,6 +4,7 @@ import Header from '../components/Header.astro';
 import PageHero from '../components/PageHero.astro';
 import Footer from '../components/Footer.astro';
 import ContactSection from '../components/ContactSection.astro';
+import { processSteps } from '../data/commitment';
 
 const points = [
   {
@@ -100,6 +101,19 @@ const points = [
     </section>
 
     <!-- CONTACT -->
+
+    <!-- 出荷までの流れ（旧 /flow を統合） -->
+    <section class="fe-process" id="process">
+      <div class="container">
+        <div class="ttl"><h2 class="ttl-en">Process</h2><p class="ttl-ja">採卵から食卓へ・出荷までの流れ</p></div>
+        <ol class="fe-steps">
+          {processSteps.map(st => (
+            <li><span>{st.num}</span><div><h3>{st.title}</h3><p>{st.body}</p></div></li>
+          ))}
+        </ol>
+      </div>
+    </section>
+
     <ContactSection
       title="たまごのご注文・業務用のご相談はお気軽にお問い合わせください"
       lead=""
@@ -108,6 +122,12 @@ const points = [
   <Footer/>
 </Layout>
 <style>
+.fe-process { padding: 5.5rem 0; background: var(--panel); }
+.fe-steps { list-style: none; margin: 0 auto; padding: 0; max-width: 760px; display: grid; gap: 1rem; }
+.fe-steps li { display: flex; gap: 1.5rem; align-items: center; background: #fff; border-radius: 16px; padding: 1.2rem 1.8rem; border: .5px solid var(--border); }
+.fe-steps li > span { font-family: Manrope, sans-serif; font-size: 1.5rem; font-weight: 300; color: var(--amber); min-width: 2.2rem; }
+.fe-steps h3 { margin: 0 0 .2rem; font-size: 1rem; }
+.fe-steps p { margin: 0; font-size: .88rem; color: var(--muted); }
 .container { max-width:1180px; margin:0 auto; padding:0 2rem; }
 
 /* パンくず */

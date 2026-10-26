@@ -1,20 +1,17 @@
 ---
 const nav = [
-  { en: 'ABOUT',   ja: '私たちについて', href: '/about' },
-  { en: 'LINE UP', ja: '商品紹介',       href: '/products' },
-  { en: 'WORKS',   ja: '卸売の実績',     href: '/works' },
-  { en: 'STORES',  ja: '取扱店舗',       href: '/stores' },
-  { en: 'GIFT',    ja: 'ギフト',         href: '/gift' },
-  { en: 'NEWS',    ja: 'お知らせ',       href: '/news' },
-  { en: 'CONTACT', ja: 'お問い合わせ',   href: '/contact' },
+  { en: 'ABOUT',    ja: '私たちについて', href: '/about' },
+  { en: 'FEATURE',  ja: 'こだわり',       href: '/feature' },
+  { en: 'LINE UP',  ja: '商品紹介',       href: '/products' },
+  { en: 'GIFT',     ja: 'ギフト・購入',   href: '/gift' },
+  { en: 'BUSINESS', ja: '法人のお客様',   href: '/business' },
+  { en: 'WORKS',    ja: '実績',           href: '/works' },
+  { en: 'CONTACT',  ja: 'お問い合わせ',   href: '/contact' },
 ];
 // ドロワーのみに表示する項目
 const navMore = [
-  { en: 'FEATURE',  ja: 'こだわり',     href: '/feature' },
-  { en: 'FLOW',     ja: '出荷の流れ',   href: '/flow' },
+  { en: 'NEWS',     ja: 'お知らせ',     href: '/news' },
   { en: 'DELIVERY', ja: '送料とお届け', href: '/delivery' },
-  { en: 'BUSINESS', ja: '法人のお客様', href: '/business' },
-  { en: 'SHOP',     ja: '個人のお客様', href: '/shop' },
 ];
 const path = Astro.url.pathname;
 ---

@@ -4,6 +4,7 @@ import Header from '../components/Header.astro';
 import PageHero from '../components/PageHero.astro';
 import Footer from '../components/Footer.astro';
 import ContactSection from '../components/ContactSection.astro';
+import { stores } from '../data/stores';
 
 const thoughts = [
   {
@@ -23,22 +24,27 @@ const thoughts = [
   },
 ];
 
+const partners = Math.floor(stores.length / 10) * 10;
+
 const history = [
-  { year: '昭和○年', event: '小澤鶏卵 創業', body: '鶏卵の生産・販売を開始' },
-  { year: '平成○年', event: '鶏舎の増設・設備の', body: '近代化を実施' },
-  { year: '平成○年', event: '業務用卵の卸売を開始', body: '取引先を拡大' },
-  { year: '令和○年', event: '配送エリア拡大', body: '現在に至る' },
+  { year: '大正時代', event: '小澤鶏卵 創業', body: '鶏卵の商いを始める' },
+  { year: 'それから100年以上', event: '鶏卵ひと筋に歩む', body: '富山の食卓と飲食店を支える' },
+  { year: '現在', event: `取引先 ${partners}社以上`, body: '飲食店・菓子店・スーパー・施設などへお届け' },
+  { year: 'これから', event: 'ギフトのオンライン注文を開始', body: 'より多くの食卓へ' },
 ];
 
 const company = [
-  ['会社名', '小澤鶏卵'],
-  ['代表者', '小澤 健一'],
-  ['所在地', '富山県○○市○○町○丁目○番地'],
-  ['電話番号', '076-xxx-xxxx'],
-  ['事業内容', '鶏卵の生産・販売、卸売'],
-  ['取引先', '飲食店・給食施設・食品加工業者・小売店 など'],
-  ['配送エリア', '富山県内一円'],
+  ['会社名', '小澤鶏卵（KOZAWA KEIRAN）'],
+  ['創業', '大正時代'],
+  ['所在地', '〒939-2716 富山県富山市婦中町下轡田25-1'],
+  ['電話番号', '076-466-3815'],
+  ['メール', 'info@kozawa-keiran.com'],
+  ['営業時間', '月〜土 8:00〜17:00（日曜・祝日は休業）'],
+  ['事業内容', '鶏卵の販売・卸売'],
+  ['取引先', '飲食店・菓子店・スーパー・給食施設 など'],
+  ['配送エリア', '富山市内（当日配達）／富山県内（要相談）'],
 ];
+const mapUrl = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent('富山県富山市婦中町下轡田25-1');
 ---
 <Layout title="私たちについて｜小澤鶏卵" description="小澤鶏卵は富山の自然とともに歩み、安心・安全・おいしいたまごをお届けしてきました。私たちの想い・代表あいさつ・沿革・会社概要をご紹介します。">
   <Header/>
@@ -64,28 +70,6 @@ const company = [
       </div>
     </section>
 
-    <!-- 代表あいさつ -->
-    <section class="ab-greeting">
-      <div class="container">
-        <div class="ab-greeting-card">
-          <div class:list={["ab-greeting-img", { "img-fallback": true }]}>
-            <img src="/images/about/about-ceo.jpg" alt="代表 小澤健一" loading="lazy" onerror="this.closest('.ab-greeting-img').classList.add('img-fallback')"/>
-          </div>
-          <div class="ab-greeting-text">
-            <span class="ab-en">GREETING</span>
-            <h2>代表あいさつ</h2>
-            <p>小澤鶏卵は、先代から受け継いだ想いを大切に、<br/>「安全でおいしい卵を届けたい」という信念のもと歩んできました。</p>
-            <p>鶏を育てる環境、エサ、水、そして人の手。<br/>一つひとつにこだわり、日々の積み重ねを大切にしています。</p>
-            <p>これからも地域の皆さまに信頼される鶏卵づくりを続けてまいります。</p>
-            <div class="ab-sign">
-              <span class="ab-sign-role">小澤鶏卵 代表</span>
-              <span class="ab-sign-name">小澤 健一</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- 沿革 -->
     <section class="ab-history">
       <div class="container">
@@ -107,7 +91,7 @@ const company = [
     </section>
 
     <!-- 会社概要 -->
-    <section class="ab-company">
+    <section class="ab-company" id="company">
       <div class="container ab-company-grid">
         <div class="ab-company-text">
           <span class="ab-en">COMPANY</span>
@@ -124,6 +108,7 @@ const company = [
           <img src="/images/about/about-eggs.jpg" alt="パック詰めされたたまご" loading="lazy" onerror="this.closest('.ab-company-img').classList.add('img-fallback')"/>
         </div>
       </div>
+        <p style="text-align:center;margin:2rem 0 0"><a href={mapUrl} target="_blank" rel="noopener" class="btn-circle">地図で見る（Googleマップ）</a></p>
     </section>
 
     <!-- CONTACT -->

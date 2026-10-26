@@ -16,7 +16,7 @@ const yen = (n: number) => n.toLocaleString('ja-JP');
 const services = [
   { label: '業務用たまご（法人のお客様）', href: '/business', img: '/images/business_hero.png' },
   { label: 'ギフト・オンライン注文',       href: '/gift',     img: '/images/gift/tkg-set.webp' },
-  { label: '個人のお客様',                 href: '/shop',     img: '/images/shop/hero-family.jpg' },
+  { label: '個人のお客様・ギフト',          href: '/gift',     img: '/images/shop/hero-family.jpg' },
 ];
 const workImgs = ['/images/feature/feature-egg.jpg', '/images/hero_main.png', '/images/shop/point4.jpg', '/images/feature/feature-factory.jpg', '/images/shop/hero-family.jpg', '/images/business_hero.png'];
 const news = [
@@ -157,7 +157,7 @@ const news = [
             </li>
           ))}
         </ol>
-        <div style="text-align:center;margin-top:3rem"><a href="/flow" class="btn-circle">出荷の流れを見る</a></div>
+        <div style="text-align:center;margin-top:3rem"><a href="/feature#process" class="btn-circle">出荷の流れを見る</a></div>
       </div>
     </section>
 
@@ -202,7 +202,7 @@ const news = [
         <div>
           <div class="ttl ttl--left"><h2 class="ttl-en">Stores</h2><p class="ttl-ja">取扱店舗</p></div>
           <p class="sec-lead" style="margin:0 0 1.8rem">飲食店・菓子店・スーパー・施設など、{stores.length}件の取引先を業態・エリア別にご紹介します。</p>
-          <a href="/stores" class="circle-link">View all</a>
+          <a href="/works#breakdown" class="circle-link">View all</a>
         </div>
         <div>
           <div class="ttl ttl--left"><h2 class="ttl-en">News</h2><p class="ttl-ja">お知らせ</p></div>
