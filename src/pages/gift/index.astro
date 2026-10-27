@@ -10,7 +10,7 @@ const scenes = ['お中元', 'お歳暮', '内祝い', '誕生日・お祝い', 
 const yen = (g: { price: number; shippingFee: number }) =>
   `${g.price.toLocaleString('ja-JP')}円（${g.shippingFee ? '送料別' : '送料込み'}）`;
 ---
-<Layout title="ギフト・オンラインショップ｜小澤鶏卵" description="富山の鶏卵専門店・小澤鶏卵のギフトセット。お中元・お歳暮・内祝いに。こだわりのたまご、ピンクたまご、アローカナのたまごをオンラインでご購入いただけます。">
+<Layout title="ギフト・オンラインショップ｜小澤鶏卵" description="富山の鶏卵専門店・小澤鶏卵のギフト。お中元・お歳暮・内祝いに。卵かけご飯セットなどを、オンラインでご注文いただけます。">
   <Header/>
   <main>
     <PageHero en="Gift" ja="ギフト・オンラインショップ" img="/images/gift/tkg-set.webp" lead="お中元・お歳暮・内祝いに。富山のおいしいを、大切な方へお届けします。"><p style="text-align:center;margin:1.5rem 0 .5rem"><a href="#lineup" class="btn btn-primary">ギフトを選ぶ ↓</a></p></PageHero>
@@ -93,7 +93,7 @@ const yen = (g: { price: number; shippingFee: number }) =>
 .gift-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 340px)); justify-content: center; gap: 1.75rem; }
 .gift-img { position: relative; aspect-ratio: 1/1; background: var(--amber-pale); display: flex; align-items: center; justify-content: center; }
 .gift-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.gift-badge { position: absolute; top: .9rem; left: .9rem; background: var(--amber); color: #FFFBF3; font-size: .7rem; font-weight: 700; padding: .25rem .8rem; border-radius: 999px; letter-spacing: .06em; }
+.gift-badge { position: absolute; top: .9rem; left: .9rem; background: var(--amber); color: #FFFBF3; font-size: .76rem; font-weight: 700; padding: .25rem .8rem; border-radius: 999px; letter-spacing: .06em; }
 .gift-img2 { width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block; border-top: .5px solid var(--border); }
 .gift-card { display: flex; flex-direction: column; }
 .gift-body { flex: 1; padding: 1.5rem; display: flex; flex-direction: column; gap: .75rem; }
@@ -108,7 +108,7 @@ const yen = (g: { price: number; shippingFee: number }) =>
 .gift-note-main { text-align: center; font-size: .75rem; color: var(--muted); margin-top: 2rem; }
 .guide-steps { list-style: none; margin: 0 auto; padding: 0; max-width: 820px; display: grid; gap: 1rem; }
 .guide-steps li { display: flex; gap: 1.5rem; align-items: center; padding: 1.4rem 1.75rem; border: .5px solid var(--border); border-radius: var(--radius-md); background: #fff; }
-.guide-steps li > span { font-family: Manrope, sans-serif; font-size: 1.6rem; font-weight: 700; color: var(--amber-lt); }
+.guide-steps li > span { font-family: Manrope, sans-serif; font-size: 1.6rem; font-weight: 700; color: var(--amber); }
 .guide-steps h3 { font-size: .98rem; margin: 0 0 .25rem; }
 .guide-steps p { font-size: .83rem; color: var(--muted); line-height: 1.8; margin: 0; }
 .guide-notes { max-width: 820px; margin: 1.75rem auto 0; padding-left: 1.2rem; font-size: .8rem; color: var(--muted); line-height: 2; }

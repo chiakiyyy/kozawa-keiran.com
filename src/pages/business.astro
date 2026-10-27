@@ -31,7 +31,7 @@ const faqs = [
   { q:'最小発注量はどのくらいですか？', a:'1ケース（約10kg）から承ります。お気軽にご相談ください。' },
   { q:'配送エリアはどこですか？', a:'富山市内に対応しています。市外はお気軽にご相談ください。' },
   { q:'急な数量変更は可能ですか？', a:'できる限り柔軟に対応いたします。事前にご連絡いただければ幸いです。' },
-  { q:'規格・サイズの指定はできますか？', a:'はい、S・M・L・LLなど各サイズ、赤玉・白玉などの指定が可能です。' },
+  { q:'規格・サイズの指定はできますか？', a:'はい、10kg箱はLL・L・M・MS・Sの各サイズをご用意しています。赤玉などの指定もご相談ください。' },
   { q:'請求書払いは可能ですか？', a:'法人・個人事業主様には掛け売りに対応しています。詳しくはご相談ください。' },
 ];
 ---
@@ -85,12 +85,12 @@ const faqs = [
         </div>
         <div class="biz-products-grid">
           {[
-            { name:'赤玉', note:'コクと旨みが豊か', color:'#E8A060' },
-            { name:'白玉', note:'クセがなく万能', color:'#F0E8D0' },
-            { name:'ピンクたまご', note:'見た目も美しく人気', color:'#F5C0B0' },
-            { name:'アローカナ', note:'希少な青い殻', color:'#B0C8B0' },
-            { name:'温泉卵', note:'調理済みですぐ使える', color:'#F5D080' },
-            { name:'業務用ケース', note:'10kg〜大量対応', color:'#D0C098' },
+            { name:'とれたて', note:'10kg箱・パック', color:'#F0E8D0' },
+            { name:'赤玉', note:'10kg箱・パック', color:'#E8A060' },
+            { name:'ブランド卵', note:'ヨード卵ほか', color:'#F5D080' },
+            { name:'うずら卵', note:'お弁当・惣菜に', color:'#D0C098' },
+            { name:'温泉卵', note:'パック', color:'#F5C0B0' },
+            { name:'10kg箱', note:'LL・L・M・MS・S', color:'#B0C8B0' },
           ].map(p => (
             <div class="biz-product-card">
               <div class="biz-product-circle" style={`background:${p.color}`}></div>
@@ -248,7 +248,7 @@ const faqs = [
 }
 .flow-inner { position: relative; max-width: 1120px; margin: 0 auto; text-align: center; }
 .section-en {
-  margin: 0 0 .5rem; color: #BA7517;
+  margin: 0 0 .5rem; color: #945810;
   font-family: 'Zen Kaku Gothic New', sans-serif; font-style: italic;
   font-size: 1.1rem; letter-spacing: .08em;
 }
@@ -271,7 +271,7 @@ const faqs = [
 .flow-num {
   position: absolute; top: -1.5rem; left: 50%; transform: translateX(-50%);
   display: grid; place-items: center; width: 58px; height: 58px;
-  background: #BA7517; color: white; border: 5px solid #FFF8EC;
+  background: #945810; color: white; border: 5px solid #FFF8EC;
   border-radius: 50%; font-family: Manrope, sans-serif; font-weight: 700; font-size: 1.1rem;
 }
 .flow-card h3 { margin: 0 0 1rem; color: #2C2A24; font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 1.15rem; }
@@ -320,15 +320,15 @@ const faqs = [
 /* 取引実績 */
 .track-record { display:flex; justify-content:center; gap:3rem; margin-top:2rem; flex-wrap:wrap; }
 .track-item { display:flex; flex-direction:column; align-items:center; gap:.3rem; }
-.track-num { font-family:Manrope,sans-serif; font-size:1.6rem; font-weight:700; color:#BA7517; letter-spacing:.02em; }
+.track-num { font-family:Manrope,sans-serif; font-size:1.6rem; font-weight:700; color:#945810; letter-spacing:.02em; }
 .track-num small { font-size:.9rem; }
 .track-label { font-size:.75rem; color:#6B6860; letter-spacing:.05em; }
 /* 配達エリア */
 .area-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.25rem; margin-bottom:1rem; }
 .area-main { background:white; border-radius:12px; padding:1.75rem; border:0.5px solid rgba(186,117,23,0.15); box-shadow:0 2px 12px rgba(44,44,42,0.05); }
-.area-badge { display:inline-flex; align-items:center; padding:.25rem .75rem; border-radius:999px; font-size:.7rem; font-weight:700; margin-bottom:.75rem; }
-.area-badge--main { background:#BA7517; color:white; }
-.area-badge--sub { background:rgba(186,117,23,0.12); color:#BA7517; }
+.area-badge { display:inline-flex; align-items:center; padding:.25rem .75rem; border-radius:999px; font-size:.76rem; font-weight:700; margin-bottom:.75rem; }
+.area-badge--main { background:#945810; color:white; }
+.area-badge--sub { background:rgba(186,117,23,0.12); color:#945810; }
 .area-main h3 { font-size:.95rem; font-weight:700; color:#2C2A24; margin-bottom:.4rem; }
 .area-main p { font-size:.82rem; color:#6B6860; line-height:1.8; margin:0; }
 .area-note { text-align:center; font-size:.78rem; color:#9B9994; margin-top:1rem; }

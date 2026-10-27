@@ -4,15 +4,16 @@ import Header from '../components/Header.astro';
 import PageHero from '../components/PageHero.astro';
 import Footer from '../components/Footer.astro';
 import ContactSection from '../components/ContactSection.astro';
+import { processSteps } from '../data/commitment';
 
 const points = [
   {
     num: '01',
-    img: '/images/feature/feature-chicken.jpg',
+    img: '/images/shop/point3.jpg',
     fallback: true,
     ja: '健康な鶏から、健康なたまごを',
     body: '鶏の健康を第一に考え、衛生管理を徹底した環境で飼育しています。飼料にもこだわり、栄養バランスのとれた食事で、元気な鶏を育てています。',
-    icon: `<svg width="34" height="34" viewBox="0 0 34 34" fill="none" stroke="#BA7517" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M10 26c0-7 3-13 7-13s7 6 7 13"/><circle cx="17" cy="9" r="5"/><path d="M21 7l4-2-1 4"/><path d="M14 8l-1.5-1.5"/></svg>`,
+    icon: `<svg width="34" height="34" viewBox="0 0 34 34" fill="none" stroke="#945810" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M10 26c0-7 3-13 7-13s7 6 7 13"/><circle cx="17" cy="9" r="5"/><path d="M21 7l4-2-1 4"/><path d="M14 8l-1.5-1.5"/></svg>`,
   },
   {
     num: '02',
@@ -20,7 +21,7 @@ const points = [
     fallback: true,
     ja: '新鮮さをそのままに',
     body: '毎日、自社農場の卵を丁寧に集卵し、鮮度を保ったまま出荷しています。卵本来のコクと甘みを、ぜひご賞味ください。',
-    icon: `<svg width="34" height="34" viewBox="0 0 34 34" fill="none" stroke="#BA7517" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="17" cy="19" rx="10" ry="12"/><path d="M17 7V4"/></svg>`,
+    icon: `<svg width="34" height="34" viewBox="0 0 34 34" fill="none" stroke="#945810" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="17" cy="19" rx="10" ry="12"/><path d="M17 7V4"/></svg>`,
   },
   {
     num: '03',
@@ -28,7 +29,7 @@ const points = [
     fallback: true,
     ja: '徹底した品質管理',
     body: '洗卵・選別・検査・包装まで、すべての工程で厳しい基準を設け、安心・安全な卵をお届けできるよう、品質管理を徹底しています。',
-    icon: `<svg width="34" height="34" viewBox="0 0 34 34" fill="none" stroke="#BA7517" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="6" width="16" height="22" rx="2"/><path d="M13 13h8M13 18h8M13 23h5"/></svg>`,
+    icon: `<svg width="34" height="34" viewBox="0 0 34 34" fill="none" stroke="#945810" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="6" width="16" height="22" rx="2"/><path d="M13 13h8M13 18h8M13 23h5"/></svg>`,
   },
   {
     num: '04',
@@ -36,7 +37,7 @@ const points = [
     fallback: false,
     ja: '迅速・丁寧な配送',
     body: '富山県内を中心に、毎日新鮮な卵をお届けしています。ご希望の時間・数量に合わせて、柔軟に対応いたします。',
-    icon: `<svg width="34" height="34" viewBox="0 0 34 34" fill="none" stroke="#BA7517" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="17" height="11" rx="1.5"/><path d="M20 14h6l4 5v3h-10v-8z"/><circle cx="9" cy="25" r="2.4"/><circle cx="25" cy="25" r="2.4"/></svg>`,
+    icon: `<svg width="34" height="34" viewBox="0 0 34 34" fill="none" stroke="#945810" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="17" height="11" rx="1.5"/><path d="M20 14h6l4 5v3h-10v-8z"/><circle cx="9" cy="25" r="2.4"/><circle cx="25" cy="25" r="2.4"/></svg>`,
   },
   {
     num: '05',
@@ -44,7 +45,7 @@ const points = [
     fallback: true,
     ja: '地域の食卓を支える存在へ',
     body: '地元に根ざした鶏卵の生産・販売を通じて、地域の皆さまの「おいしい」を支え続けていきます。',
-    icon: `<svg width="34" height="34" viewBox="0 0 34 34" fill="none" stroke="#BA7517" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="9" r="3.2"/><circle cx="23" cy="9" r="3.2"/><path d="M5 27v-4a6 6 0 016-6h0a6 6 0 016 6v4"/><path d="M17 27v-4a6 6 0 016-6h0a6 6 0 016 6v4"/></svg>`,
+    icon: `<svg width="34" height="34" viewBox="0 0 34 34" fill="none" stroke="#945810" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="9" r="3.2"/><circle cx="23" cy="9" r="3.2"/><path d="M5 27v-4a6 6 0 016-6h0a6 6 0 016 6v4"/><path d="M17 27v-4a6 6 0 016-6h0a6 6 0 016 6v4"/></svg>`,
   },
 ];
 ---
@@ -100,6 +101,19 @@ const points = [
     </section>
 
     <!-- CONTACT -->
+
+    <!-- 出荷までの流れ（旧 /flow を統合） -->
+    <section class="fe-process" id="process">
+      <div class="container">
+        <div class="ttl"><h2 class="ttl-en">Process</h2><p class="ttl-ja">採卵から食卓へ・出荷までの流れ</p></div>
+        <ol class="fe-steps">
+          {processSteps.map(st => (
+            <li><span>{st.num}</span><div><h3>{st.title}</h3><p>{st.body}</p></div></li>
+          ))}
+        </ol>
+      </div>
+    </section>
+
     <ContactSection
       title="たまごのご注文・業務用のご相談はお気軽にお問い合わせください"
       lead=""
@@ -108,19 +122,25 @@ const points = [
   <Footer/>
 </Layout>
 <style>
+.fe-process { padding: 5.5rem 0; background: var(--panel); }
+.fe-steps { list-style: none; margin: 0 auto; padding: 0; max-width: 760px; display: grid; gap: 1rem; }
+.fe-steps li { display: flex; gap: 1.5rem; align-items: center; background: #fff; border-radius: 16px; padding: 1.2rem 1.8rem; border: .5px solid var(--border); }
+.fe-steps li > span { font-family: Manrope, sans-serif; font-size: 1.5rem; font-weight: 300; color: var(--amber); min-width: 2.2rem; }
+.fe-steps h3 { margin: 0 0 .2rem; font-size: 1rem; }
+.fe-steps p { margin: 0; font-size: .88rem; color: var(--muted); }
 .container { max-width:1180px; margin:0 auto; padding:0 2rem; }
 
 /* パンくず */
 .breadcrumb { margin-top:76px; padding:.9rem 0; background:#FAFAF7; border-bottom:1px solid rgba(186,117,23,.08); }
 .breadcrumb .container { font-size:.78rem; color:#9B9994; }
 .breadcrumb a { color:#9B9994; text-decoration:none; }
-.breadcrumb a:hover { color:#BA7517; }
+.breadcrumb a:hover { color:#945810; }
 .breadcrumb span { margin:0 .4rem; }
 
 /* ヒーロー */
 .fe-hero { padding:4.5rem 0 3.5rem; background:#fff; }
 .fe-hero-in { display:grid; grid-template-columns:1fr 1.1fr; gap:3rem; align-items:center; }
-.fe-en { font-family:Manrope,sans-serif; font-size:.7rem; letter-spacing:.25em; color:#BA7517; text-transform:uppercase; display:block; margin-bottom:.6rem; }
+.fe-en { font-family:Manrope,sans-serif; font-size:.7rem; letter-spacing:.25em; color:#945810; text-transform:uppercase; display:block; margin-bottom:.6rem; }
 .fe-hero-text h1 { font-family:'Zen Kaku Gothic New',sans-serif; font-size:clamp(1.9rem,4vw,2.7rem); font-weight:700; color:#2C2A24; line-height:1.4; margin-bottom:1.25rem; }
 .fe-hero-text p { font-size:.88rem; color:#6B6860; line-height:1.9; }
 .fe-hero-img { border-radius:20px; overflow:hidden; aspect-ratio:16/10; background:#FDF6E9; }
@@ -133,7 +153,7 @@ const points = [
 .fe-points { padding:5rem 0 5.5rem; background:#fff; }
 .fe-points-head { text-align:center; margin-bottom:3.5rem; }
 .fe-points-head h2 { font-family:'Zen Kaku Gothic New',sans-serif; font-size:clamp(1.3rem,2.6vw,1.7rem); font-weight:700; color:#2C2A24; }
-.fe-points-line { display:block; width:2.5rem; height:2px; background:#BA7517; margin:1.1rem auto 0; }
+.fe-points-line { display:block; width:2.5rem; height:2px; background:#945810; margin:1.1rem auto 0; }
 
 /* 各行 */
 .fe-list { display:flex; flex-direction:column; gap:2.25rem; }
@@ -153,14 +173,14 @@ const points = [
   flex-shrink:0; z-index:2;
 }
 .fe-row-body { padding-left:2.5rem; }
-.fe-row-num { font-family:Manrope,sans-serif; font-size:1.5rem; font-weight:700; color:#BA7517; letter-spacing:.02em; display:block; margin-bottom:.35rem; }
+.fe-row-num { font-family:Manrope,sans-serif; font-size:1.5rem; font-weight:700; color:#945810; letter-spacing:.02em; display:block; margin-bottom:.35rem; }
 .fe-row-body h3 { font-family:'Zen Kaku Gothic New',sans-serif; font-size:1.2rem; font-weight:700; color:#2C2A24; margin-bottom:.6rem; }
 .fe-row-body p { font-size:.85rem; color:#6B6860; line-height:1.85; margin:0; max-width:560px; }
 
 /* 業務用バナー */
 .fe-biz { padding:0 0 5rem; background:#fff; }
 .fe-biz-card { position:relative; background:#FDF6E9; border-radius:20px; padding:2.75rem 2.5rem 2.25rem; border:1px solid rgba(186,117,23,.15); }
-.fe-biz-badge { position:absolute; top:-14px; left:2.5rem; background:#BA7517; color:white; font-size:.72rem; font-weight:700; padding:.4rem 1.1rem; border-radius:999px; letter-spacing:.03em; }
+.fe-biz-badge { position:absolute; top:-14px; left:2.5rem; background:#945810; color:white; font-size:.72rem; font-weight:700; padding:.4rem 1.1rem; border-radius:999px; letter-spacing:.03em; }
 .fe-biz-grid { display:grid; grid-template-columns:1.3fr 1fr 280px; gap:2rem; align-items:center; margin-top:.5rem; }
 .fe-biz-text h3 { font-family:'Zen Kaku Gothic New',sans-serif; font-size:1.15rem; font-weight:700; color:#2C2A24; margin-bottom:.75rem; }
 .fe-biz-text p { font-size:.85rem; color:#6B6860; line-height:1.85; margin:0; }
@@ -168,7 +188,7 @@ const points = [
 .fe-biz-checks li { font-size:.85rem; color:#2C2A24; font-weight:600; }
 .fe-biz-img { width:280px; height:170px; border-radius:14px; overflow:hidden; }
 .fe-biz-img img { width:100%; height:100%; object-fit:cover; display:block; }
-.fe-biz-img.img-fallback { background:linear-gradient(135deg,#F5D77A,#BA7517); display:flex; align-items:center; justify-content:center; }
+.fe-biz-img.img-fallback { background:linear-gradient(135deg,#F5D77A,#945810); display:flex; align-items:center; justify-content:center; }
 .fe-biz-img.img-fallback img { display:none; }
 .fe-biz-img.img-fallback::after { content:'🥚🥚🥚'; font-size:1.5rem; letter-spacing:.3em; }
 

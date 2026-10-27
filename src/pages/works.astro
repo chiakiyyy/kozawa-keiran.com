@@ -16,7 +16,7 @@ const maxN = Math.max(...breakdown.map(b => b.n));
 const strengths = [
   { num: '01', title: '当日夕方のお届け', body: '富山市内は、月・水・金の午前9:30までのご注文で、当日夕方にお届けします。' },
   { num: '02', title: '大量注文・急な増減にも対応', body: '1ケース（約10kg）から承ります。催事やイベントの数量変更も、事前のご相談で調整します。' },
-  { num: '03', title: '規格・サイズをご指定いただけます', body: 'S・M・L・LLなど各サイズ、赤玉・白玉などの指定が可能です。' },
+  { num: '03', title: '規格・サイズをご指定いただけます', body: '10kg箱はLL・L・M・MS・Sの各サイズ。赤玉などの指定もご相談ください。' },
   { num: '04', title: '請求書払い（掛け売り）に対応', body: '法人・個人事業主様には、掛け売りに対応しています。詳しくはご相談ください。' },
   { num: '05', title: '自社便で品質を守る', body: '温度を管理し、自社便でお届けします。' },
   { num: '06', title: '100年以上の信頼', body: '大正時代の創業から、鶏卵ひと筋に歩んできました。' },
@@ -58,13 +58,13 @@ const targets = ['ラーメン店', '飲食店全般', '洋菓子・パン', '�
           ))}
         </div>
         <div style="text-align:center;margin-top:3rem">
-          <a href="/stores" class="btn-circle">取扱店舗一覧を見る</a>
+          <a href="#breakdown" class="btn-circle">取引先の内訳を見る</a>
         </div>
       </div>
     </section>
 
 
-    <section class="sec">
+    <section class="sec" id="breakdown">
       <div class="container">
         <div class="ttl fade-up"><h2 class="ttl-en">Breakdown</h2><p class="ttl-ja">取引先の内訳</p></div>
         <p class="wk-lead">現在お取引のある事業者を、業態別に集計しています。（店舗名は掲載していません）</p>
@@ -116,7 +116,7 @@ const targets = ['ラーメン店', '飲食店全般', '洋菓子・パン', '�
             <li><span>{st.num}</span><div><h3>{st.title}</h3><p>{st.body}</p></div></li>
           ))}
         </ol>
-        <div style="text-align:center;margin-top:3rem"><a href="/flow" class="btn-circle">出荷の流れを見る</a></div>
+        <div style="text-align:center;margin-top:3rem"><a href="/feature#process" class="btn-circle">こだわり・出荷の流れを見る</a></div>
       </div>
     </section>
 
@@ -137,7 +137,7 @@ const targets = ['ラーメン店', '飲食店全般', '洋菓子・パン', '�
 .bk-n small { font-size: .75rem; margin-left: .1rem; }
 .st-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.75rem; }
 .st { background: #fff; border-radius: 16px; padding: 2rem; border: .5px solid var(--border); }
-.st-num { font-family: Manrope, sans-serif; font-weight: 300; font-size: 2rem; color: var(--amber-lt); letter-spacing: .06em; }
+.st-num { font-family: Manrope, sans-serif; font-weight: 300; font-size: 2rem; color: var(--amber); letter-spacing: .06em; }
 .st h3 { margin: .4rem 0 .6rem; font-size: 1.05rem; line-height: 1.7; }
 .st p { margin: 0; font-size: .9rem; line-height: 2; color: var(--muted); }
 .ind-list { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: .8rem; justify-content: center; }
@@ -154,7 +154,7 @@ const targets = ['ラーメン店', '飲食店全般', '洋菓子・パン', '�
 .metric-num { font-family: Manrope, sans-serif; font-size: clamp(2.2rem, 4vw, 3rem); font-weight: 700; color: var(--amber); line-height: 1.2; }
 .metric-num small { font-size: 1rem; margin-left: .2rem; }
 .metric-label { font-size: .88rem; font-weight: 700; margin-top: .5rem; }
-.metric-note { font-size: .7rem; color: var(--muted); margin-top: .25rem; }
+.metric-note { font-size: .76rem; color: var(--muted); margin-top: .25rem; }
 .case-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.75rem; }
 .case-card { padding: 2rem; display: flex; flex-direction: column; gap: .8rem; }
 .case-cat { align-self: flex-start; background: var(--amber-bg); color: var(--amber); font-size: .72rem; font-weight: 700; padding: .25rem .9rem; border-radius: 999px; letter-spacing: .06em; }

@@ -1,0 +1,15 @@
+# 統合・削除したページの転送（旧URL → 新URL）
+/company        /about       301
+/company/       /about       301
+/quality        /feature             301
+/quality/       /feature             301
+/flow           /feature     301
+/flow/          /feature     301
+/shop           /gift                301
+/shop/          /gift                301
+/stores         /works     301
+/stores/        /works     301
+/news/detail    /news                301
+/news/detail/   /news                301
+/news           /                    301
+/news/          /                    301
