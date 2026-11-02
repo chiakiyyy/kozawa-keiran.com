@@ -28,7 +28,7 @@
   }
 
   html {
-    font-size: 17px;
+    font-size: 18px;
     font-family: Manrope, 'Zen Kaku Gothic New', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Hiragino Sans', 'ヒラギノ角ゴ ProN W3', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', YuGothic, Verdana, Meiryo, sans-serif;
     background: var(--bg);
     color: var(--text);
@@ -40,7 +40,7 @@
   h1, h2, h3, h4, summary, .ttl-ja, .hf-lead, .sec-lead { text-wrap: balance; }
   p, li, dd, dt { text-wrap: pretty; }
   body { -webkit-font-smoothing: antialiased; font-size: 1rem; line-height: 1.9; letter-spacing: 0.04em; font-weight: 400; }
-  @media (max-width: 640px) { html { font-size: 16px; } }
+  @media (max-width: 640px) { html { font-size: 17px; } }
 
   h1, h2, h3, h4 {
     font-family: Manrope, 'Zen Kaku Gothic New', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Hiragino Sans', sans-serif;
@@ -60,7 +60,7 @@
     gap: 0.5rem;
     padding: 0.9rem 2.25rem;
     border-radius: 999px;
-    font-size: 0.875rem;
+    font-size: 1rem;
     font-weight: 700;
     letter-spacing: 0.06em;
     text-decoration: none;
@@ -142,7 +142,7 @@
     letter-spacing: 0.02em;
   }
   .sec-lead {
-    font-size: 0.9rem;
+    font-size: 1.02rem;
     color: var(--muted);
     line-height: 2;
     margin-top: 0.85rem;
@@ -175,7 +175,7 @@
     text-transform: none;
   }
   .ttl-ja {
-    font-size: 0.9rem;
+    font-size: 1.02rem;
     font-weight: 500;
     letter-spacing: 0.15em;
     color: var(--amber);
@@ -190,7 +190,7 @@
     border-radius: 50vh;
     background: #fff;
     color: var(--text);
-    font-size: 0.9rem;
+    font-size: 1.02rem;
     font-weight: 700;
     letter-spacing: 0.08em;
     text-align: center;
@@ -220,19 +220,19 @@
     padding: 1.6rem 3rem 0 calc(36px + 1.25rem);
   }
   .hf-title h1 { margin: 0; font-family: Manrope, sans-serif; font-weight: 300; letter-spacing: .06em; font-size: clamp(2rem, 4.6vw, 3.4rem); line-height: 1.2; color: var(--text); }
-  .hf-title p { margin: .35rem 0 0; font-size: .85rem; letter-spacing: .15em; color: var(--muted); }
+  .hf-title p { margin: .35rem 0 0; font-size: 1rem; letter-spacing: .15em; color: var(--muted); }
   .hf-news {
     position: absolute; right: 0; bottom: 0; max-width: min(560px, 90%);
     background: var(--panel); border-radius: var(--notch-r) 0 0 0;
     padding: 1.6rem 2rem 1.2rem 2.5rem; display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;
   }
   a.hf-news { text-decoration: none; color: inherit; }
-  .hf-news-body { display: flex; flex-direction: column; gap: .4rem; font-size: .8rem; }
+  .hf-news-body { display: flex; flex-direction: column; gap: .4rem; font-size: .95rem; }
   .hf-news-body b { font-weight: 700; margin-right: .8rem; }
   .hf-news-body span { color: var(--muted); }
 
   /* 丸型リンク（View more / About us） */
-  .circle-link { display: inline-flex; align-items: center; gap: .7rem; color: var(--amber); font-family: Manrope, sans-serif; font-weight: 600; letter-spacing: .06em; text-decoration: none; font-size: .95rem; }
+  .circle-link { display: inline-flex; align-items: center; gap: .7rem; color: var(--amber); font-family: Manrope, sans-serif; font-weight: 600; letter-spacing: .06em; text-decoration: none; font-size: 1.05rem; }
   .circle-link::before { content: ''; width: 19px; height: 19px; border-radius: 50%; background: var(--amber) radial-gradient(circle, #fff 0 2.5px, transparent 3px); transition: transform .4s cubic-bezier(.165,.84,.44,1); }
   .circle-link:hover::before { transform: scale(.7); }
   .circle-link--w { color: #fff; }
@@ -245,7 +245,7 @@
   .band { background: var(--deep); color: #F4EBDD; padding: 6rem 0; overflow: hidden; }
   .band .ttl-en { color: #fff; }
   .band .ttl-ja { color: #E8C98F; }
-  .band p { font-size: .88rem; line-height: 2.2; letter-spacing: .06em; color: rgba(244,235,221,.85); }
+  .band p { font-size: 1rem; line-height: 2.2; letter-spacing: .06em; color: rgba(244,235,221,.85); }
   .band-in { max-width: 1200px; margin: 0 auto; padding: 0 2.5rem; display: grid; grid-template-columns: 1fr 1.1fr; gap: 3rem; align-items: center; }
   .halo { position: relative; width: min(100%, 560px); aspect-ratio: 1; margin: 0 auto; border-radius: 50%; background: rgba(255,255,255,.07); display: grid; place-items: center; }
   .halo-slide { position: absolute; inset: 12%; border-radius: 50%; overflow: hidden; opacity: 0; transition: opacity .6s; pointer-events: none; display: block; }
@@ -262,7 +262,7 @@
   .circ:hover .circ-ring { transform: scale(1.03); }
   .circ-ring img { width: 82%; aspect-ratio: 1; border-radius: 50%; object-fit: cover; display: block; background: #fff; }
   .circ h3 { color: var(--amber); font-size: 1.1rem; margin: 0 0 .7rem; letter-spacing: .08em; }
-  .circ p { font-size: .82rem; line-height: 2; letter-spacing: .04em; color: var(--muted); margin: 0 auto; max-width: 300px; text-align: left; }
+  .circ p { font-size: .97rem; line-height: 2; letter-spacing: .04em; color: var(--muted); margin: 0 auto; max-width: 300px; text-align: left; }
 
   /* 横スクロールの事例カード（Works） */
   .hscroll { display: flex; gap: 1.5rem; overflow-x: auto; padding: 0 2.5rem 1.5rem; scroll-snap-type: x mandatory; scrollbar-width: thin; }
@@ -270,8 +270,8 @@
   .hcard-img { position: relative; border-radius: 12px; overflow: hidden; aspect-ratio: 4/5; background: var(--panel); }
   .hcard-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .5s cubic-bezier(.165,.84,.44,1); }
   .hcard:hover .hcard-img img { transform: scale(1.05); }
-  .hcard-tag { position: absolute; left: 10px; bottom: 10px; background: rgba(120,110,95,.85); color: #fff; font-size: .72rem; padding: .35rem .7rem; border-radius: 5px; }
-  .hcard h3 { margin: .9rem 0 0; font-size: .95rem; font-weight: 500; line-height: 1.7; }
+  .hcard-tag { position: absolute; left: 10px; bottom: 10px; background: rgba(120,110,95,.85); color: #fff; font-size: .85rem; padding: .35rem .7rem; border-radius: 5px; }
+  .hcard h3 { margin: .9rem 0 0; font-size: 1.05rem; font-weight: 500; line-height: 1.7; }
 
   @media (max-width: 860px) {
     .hf { padding: 64px 14px 14px; }
@@ -299,7 +299,7 @@
     display: inline-flex;
     align-items: center;
     gap: 0.45rem;
-    font-size: 0.82rem;
+    font-size: .97rem;
     font-weight: 700;
     color: var(--amber);
     text-decoration: none;
@@ -346,7 +346,7 @@
     letter-spacing: 0.02em;
   }
   .page-hero-sub {
-    font-size: 0.9rem;
+    font-size: 1.02rem;
     color: var(--muted);
     margin-top: 0.75rem;
     line-height: 1.9;
@@ -371,7 +371,7 @@
   /* ========== フォーム ========== */
   .form-label {
     display: block;
-    font-size: 0.8rem;
+    font-size: .95rem;
     font-weight: 700;
     color: var(--text);
     margin-bottom: 0.4rem;
@@ -384,7 +384,7 @@
     padding: 0.75rem 1rem;
     border: 1px solid rgba(44,44,42,0.15);
     border-radius: var(--radius-sm);
-    font-size: 0.9rem;
+    font-size: 1.02rem;
     font-family: Manrope, 'Zen Kaku Gothic New', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Hiragino Sans', 'ヒラギノ角ゴ ProN W3', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', YuGothic, Verdana, Meiryo, sans-serif;
     color: var(--text);
     background: white;
