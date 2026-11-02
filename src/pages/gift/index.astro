@@ -33,10 +33,10 @@ const yen = (g: { price: number; shippingFee: number }) =>
           {gifts.map((g, i) => (
             <article class={`card gift-card fade-up fade-up-d${(i % 4) + 1}`} id={g.id}>
               <div class="gift-slider" data-slider>
+                <span class="gift-badge">{g.badge}</span>
                 <div class="gift-track">
                   <div class="gift-img gift-slide">
                     <img src={g.img} alt={g.name} loading="lazy"/>
-                    <span class="gift-badge">{g.badge}</span>
                   </div>
                   {g.img2 && <div class="gift-img gift-slide"><img src={g.img2} alt={`${g.name}の包装イメージ`} loading="lazy"/></div>}
                 </div>
@@ -115,12 +115,13 @@ const yen = (g: { price: number; shippingFee: number }) =>
 <style>
 .scene-list { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: .75rem; }
 .scene-tag { padding: .6rem 1.4rem; border: 1px solid rgba(186,117,23,.35); border-radius: 999px; background: var(--amber-pale); color: var(--amber); font-size: 1rem; font-weight: 700; letter-spacing: .06em; }
-.gift-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 340px)); justify-content: center; gap: 1.75rem; }
+.gift-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 340px)); justify-content: center; gap: 3rem 1.75rem; }
 .gift-img { position: relative; aspect-ratio: 1/1; background: var(--amber-pale); display: flex; align-items: center; justify-content: center; }
 .gift-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.gift-badge { position: absolute; top: .9rem; left: .9rem; background: var(--amber); color: #FFFBF3; font-size: .9rem; font-weight: 700; padding: .25rem .8rem; border-radius: 999px; letter-spacing: .06em; }
+.gift-badge { position: absolute; top: -2.6rem; left: -1.2rem; z-index: 1; width: 3.7rem; height: 3.7rem; display: flex; align-items: center; justify-content: center; text-align: center; background: var(--amber); color: #FFFBF3; font-size: .68rem; font-weight: 700; line-height: 1.2; letter-spacing: 0; white-space: nowrap; border-radius: 50%; box-shadow: 0 1px 4px rgba(0,0,0,.25); }
 .gift-slider { position: relative; }
-.gift-track { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; scroll-behavior: smooth; }
+.gift-card { overflow: visible; }
+.gift-track { border-radius: var(--radius-md) var(--radius-md) 0 0; display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; scroll-behavior: smooth; }
 .gift-track::-webkit-scrollbar { display: none; }
 .gift-slide { flex: 0 0 100%; scroll-snap-align: start; }
 .gs-btn { position: absolute; top: 50%; transform: translateY(-50%); width: 40px; height: 40px; border-radius: 50%; border: 0; background: rgba(255,255,255,.88); color: var(--text); font-size: 1.5rem; line-height: 1; cursor: pointer; box-shadow: 0 1px 6px rgba(0,0,0,.2); }
