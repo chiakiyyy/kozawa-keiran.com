@@ -136,6 +136,25 @@ const FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycbwrMTrF_xGZw_xx5g
       (form.elements.namedItem('recipient_tel') as HTMLInputElement).value = (form.elements.namedItem('sender_tel') as HTMLInputElement).value;
     });
 
+    // 郵便番号から住所を自動入力（zipcloud）。取得できない場合は手入力のまま
+    const zip = document.getElementById('r_zip') as HTMLInputElement;
+    const addr = document.getElementById('r_addr') as HTMLInputElement;
+    let filled = '';
+    zip.addEventListener('input', async () => {
+      const code = zip.value.replace(/[０-９]/g, c => String.fromCharCode(c.charCodeAt(0) - 0xFEE0)).replace(/\D/g, '');
+      if (code.length !== 7) return;
+      try {
+        const res = await fetch('https://zipcloud.ibsnet.co.jp/api/search?zipcode=' + code);
+        const r = (await res.json()).results?.[0];
+        if (!r) return;
+        // 未入力、または前回の自動入力のままの場合だけ上書きする
+        if (addr.value === '' || addr.value === filled) {
+          filled = r.address1 + r.address2 + r.address3;
+          addr.value = filled;
+        }
+      } catch { /* 手入力に任せる */ }
+    });
+
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       if (!form.checkValidity()) { form.reportValidity(); return; }
