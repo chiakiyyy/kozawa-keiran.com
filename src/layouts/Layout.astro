@@ -5,7 +5,7 @@ interface Props {
   description?: string;
   ogImage?: string;
 }
-const { title, description = '富山県の鶏卵専門店・小澤鶏卵。大正時代創業、富山市を中心に飲食店・ホテル・給食施設・スーパーへ業務用たまごを当日配達。個人宅配・定期納品・催事対応も承ります。', ogImage = '/og-image.jpg' } = Astro.props;
+const { title, description = '富山県の鶏卵専門店・小澤鶏卵。1945年創業、80年以上の実績。富山市を中心に飲食店・ホテル・給食施設・スーパーへ業務用たまごを当日配達。個人宅配・定期納品・催事対応も承ります。', ogImage = '/og-image.jpg' } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 <!doctype html>
@@ -38,7 +38,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       "@type": "LocalBusiness",
       "name": "小澤鶏卵",
       "alternateName": "KOZAWA KEIRAN",
-      "description": "富山県の鶏卵専門店。大正時代創業100年以上。富山市を中心に飲食店・ホテル・給食施設・スーパーへ業務用たまごを当日配達。",
+      "description": "富山県の鶏卵専門店。1945年創業、80年以上の実績。富山市を中心に飲食店・ホテル・給食施設・スーパーへ業務用たまごを当日配達。",
       "url": "https://kozawa-keiran.com",
       "telephone": "076-466-3815",
       "address": {

@@ -45,7 +45,7 @@ const path = Astro.url.pathname;
 <nav class="drw" id="drw" aria-label="ドロワーメニュー" inert>
   <div class="drw-head">
     <a href="/" class="drw-logo">
-      <img src="/images/icon.png" alt="" aria-hidden="true" style="height:36px;width:auto;"/>
+      <img src="/images/icon.png" alt="" aria-hidden="true" style="height:32px;width:auto;box-sizing:content-box;padding:6px 8px;background:#3B321F;border-radius:50%;"/>
       <span class="logo-jp" style="font-size:1.05rem;letter-spacing:.14em;">小澤鶏卵</span>
     </a>
     <button type="button" id="drw-cl" aria-label="メニューを閉じる">
@@ -81,16 +81,16 @@ const path = Astro.url.pathname;
 <style>
 .hdr { position: fixed; top: 0; left: 0; right: 0; z-index: 200; display: flex; justify-content: space-between; align-items: flex-start; pointer-events: none; }
 .hdr > * { pointer-events: auto; }
-.hdr-brand { display: flex; align-items: center; gap: .7rem; text-decoration: none; background: var(--panel, #F6F1E6); padding: .9rem 2rem .9rem 1.5rem; border-radius: 0 0 var(--notch-r, 28px) 0; }
-.hdr-logo-icon { height: 40px; width: auto; display: block; object-fit: contain; }
+.hdr-brand { flex-shrink: 0; display: flex; align-items: center; gap: .7rem; text-decoration: none; background: var(--panel, #F6F1E6); padding: .9rem 2rem .9rem 1.5rem; border-radius: 0 0 var(--notch-r, 28px) 0; }
+.hdr-logo-icon { height: 40px; width: auto; display: block; object-fit: contain; box-sizing: content-box; padding: 7px 9px; background: #3B321F; border-radius: 50%; }
 .logo-jp { display: block; font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 1.15rem; font-weight: 500; color: #2C2A24; letter-spacing: .2em; line-height: 1.2; }
-.logo-en { display: block; font-family: Manrope, sans-serif; font-size: .56rem; letter-spacing: .3em; color: #8d8a82; margin-top: 4px; }
+.logo-en { display: block; font-family: Manrope, sans-serif; font-size: .75rem; letter-spacing: .2em; color: #5F5E5A; margin-top: 4px; white-space: nowrap; }
 .hdr-right { display: flex; align-items: center; gap: 1.2rem; background: var(--panel, #F6F1E6); padding: 1rem 1.5rem 1rem 2.2rem; border-radius: 0 0 0 var(--notch-r, 28px); }
 .hdr-nav ul { display: flex; list-style: none; margin: 0; padding: 0; gap: .4rem; }
-.hdr-nav a { display: block; font-size: 14px; font-weight: 700; letter-spacing: .08em; padding: .3rem .8rem !important; color: #1E1E1C; text-decoration: none; padding: .3rem 0; border-bottom: 1.5px solid transparent; transition: border-color .2s, color .2s; white-space: nowrap; }
-.hdr-nav a:hover, .hdr-nav a.act { color: var(--amber, #945810); border-color: var(--amber-lt, #EF9F27); }
-.hdr-tel { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; height: 46px; min-width: 46px; padding: 0 .9rem; border-radius: 999px; background: var(--amber); color: #fff; text-decoration: none; font-family: Manrope, sans-serif; font-weight: 700; letter-spacing: .04em; font-size: 14px; white-space: nowrap; transition: background .2s; }
-.hdr-tel:hover { background: #7A4A0D; }
+.hdr-nav a { display: block; font-size: 15px; font-weight: 700; letter-spacing: .08em; padding: .3rem .8rem !important; color: #1E1E1C; text-decoration: none; padding: .3rem 0; border-bottom: 1.5px solid transparent; transition: border-color .2s, color .2s; white-space: nowrap; }
+.hdr-nav a:hover, .hdr-nav a.act { color: var(--amber, #8A5A00); border-color: var(--amber-lt, #EF9F27); }
+.hdr-tel { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; height: 46px; min-width: 46px; padding: 0 .9rem; border-radius: 999px; background: var(--brand); color: var(--on-brand); text-decoration: none; font-family: Manrope, sans-serif; font-weight: 700; letter-spacing: .04em; font-size: 14px; white-space: nowrap; transition: background .2s; }
+.hdr-tel:hover { background: var(--brand-hv); }
 .hdr-tel-num { display: none; }
 @media (min-width: 1500px) { .hdr-tel-num { display: inline; } }
 @media (max-width: 1499px) { .hdr-tel { padding: 0; width: 46px; } }
@@ -124,7 +124,7 @@ const path = Astro.url.pathname;
 .drw li { border-bottom: 0.5px solid rgba(44,44,42,0.05); }
 .drw a { display: flex; align-items: center; justify-content: space-between; padding: .95rem 1.5rem; text-decoration: none; transition: background .15s; }
 .drw a:hover { background: #FAFAF7; }
-.d-en { font-family: Manrope, sans-serif; font-size: .6rem; font-weight: 700; letter-spacing: .18em; color: var(--amber); }
+.d-en { font-family: Manrope, sans-serif; font-size: .75rem; font-weight: 700; letter-spacing: .18em; color: var(--amber); }
 .d-ja { font-size: 1rem; font-weight: 500; color: #1E1E1C; }
 .drw-ft {
   padding: 1.25rem 1.5rem; display: flex; flex-direction: column; gap: .75rem;
@@ -132,11 +132,11 @@ const path = Astro.url.pathname;
 }
 .drw-tel { font-family: Manrope, sans-serif; font-size: 1.4rem; font-weight: 700; color: #1E1E1C; text-decoration: none; letter-spacing: .04em; text-align: center; transition: color .18s; }
 .drw-tel:hover { color: var(--amber); }
-.drw-hours { font-size: .9rem; color: #9B9994; text-align: center; margin: 0; }
+.drw-hours { font-size: .9rem; color: #5F5E5A; text-align: center; margin: 0; }
 
 
 @media (max-width: 1260px) { .hdr-nav { display: none; } .hdr-right { padding: .8rem .9rem .9rem 1.4rem; } }
-@media (max-width: 640px) { .hdr-brand { padding: .7rem 1.2rem .7rem .9rem; } .hdr-logo-icon { height: 32px; } .logo-jp { font-size: 1.05rem; } .hdr-ham { width: 46px; height: 46px; } }
+@media (max-width: 640px) { .hdr-brand { padding: .7rem 1.2rem .7rem .9rem; } .hdr-logo-icon { height: 30px; } .logo-jp { font-size: 1.05rem; } .hdr-ham { width: 46px; height: 46px; } .hdr-brand { gap: .5rem; padding: .7rem .8rem .7rem .7rem; } .logo-en { letter-spacing: .1em; } .hdr-right { gap: .5rem; padding: .8rem .7rem .9rem 1rem; } }
 </style>
 
 <script>

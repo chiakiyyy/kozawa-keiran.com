@@ -1,7 +1,6 @@
 // 卸売の実績データ（トップページ・/works ページ共通）
 // 取引先名は掲載せず、業態ごとの対応内容のみを載せる。件数は stores.ts の集計から算出。
 
-import { stores } from './stores';
 
 export interface Metric {
   num: string;
@@ -10,13 +9,11 @@ export interface Metric {
   note?: string;
 }
 
-// 取引先の件数は、管理表上の事業者数の概数（30社以上）として表示
-const partners = Math.floor(stores.length / 10) * 10;
 
 export const metrics: Metric[] = [
-  { num: '100', unit: '年+', label: '創業からの歴史', note: '大正時代の創業' },
-  { num: String(partners), unit: '社以上', label: '取引先企業数', note: '飲食店・施設・小売など' },
-  { num: '月水金', unit: '', label: '注文受付日', note: '毎週3回' },
+  { num: '80', unit: '年', label: '1945年創業', note: '昭和20年の創業' },
+  { num: '50', unit: '社以上', label: '取り扱い店舗', note: '飲食店・施設・小売など' },
+  { num: '月〜金', unit: '', label: '注文受付', note: '平日はいつでもご注文いただけます' },
   { num: '当日', unit: '', label: '夕方お届け対応', note: '富山市内' },
 ];
 

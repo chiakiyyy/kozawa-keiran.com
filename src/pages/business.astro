@@ -35,10 +35,10 @@ const faqs = [
   { q:'請求書払いは可能ですか？', a:'法人・個人事業主様には掛け売りに対応しています。詳しくはご相談ください。' },
 ];
 ---
-<Layout title="業務用たまご｜富山市内当日配達対応｜小澤鶏卵" description="富山市内への業務用たまご当日配達。飲食店・ホテル・給食施設・スーパーへの定期納品、大量注文、催事対応。月・水・金9:30注文で当日夕方お届け。富山県富山市の鶏卵専門店・小澤鶏卵。">
+<Layout title="業務用たまご｜富山市内当日配達対応｜小澤鶏卵" description="富山市内への業務用たまご当日配達。飲食店・ホテル・給食施設・スーパーへの定期納品、大量注文、催事対応。月〜金注文受付。月・水・金は9:30注文で当日夕方お届け。富山県富山市の鶏卵専門店・小澤鶏卵。">
   <Header/>
   <main>
-    <PageHero en="For Business" ja="法人のお客様" img="/images/business_hero.png" lead="毎日使うたまごを安定してお届けします。富山市内・富山県を中心とした飲食店・食品事業者様へ。月・水・金 9:30注文受付で、当日夕方の配達に対応します。"><p style="text-align:center;margin:1.5rem 0 .5rem"><a href="#contact-form" class="btn btn-primary">法人取引のご相談はこちら →</a></p></PageHero>
+    <PageHero en="For Business" ja="法人のお客様" img="/images/business_hero.png" lead="毎日使うたまごを安定してお届けします。富山市内・富山県を中心とした飲食店・食品事業者様へ。月〜金で注文を受け付けています。月・水・金は、午前9:30までのご注文で当日夕方の配達に対応します。"><p style="text-align:center;margin:1.5rem 0 .5rem"><a href="#contact-form" class="btn btn-primary">法人取引のご相談はこちら →</a></p></PageHero>
 
     <!-- お悩み -->
     <section class="sec">
@@ -55,9 +55,9 @@ const faqs = [
         </div>
         <p class="concerns-cta-text">小澤鶏卵がそのお悩みを解決します！</p>
         <div class="track-record">
-          <div class="track-item"><span class="track-num">100<small>年+</small></span><span class="track-label">創業からの歴史</span></div>
+          <div class="track-item"><span class="track-num">80<small>年以上</small></span><span class="track-label">1945年創業</span></div>
           <div class="track-item"><span class="track-num">富山市内</span><span class="track-label">当日配達対応エリア</span></div>
-          <div class="track-item"><span class="track-num">月水金</span><span class="track-label">注文受付日</span></div>
+          <div class="track-item"><span class="track-num">月〜金</span><span class="track-label">注文受付</span></div>
         </div>
       </div>
     </section>
@@ -188,6 +188,10 @@ const faqs = [
             <p>フォームからもご相談いただけます</p>
             <a href="/contact?type=business" class="btn btn-primary" style="justify-content:center">お問い合わせフォームへ →</a>
           </div>
+          <div class="biz-form-box biz-line-box">
+            <p>LINEでもご相談いただけます</p>
+            <a href="https://line.me/ti/p/@215bpskd" target="_blank" rel="noopener noreferrer" class="biz-line-btn">LINEで相談する</a>
+          </div>
         </div>
       </div>
     </section>
@@ -248,7 +252,7 @@ const faqs = [
 }
 .flow-inner { position: relative; max-width: 1120px; margin: 0 auto; text-align: center; }
 .section-en {
-  margin: 0 0 .5rem; color: #945810;
+  margin: 0 0 .5rem; color: #8A5A00;
   font-family: 'Zen Kaku Gothic New', sans-serif; font-style: italic;
   font-size: 1.1rem; letter-spacing: .08em;
 }
@@ -271,7 +275,7 @@ const faqs = [
 .flow-num {
   position: absolute; top: -1.5rem; left: 50%; transform: translateX(-50%);
   display: grid; place-items: center; width: 58px; height: 58px;
-  background: #945810; color: white; border: 5px solid #FFF8EC;
+  background:var(--brand); color:var(--on-brand); border: 5px solid #FFF8EC;
   border-radius: 50%; font-family: Manrope, sans-serif; font-weight: 700; font-size: 1.1rem;
 }
 .flow-card h3 { margin: 0 0 1rem; color: #2C2A24; font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 1.15rem; }
@@ -297,11 +301,14 @@ const faqs = [
 .faq-a { display:flex; align-items:flex-start; gap:1rem; padding:0 1.5rem 1.1rem 1.5rem; }
 .faq-a p { font-size:1rem; color:var(--muted); line-height:1.8; margin:0; padding-top:.2rem; }
 /* BIZ CONTACT */
-.biz-contact-box { display:grid; grid-template-columns:1fr 1fr; gap:2rem; max-width:700px; margin:0 auto; }
+.biz-contact-box { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; max-width:980px; margin:0 auto; }
 .biz-tel-box,.biz-form-box { background:white; border-radius:16px; padding:2rem; text-align:center; box-shadow:0 4px 20px rgba(59,50,31,.07); }
 .biz-tel-label { font-size:.88rem; font-weight:700; color:var(--green); letter-spacing:.1em; margin-bottom:.5rem; }
 .biz-tel { display:block; font-family:'Lato',sans-serif; font-size:1.6rem; font-weight:300; color:var(--brown); text-decoration:none; letter-spacing:.05em; margin-bottom:.25rem; }
 .biz-tel-hours { font-size:.88rem; color:var(--muted); }
+.biz-contact-box > * { min-width:0; }
+.biz-form-box .btn { white-space:normal; text-align:center; padding:.9rem 1.2rem; }
+.biz-line-btn { display:flex; align-items:center; justify-content:center; padding:.9rem 1.5rem; border-radius:999px; background:#06C755; color:#fff; font-weight:700; text-decoration:none; }
 .biz-form-box p { font-size:1rem; color:var(--muted); margin-bottom:1rem; }
 @media (max-width:900px) {
   .concerns-grid { grid-template-columns:1fr 1fr; }
@@ -320,17 +327,17 @@ const faqs = [
 /* 取引実績 */
 .track-record { display:flex; justify-content:center; gap:3rem; margin-top:2rem; flex-wrap:wrap; }
 .track-item { display:flex; flex-direction:column; align-items:center; gap:.3rem; }
-.track-num { font-family:Manrope,sans-serif; font-size:1.6rem; font-weight:700; color:#945810; letter-spacing:.02em; }
+.track-num { font-family:Manrope,sans-serif; font-size:1.6rem; font-weight:700; color:#8A5A00; letter-spacing:.02em; }
 .track-num small { font-size:1.02rem; }
 .track-label { font-size:.88rem; color:#6B6860; letter-spacing:.05em; }
 /* 配達エリア */
 .area-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.25rem; margin-bottom:1rem; }
 .area-main { background:white; border-radius:12px; padding:1.75rem; border:0.5px solid rgba(186,117,23,0.15); box-shadow:0 2px 12px rgba(44,44,42,0.05); }
 .area-badge { display:inline-flex; align-items:center; padding:.25rem .75rem; border-radius:999px; font-size:.9rem; font-weight:700; margin-bottom:.75rem; }
-.area-badge--main { background:#945810; color:white; }
-.area-badge--sub { background:rgba(186,117,23,0.12); color:#945810; }
+.area-badge--main { background:var(--brand); color:var(--on-brand); }
+.area-badge--sub { background:rgba(186,117,23,0.12); color:#8A5A00; }
 .area-main h3 { font-size:1.05rem; font-weight:700; color:#2C2A24; margin-bottom:.4rem; }
 .area-main p { font-size:.97rem; color:#6B6860; line-height:1.8; margin:0; }
-.area-note { text-align:center; font-size:.92rem; color:#9B9994; margin-top:1rem; }
+.area-note { text-align:center; font-size:.92rem; color:#5F5E5A; margin-top:1rem; }
 @media (max-width:720px) { .area-grid { grid-template-columns:1fr; } .track-record { gap:1.5rem; } }
 </style>
