@@ -3,7 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import PageHero from '../../components/PageHero.astro';
 import Footer from '../../components/Footer.astro';
-import { gifts, paymentMethods, rakutenPayGuide } from '../../data/gifts';
+import { gifts, giftOptions, paymentMethods, rakutenPayGuide } from '../../data/gifts';
 
 // お問い合わせフォームと同じ Google Apps Script に送信（gas/README.md 参照）
 const squareUrls = Object.fromEntries(gifts.map(g => [g.id, g.squareUrl]));
@@ -16,7 +16,7 @@ const FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycbwrMTrF_xGZw_xx5g
 
     <section class="sec">
       <div class="container od-wrap">
-        <form class="od-form" id="order-form" data-endpoint={FORM_ENDPOINT} data-square={JSON.stringify(squareUrls)} data-rakuten={rakutenPayGuide} novalidate>
+        <form class="od-form" id="order-form" data-endpoint={FORM_ENDPOINT} data-square={JSON.stringify(squareUrls)} data-rakuten={rakutenPayGuide} data-box={giftOptions.box} data-noshi={giftOptions.noshi} novalidate>
           <input type="hidden" name="form" value="order"/>
           <div class="hp" aria-hidden="true"><label>空欄のままにしてください<input type="text" name="website" tabindex="-1" autocomplete="off"/></label></div>
 
@@ -34,6 +34,20 @@ const FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycbwrMTrF_xGZw_xx5g
                 <input class="form-input" type="number" id="qty" name="qty" min="1" max="50" value="1" required inputmode="numeric"/>
               </div>
             </div>
+            <div class="od-row">
+              <div class="od-group od-grow">
+                <label class="form-label" for="noshi">のし（＋{giftOptions.noshi}円）</label>
+                <select class="form-select" id="noshi" name="noshi">
+                  <option value="なし">なし</option><option value="お中元">お中元</option><option value="お歳暮">お歳暮</option>
+                  <option value="内祝い">内祝い</option><option value="御祝">御祝</option><option value="その他（備考に記入）">その他（備考に記入）</option>
+                </select>
+              </div>
+              <div class="od-group od-grow">
+                <span class="form-label">ギフトボックス</span>
+                <label class="od-check"><input type="checkbox" id="giftbox" name="gift_box" value="希望する"/> ギフトボックスにする（＋{giftOptions.box}円）</label>
+              </div>
+            </div>
+            <p class="od-hint">※のし・ギフトボックスは別料金です。1回のご注文につき、それぞれ1回分をいただきます。のしをご希望の場合は、依頼人（贈り主）のお名前を、備考欄にご記入ください。</p>
             <p class="od-total">合計の目安（送料込み）：<strong id="total">0</strong> 円</p>
             <p class="od-hint">※北海道は＋500円、沖縄は＋1,000円の送料を別途いただきます。お試し10個入りは、3点以上の送料を別途ご案内します。最終金額は、確認メールでご案内します。</p>
           </fieldset>
@@ -62,13 +76,6 @@ const FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycbwrMTrF_xGZw_xx5g
               <div class="od-group od-grow">
                 <label class="form-label" for="date">お届け希望日</label>
                 <input class="form-input" type="date" id="date" name="desired_date"/>
-              </div>
-              <div class="od-group od-grow">
-                <label class="form-label" for="noshi">のし</label>
-                <select class="form-select" id="noshi" name="noshi">
-                  <option value="なし">なし</option><option value="お中元">お中元</option><option value="お歳暮">お歳暮</option>
-                  <option value="内祝い">内祝い</option><option value="御祝">御祝</option><option value="その他（備考に記入）">その他（備考に記入）</option>
-                </select>
               </div>
             </div>
             <div class="od-group"><label class="form-label" for="memo">メッセージカード・備考</label><textarea class="form-textarea" id="memo" name="memo" rows="4" maxlength="500"></textarea></div>
@@ -113,6 +120,8 @@ const FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycbwrMTrF_xGZw_xx5g
     const item = form.elements.namedItem('item') as HTMLSelectElement;
     const qty = form.elements.namedItem('qty') as HTMLInputElement;
     const total = document.getElementById('total')!;
+    const noshi = form.elements.namedItem('noshi') as HTMLSelectElement;
+    const giftbox = document.getElementById('giftbox') as HTMLInputElement;
     const btn = form.querySelector('button[type=submit]') as HTMLButtonElement;
     const show = (msg: string, ok: boolean) => { status.textContent = msg; status.className = 'od-status ' + (ok ? 'is-ok' : 'is-ng'); };
 
@@ -120,12 +129,16 @@ const FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycbwrMTrF_xGZw_xx5g
       const price = Number(item.selectedOptions[0]?.dataset.price || 0);
       const ship = Number(item.selectedOptions[0]?.dataset.ship || 0);
       const n = Math.max(1, Math.min(50, Number(qty.value) || 1));
-      total.textContent = (price * n + ship).toLocaleString('ja-JP');
+      const noshiFee = noshi.value !== 'なし' ? Number(form.dataset.noshi || 0) : 0;
+      const boxFee = giftbox.checked ? Number(form.dataset.box || 0) : 0;
+      total.textContent = (price * n + ship + noshiFee + boxFee).toLocaleString('ja-JP');
     };
     const q = new URLSearchParams(location.search).get('item');
     if (q && [...item.options].some(o => o.value === q)) item.value = q;
     item.addEventListener('change', update);
     qty.addEventListener('input', update);
+    noshi.addEventListener('change', update);
+    giftbox.addEventListener('change', update);
     update();
 
     // ご依頼主と同じ
@@ -165,6 +178,8 @@ const FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycbwrMTrF_xGZw_xx5g
         const data = new URLSearchParams(new FormData(form) as any);
         data.set('item_name', item.selectedOptions[0].textContent || '');
         data.set('total_estimate', total.textContent || '');
+        // ギフトボックスの希望は、受信側（Apps Script）の項目を増やさず、備考の先頭に記録する
+        if (giftbox.checked) data.set('memo', ('【ギフトボックス希望】' + (data.get('memo') || '')).slice(0, 500));
         const res = await fetch(endpoint, { method: 'POST', body: data });
         const json = await res.json();
         if (!json.ok) throw new Error('rejected');
