@@ -3,11 +3,11 @@
 @layer base {
   :root {
     --amber:      #8A5A00;
-    --brand:      #FEBE00;
-    --brand-hv:   #E5A900;
+    --brand:      #FCC800;
+    --brand-hv:   #E0B000;
     --on-brand:   #1E1E1C;
-    --amber-lt:   #FEBE00;
-    --amber-bg:   #FFF1BF;
+    --amber-lt:   #FCC800;
+    --amber-bg:   #FFF0B8;
     --amber-pale: #FFF9E3;
     --amber-mid:  #FFD35A;
     --gray-dk:    #1E1E1C;
@@ -22,7 +22,7 @@
     --text:       #1E1E1C;
     --muted:      #4A4944;
     --green:      #4A6A20;
-    --yellow:     #FEBE00;
+    --yellow:     #FCC800;
     --brown:      #3B321F;
     --radius-sm:  14px;
     --radius-md:  24px;
