@@ -223,16 +223,16 @@ const workImgs = ['/images/feature/feature-egg.jpg', '/images/hero_main.png', '/
 </script>
 
 <style>
-.story { background: var(--deep); color: #F4EBDD; padding: 6.5rem 0; }
-.story .ttl-en { color: #fff; } .story .ttl-ja { color: #E8C98F; }
+.story { background: #fff; color: #424242; padding: 6.5rem 0; }
+.story .ttl-en { color: #1E1E1C; } .story .ttl-ja { color: #424242; }
 .story-in { max-width: 1180px; margin: 0 auto; padding: 0 2.5rem; display: grid; grid-template-columns: 1fr 1.5fr; gap: 3.5rem; }
-.story-catch { font-size: clamp(1.5rem, 2.6vw, 2.1rem); line-height: 1.9; letter-spacing: .1em; margin: 2.5rem 0 0; color: #fff; font-weight: 500; }
-.story-body p { font-family: 'Shippori Mincho', 'Zen Kaku Gothic New', serif; font-size: 1rem; line-height: 2.4; letter-spacing: .08em; margin: 0 0 1.4rem; color: rgba(244,235,221,.92); }
-.story-line { list-style: none; margin: 2.5rem 0 2rem; padding: 0 0 0 1.5rem; border-left: 1px solid rgba(232,201,143,.5); display: grid; gap: 1.4rem; }
+.story-catch { font-size: clamp(1.5rem, 2.6vw, 2.1rem); line-height: 1.9; letter-spacing: .1em; margin: 2.5rem 0 0; color: #1E1E1C; font-weight: 500; }
+.story-body p { font-family: 'Shippori Mincho', 'Zen Kaku Gothic New', serif; font-size: 1rem; line-height: 2.4; letter-spacing: .08em; margin: 0 0 1.4rem; color: #424242; }
+.story-line { list-style: none; margin: 2.5rem 0 2rem; padding: 0 0 0 1.5rem; border-left: 2px solid #FCC800; display: grid; gap: 1.4rem; }
 .story-line li { position: relative; display: grid; gap: .2rem; }
-.story-line li::before { content: ''; position: absolute; left: calc(-1.5rem - 5px); top: .7em; width: 9px; height: 9px; border-radius: 50%; background: #E8C98F; }
-.story-line b { font-family: 'Shippori Mincho', serif; font-size: 1.05rem; color: #E8C98F; letter-spacing: .1em; font-weight: 500; }
-.story-line span { font-size: 1.02rem; color: rgba(244,235,221,.85); line-height: 1.9; }
+.story-line li::before { content: ''; position: absolute; left: calc(-1.5rem - 5px); top: .7em; width: 9px; height: 9px; border-radius: 50%; background: #FCC800; }
+.story-line b { font-family: 'Shippori Mincho', serif; font-size: 1.05rem; color: #1E1E1C; letter-spacing: .1em; font-weight: 700; }
+.story-line span { font-size: 1.02rem; color: #424242; line-height: 1.9; }
 @media (max-width: 860px) { .story-in { grid-template-columns: 1fr; gap: 1rem; padding: 0 1.5rem; } }
 .wide { max-width: 1180px; }
 .sec--panel { background: var(--panel); }
@@ -245,7 +245,7 @@ const workImgs = ['/images/feature/feature-egg.jpg', '/images/hero_main.png', '/
 .cm h3 { margin: 1.1rem 0 .5rem; font-size: 1.1rem; color: var(--amber); letter-spacing: .08em; }
 .cm p { margin: 0; font-size: 1.03rem; line-height: 2; color: var(--muted); }
 .pr-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(6, 1fr); gap: 1.5rem; position: relative; }
-.pr-list::before { content: ''; position: absolute; top: 26px; left: 8%; right: 8%; border-top: 1px dashed rgba(186,117,23,.5); }
+.pr-list::before { content: ''; position: absolute; top: 26px; left: 8%; right: 8%; border-top: 1px dashed rgba(0,0,0,.5); }
 .pr { position: relative; text-align: center; }
 .pr-num { display: inline-grid; place-items: center; width: 52px; height: 52px; border-radius: 50%; background: var(--brand); color: var(--on-brand); font-family: Manrope, sans-serif; font-weight: 500; letter-spacing: .04em; position: relative; z-index: 1; }
 .pr h3 { margin: 1rem 0 .4rem; font-size: 1rem; }

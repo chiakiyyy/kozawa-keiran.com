@@ -23,7 +23,7 @@ const faqs = [
         <div class="contact-methods">
           <div class="method-card">
             <div class="method-icon">
-              <svg width="26" height="26" viewBox="0 0 20 20" fill="none" stroke="#8A5A00" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <svg width="26" height="26" viewBox="0 0 20 20" fill="none" stroke="#424242" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M3 3.5C3 3.5 4.5 2 6 2c.5 0 1 .3 1.3.8l1.4 2.4c.3.5.2 1.1-.2 1.5L7.2 8c.8 1.5 2 2.8 3.5 3.6l1.3-1.3c.4-.4 1-.5 1.5-.2l2.4 1.4c.5.3.8.8.8 1.3 0 1.5-1.5 3-1.5 3C6 18 2 10 3 3.5z"/>
               </svg>
             </div>
@@ -45,7 +45,7 @@ const faqs = [
           </div>
           <div class="method-card">
             <div class="method-icon">
-              <svg width="26" height="26" viewBox="0 0 20 20" fill="none" stroke="#8A5A00" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <svg width="26" height="26" viewBox="0 0 20 20" fill="none" stroke="#424242" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
                 <rect x="2" y="4" width="16" height="12" rx="2"/>
                 <path d="M2 7l8 5 8-5"/>
               </svg>
@@ -121,7 +121,7 @@ const faqs = [
                 <option value="subscription">定期購入について</option>
                 <option value="other">その他</option>
               </select>
-              <svg class="sel-arrow" width="14" height="8" viewBox="0 0 14 8" fill="none"><path d="M1 1l6 6 6-6" stroke="#3B321F" stroke-width="1.5" stroke-linecap="round"/></svg>
+              <svg class="sel-arrow" width="14" height="8" viewBox="0 0 14 8" fill="none"><path d="M1 1l6 6 6-6" stroke="#2E2E2E" stroke-width="1.5" stroke-linecap="round"/></svg>
             </div>
           </div>
           <div class="form-group">
@@ -193,14 +193,14 @@ const faqs = [
 .ch-sub { font-size:1.02rem; color:rgba(255,255,255,.75); margin:0; }
 /* Methods */
 .contact-methods { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; max-width:980px; margin:0 auto; }
-.method-card { background:white; border-radius:16px; padding:2.5rem 1.75rem; text-align:center; box-shadow:0 4px 20px rgba(59,50,31,.08); border-top:3px solid #8A5A00; display:flex; flex-direction:column; align-items:center; }
+.method-card { background:white; border-radius:16px; padding:2.5rem 1.75rem; text-align:center; box-shadow:0 4px 20px rgba(30,30,30,.08); border-top:3px solid #424242; display:flex; flex-direction:column; align-items:center; }
 .method-card--line { border-top-color:#06C755; }
 .method-icon { width:60px; height:60px; background:#FDF6E9; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 1rem; }
 .method-icon--line { background:#06C755; }
-.method-card h2 { font-family:'Zen Kaku Gothic New',sans-serif; font-size:1rem; font-weight:700; color:#2C2A24; margin-bottom:.625rem; }
-.method-tel { display:block; font-family:Manrope,sans-serif; font-size:1.6rem; font-weight:700; color:#2C2A24; text-decoration:none; letter-spacing:.04em; margin-bottom:.35rem; }
+.method-card h2 { font-family:'Zen Kaku Gothic New',sans-serif; font-size:1rem; font-weight:700; color:#2B2B2B; margin-bottom:.625rem; }
+.method-tel { display:block; font-family:Manrope,sans-serif; font-size:1.6rem; font-weight:700; color:#2B2B2B; text-decoration:none; letter-spacing:.04em; margin-bottom:.35rem; }
 .method-line-id { font-family:Manrope,sans-serif; font-size:1.3rem; font-weight:700; color:#06C755; margin:0 0 .35rem; }
-.method-email { display:block; font-size:1rem; color:#8A5A00; text-decoration:none; margin-bottom:.35rem; word-break:break-all; }
+.method-email { display:block; font-size:1rem; color:#424242; text-decoration:none; margin-bottom:.35rem; word-break:break-all; }
 .method-card p { font-size:.92rem; color:#6B6860; margin:0 0 1.25rem; }
 .method-btn {
   display:inline-flex; align-items:center; justify-content:center; width:100%;
@@ -230,7 +230,7 @@ const faqs = [
 .form-group { display:flex; flex-direction:column; gap:.45rem; }
 .form-group label { font-size:1rem; font-weight:700; color:var(--brown); }
 .form-group input,.form-group select,.form-group textarea {
-  padding:.8rem 1rem; background:white; border:1.5px solid rgba(59,50,31,.15);
+  padding:.8rem 1rem; background:white; border:1.5px solid rgba(30,30,30,.15);
   border-radius:10px; color:var(--brown); font-family:inherit; font-size:1.02rem;
   transition:border-color .2s; width:100%; appearance:none;
 }
@@ -243,7 +243,7 @@ const faqs = [
 .form-privacy { padding:1rem 0; border-top:1px solid rgba(245,184,46,.2); border-bottom:1px solid rgba(245,184,46,.2); }
 .check-label { display:flex; align-items:center; gap:.875rem; cursor:pointer; font-size:1rem; color:var(--muted); }
 .check-label input { position:absolute; opacity:0; width:0; height:0; }
-.check-box { width:18px; height:18px; border:1.5px solid rgba(59,50,31,.25); border-radius:4px; background:white; flex-shrink:0; display:flex; align-items:center; justify-content:center; transition:all .15s; }
+.check-box { width:18px; height:18px; border:1.5px solid rgba(30,30,30,.25); border-radius:4px; background:white; flex-shrink:0; display:flex; align-items:center; justify-content:center; transition:all .15s; }
 .check-label input:checked + .check-box { background:var(--green); border-color:var(--green); }
 .check-label input:checked + .check-box::after { content:''; width:10px; height:6px; border-left:1.5px solid white; border-bottom:1.5px solid white; transform:rotate(-45deg) translateY(-1px); }
 .privacy-link { color:var(--green); }

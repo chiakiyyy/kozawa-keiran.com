@@ -17,7 +17,7 @@ const linksRow2 = [
     <div class="ft-in">
       <div class="ft-brand">
         <a href="/" class="ft-logo">
-          <img src="/images/icon.png" alt="" aria-hidden="true" class="ft-logo-icon"/>
+          <span class="ft-blob"><img src="/images/logo-mark.png" alt="" aria-hidden="true" class="ft-logo-icon"/></span>
           <div>
             <span class="ft-jp">小澤鶏卵</span>
             <span class="ft-en">KOZAWA KEIRAN</span>
@@ -44,7 +44,7 @@ const linksRow2 = [
 </footer>
 
 <style>
-.ft { background: var(--brown, #3B321F); color: #F4EBDD; }
+.ft { background: var(--brand); color: #2E2E2E; }
 .ft-top { padding: 1.75rem 0 1.25rem; }
 .ft-in {
   max-width: 1200px; margin: 0 auto; padding: 0 2rem;
@@ -53,11 +53,12 @@ const linksRow2 = [
 }
 .ft-brand { display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; }
 .ft-logo { display: flex; align-items: center; gap: .6rem; text-decoration: none; flex-shrink: 0; }
+.ft-blob { display: flex; align-items: center; justify-content: center; width: 64px; height: 54px; background: #fff; border-radius: 58% 42% 55% 45% / 52% 60% 40% 48%; flex-shrink: 0; }
 .ft-logo-icon { height: 38px; width: auto; display: block; object-fit: contain; }
-.ft-jp { display: block; font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 1.05rem; font-weight: 700; color: #FFFBF3; letter-spacing: .05em; line-height: 1.3; }
-.ft-en { display: block; font-family: Manrope, sans-serif; font-size: .75rem; letter-spacing: .2em; color: rgba(244,235,221,0.88); margin-top: 2px; }
-.ft-tel { font-family: Manrope, sans-serif; font-size: 1.15rem; font-weight: 700; color: #FFFBF3; text-decoration: none; letter-spacing: .03em; flex-shrink: 0; }
-.ft-hrs { font-size: .9rem; color: rgba(244,235,221,0.75); margin: 0; line-height: 1.5; }
+.ft-jp { display: block; font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 1.05rem; font-weight: 700; color: #1E1E1C; letter-spacing: .05em; line-height: 1.3; }
+.ft-en { display: block; font-family: Manrope, sans-serif; font-size: .75rem; letter-spacing: .2em; color: #2E2E2E; margin-top: 2px; }
+.ft-tel { font-family: Manrope, sans-serif; font-size: 1.15rem; font-weight: 700; color: #1E1E1C; text-decoration: none; letter-spacing: .03em; flex-shrink: 0; }
+.ft-hrs { font-size: .9rem; color: #2E2E2E; margin: 0; line-height: 1.5; }
 
 /* メニュー：横並び2行 */
 .ft-nav { flex: 1; min-width: 280px; display: flex; flex-direction: column; gap: .4rem; }
@@ -66,32 +67,32 @@ const linksRow2 = [
   display: flex; flex-wrap: wrap; gap: .25rem 1.25rem; justify-content: center;
 }
 .ft-nav a {
-  font-size: .92rem; color: rgba(244,235,221,0.88);
+  font-size: .92rem; color: #1E1E1C;
   text-decoration: none; padding: .25rem 0;
   transition: color .15s;
   white-space: nowrap;
 }
-.ft-nav a:hover { color: #FFFFFF; text-decoration: underline; }
+.ft-nav a:hover { color: #000; text-decoration: underline; }
 
 .ft-nav a.ft-btn-primary,
 .ft-btn-primary {
   display: inline-flex; align-items: center; gap: .5rem;
   padding: .85rem 1.7rem !important; border-radius: 999px;
-  background:var(--brand); color:var(--on-brand) !important;
+  background:#2E2E2E; color:#fff !important;
   font-family: Manrope, 'Zen Kaku Gothic New', sans-serif;
   font-size: 1rem; font-weight: 700; letter-spacing: .06em;
   text-decoration: none; border: none; cursor: pointer;
-  box-shadow: 0 4px 18px rgba(186,117,23,0.28);
+  box-shadow: 0 4px 14px rgba(30,30,30,0.22);
   transition: all .28s cubic-bezier(.25,.46,.45,.94); white-space: nowrap;
 }
 .ft-nav a.ft-btn-primary:hover,
-.ft-btn-primary:hover { background: #6B4600; color: #FFFBF3 !important; transform: translateY(-2px); box-shadow: 0 8px 28px rgba(186,117,23,0.35); text-decoration: none; }
+.ft-btn-primary:hover { background: #1E1E1C; color: #fff !important; transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,0.35); text-decoration: none; }
 
 .ft-btm {
-  border-top: 0.5px solid rgba(244,235,221,0.2);
+  border-top: 0.5px solid rgba(30,30,30,0.25);
   padding: .75rem 2rem; text-align: center;
 }
-.ft-btm p { font-size: .9rem; color: rgba(244,235,221,0.88); margin: 0; }
+.ft-btm p { font-size: .9rem; color: #2E2E2E; margin: 0; }
 
 @media (max-width:900px) {
   .ft-in { flex-direction: column; align-items: stretch; text-align: center; gap: 1.25rem; }

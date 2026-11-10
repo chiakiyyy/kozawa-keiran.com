@@ -2,7 +2,7 @@
 
 @layer base {
   :root {
-    --amber:      #5C3D00;
+    --amber:      #424242;
     --brand:      #FCC800;
     --brand-hv:   #E0B000;
     --on-brand:   #1E1E1C;
@@ -14,16 +14,16 @@
     --gray-mid:   #5F5E5A;
     --gray-lt:    #F4F2EB;
     --border:     rgba(44,44,42,0.08);
-    --bg:         #FCC800;
+    --bg:         #FBF5E0;
     --bg2:        #FFFFFF;
     --panel:      #FFFFFF;
-    --deep:       #3B321F;
+    --deep:       #2E2E2E;
     --notch-r:    28px;
     --text:       #1E1E1C;
     --muted:      #4A4944;
     --green:      #4A6A20;
     --yellow:     #FCC800;
-    --brown:      #3B321F;
+    --brown:      #2E2E2E;
     --radius-sm:  14px;
     --radius-md:  24px;
     --radius-lg:  36px;
@@ -245,10 +245,10 @@
   .ttl--left { text-align: left; margin-bottom: 2rem; }
 
   /* 色帯セクション（Service） */
-  .band { background: var(--deep); color: #F4EBDD; padding: 6rem 0; overflow: hidden; }
-  .band .ttl-en { color: #fff; }
-  .band .ttl-ja { color: #E8C98F; }
-  .band p { font-size: 1rem; line-height: 2.2; letter-spacing: .06em; color: rgba(244,235,221,.85); }
+  .band { background: #fff; color: #424242; padding: 6rem 0; overflow: hidden; }
+  .band .ttl-en { color: #1E1E1C; }
+  .band .ttl-ja { color: #424242; }
+  .band p { font-size: 1rem; line-height: 2.2; letter-spacing: .06em; color: #424242; }
   .band-in { max-width: 1200px; margin: 0 auto; padding: 0 2.5rem; display: grid; grid-template-columns: 1fr 1.1fr; gap: 3rem; align-items: center; }
   .halo { position: relative; width: min(100%, 560px); aspect-ratio: 1; margin: 0 auto; border-radius: 50%; background: rgba(255,255,255,.07); display: grid; place-items: center; }
   .halo-slide { position: absolute; inset: 12%; border-radius: 50%; overflow: hidden; opacity: 0; transition: opacity .6s; pointer-events: none; display: block; }
@@ -316,7 +316,7 @@
     padding: 8rem 0 5rem;
     background: var(--amber-pale);
     margin-top: 72px;
-    border-bottom: 0.5px solid rgba(186,117,23,0.12);
+    border-bottom: 0.5px solid rgba(0,0,0,0.12);
     position: relative;
     overflow: hidden;
   }
