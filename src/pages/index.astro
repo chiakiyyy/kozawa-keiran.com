@@ -28,6 +28,7 @@ const workImgs = ['/images/feature/feature-egg.jpg', '/images/hero_main.png', '/
     <section class="hf">
       <div class="hf-img">
         <img src="/images/hero_main.png" alt="小澤鶏卵のたまご" loading="eager"/>
+        <div class="hf-title"><p class="hf-cap">Kozawa Keiran<span class="hf-ja">富山の鶏卵専門店｜1945年創業</span></p></div>
         <h1 class="sr-only">富山の業務用卵・たまごは小澤鶏卵｜鶏卵専門店｜10kg箱・パック卵を富山市内へ当日配達</h1>
         <a href="/gift" class="hf-news">
           <div class="hf-news-body">
@@ -190,17 +191,6 @@ const workImgs = ['/images/feature/feature-egg.jpg', '/images/hero_main.png', '/
       </div>
     </section>
 
-    <!-- STORES -->
-    <section class="sec">
-      <div class="container two two--solo">
-        <div>
-          <div class="ttl ttl--left"><h2 class="ttl-en">Stores</h2><p class="ttl-ja">取扱店舗</p></div>
-          <p class="sec-lead" style="margin:0 0 1.8rem">飲食店・菓子店・スーパー・施設など、取扱店舗の一部を業態・エリア別にご紹介します。</p>
-          <a href="/works#breakdown" class="circle-link">View all</a>
-        </div>
-      </div>
-    </section>
-
     <ContactSection/>
   </main>
   <Footer/>
@@ -223,22 +213,23 @@ const workImgs = ['/images/feature/feature-egg.jpg', '/images/hero_main.png', '/
 </script>
 
 <style>
-.story { background: #fff; color: #424242; padding: 6.5rem 0; }
-.story .ttl-en { color: #1E1E1C; } .story .ttl-ja { color: #424242; }
+.story { background: #fff; color: #5A401A; padding: 96px 0; }
+.story .ttl-en { color: #4A3313; } .story .ttl-ja { color: #5A401A; }
 .story-in { max-width: 1180px; margin: 0 auto; padding: 0 2.5rem; display: grid; grid-template-columns: 1fr 1.5fr; gap: 3.5rem; }
-.story-catch { font-size: clamp(1.5rem, 2.6vw, 2.1rem); line-height: 1.9; letter-spacing: .1em; margin: 2.5rem 0 0; color: #1E1E1C; font-weight: 500; }
-.story-body p { font-family: 'Shippori Mincho', 'Zen Kaku Gothic New', serif; font-size: 1rem; line-height: 2.4; letter-spacing: .08em; margin: 0 0 1.4rem; color: #424242; }
+.story-catch { font-size: clamp(1.5rem, 2.6vw, 2.1rem); line-height: 1.9; letter-spacing: .1em; margin: 1.2rem 0 0; color: #4A3313; font-weight: 500; }
+.story-body p { font-family: 'Shippori Mincho', 'Zen Kaku Gothic New', serif; font-size: 1rem; line-height: 2.4; letter-spacing: .08em; margin: 0 0 1.4rem; color: #5A401A; }
 .story-line { list-style: none; margin: 2.5rem 0 2rem; padding: 0 0 0 1.5rem; border-left: 2px solid #FCC800; display: grid; gap: 1.4rem; }
 .story-line li { position: relative; display: grid; gap: .2rem; }
 .story-line li::before { content: ''; position: absolute; left: calc(-1.5rem - 5px); top: .7em; width: 9px; height: 9px; border-radius: 50%; background: #FCC800; }
-.story-line b { font-family: 'Shippori Mincho', serif; font-size: 1.05rem; color: #1E1E1C; letter-spacing: .1em; font-weight: 700; }
-.story-line span { font-size: 1.02rem; color: #424242; line-height: 1.9; }
+.story-line b { font-family: 'Shippori Mincho', serif; font-size: 1.05rem; color: #4A3313; letter-spacing: .1em; font-weight: 700; }
+.story-line span { font-size: 1.02rem; color: #5A401A; line-height: 1.9; }
 @media (max-width: 860px) { .story-in { grid-template-columns: 1fr; gap: 1rem; padding: 0 1.5rem; } }
 .wide { max-width: 1180px; }
 .sec--panel { background: var(--panel); }
 .cm-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 3rem 2rem; }
 .cm { grid-column: span 2; }
-.cm:nth-child(n+4) { grid-column: span 3; }
+.cm:nth-child(4) { grid-column: 2 / span 2; }
+.cm:nth-child(5) { grid-column: 4 / span 2; }
 .cm-img { position: relative; border-radius: 16px; overflow: hidden; aspect-ratio: 3/2; background: var(--panel); }
 .cm-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .cm-num { position: absolute; left: 1rem; top: .6rem; color: #fff; font-family: Manrope, sans-serif; font-weight: 300; font-size: 2.2rem; letter-spacing: .06em; text-shadow: 0 1px 10px rgba(0,0,0,.35); }
@@ -250,7 +241,7 @@ const workImgs = ['/images/feature/feature-egg.jpg', '/images/hero_main.png', '/
 .pr-num { display: inline-grid; place-items: center; width: 52px; height: 52px; border-radius: 50%; background: var(--brand); color: var(--on-brand); font-family: Manrope, sans-serif; font-weight: 500; letter-spacing: .04em; position: relative; z-index: 1; }
 .pr h3 { margin: 1rem 0 .4rem; font-size: 1rem; }
 .pr p { margin: 0; font-size: 1rem; line-height: 1.9; color: var(--muted); text-align: left; }
-@media (max-width: 960px) { .cm-grid { grid-template-columns: 1fr 1fr; } .cm, .cm:nth-child(n+4) { grid-column: span 1; } .pr-list { grid-template-columns: repeat(2, 1fr); } .pr-list::before { display: none; } }
+@media (max-width: 960px) { .cm-grid { grid-template-columns: 1fr 1fr; } .cm, .cm:nth-child(n+4) { grid-column: span 1 !important; } .pr-list { grid-template-columns: repeat(2, 1fr); } .pr-list::before { display: none; } }
 @media (max-width: 600px) { .cm-grid { grid-template-columns: 1fr; } }
 .intro { background: var(--bg); padding: 5rem 1.5rem 6rem; }
 .intro-panel { max-width: 1100px; margin: 0 auto; background: var(--panel); padding: 6% 9% 9%; }
@@ -268,7 +259,7 @@ const workImgs = ['/images/feature/feature-egg.jpg', '/images/hero_main.png', '/
 .metric-row-num { font-family: Manrope, sans-serif; font-weight: 300; font-size: clamp(1.9rem, 3.4vw, 2.6rem); color: var(--amber); line-height: 1.2; }
 .metric-row-num small { font-size: 1rem; margin-left: .2rem; font-weight: 500; }
 .metric-row-label { font-size: .95rem; letter-spacing: .1em; color: var(--muted); }
-.gift-sec { background: var(--panel); padding: 6rem 0; }
+.gift-sec { background: var(--panel); padding: 96px 0; }
 .gift-in { max-width: 1100px; margin: 0 auto; padding: 0 2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
 .gift-photo img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 24px; display: block; }
 .gift-name { font-size: 1.25rem; margin: 0 0 1rem; }

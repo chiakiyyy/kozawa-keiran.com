@@ -13,8 +13,8 @@ export interface Metric {
 export const metrics: Metric[] = [
   { num: '80', unit: '年', label: '1945年創業', note: '昭和20年の創業' },
   { num: '50', unit: '社以上', label: '取り扱い店舗', note: '飲食店・施設・小売など' },
-  { num: '月〜金', unit: '', label: '注文受付', note: '平日はいつでもご注文いただけます' },
-  { num: '当日', unit: '', label: '夕方お届け対応', note: '富山市内' },
+  { num: '月〜金', unit: '受付', label: '注文受付', note: '平日はいつでもご注文いただけます' },
+  { num: '当日', unit: '夕方', label: '夕方お届け対応', note: '富山市内' },
 ];
 
 export interface Work {

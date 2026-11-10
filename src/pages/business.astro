@@ -3,15 +3,16 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import PageHero from '../components/PageHero.astro';
 import Footer from '../components/Footer.astro';
+const ic = (d) => `<svg viewBox="0 0 48 48" width="44" height="44" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${d}</svg>`;
 const targets = [
-  { icon:'🍜', name:'ラーメン店' },
-  { icon:'🎂', name:'洋菓子店' },
-  { icon:'🏨', name:'ホテル' },
-  { icon:'🛒', name:'スーパー' },
-  { icon:'🏫', name:'給食施設' },
-  { icon:'🎪', name:'イベント業者' },
-  { icon:'🍽️', name:'飲食店全般' },
-  { icon:'🎉', name:'催事利用' },
+  { icon: ic('<path d="M8 22h32a16 16 0 0 1-32 0z"/><path d="M18 14c0-3 3-3 3-6M26 14c0-3 3-3 3-6"/><path d="M34 6l-8 14"/>'), name:'ラーメン店' },
+  { icon: ic('<path d="M8 40h32M10 40V26h28v14"/><path d="M10 26c0-6 4-8 8-8h12c4 0 8 2 8 8"/><path d="M24 18v-6M24 12c-2-3 2-4 0-6"/>'), name:'洋菓子店' },
+  { icon: ic('<rect x="10" y="8" width="28" height="32" rx="2"/><path d="M17 16h4M27 16h4M17 24h4M27 24h4M20 40v-8h8v8"/>'), name:'ホテル' },
+  { icon: ic('<path d="M6 10h6l5 20h20l4-14H14"/><circle cx="20" cy="38" r="2.5"/><circle cx="34" cy="38" r="2.5"/>'), name:'スーパー' },
+  { icon: ic('<path d="M6 20L24 10l18 10-18 10z"/><path d="M14 25v9c0 3 20 3 20 0v-9"/>'), name:'給食施設' },
+  { icon: ic('<path d="M8 40V18l16-10 16 10v22"/><path d="M8 18h32M18 40V28h12v12"/>'), name:'イベント業者' },
+  { icon: ic('<path d="M14 6v14c0 3 6 3 6 0V6M17 20v22"/><path d="M34 42V6c-5 3-7 9-7 16h7"/>'), name:'飲食店全般' },
+  { icon: ic('<path d="M10 40l8-26 16 16z"/><path d="M30 10l1 3M38 16l-3 1M36 8l-2 3"/>'), name:'催事利用' },
 ];
 const concerns = [
   '毎日使うたまごを安定して仕入れたい',
@@ -59,9 +60,9 @@ const faqs = [
         </div>
         <p class="concerns-cta-text">小澤鶏卵がそのお悩みを解決します！</p>
         <div class="track-record">
-          <div class="track-item"><span class="track-num">80<small>年以上</small></span><span class="track-label">1945年創業</span></div>
-          <div class="track-item"><span class="track-num">富山市内</span><span class="track-label">当日配達対応エリア</span></div>
-          <div class="track-item"><span class="track-num">月〜金</span><span class="track-label">注文受付</span></div>
+          <div class="track-item"><span class="track-num"><b>80</b><small>年以上</small></span><span class="track-label">1945年創業</span></div>
+          <div class="track-item"><span class="track-num"><b>富山</b><small>市内</small></span><span class="track-label">当日配達対応エリア</span></div>
+          <div class="track-item"><span class="track-num"><b>月〜金</b></span><span class="track-label">注文受付</span></div>
         </div>
       </div>
     </section>
@@ -74,7 +75,7 @@ const faqs = [
         <div class="targets-grid">
           {targets.map(t => (
             <div class="target-card">
-              <span class="target-icon">{t.icon}</span>
+              <span class="target-icon" set:html={t.icon}></span>
               <span>{t.name}</span>
             </div>
           ))}
@@ -97,7 +98,7 @@ const faqs = [
             { name:'10kg箱', note:'LL・L・M・MS・S', color:'#B0C8B0' },
           ].map(p => (
             <div class="biz-product-card">
-              <div class="biz-product-circle" style={`background:${p.color}`}></div>
+              <div class="biz-product-circle" style={`background:${p.color}`}><svg viewBox="0 0 48 48" width="38" height="38" fill="rgba(255,255,255,.85)" stroke="#5A401A" stroke-width="2" aria-hidden="true"><path d="M24 6c-8 0-14 12-14 22a14 14 0 0 0 28 0C38 18 32 6 24 6z"/></svg></div>
               <h3>{p.name}</h3>
               <p>{p.note}</p>
             </div>
@@ -220,15 +221,15 @@ const faqs = [
 .seo-points { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.1rem; }
 .seo-points li { padding: 1.1rem 1.3rem; background: #fff; border-radius: var(--radius-md); line-height: 1.9; font-size: 1.02rem; }
 .seo-points b { display: block; margin-bottom: .2rem; color: var(--text); }
-.container { max-width:1100px; margin:0 auto; padding:0 2rem; }
-.sec { padding:5.5rem 0; background:var(--bg); }
+.container { max-width:1200px; margin:0 auto; padding:0 2rem; }
+.sec { background:var(--bg); }
 .sec--cream { background:var(--bg2); }
 .sec--green { background:#4A6A20; }
 .mt { margin-top:.6rem; }
 .center-head { text-align:center; margin-bottom:3rem; }
 .center-head--light .sec-en { color:rgba(245,184,46,.8); }
 /* Hero */
-.biz-hero { position:relative; min-height:600px; display:flex; align-items:center; margin-top:76px; }
+.biz-hero { position:relative; min-height:600px; display:flex; align-items:center; margin-top:84px; }
 .biz-hero-bg { position:absolute; inset:0; }
 .biz-hero-bg img { width:100%; height:100%; object-fit:cover; }
 .biz-hero-ov { position:absolute; inset:0; background:linear-gradient(to right,rgba(20,40,10,.85) 0%,rgba(20,40,10,.6) 55%,rgba(20,40,10,.2) 100%); }
@@ -238,18 +239,18 @@ const faqs = [
 .biz-hero-sub { font-size:1.05rem; color:rgba(255,255,255,.75); line-height:1.8; margin-bottom:2rem; }
 /* Concerns */
 .concerns-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; margin-bottom:2rem; }
-.concern-item { display:flex; align-items:center; gap:.75rem; padding:1.1rem 1.25rem; background:white; border-radius:10px; border-left:3px solid var(--yellow); font-size:1rem; color:var(--brown); font-weight:500; box-shadow:0 2px 12px rgba(30,30,30,.06); }
+.concern-item { display:flex; align-items:center; gap:.75rem; padding:1.1rem 1.25rem; background:white; border-radius:10px; border-left:3px solid var(--yellow); font-size:1rem; color:var(--brown); font-weight:500; box-shadow:0 2px 12px rgba(90,64,26,.06); }
 .concern-check { color:var(--yellow); font-weight:700; font-size:1.1rem; flex-shrink:0; }
 .concerns-cta-text { text-align:center; font-family:'Noto Serif JP',serif; font-size:1.1rem; font-weight:700; color:var(--green); }
 /* Targets */
 .targets-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; }
-.target-card { display:flex; flex-direction:column; align-items:center; gap:.5rem; padding:1.5rem 1rem; background:white; border-radius:12px; box-shadow:0 2px 12px rgba(30,30,30,.06); font-size:1rem; font-weight:700; color:var(--brown); text-align:center; transition:transform .2s,box-shadow .2s; }
-.target-card:hover { transform:translateY(-3px); box-shadow:0 8px 24px rgba(30,30,30,.1); }
-.target-icon { font-size:1.75rem; }
+.target-card { display:flex; flex-direction:column; align-items:center; gap:.5rem; padding:1.5rem 1rem; background:white; border-radius:12px; box-shadow:0 2px 12px rgba(90,64,26,.06); font-size:1rem; font-weight:700; color:var(--brown); text-align:center; transition:transform .2s,box-shadow .2s; }
+.target-card:hover { transform:translateY(-3px); box-shadow:0 8px 24px rgba(90,64,26,.1); }
+.target-icon { display:grid; place-items:center; width:72px; height:72px; border-radius:50%; background:#FFF6CC; color:#5A401A; }
 /* Products */
 .biz-products-grid { display:grid; grid-template-columns:repeat(6,1fr); gap:1rem; }
 .biz-product-card { text-align:center; }
-.biz-product-circle { width:80px; height:80px; border-radius:50%; margin:0 auto .75rem; border:2px solid rgba(30,30,30,.08); box-shadow:0 4px 16px rgba(30,30,30,.1); }
+.biz-product-circle { display:grid; place-items:center; width:80px; height:80px; border-radius:50%; margin:0 auto .75rem; border:2px solid rgba(90,64,26,.08); box-shadow:0 4px 16px rgba(90,64,26,.1); }
 .biz-product-card h3 { font-family:'Noto Serif JP',serif; font-size:1rem; font-weight:700; color:var(--brown); margin-bottom:.25rem; }
 .biz-product-card p { font-size:.88rem; color:var(--muted); margin:0; }
 .products-note { text-align:center; font-size:.95rem; color:var(--muted); margin-top:1.5rem; }
@@ -261,9 +262,6 @@ const faqs = [
 }
 .flow-bg-shape {
   position: absolute; inset: 0;
-  background:
-    radial-gradient(circle at 12% 18%, rgba(0,0,0,.14) 0 90px, transparent 92px),
-    radial-gradient(circle at 88% 82%, rgba(0,0,0,.10) 0 120px, transparent 122px);
   pointer-events: none;
 }
 .flow-bg-shape::before {
@@ -273,18 +271,19 @@ const faqs = [
 }
 .flow-inner { position: relative; max-width: 1120px; margin: 0 auto; text-align: center; }
 .section-en {
-  margin: 0 0 .5rem; color: #424242;
+  margin: 0 0 .5rem; color: #5A401A;
   font-family: 'Zen Kaku Gothic New', sans-serif; font-style: italic;
   font-size: 1.1rem; letter-spacing: .08em;
 }
 .business-flow h2 {
-  margin: 0; color: #2B2B2B;
+  margin: 0; color: #5A401A;
   font-family: 'Zen Kaku Gothic New', sans-serif;
   font-size: clamp(1.6rem,4vw,2.4rem); font-weight: 700; letter-spacing: .06em;
 }
-.flow-lead { margin: 1.1rem auto 4.3rem; color: #6B6860; line-height: 1.9; font-size: 1.02rem; }
-.flow-list { position: relative; display: grid; grid-template-columns: repeat(4,1fr); gap: 1.75rem; }
-.flow-line { position: absolute; left: 8%; right: 8%; top: 19.5rem; border-top: 3px dotted rgba(0,0,0,.5); z-index: 0; }
+.flow-lead { margin: 1.1rem auto 4.3rem; color: #7A6544; line-height: 1.9; font-size: 1.02rem; }
+.flow-list { position: relative; display: grid; grid-template-columns: repeat(4,1fr); gap: 2.5rem 1.75rem; align-items: stretch; padding-top: 1.5rem; }
+.flow-card { height: 100%; }
+.flow-line { display: none; }
 .flow-card {
   position: relative; z-index: 1;
   padding: 2.9rem 1.5rem 2rem;
@@ -292,19 +291,17 @@ const faqs = [
   border-radius: 999px 999px 36px 36px;
   box-shadow: 0 14px 34px rgba(112,70,24,.08);
 }
-.flow-card:nth-child(even) { transform: translateY(2.25rem); }
 .flow-num {
   position: absolute; top: -1.5rem; left: 50%; transform: translateX(-50%);
   display: grid; place-items: center; width: 58px; height: 58px;
   background:var(--brand); color:var(--on-brand); border: 5px solid #FFF8EC;
   border-radius: 50%; font-family: Manrope, sans-serif; font-weight: 700; font-size: 1.1rem;
 }
-.flow-card h3 { margin: 0 0 1rem; color: #2B2B2B; font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 1.15rem; }
-.flow-card p { margin: 0; color: #6B6860; font-size: 1rem; line-height: 1.9; text-align: left; }
+.flow-card h3 { margin: 0 0 1rem; color: #5A401A; font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 1.15rem; }
+.flow-card p { margin: 0; color: #7A6544; font-size: 1rem; line-height: 1.9; text-align: left; }
 @media (max-width:900px) {
   .flow-list { grid-template-columns: 1fr 1fr; gap: 3.5rem 1.5rem; }
   .flow-line { display: none; }
-  .flow-card:nth-child(even) { transform: none; }
 }
 @media (max-width:560px) {
   .business-flow { padding: 5rem 1.1rem; }
@@ -323,7 +320,7 @@ const faqs = [
 .faq-a p { font-size:1rem; color:var(--muted); line-height:1.8; margin:0; padding-top:.2rem; }
 /* BIZ CONTACT */
 .biz-contact-box { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; max-width:980px; margin:0 auto; }
-.biz-tel-box,.biz-form-box { background:white; border-radius:16px; padding:2rem; text-align:center; box-shadow:0 4px 20px rgba(30,30,30,.07); }
+.biz-tel-box,.biz-form-box { background:white; border-radius:16px; padding:2rem; text-align:center; box-shadow:0 4px 20px rgba(90,64,26,.07); }
 .biz-tel-label { font-size:.88rem; font-weight:700; color:var(--green); letter-spacing:.1em; margin-bottom:.5rem; }
 .biz-tel { display:block; font-family:'Lato',sans-serif; font-size:1.6rem; font-weight:300; color:var(--brown); text-decoration:none; letter-spacing:.05em; margin-bottom:.25rem; }
 .biz-tel-hours { font-size:.88rem; color:var(--muted); }
@@ -346,19 +343,20 @@ const faqs = [
   .biz-products-grid { grid-template-columns:repeat(2,1fr); }
 }
 /* 取引実績 */
-.track-record { display:flex; justify-content:center; gap:3rem; margin-top:2rem; flex-wrap:wrap; }
+.track-record { display:flex; justify-content:center; gap:4rem; margin-top:2rem; flex-wrap:wrap; }
 .track-item { display:flex; flex-direction:column; align-items:center; gap:.3rem; }
-.track-num { font-family:Manrope,sans-serif; font-size:1.6rem; font-weight:700; color:#424242; letter-spacing:.02em; }
-.track-num small { font-size:1.02rem; }
-.track-label { font-size:.88rem; color:#6B6860; letter-spacing:.05em; }
+.track-num { font-family:Manrope,sans-serif; color:#5A401A; letter-spacing:.02em; line-height:1.3; }
+.track-num b { font-size:2.2rem; font-weight:700; }
+.track-num small { font-size:1rem; font-weight:500; margin-left:.15rem; }
+.track-label { font-size:.88rem; color:#7A6544; letter-spacing:.05em; }
 /* 配達エリア */
 .area-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.25rem; margin-bottom:1rem; }
 .area-main { background:white; border-radius:12px; padding:1.75rem; border:0.5px solid rgba(0,0,0,0.15); box-shadow:0 2px 12px rgba(44,44,42,0.05); }
 .area-badge { display:inline-flex; align-items:center; padding:.25rem .75rem; border-radius:999px; font-size:.9rem; font-weight:700; margin-bottom:.75rem; }
 .area-badge--main { background:var(--brand); color:var(--on-brand); }
-.area-badge--sub { background:rgba(0,0,0,0.12); color:#424242; }
-.area-main h3 { font-size:1.05rem; font-weight:700; color:#2B2B2B; margin-bottom:.4rem; }
-.area-main p { font-size:.97rem; color:#6B6860; line-height:1.8; margin:0; }
-.area-note { text-align:center; font-size:.92rem; color:#5F5E5A; margin-top:1rem; }
+.area-badge--sub { background:rgba(0,0,0,0.12); color:#5A401A; }
+.area-main h3 { font-size:1.05rem; font-weight:700; color:#5A401A; margin-bottom:.4rem; }
+.area-main p { font-size:.97rem; color:#7A6544; line-height:1.8; margin:0; }
+.area-note { text-align:center; font-size:.92rem; color:#7A6544; margin-top:1rem; }
 @media (max-width:720px) { .area-grid { grid-template-columns:1fr; } .track-record { gap:1.5rem; } }
 </style>
