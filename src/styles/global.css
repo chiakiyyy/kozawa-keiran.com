@@ -2,21 +2,21 @@
 
 @layer base {
   :root {
-    --amber:      #8A5A00;
+    --amber:      #5C3D00;
     --brand:      #FCC800;
     --brand-hv:   #E0B000;
     --on-brand:   #1E1E1C;
     --amber-lt:   #FCC800;
     --amber-bg:   #FFF0B8;
-    --amber-pale: #FFF9E3;
+    --amber-pale: #FFFFFF;
     --amber-mid:  #FFD35A;
     --gray-dk:    #1E1E1C;
     --gray-mid:   #5F5E5A;
     --gray-lt:    #F4F2EB;
     --border:     rgba(44,44,42,0.08);
-    --bg:         #FFFFFF;
-    --bg2:        #FAFAF7;
-    --panel:      #FBF5E0;
+    --bg:         #FCC800;
+    --bg2:        #FFFFFF;
+    --panel:      #FFFFFF;
     --deep:       #3B321F;
     --notch-r:    28px;
     --text:       #1E1E1C;
