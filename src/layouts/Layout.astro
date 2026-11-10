@@ -69,7 +69,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       "sameAs": ["https://line.me/ti/p/@215bpskd", "https://kozawa.theshop.jp/"],
       "priceRange": "¥",
       "servesCuisine": "鶏卵・たまご",
-      "areaServed": "富山県"
+      "areaServed": [{"@type":"State","name":"富山県"},{"@type":"City","name":"富山市"}],
+      "knowsAbout": ["業務用卵","鶏卵卸売","たまご"]
     }
     </script>
     <slot name="head"/>

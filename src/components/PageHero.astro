@@ -13,8 +13,7 @@ const { en, ja, img, alt = '', lead } = Astro.props;
   <div class="hf-img">
     <img src={img} alt={alt} loading="eager"/>
     <div class="hf-title">
-      <h1>{en}</h1>
-      <p>{ja}</p>
+      <h1>{en}<span class="hf-ja">{ja}</span></h1>
     </div>
   </div>
   {lead && <p class="hf-lead">{lead}</p>}

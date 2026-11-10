@@ -35,10 +35,14 @@ const faqs = [
   { q:'請求書払いは可能ですか？', a:'法人・個人事業主様には掛け売りに対応しています。詳しくはご相談ください。' },
 ];
 ---
-<Layout title="業務用たまご｜富山市内当日配達対応｜小澤鶏卵" description="富山市内への業務用たまご当日配達。飲食店・ホテル・給食施設・スーパーへの定期納品、大量注文、催事対応。月〜金注文受付。月・水・金は9:30注文で当日夕方お届け。富山県富山市の鶏卵専門店・小澤鶏卵。">
+<Layout title="富山の業務用卵・たまご卸｜飲食店・給食へ当日配達｜小澤鶏卵" description="富山の業務用卵なら小澤鶏卵。10kg箱（LL・L・M・MS・S）・パック卵を、飲食店・ホテル・給食施設・スーパーへ定期納品。月・水・金は9:30までのご注文で、富山市内へ当日夕方にお届け。請求書払い（掛け売り）にも対応。">
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify({
+    '@context': 'https://schema.org', '@type': 'FAQPage',
+    mainEntity: faqs.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+  })}/>
   <Header/>
   <main>
-    <PageHero en="For Business" ja="法人のお客様" img="/images/business_hero.png" lead="毎日使うたまごを安定してお届けします。富山市内・富山県を中心とした飲食店・食品事業者様へ。月〜金で注文を受け付けています。月・水・金は、午前9:30までのご注文で当日夕方の配達に対応します。"><p style="text-align:center;margin:1.5rem 0 .5rem"><a href="#contact-form" class="btn btn-primary">法人取引のご相談はこちら →</a></p></PageHero>
+    <PageHero en="For Business" ja="富山の業務用たまご（法人のお客様）" img="/images/business_hero.png" lead="毎日使うたまごを安定してお届けします。富山市内・富山県を中心とした飲食店・食品事業者様へ。月〜金で注文を受け付けています。月・水・金は、午前9:30までのご注文で当日夕方の配達に対応します。"><p style="text-align:center;margin:1.5rem 0 .5rem"><a href="#contact-form" class="btn btn-primary">法人取引のご相談はこちら →</a></p></PageHero>
 
     <!-- お悩み -->
     <section class="sec">
@@ -150,6 +154,20 @@ const faqs = [
       </div>
     </section>
 
+    <!-- 富山の業務用卵（検索向けの説明） -->
+    <section class="sec sec--pale">
+      <div class="container" style="max-width:820px">
+        <div class="ttl"><h2 class="ttl-en">Why Kozawa</h2><p class="ttl-ja">富山で業務用卵をお探しの方へ</p>
+        </div>
+        <ul class="seo-points">
+          <li><b>1945年創業の鶏卵専門店。</b>富山市を拠点に、ラーメン店・洋菓子店・ホテル・給食施設・スーパーなど、50社以上へ業務用たまごをお届けしています。</li>
+          <li><b>10kg箱はLL・L・M・MS・Sの各サイズ。</b>とれたて・赤玉・ブランド卵・うずら卵・温泉卵まで、用途に合わせてお選びいただけます。</li>
+          <li><b>富山市内は当日夕方にお届け。</b>月・水・金の午前9:30までのご注文が対象です。自社便で、温度を管理して配送します。</li>
+          <li><b>請求書払い（掛け売り）に対応。</b>法人・個人事業主様は、1ケース（約10kg）からご相談いただけます。</li>
+        </ul>
+      </div>
+    </section>
+
     <!-- FAQ -->
     <section class="sec">
       <div class="container">
@@ -199,6 +217,9 @@ const faqs = [
   <Footer/>
 </Layout>
 <style>
+.seo-points { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.1rem; }
+.seo-points li { padding: 1.1rem 1.3rem; background: #fff; border-radius: var(--radius-md); line-height: 1.9; font-size: 1.02rem; }
+.seo-points b { display: block; margin-bottom: .2rem; color: var(--text); }
 .container { max-width:1100px; margin:0 auto; padding:0 2rem; }
 .sec { padding:5.5rem 0; background:var(--bg); }
 .sec--cream { background:var(--bg2); }
