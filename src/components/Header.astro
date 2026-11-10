@@ -17,7 +17,7 @@ const path = Astro.url.pathname;
 
 <header class="hdr" id="hdr">
   <a href="/" class="hdr-brand" aria-label="小澤鶏卵 トップへ">
-    <img src="/favicon.svg" alt="" aria-hidden="true" class="hdr-logo-icon" width="48" height="48"/>
+    <img src="/images/icon.png" alt="" aria-hidden="true" class="hdr-logo-icon"/>
     <span>
       <span class="logo-jp">小澤鶏卵</span>
       <span class="logo-en">KOZAWA KEIRAN</span>
@@ -45,7 +45,7 @@ const path = Astro.url.pathname;
 <nav class="drw" id="drw" aria-label="ドロワーメニュー" inert>
   <div class="drw-head">
     <a href="/" class="drw-logo">
-      <img src="/favicon.svg" alt="" aria-hidden="true" width="40" height="40" style="height:40px;width:40px;"/>
+      <img src="/images/icon.png" alt="" aria-hidden="true" style="height:32px;width:auto;box-sizing:content-box;padding:6px 8px;background:#3B321F;border-radius:50%;"/>
       <span class="logo-jp" style="font-size:1.05rem;letter-spacing:.14em;">小澤鶏卵</span>
     </a>
     <button type="button" id="drw-cl" aria-label="メニューを閉じる">
@@ -82,7 +82,7 @@ const path = Astro.url.pathname;
 .hdr { position: fixed; top: 0; left: 0; right: 0; z-index: 200; display: flex; justify-content: space-between; align-items: flex-start; pointer-events: none; }
 .hdr > * { pointer-events: auto; }
 .hdr-brand { flex-shrink: 0; display: flex; align-items: center; gap: .7rem; text-decoration: none; background: var(--panel, #F6F1E6); padding: .9rem 2rem .9rem 1.5rem; border-radius: 0 0 var(--notch-r, 28px) 0; }
-.hdr-logo-icon { height: 50px; width: 50px; display: block; object-fit: contain; }
+.hdr-logo-icon { height: 40px; width: auto; display: block; object-fit: contain; box-sizing: content-box; padding: 7px 9px; background: #3B321F; border-radius: 50%; }
 .logo-jp { display: block; font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 1.15rem; font-weight: 500; color: #2C2A24; letter-spacing: .2em; line-height: 1.2; }
 .logo-en { display: block; font-family: Manrope, sans-serif; font-size: .75rem; letter-spacing: .2em; color: #5F5E5A; margin-top: 4px; white-space: nowrap; }
 .hdr-right { display: flex; align-items: center; gap: 1.2rem; background: var(--panel, #F6F1E6); padding: 1rem 1.5rem 1rem 2.2rem; border-radius: 0 0 0 var(--notch-r, 28px); }
@@ -136,7 +136,7 @@ const path = Astro.url.pathname;
 
 
 @media (max-width: 1260px) { .hdr-nav { display: none; } .hdr-right { padding: .8rem .9rem .9rem 1.4rem; } }
-@media (max-width: 640px) { .hdr-brand { padding: .7rem 1.2rem .7rem .9rem; } .hdr-logo-icon { height: 42px; width: 42px; } .logo-jp { font-size: 1.05rem; } .hdr-ham { width: 46px; height: 46px; } .hdr-brand { gap: .5rem; padding: .7rem .8rem .7rem .7rem; } .logo-en { letter-spacing: .1em; } .hdr-right { gap: .5rem; padding: .8rem .7rem .9rem 1rem; } }
+@media (max-width: 640px) { .hdr-brand { padding: .7rem 1.2rem .7rem .9rem; } .hdr-logo-icon { height: 30px; } .logo-jp { font-size: 1.05rem; } .hdr-ham { width: 46px; height: 46px; } .hdr-brand { gap: .5rem; padding: .7rem .8rem .7rem .7rem; } .logo-en { letter-spacing: .1em; } .hdr-right { gap: .5rem; padding: .8rem .7rem .9rem 1rem; } }
 </style>
 
 <script>
