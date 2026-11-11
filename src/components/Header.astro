@@ -83,11 +83,7 @@ const path = Astro.url.pathname;
 .hdr-nav ul { display: flex; align-items: center; list-style: none; margin: 0; padding: .5rem .9rem; gap: .35rem; background: #fff; border-radius: 999px; box-shadow: 0 2px 10px rgba(90,64,26,.15); }
 .hdr-nav a { display: block; font-size: 15px; font-weight: 700; letter-spacing: .08em; padding: .3rem .8rem !important; color: #4A3313; text-decoration: none; padding: .3rem 0; border-bottom: 1.5px solid transparent; transition: border-color .2s, color .2s; white-space: nowrap; }
 .hdr-nav a { border-bottom: 0 !important; border-radius: 999px; padding: .55rem 1rem !important; }
-.hdr-nav a { position: relative; isolation: isolate; }
-.hdr-nav a::before { content: ''; position: absolute; z-index: -1; left: .6rem; top: 50%; width: 30px; height: 38px; background: #FFFCEF; border-radius: 50% 50% 50% 50% / 62% 62% 38% 38%; box-shadow: 0 0 0 2px #F3D56A, 0 4px 10px rgba(150,105,0,.3); opacity: 0; transform: translateY(-50%) rotate(-8deg) scale(.4); transition: opacity .25s ease, transform .35s cubic-bezier(.3,1.5,.5,1); pointer-events: none; }
-.hdr-nav a:hover::before { opacity: 1; transform: translateY(-50%) rotate(-8deg) scale(1); }
-.hdr-nav a.act::before, .hdr-nav a.gift::before { display: none; }
-@media (prefers-reduced-motion: reduce) { .hdr-nav a::before { transition: opacity .2s; } }
+.hdr-nav a:hover { background: #FFF3C2; }
 .hdr-nav a { font-size: 16px !important; letter-spacing: .04em !important; }
 .hdr-nav a.gift { display: inline-flex; align-items: center; gap: .4rem; background: #5A401A; color: #fff; margin: 0 .25rem; box-shadow: 0 2px 6px rgba(90,64,26,.35); }
 .hdr-nav a.gift:hover { background: #46320F; }
