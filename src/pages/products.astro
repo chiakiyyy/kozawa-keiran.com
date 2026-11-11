@@ -4,6 +4,7 @@ import Header from '../components/Header.astro';
 import PageHero from '../components/PageHero.astro';
 import Footer from '../components/Footer.astro';
 import { productGroups, sizes } from '../data/products';
+import { gifts } from '../data/gifts';
 import ContactSection from '../components/ContactSection.astro';
 
 const steps = [
@@ -21,6 +22,11 @@ const steps = [
     <section class="pd-lineup">
       <div class="container">
         <div class="ttl"><h2 class="ttl-en">Line Up</h2><p class="ttl-ja">取り扱い商品</p></div>
+        <div class="pd-tabs" role="tablist">
+          <button type="button" role="tab" class="pd-tab on" data-tab="biz" aria-selected="true">業務用たまご</button>
+          <button type="button" role="tab" class="pd-tab" data-tab="gift" aria-selected="false">ギフト・個人のお客様</button>
+        </div>
+        <div class="pd-panel" id="tab-biz">
         <div class="pg-list">
           {productGroups.map(g => (
             <article class="pg" id={g.id}>
@@ -35,7 +41,24 @@ const steps = [
             </article>
           ))}
         </div>
-        <p class="pg-note">10kg箱のサイズ：{sizes.join('・')}　※価格・在庫・規格のご相談は、お気軽にお問い合わせください。ギフトは<a href="/gift">ギフト・購入ページ</a>をご覧ください。</p>
+        <p class="pg-note">10kg箱のサイズ：{sizes.join('・')}　※価格・在庫・規格のご相談は、お気軽にお問い合わせください。</p>
+        </div>
+        <div class="pd-panel" id="tab-gift" hidden>
+          <div class="pg-list">
+            {gifts.map(g => (
+              <article class="pg" id={`gift-${g.id}`}>
+                <div class="pg-img"><img src={g.img} alt={g.name} loading="lazy"/></div>
+                <div class="pg-body">
+                  <h3>{g.name}</h3>
+                  <p class="pg-lead">{g.contents}</p>
+                  <p class="pg-price">{g.price.toLocaleString('ja-JP')}円<small>（{g.shippingFee ? '送料別' : '送料込み'}）</small></p>
+                  <a href={`/gift/order?item=${g.id}`} class="btn btn-primary">注文する</a>
+                </div>
+              </article>
+            ))}
+          </div>
+          <p class="pg-note">ギフトの詳細は<a href="/gift">ギフト・購入ページ</a>をご覧ください。</p>
+        </div>
       </div>
     </section>
 
@@ -86,7 +109,21 @@ const steps = [
   </main>
   <Footer/>
 </Layout>
+<script>
+  const tabs = document.querySelectorAll<HTMLElement>('.pd-tab');
+  const show = (k: string) => {
+    tabs.forEach(t => { const on = t.dataset.tab === k; t.classList.toggle('on', on); t.setAttribute('aria-selected', String(on)); });
+    document.querySelectorAll<HTMLElement>('.pd-panel').forEach(p => { p.hidden = p.id !== 'tab-' + k; });
+  };
+  tabs.forEach(t => t.addEventListener('click', () => show(t.dataset.tab!)));
+  if (location.hash.startsWith('#gift')) show('gift');
+</script>
 <style>
+.pd-tabs { display: flex; max-width: 640px; margin: 0 auto 2.5rem; border-radius: 14px; overflow: hidden; background: #fff; box-shadow: 0 2px 10px rgba(90,64,26,.1); }
+.pd-tab { flex: 1; padding: 1rem; border: 0; background: transparent; font-size: 1.02rem; font-weight: 700; color: var(--muted); cursor: pointer; font-family: inherit; letter-spacing: .06em; }
+.pd-tab.on { background: var(--brand); color: var(--on-brand); }
+.pd-panel[hidden] { display: none; }
+.pg-price { margin: 0 0 1.2rem; font-size: 1.3rem; font-weight: 700; color: var(--amber); } .pg-price small { font-size: .88rem; font-weight: 400; color: var(--muted); margin-left: .4rem; }
 .pg-list { display: grid; gap: 2rem; }
 .pg { display: grid; grid-template-columns: 340px 1fr; gap: 2.5rem; align-items: center; background: #fff; border: .5px solid var(--border); border-radius: 20px; padding: 1.5rem; }
 .pg-img { border-radius: 14px; overflow: hidden; aspect-ratio: 4/3; background: var(--panel); }

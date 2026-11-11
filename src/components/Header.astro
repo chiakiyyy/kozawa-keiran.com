@@ -86,9 +86,11 @@ const path = Astro.url.pathname;
 .logo-jp { display: block; font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 1.15rem; font-weight: 500; color: #5A401A; letter-spacing: .2em; line-height: 1.2; }
 .logo-en { display: block; font-family: Manrope, sans-serif; font-size: .75rem; letter-spacing: .2em; color: #5A401A; margin-top: 4px; white-space: nowrap; }
 .hdr-right { display: flex; align-items: center; gap: 1.2rem; padding: 0 1.5rem 0 2.2rem; }
-.hdr-nav ul { display: flex; list-style: none; margin: 0; padding: 0; gap: .4rem; }
+.hdr-nav ul { display: flex; list-style: none; margin: 0; padding: .35rem .5rem; gap: .15rem; background: #fff; border-radius: 999px; box-shadow: 0 2px 10px rgba(90,64,26,.15); }
 .hdr-nav a { display: block; font-size: 15px; font-weight: 700; letter-spacing: .08em; padding: .3rem .8rem !important; color: #4A3313; text-decoration: none; padding: .3rem 0; border-bottom: 1.5px solid transparent; transition: border-color .2s, color .2s; white-space: nowrap; }
-.hdr-nav a:hover, .hdr-nav a.act { color: var(--amber, #5A401A); border-color: var(--amber-lt, #EF9F27); }
+.hdr-nav a { border-bottom: 0 !important; border-radius: 999px; padding: .55rem 1rem !important; }
+.hdr-nav a:hover { background: #FFF3C2; }
+.hdr-nav a.act { background: var(--brand); color: var(--on-brand); }
 .hdr-tel { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; height: 46px; min-width: 46px; padding: 0 .9rem; border-radius: 999px; background: #fff; color: #4A3313; text-decoration: none; font-family: Manrope, sans-serif; font-weight: 700; letter-spacing: .04em; font-size: 14px; white-space: nowrap; transition: background .2s; }
 .hdr-tel:hover { background: #F6F6F6; }
 .hdr-tel-num { display: none; }
