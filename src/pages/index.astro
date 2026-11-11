@@ -40,9 +40,8 @@ const workImgs = ['/images/feature/feature-egg.jpg', '/images/hero_main.png', '/
       </div>
       <div class="intro-copy fade-up">
         <p class="intro-catch">幸せは、<br/>たまごのある食卓にある。</p>
-        <p class="intro-en">Happiness is a table with eggs.</p>
         <p class="intro-body">おひさまを浴びる幸せ。新鮮なものを食べる幸せ。 安心できるものを選べる幸せ。<br/><br/>1945年の創業から80年以上、富山の食卓と飲食店を たまごで支えてきました。</p>
-        <a href="/about" class="circle-link">About us</a>
+        <a href="/about" class="circle-link">私たちについて</a>
       </div>
     </section>
 
@@ -50,7 +49,7 @@ const workImgs = ['/images/feature/feature-egg.jpg', '/images/hero_main.png', '/
     <section class="story">
       <div class="story-in">
         <div class="story-head fade-up">
-          <div class="ttl ttl--left"><h2 class="ttl-en">Story</h2><p class="ttl-ja">これまでの歩み</p></div>
+          <div class="ttl ttl--left"><h2 class="ttl-en">これまでの歩み</h2></div>
           <p class="story-catch serif">たまごひとつに、<br/>八十年分の毎日がある。</p>
         </div>
         <div class="story-body fade-up">
@@ -72,7 +71,7 @@ const workImgs = ['/images/feature/feature-egg.jpg', '/images/hero_main.png', '/
     <!-- COMMITMENT -->
     <section class="sec">
       <div class="container wide">
-        <div class="ttl fade-up"><h2 class="ttl-en">Commitment</h2><p class="ttl-ja">小澤鶏卵のこだわり</p></div>
+        <div class="ttl fade-up"><h2 class="ttl-en">小澤鶏卵のこだわり</h2></div>
         <div class="cm-grid">
           {commitments.map(c => (
             <article class="cm fade-up">
@@ -90,7 +89,7 @@ const workImgs = ['/images/feature/feature-egg.jpg', '/images/hero_main.png', '/
     <section class="band">
       <div class="band-in">
         <div>
-          <div class="ttl ttl--left"><h2 class="ttl-en">Service</h2><p class="ttl-ja">事業内容</p></div>
+          <div class="ttl ttl--left"><h2 class="ttl-en">事業内容</h2></div>
           <p>富山市を中心に、飲食店・ホテル・給食施設・スーパーなどへ業務用たまごの卸売をおこなっています。<br/><br/>大量注文・定期納品・催事対応のほか、ギフトのオンライン注文、個人のお客様への販売も承ります。</p>
           <p id="svc-links" style="margin-top:2rem">
             <a id="svc-link" href={services[0].href} class="circle-link circle-link--w">詳しく見る</a>
@@ -113,8 +112,8 @@ const workImgs = ['/images/feature/feature-egg.jpg', '/images/hero_main.png', '/
     <section class="sec works-sec">
       <div class="container">
         <div class="works-head">
-          <div class="ttl ttl--left" style="margin:0"><h2 class="ttl-en">Works</h2><p class="ttl-ja">卸売の実績</p></div>
-          <a href="/works" class="circle-link">View all</a>
+          <div class="ttl ttl--left" style="margin:0"><h2 class="ttl-en">卸売の実績</h2></div>
+          <a href="/business#works" class="circle-link">一覧を見る</a>
         </div>
         <ul class="metric-row">
           {metrics.map(m => (
@@ -124,7 +123,7 @@ const workImgs = ['/images/feature/feature-egg.jpg', '/images/hero_main.png', '/
       </div>
       <div class="hscroll">
         {works.map((w, i) => (
-          <a href="/works" class="hcard">
+          <a href="/business#works" class="hcard">
             <div class="hcard-img"><img src={workImgs[i % workImgs.length]} alt={w.category} loading="lazy"/><span class="hcard-tag">{w.category}</span></div>
             <h3>{w.title}</h3>
           </a>
@@ -135,7 +134,7 @@ const workImgs = ['/images/feature/feature-egg.jpg', '/images/hero_main.png', '/
     <!-- PROCESS -->
     <section class="sec sec--panel">
       <div class="container wide">
-        <div class="ttl fade-up"><h2 class="ttl-en">Process</h2><p class="ttl-ja">採卵から食卓へ・出荷までの流れ</p></div>
+        <div class="ttl fade-up"><h2 class="ttl-en">採卵から食卓へ・出荷までの流れ</h2></div>
         <ol class="pr-list">
           {processSteps.map(st => (
             <li class="pr fade-up">
@@ -152,7 +151,7 @@ const workImgs = ['/images/feature/feature-egg.jpg', '/images/hero_main.png', '/
     <!-- PRODUCTS -->
     <section class="sec">
       <div class="container">
-        <div class="ttl fade-up"><h2 class="ttl-en">Products handled</h2><p class="ttl-ja">取り扱い商品</p></div>
+        <div class="ttl fade-up"><h2 class="ttl-en">取り扱い商品</h2></div>
         <p class="sec-lead" style="text-align:center;margin:-1.5rem auto 3.5rem;max-width:640px">富山の鶏卵専門店として、用途に合わせた各種たまごを取り揃えています。</p>
         <div class="circ-grid">
           {productGroups.map(g => (
@@ -172,7 +171,7 @@ const workImgs = ['/images/feature/feature-egg.jpg', '/images/hero_main.png', '/
       <div class="gift-in">
         <div class="gift-photo fade-up"><img src={gift.img} alt={gift.name} loading="lazy"/></div>
         <div class="fade-up">
-          <div class="ttl ttl--left"><h2 class="ttl-en">Gift</h2><p class="ttl-ja">ギフト・オンライン注文</p></div>
+          <div class="ttl ttl--left"><h2 class="ttl-en">ギフト・オンライン注文</h2></div>
           <h3 class="gift-name">{gift.name}</h3>
           <p class="gift-desc">{gift.desc}</p>
           <p class="gift-price"><strong>{yen(gift.price)}</strong>円<small>（送料込み）</small></p>

@@ -21,7 +21,7 @@ const mapUrl = 'https://www.google.com/maps/search/?api=1&query=' + mapQuery;
 
     <section class="sec">
       <div class="container st">
-        <div class="ttl"><h2 class="ttl-en">Access</h2><p class="ttl-ja">所在地・営業時間</p></div>
+        <div class="ttl"><h2 class="ttl-en">所在地・営業時間</h2></div>
         <dl class="st-dl">
           {rows.map(([dt, dd]) => (<><dt>{dt}</dt><dd>{dt === '電話番号' ? <a href="tel:076-466-3815">{dd}</a> : dd}</dd></>))}
         </dl>
