@@ -4,6 +4,7 @@ import Header from '../components/Header.astro';
 import PageHero from '../components/PageHero.astro';
 import Footer from '../components/Footer.astro';
 import ContactSection from '../components/ContactSection.astro';
+import FeatureSections from '../components/FeatureSections.astro';
 
 const thoughts = [
   {
@@ -44,7 +45,7 @@ const company = [
 ];
 const mapUrl = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent('富山県富山市婦中町下轡田25-1');
 ---
-<Layout title="私たちについて｜小澤鶏卵" description="小澤鶏卵は富山の自然とともに歩み、安心・安全・おいしいたまごをお届けしてきました。私たちの想い・代表あいさつ・沿革・会社概要をご紹介します。">
+<Layout title="私たちについて｜小澤鶏卵" description="小澤鶏卵は富山の自然とともに歩み、安心・安全・おいしいたまごをお届けしてきました。私たちの想い・5つのこだわり・出荷の流れ・代表あいさつ・沿革・会社概要をご紹介します。">
   <Header/>
   <main>
     <PageHero en="About us" ja="私たちについて" img="/images/shop/point1.jpg" lead="小澤鶏卵は、富山の自然とともに歩み、「安心・安全・おいしい」たまごをお届けしてきました。地域の食卓を支える存在でありたいという想いのもと、これからも誠実に、まっすぐに卵づくりに向き合っていきます。"/>
@@ -68,6 +69,8 @@ const mapUrl = 'https://www.google.com/maps/search/?api=1&query=' + encodeURICom
       </div>
     </section>
 
+
+    <FeatureSections/>
 
     <!-- 代表あいさつ -->
     <section class="greet" id="message">

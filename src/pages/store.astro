@@ -1,0 +1,48 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import PageHero from '../components/PageHero.astro';
+import Footer from '../components/Footer.astro';
+import ContactSection from '../components/ContactSection.astro';
+
+// 掲載内容は、当サイトの会社概要（/about）の記載にそろえている。直売所としての営業時間・休業日・お取り扱いなどは、確認のうえ追記すること。
+const rows = [
+  ['所在地', '〒939-2716 富山県富山市婦中町下轡田25-1'],
+  ['電話番号', '076-466-3815'],
+  ['営業時間', '月〜土 8:00〜17:00（日曜・祝日は休業）'],
+];
+const mapQuery = encodeURIComponent('富山県富山市婦中町下轡田25-1');
+const mapUrl = 'https://www.google.com/maps/search/?api=1&query=' + mapQuery;
+---
+<Layout title="直売所のご案内｜小澤鶏卵" description="小澤鶏卵（富山市婦中町）の直売所のご案内。所在地・営業時間・アクセスをご案内します。">
+  <Header/>
+  <main>
+    <PageHero en="Store" ja="直売所のご案内" lead="小澤鶏卵（富山市婦中町）へのアクセスと営業時間のご案内です。ご来店の前に、お電話でご確認いただくと安心です。"/>
+
+    <section class="sec">
+      <div class="container st">
+        <div class="ttl"><h2 class="ttl-en">Access</h2><p class="ttl-ja">所在地・営業時間</p></div>
+        <dl class="st-dl">
+          {rows.map(([dt, dd]) => (<><dt>{dt}</dt><dd>{dt === '電話番号' ? <a href="tel:076-466-3815">{dd}</a> : dd}</dd></>))}
+        </dl>
+        <div class="st-map">
+          <iframe title="小澤鶏卵の地図" src={`https://www.google.com/maps?q=${mapQuery}&output=embed`} loading="lazy" referrerpolicy="no-referrer-when-downgrade" width="600" height="360"></iframe>
+        </div>
+        <p style="text-align:center;margin-top:2rem"><a href={mapUrl} target="_blank" rel="noopener" class="btn-circle">Googleマップで開く</a></p>
+      </div>
+    </section>
+
+    <ContactSection/>
+  </main>
+  <Footer/>
+</Layout>
+<style>
+.st { max-width: 960px; }
+.st-dl { display: grid; grid-template-columns: 9rem 1fr; margin: 0; border-top: 1px solid var(--border); }
+.st-dl dt, .st-dl dd { padding: 1.2rem .5rem; border-bottom: 1px solid var(--border); margin: 0; }
+.st-dl dt { font-weight: 700; color: var(--amber); }
+.st-dl dd a { color: inherit; text-decoration: none; }
+.st-map { margin-top: 2.5rem; border-radius: 20px; overflow: hidden; aspect-ratio: 16/9; background: #fff; }
+.st-map iframe { width: 100%; height: 100%; border: 0; display: block; }
+@media (max-width: 640px) { .st-dl { grid-template-columns: 1fr; } .st-dl dt { border-bottom: 0; padding-bottom: 0; } }
+</style>
