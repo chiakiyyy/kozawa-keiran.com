@@ -11,24 +11,25 @@
     --amber-pale: #FFFFFF;
     --amber-mid:  #FFD35A;
     --gray-dk:    #643E2F;
-    --gray-mid:   #8A6B5D;
+    --gray-mid:   #6E5144;
     --gray-lt:    #F4F2EB;
     --border:     rgba(44,44,42,0.08);
     --bg:         #FFF6CC;
     --bg2:        #FFFFFF;
     --panel:      #FFFFFF;
-    --deep:       #EA5514;
+    --deep:       #643E2F;
     --notch-r:    28px;
     --text:       #643E2F;
-    --muted:      #7A5A4C;
+    --muted:      #6E5144;
     --green:      #4A6A20;
     --yellow:     #FFE200;
-    --brown:      #EA5514;
-    --cta:        #EA5514;
-    --cta-hv:     #C9440E;
+    --brown:      #643E2F;
+    --cta:        #CF470E;
+    --cta-hv:     #A93A0A;
     --yolk:       #F5A623;
     --peach:      #F8E1C8;
     --soft:       #FFEE9C;
+    --cta-text:   #B83E0C;
     --butter:     #FFEE9C;
     --radius-sm:  14px;
     --radius-md:  24px;
@@ -83,12 +84,12 @@
   .btn-primary {
     background: var(--cta);
     color: #fff;
-    box-shadow: 0 4px 18px rgba(234,85,20,0.32);
+    box-shadow: 0 4px 18px rgba(207,71,14,0.32);
   }
   .btn-primary:hover {
     background: var(--cta-hv);
     transform: translateY(-2px);
-    box-shadow: 0 8px 28px rgba(234,85,20,0.4);
+    box-shadow: 0 8px 28px rgba(207,71,14,0.4);
   }
   .btn-outline {
     background: transparent;

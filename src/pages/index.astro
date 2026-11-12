@@ -254,7 +254,7 @@ const workImgs = ['/images/feature/feature-egg.jpg', '/images/hero_main.png', '/
 .tp-lineup { padding: 110px 1.5rem; background: #fff; }
 .tp-lineup--biz { background: var(--bg); }
 .tp-lineup-head { text-align: center; margin: 0 auto 3.5rem; max-width: 720px; }
-.tp-lineup-sub { margin: 0 0 .6rem; color: var(--cta); font-weight: 700; letter-spacing: .1em; }
+.tp-lineup-sub { margin: 0 0 .6rem; color: var(--cta-text); font-weight: 700; letter-spacing: .1em; }
 .tp-lineup-ttl { margin: 0 0 1.2rem; font-size: clamp(1.8rem, 3.4vw, 2.6rem); letter-spacing: .12em; }
 .tp-lineup-lead { margin: 0; line-height: 2.1; color: var(--muted); }
 .tp-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem 2.5rem; max-width: 1120px; margin: 0 auto; }
@@ -433,4 +433,6 @@ const workImgs = ['/images/feature/feature-egg.jpg', '/images/hero_main.png', '/
   .tp-biz-circles p { font-size: .82rem; align-self: start; }
 }
 @media (max-width: 860px) { .tp-entry > * { min-width: 0; } .tp-entry-items { gap: .5rem; } .tp-egg-link { flex: 1; min-width: 0; } .tp-egg { width: 100%; max-width: 92px; } .tp-egg-label { font-size: .78rem; text-align: center; line-height: 1.4; } }
+/* 読みやすさ：スマホでは、3行以上になる説明文を左ぞろえにする */
+@media (max-width: 640px) { .tp-concept-lead, .tp-lineup-lead { text-align: left; } .tp-concept-lead br { display: none; } }
 </style>
