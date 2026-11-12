@@ -14,13 +14,11 @@ const navMore = [
 const path = Astro.url.pathname;
 ---
 
-<header class="hdr" id="hdr">
+<header class={`hdr${path === '/' ? ' onphoto' : ''}`} id="hdr">
   <a href="/" class="hdr-brand" aria-label="小澤鶏卵 トップへ">
-    <span class="hdr-blob"><img src="/images/logo-mark.png" alt="" aria-hidden="true" class="hdr-logo-icon" width="40" height="40"/></span>
-    <span>
-      <span class="logo-jp">小澤鶏卵</span>
-      <span class="logo-en">KOZAWA KEIRAN</span>
-    </span>
+    <img src="/images/logo-mark-clean.png" alt="" aria-hidden="true" class="hdr-logo-icon" width="40" height="40"/>
+    <img src="/images/logo-wordmark.png" alt="小澤鶏卵 KOZAWA KEIRAN" class="hdr-wordmark hdr-wm-dark" width="1200" height="377"/>
+    <img src="/images/logo-wordmark-white.png" alt="" aria-hidden="true" class="hdr-wordmark hdr-wm-white" width="1200" height="377"/>
   </a>
   <div class="hdr-right">
     <nav class="hdr-nav" aria-label="メインナビゲーション">
@@ -46,7 +44,7 @@ const path = Astro.url.pathname;
     </a>
     <button type="button" id="drw-cl" aria-label="メニューを閉じる">
       <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
-        <path d="M3 3l14 14M17 3L3 17" stroke="#4A3313" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M3 3l14 14M17 3L3 17" stroke="#643E2F" stroke-width="1.5" stroke-linecap="round"/>
       </svg>
     </button>
   </div>
@@ -77,30 +75,30 @@ const path = Astro.url.pathname;
 .hdr-brand { flex-shrink: 0; display: flex; align-items: center; gap: .7rem; text-decoration: none; padding: 0 2rem 0 1.5rem; }
 .hdr-blob { display: flex; align-items: center; justify-content: center; width: 70px; height: 60px; background: #fff; border-radius: 58% 42% 55% 45% / 52% 60% 40% 48%; box-shadow: 0 2px 8px rgba(150,105,0,.18); flex-shrink: 0; }
 .hdr-logo-icon { height: 48px; width: auto; display: block; object-fit: contain; }
-.logo-jp { display: block; font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 1.15rem; font-weight: 500; color: #5A401A; letter-spacing: .2em; line-height: 1.2; }
-.logo-en { display: block; font-family: Manrope, sans-serif; font-size: .75rem; letter-spacing: .2em; color: #5A401A; margin-top: 4px; white-space: nowrap; }
+.logo-jp { display: block; font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 1.15rem; font-weight: 500; color: #643E2F; letter-spacing: .2em; line-height: 1.2; }
+.logo-en { display: block; font-family: Manrope, sans-serif; font-size: .75rem; letter-spacing: .2em; color: #643E2F; margin-top: 4px; white-space: nowrap; }
 .hdr-right { display: flex; align-items: center; gap: 1.2rem; padding: 0 1.5rem 0 2.2rem; }
 .hdr-nav ul { display: flex; align-items: center; list-style: none; margin: 0; padding: .5rem .9rem; gap: .35rem; background: #fff; border-radius: 999px; box-shadow: 0 2px 10px rgba(90,64,26,.15); }
-.hdr-nav a { display: block; font-size: 15px; font-weight: 700; letter-spacing: .08em; padding: .3rem .8rem !important; color: #4A3313; text-decoration: none; padding: .3rem 0; border-bottom: 1.5px solid transparent; transition: border-color .2s, color .2s; white-space: nowrap; }
+.hdr-nav a { display: block; font-size: 15px; font-weight: 700; letter-spacing: .08em; padding: .3rem .8rem !important; color: #643E2F; text-decoration: none; padding: .3rem 0; border-bottom: 1.5px solid transparent; transition: border-color .2s, color .2s; white-space: nowrap; }
 .hdr-nav a { border-bottom: 0 !important; border-radius: 999px; padding: .55rem 1rem !important; }
 .hdr-nav a:hover { background: #FFF3C2; }
 .hdr-nav a { font-size: 16px !important; letter-spacing: .04em !important; }
-.hdr-nav a.gift { display: inline-flex; align-items: center; gap: .4rem; background: #5A401A; color: #fff; margin: 0 .25rem; box-shadow: 0 2px 6px rgba(90,64,26,.35); }
-.hdr-nav a.gift:hover { background: #46320F; }
-.hdr-nav a.gift.act { background: #5A401A; outline: 3px solid var(--brand); outline-offset: -3px; }
-.hdr-nav a.act { background: radial-gradient(ellipse at 50% 40%, #FFD93B 0%, #FCC800 70%, #F0B800 100%); color: var(--on-brand); border-radius: 50% / 55%; padding: .35rem 1rem !important; box-shadow: 0 1px 3px rgba(150,105,0,.35); }
-.hdr-biz { display: inline-flex; align-items: center; gap: .5rem; height: 46px; padding: 0 1.2rem; border-radius: 999px; background: #5A401A; color: #fff; text-decoration: none; font-weight: 700; font-size: 16px; letter-spacing: .06em; white-space: nowrap; box-shadow: 0 2px 6px rgba(90,64,26,.35); transition: background .2s; }
-.hdr-biz:hover, .hdr-biz.act { background: #46320F; }
+.hdr-nav a.gift { display: inline-flex; align-items: center; gap: .4rem; background: #EA5514; color: #fff; margin: 0 .25rem; box-shadow: 0 2px 6px rgba(90,64,26,.35); }
+.hdr-nav a.gift:hover { background: #C9440E; }
+.hdr-nav a.gift.act { background: #EA5514; outline: 3px solid var(--brand); outline-offset: -3px; }
+.hdr-nav a.act { background: radial-gradient(ellipse at 50% 40%, #FFF27A 0%, #FFE200 70%, #F0C800 100%); color: var(--on-brand); border-radius: 50% / 55%; padding: .35rem 1rem !important; box-shadow: 0 1px 3px rgba(150,105,0,.35); }
+.hdr-biz { display: inline-flex; align-items: center; gap: .5rem; height: 46px; padding: 0 1.2rem; border-radius: 999px; background: var(--cta); color: #fff; text-decoration: none; font-weight: 700; font-size: 16px; letter-spacing: .06em; white-space: nowrap; box-shadow: 0 2px 6px rgba(150,30,20,.35); transition: background .2s; }
+.hdr-biz:hover, .hdr-biz.act { background: var(--cta-hv); }
 @media (min-width: 1261px) { .hdr-right { align-items: stretch; } .hdr-biz { height: auto; padding: 0 1.6rem; } }
-.hdr-tel { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; height: 46px; min-width: 46px; padding: 0 .9rem; border-radius: 999px; background: #fff; color: #4A3313; text-decoration: none; font-family: Manrope, sans-serif; font-weight: 700; letter-spacing: .04em; font-size: 14px; white-space: nowrap; transition: background .2s; }
+.hdr-tel { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; height: 46px; min-width: 46px; padding: 0 .9rem; border-radius: 999px; background: #fff; color: #643E2F; text-decoration: none; font-family: Manrope, sans-serif; font-weight: 700; letter-spacing: .04em; font-size: 14px; white-space: nowrap; transition: background .2s; }
 .hdr-tel:hover { background: #F6F6F6; }
 .hdr-tel-num { display: none; }
 @media (min-width: 1500px) { .hdr-tel-num { display: inline; } }
 @media (max-width: 1499px) { .hdr-tel { padding: 0; width: 46px; } }
 @media (min-width: 1261px) { .hdr-ham { display: none !important; } }
-.hdr-ham { display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 6px; width: 54px; height: 54px; border-radius: 50%; border: 1px solid #5A401A; background: transparent; cursor: pointer; padding: 0; flex-shrink: 0; transition: background .2s; }
+.hdr-ham { display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 6px; width: 54px; height: 54px; border-radius: 50%; border: 1px solid #643E2F; background: transparent; cursor: pointer; padding: 0; flex-shrink: 0; transition: background .2s; }
 .hdr-ham:hover { background: rgba(0,0,0,.1); }
-.hdr-ham span { display: block; width: 24px; height: 1px; background: #4A3313; transition: all .3s; }
+.hdr-ham span { display: block; width: 24px; height: 1px; background: #643E2F; transition: all .3s; }
 .hdr-ham.open span:nth-child(1) { transform: translateY(3.5px) rotate(20deg); }
 .hdr-ham.open span:nth-child(2) { transform: translateY(-3.5px) rotate(-20deg); }
 /* ドロワー */
@@ -128,19 +126,50 @@ const path = Astro.url.pathname;
 .drw li { border-bottom: 0.5px solid rgba(44,44,42,0.05); }
 .drw a { display: flex; align-items: center; justify-content: space-between; padding: .95rem 1.5rem; text-decoration: none; transition: background .15s; }
 .drw a:hover { background: #FAFAF7; }
-.d-en { font-family: Manrope, sans-serif; font-size: .75rem; font-weight: 700; letter-spacing: .18em; color: var(--amber); }
-.d-ja { font-size: 1rem; font-weight: 500; color: #4A3313; }
+.d-en { font-family: Manrope, sans-serif; font-size: .75rem; font-weight: 700; letter-spacing: .18em; color: #643E2F; }
+.d-ja { font-size: 1rem; font-weight: 500; color: #643E2F; }
 .drw-ft {
   padding: 1.25rem 1.5rem; display: flex; flex-direction: column; gap: .75rem;
   border-top: 0.5px solid rgba(44,44,42,0.08); background: #FAFAF7;
 }
-.drw-tel { font-family: Manrope, sans-serif; font-size: 1.4rem; font-weight: 700; color: #4A3313; text-decoration: none; letter-spacing: .04em; text-align: center; transition: color .18s; }
-.drw-tel:hover { color: var(--amber); }
-.drw-hours { font-size: .9rem; color: #7A6544; text-align: center; margin: 0; }
+.drw-tel { font-family: Manrope, sans-serif; font-size: 1.4rem; font-weight: 700; color: #643E2F; text-decoration: none; letter-spacing: .04em; text-align: center; transition: color .18s; }
+.drw-tel:hover { color: #643E2F; }
+.drw-hours { font-size: .9rem; color: #8A6B5D; text-align: center; margin: 0; }
 
 
 @media (max-width: 1260px) { .hdr-nav { display: none; } .hdr-right { padding: 0 .9rem 0 1.4rem; } }
 @media (max-width: 640px) {  .hdr-logo-icon { height: 42px; } .logo-jp { font-size: 1.05rem; } .hdr-ham { width: 46px; height: 46px; } .hdr-biz { height: 38px; padding: 0 .8rem; font-size: 13px; } .hdr { height: 68px; } .hdr-brand { gap: .5rem; padding: 0 .8rem 0 .7rem; } .logo-en { letter-spacing: .1em; } .hdr-right { gap: .5rem; padding: 0 .7rem 0 1rem; } }
+/* 浮かぶヘッダー：ロゴとメニューを、それぞれ白い楕円で浮かせる */
+.hdr { height: auto; background: transparent; box-shadow: none; border-bottom: 0; padding: 18px 28px; pointer-events: none; }
+.hdr > * { pointer-events: auto; }
+.hdr-brand { background: #fff; border-radius: 999px; padding: .5rem 1.9rem .5rem .6rem; box-shadow: 0 4px 18px rgba(0,0,0,.12); }
+.hdr-blob { width: 84px; height: 72px; background: var(--butter); box-shadow: none; }
+.hdr-logo-icon { height: 56px; }
+.logo-jp { font-size: 1.4rem; }
+.hdr-right { padding: 0; gap: 1rem; }
+.hdr-nav ul { padding: .55rem 1rem; box-shadow: 0 4px 18px rgba(0,0,0,.12); }
+.hdr-nav a { padding: .85rem 1.35rem !important; font-size: 17px !important; }
+.hdr-nav a.act { padding: .5rem 1.4rem !important; }
+.hdr-biz { box-shadow: 0 4px 14px rgba(150,30,20,.3); font-size: 17px; }
+@media (min-width: 1261px) { .hdr-biz { padding: 0 2rem; } }
+.hdr-ham { background: #fff; border-color: transparent; box-shadow: 0 4px 14px rgba(0,0,0,.12); }
+@media (max-width: 1260px) { .hdr { padding: 12px 16px; } .hdr-right { padding: 0; } }
+@media (max-width: 640px) { .hdr { padding: 10px; height: auto; } .hdr-brand { padding: .35rem 1rem .35rem .4rem; gap: .5rem; } .hdr-blob { width: 56px; height: 48px; } .hdr-logo-icon { height: 38px; } .logo-jp { font-size: 1.05rem; } .hdr-right { gap: .4rem; } }
+/* ロゴ：背景なしで大きく表示（白い縁取りで、写真の上でも読めるようにする） */
+.hdr-brand { background: transparent; box-shadow: none; padding: 0 1rem 0 0; gap: .5rem; }
+.hdr-logo-icon { height: 84px; filter: drop-shadow(0 0 6px rgba(255,255,255,.9)) drop-shadow(0 0 2px rgba(255,255,255,.9)); }
+.hdr-wordmark { height: 76px; width: auto; display: block; filter: drop-shadow(0 0 6px rgba(255,255,255,.95)) drop-shadow(0 0 2px rgba(255,255,255,.95)); }
+@media (max-width: 640px) { .hdr { padding: 8px 8px; } .hdr-logo-icon { height: 38px; } .hdr-wordmark { height: 34px; } .hdr-brand { padding: 0; gap: .35rem; } .hdr-right { gap: .35rem; } .hdr-biz { height: 40px; padding: 0 .75rem; font-size: 13px; gap: .3rem; letter-spacing: .02em; } .hdr-biz svg { width: 14px; height: 14px; } .hdr-ham { width: 42px; height: 42px; flex-shrink: 0; } }
+/* トップの写真の上：ロゴを白にする */
+.hdr.onphoto .hdr-logo-icon { filter: drop-shadow(0 2px 10px rgba(0,0,0,.5)); }
+/* 白いロゴと、通常のロゴを、切り替える（フィルターを使わず、画像を切り替えてくっきり見せる） */
+.hdr-wm-white { display: none; }
+.hdr.onphoto .hdr-wm-dark { display: none; }
+.hdr.onphoto .hdr-wm-white { display: block; filter: drop-shadow(0 2px 8px rgba(0,0,0,.45)); }
+/* スクロール後：写真の上を離れたら、ヘッダーの後ろに薄い背景を敷いて、文字が重なって読めなくなるのを防ぐ */
+.hdr { transition: background .25s, box-shadow .25s; }
+.hdr.scrolled:not(.onphoto) { background: rgba(247,243,239,.94); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); box-shadow: 0 2px 14px rgba(0,0,0,.08); }
+@media (min-width: 1261px) { .hdr.scrolled:not(.onphoto) { padding-top: 10px; padding-bottom: 10px; } }
 </style>
 
 <script>
@@ -150,9 +179,14 @@ const drw = document.getElementById('drw')!;
 const ov  = document.getElementById('drw-ov')!;
 const cl  = document.getElementById('drw-cl')!;
 
-window.addEventListener('scroll', () => {
+const hero = document.querySelector('.hero');
+const update = () => {
   hdr.classList.toggle('scrolled', scrollY > 40);
-}, { passive: true });
+  // トップでは、写真の上にいる間だけ、ロゴを白にする
+  if (hero) hdr.classList.toggle('onphoto', hero.getBoundingClientRect().bottom > 120);
+};
+window.addEventListener('scroll', update, { passive: true });
+update();
 
 const open  = () => {
   drw.classList.add('open'); ov.classList.add('open');

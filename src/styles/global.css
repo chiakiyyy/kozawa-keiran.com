@@ -2,28 +2,34 @@
 
 @layer base {
   :root {
-    --amber:      #5A401A;
-    --brand:      #FCC800;
-    --brand-hv:   #E0B000;
-    --on-brand:   #4A3313;
-    --amber-lt:   #FCC800;
+    --amber:      #EA5514;
+    --brand:      #FFE200;
+    --brand-hv:   #F2D200;
+    --on-brand:   #643E2F;
+    --amber-lt:   #FFE200;
     --amber-bg:   #FCF0E2;
     --amber-pale: #FFFFFF;
     --amber-mid:  #FFD35A;
-    --gray-dk:    #4A3313;
-    --gray-mid:   #7A6544;
+    --gray-dk:    #643E2F;
+    --gray-mid:   #8A6B5D;
     --gray-lt:    #F4F2EB;
     --border:     rgba(44,44,42,0.08);
-    --bg:         #F9F2E4;
+    --bg:         #FFF6CC;
     --bg2:        #FFFFFF;
     --panel:      #FFFFFF;
-    --deep:       #5A401A;
+    --deep:       #EA5514;
     --notch-r:    28px;
-    --text:       #4A3313;
-    --muted:      #6B5636;
+    --text:       #643E2F;
+    --muted:      #7A5A4C;
     --green:      #4A6A20;
-    --yellow:     #FCC800;
-    --brown:      #5A401A;
+    --yellow:     #FFE200;
+    --brown:      #EA5514;
+    --cta:        #EA5514;
+    --cta-hv:     #C9440E;
+    --yolk:       #F5A623;
+    --peach:      #F8E1C8;
+    --soft:       #FFEE9C;
+    --butter:     #FFEE9C;
     --radius-sm:  14px;
     --radius-md:  24px;
     --radius-lg:  36px;
@@ -75,18 +81,18 @@
     font-family: Manrope, 'Zen Kaku Gothic New', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Hiragino Sans', 'ヒラギノ角ゴ ProN W3', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', YuGothic, Verdana, Meiryo, sans-serif;
   }
   .btn-primary {
-    background: var(--brand);
-    color: var(--on-brand);
-    box-shadow: 0 4px 18px rgba(254,190,0,0.38);
+    background: var(--cta);
+    color: #fff;
+    box-shadow: 0 4px 18px rgba(234,85,20,0.32);
   }
   .btn-primary:hover {
-    background: var(--brand-hv);
+    background: var(--cta-hv);
     transform: translateY(-2px);
-    box-shadow: 0 8px 28px rgba(254,190,0,0.45);
+    box-shadow: 0 8px 28px rgba(234,85,20,0.4);
   }
   .btn-outline {
     background: transparent;
-    color: var(--amber);
+    color: #643E2F;
     border: 1.5px solid var(--amber);
   }
   .btn-outline:hover {
@@ -118,7 +124,7 @@
   .sec--pale  { background: var(--bg2); }
   .sec--amber { background: var(--amber-pale); }
   .sec--dark  { background: var(--gray-dk); }
-  .sec--cream { background: #FAF8F2; }
+  .sec--cream { background: #FFFFFF; }
   .sec--green { background: #3D5A1A; }
 
   .container {
@@ -133,7 +139,7 @@
     font-size: .75rem;
     font-weight: 700;
     letter-spacing: 0.26em;
-    color: var(--amber);
+    color: #643E2F;
     display: block;
     margin-bottom: 0.6rem;
     text-transform: uppercase;
@@ -183,7 +189,7 @@
     font-size: 1.02rem;
     font-weight: 500;
     letter-spacing: 0.15em;
-    color: var(--amber);
+    color: #643E2F;
     margin: 0;
   }
   .btn-circle {
@@ -216,7 +222,7 @@
   .btn-circle:hover::before { opacity: 0; }
 
   /* ========== 包装社風レイアウト：切り欠き付きヒーロー ========== */
-  .hf { background: var(--panel); padding: 108px 36px 36px; position: relative; }
+  .hf { background: var(--panel); padding: 128px 36px 36px; position: relative; }
   .hf-img { position: relative; border-radius: var(--notch-r); overflow: hidden; height: clamp(380px, 60vh, 700px); background: #e9e2d2; }
   .hf-img > img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .hf-title {
@@ -240,19 +246,19 @@
   .hf-news-body span { color: var(--muted); }
 
   /* 丸型リンク（View more / About us） */
-  .circle-link { display: inline-flex; align-items: center; gap: .7rem; color: var(--amber); font-family: Manrope, sans-serif; font-weight: 600; letter-spacing: .06em; text-decoration: none; font-size: 1.05rem; }
+  .circle-link { display: inline-flex; align-items: center; gap: .7rem; color: #643E2F; font-family: Manrope, sans-serif; font-weight: 600; letter-spacing: .06em; text-decoration: none; font-size: 1.05rem; }
   .circle-link::before { content: ''; width: 19px; height: 19px; border-radius: 50%; background: var(--brand) radial-gradient(circle, var(--on-brand) 0 2.5px, transparent 3px); transition: transform .4s cubic-bezier(.165,.84,.44,1); }
   .circle-link:hover::before { transform: scale(.7); }
-  .circle-link--w { color: var(--amber); }
+  .circle-link--w { color: #643E2F; }
 
   /* 左寄せ見出し */
   .ttl--left { text-align: left; margin-bottom: 2rem; }
 
   /* 色帯セクション（Service） */
-  .band { background: #fff; color: #5A401A; padding: 6rem 0; overflow: hidden; }
-  .band .ttl-en { color: #4A3313; }
-  .band .ttl-ja { color: #5A401A; }
-  .band p { font-size: 1rem; line-height: 2.2; letter-spacing: .06em; color: #5A401A; }
+  .band { background: #fff; color: #643E2F; padding: 6rem 0; overflow: hidden; }
+  .band .ttl-en { color: #643E2F; }
+  .band .ttl-ja { color: #643E2F; }
+  .band p { font-size: 1rem; line-height: 2.2; letter-spacing: .06em; color: #643E2F; }
   .band-in { max-width: 1200px; margin: 0 auto; padding: 0 2.5rem; display: grid; grid-template-columns: 1fr 1.1fr; gap: 3rem; align-items: center; }
   .halo { position: relative; width: min(100%, 560px); aspect-ratio: 1; margin: 0 auto; border-radius: 50%; background: rgba(255,255,255,.07); display: grid; place-items: center; }
   .halo-slide { position: absolute; inset: 12%; border-radius: 50%; overflow: hidden; opacity: 0; transition: opacity .6s; pointer-events: none; display: block; }
@@ -269,7 +275,7 @@
   .circ-ring { width: min(100%, 300px); aspect-ratio: 1; margin: 0 auto 1.4rem; border-radius: 50%; background: var(--panel); display: grid; place-items: center; transition: transform .5s cubic-bezier(.165,.84,.44,1); }
   .circ:hover .circ-ring { transform: scale(1.03); }
   .circ-ring img { width: 82%; aspect-ratio: 1; border-radius: 50%; object-fit: cover; display: block; background: #fff; }
-  .circ h3 { color: var(--amber); font-size: 1.1rem; margin: 0 0 .7rem; letter-spacing: .08em; }
+  .circ h3 { color: #643E2F; font-size: 1.1rem; margin: 0 0 .7rem; letter-spacing: .08em; }
   .circ p { font-size: .97rem; line-height: 2; letter-spacing: .04em; color: var(--muted); margin: 0 auto; max-width: 300px; text-align: left; }
 
   /* 横スクロールの事例カード（Works） */
@@ -283,7 +289,7 @@
   .hcard h3 { margin: .9rem 0 0; font-size: 1.05rem; font-weight: 500; line-height: 1.7; min-height: 3.4em; }
 
   @media (max-width: 860px) {
-    .hf { padding: 82px 14px 14px; }
+    .hf { padding: 92px 14px 14px; }
     .hf-title { left: -14px; padding: 1rem 1.5rem 0 calc(14px + .9rem); }
     .hf-news { top: .8rem; right: .8rem; bottom: auto; max-width: 80%; border-radius: 14px; padding: .7rem 1rem; gap: .8rem; box-shadow: 0 2px 10px rgba(90,64,26,.15); }
     .hf-news-body { font-size: .85rem; gap: .15rem; }
@@ -313,7 +319,7 @@
     gap: 0.45rem;
     font-size: .97rem;
     font-weight: 700;
-    color: var(--amber);
+    color: #643E2F;
     text-decoration: none;
     letter-spacing: 0.04em;
     transition: gap 0.22s;
@@ -344,7 +350,7 @@
     font-family: Manrope, sans-serif;
     font-size: .75rem;
     letter-spacing: 0.26em;
-    color: var(--amber);
+    color: #643E2F;
     display: block;
     margin-bottom: 0.85rem;
     text-transform: uppercase;

@@ -73,7 +73,8 @@ const sections = [
 .pv p { margin: 0 0 .6rem; }
 .pv ul { margin: .3rem 0 0; padding-left: 1.4rem; }
 .co { display: grid; grid-template-columns: 6rem 1fr; gap: .4rem 1rem; margin: 0; font-size: 1.05rem; }
-.co dt { color: var(--amber); font-weight: 700; } .co dd { margin: 0; }
-.co a { color: var(--amber); text-decoration: underline; }
+.co dt { color: #643E2F; font-weight: 700; } .co dd { margin: 0; min-width: 0; overflow-wrap: anywhere; }
+@media (max-width: 480px) { .co { grid-template-columns: 4.5rem 1fr; font-size: .98rem; } }
+.co a { color: #643E2F; text-decoration: underline; }
 .date { text-align: right; color: var(--muted); font-size: 1rem; margin-top: 2.5rem; }
 </style>

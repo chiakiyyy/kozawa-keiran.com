@@ -65,24 +65,25 @@ const maxN = Math.max(...breakdown.map(b => b.n));
 .bk-name { font-weight: 700; font-size: 1.05rem; }
 .bk-bar { background: var(--panel); border-radius: 999px; height: 14px; overflow: hidden; display: block; }
 .bk-bar i { display: block; height: 100%; background: linear-gradient(90deg, var(--amber-lt), var(--amber)); border-radius: 999px; }
-.bk-n { font-family: Manrope, sans-serif; font-size: 1.5rem; color: var(--amber); text-align: right; font-weight: 500; }
+.bk-n { font-family: Manrope, sans-serif; font-size: 1.5rem; color: #643E2F; text-align: right; font-weight: 500; }
 .bk-n small { font-size: .88rem; margin-left: .1rem; }
 .metric-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
 .metric { text-align: center; padding: 2rem 1rem; border-top: 2px solid var(--amber-lt); background: var(--amber-pale); border-radius: 0 0 var(--radius-md) var(--radius-md); }
-.metric-num { font-family: Manrope, sans-serif; font-size: clamp(2.2rem, 4vw, 3rem); font-weight: 700; white-space: nowrap; color: var(--amber); line-height: 1.2; }
+.metric-num { font-family: Manrope, sans-serif; font-size: clamp(2.2rem, 4vw, 3rem); font-weight: 700; white-space: nowrap; color: #643E2F; line-height: 1.2; }
 .metric-num small { font-size: 1rem; font-weight: 500; margin-left: .2rem; }
 .metric-label { font-size: 1rem; font-weight: 700; margin-top: .5rem; }
 .metric-note { font-size: .9rem; color: var(--muted); margin-top: .25rem; }
 .case-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.75rem; }
 .case-card { padding: 2rem; display: flex; flex-direction: column; gap: .8rem; height: 100%; }
 .case-card h3 { min-height: 3.4em; }
-.case-cat { align-self: flex-start; background: var(--amber-bg); color: var(--amber); font-size: .85rem; font-weight: 700; padding: .25rem .9rem; border-radius: 999px; letter-spacing: .06em; }
+.case-cat { align-self: flex-start; background: var(--amber-bg); color: #643E2F; font-size: .85rem; font-weight: 700; padding: .25rem .9rem; border-radius: 999px; letter-spacing: .06em; }
 .case-card h3 { font-size: 1.02rem; margin: 0; line-height: 1.7; }
 .case-card p { font-size: .97rem; color: var(--muted); line-height: 1.9; margin: 0; }
 .case-card dl { display: grid; grid-template-columns: auto 1fr; gap: .3rem .9rem; font-size: .9rem; margin: .5rem 0 0; padding-top: 1rem; border-top: .5px solid var(--border); }
-.case-card dt { color: var(--amber); font-weight: 700; }
+.case-card dt { color: #643E2F; font-weight: 700; }
 .case-card dd { margin: 0; }
 @media (max-width: 960px) { .metric-grid { grid-template-columns: repeat(2, 1fr); } .case-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 600px) { .case-grid { grid-template-columns: 1fr; } }
 @media (max-width: 860px) { .bk { grid-template-columns: 7rem 1fr 3.5rem; } }
+@media (max-width: 600px) { .metric-grid { gap: .8rem; } .metric { padding: 1.4rem .4rem; } .metric-num { font-size: 1.6rem; } .metric-num small { font-size: .8rem; } }
 </style>
