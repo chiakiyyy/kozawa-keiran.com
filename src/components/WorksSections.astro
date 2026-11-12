@@ -1,6 +1,6 @@
 ---
 // 実績（数字・納品事例・取引先の内訳）。法人のお客様ページに表示します。
-import { metrics, works } from '../data/works';
+import { works } from '../data/works';
 import { stores, storeCategories } from '../data/stores';
 
 const breakdown = storeCategories
@@ -9,20 +9,6 @@ const breakdown = storeCategories
 const maxN = Math.max(...breakdown.map(b => b.n));
 ---
 <div id="works">
-  <section class="sec sec--pale">
-    <div class="container">
-      <div class="ttl fade-up"><h2 class="ttl-en">数字で見る小澤鶏卵</h2></div>
-      <div class="metric-grid">
-        {metrics.map((m, i) => (
-          <div class={`metric fade-up fade-up-d${i + 1}`}>
-            <div class="metric-num">{m.num}<small>{m.unit}</small></div>
-            <div class="metric-label">{m.label}</div>
-            {m.note && <div class="metric-note">{m.note}</div>}
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
 
   <section class="sec">
     <div class="container">
@@ -31,7 +17,7 @@ const maxN = Math.max(...breakdown.map(b => b.n));
         {works.map((w, i) => (
           <article class={`card case-card fade-up fade-up-d${(i % 3) + 1}`}>
             <span class="case-cat">{w.category}</span>
-            <h3>{w.title}</h3>
+            <h3>{w.title.split('|').map((s, i) => (<>{i > 0 && <wbr/>}{s}</>))}</h3>
             <p>{w.body}</p>
           </article>
         ))}
@@ -86,4 +72,5 @@ const maxN = Math.max(...breakdown.map(b => b.n));
 @media (max-width: 600px) { .case-grid { grid-template-columns: 1fr; } }
 @media (max-width: 860px) { .bk { grid-template-columns: 7rem 1fr 3.5rem; } }
 @media (max-width: 600px) { .metric-grid { gap: .8rem; } .metric { padding: 1.4rem .4rem; } .metric-num { font-size: 1.6rem; } .metric-num small { font-size: .8rem; } }
+.case-card h3 { word-break: keep-all; overflow-wrap: anywhere; }
 </style>

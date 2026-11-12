@@ -208,7 +208,7 @@ const faqs = [
           </div>
           <div class="biz-form-box">
             <p>フォームからもご相談いただけます</p>
-            <a href="/contact?type=business" class="btn btn-primary" style="justify-content:center">お問い合わせフォームへ →</a>
+            <a href="/contact?type=business" class="btn btn-primary biz-form-btn">フォームで相談する →</a>
           </div>
           <div class="biz-form-box biz-line-box">
             <p>LINEでもご相談いただけます</p>
@@ -328,7 +328,7 @@ const faqs = [
 .biz-tel { display:block; font-family:'Lato',sans-serif; font-size:1.6rem; font-weight:300; color:var(--brown); text-decoration:none; letter-spacing:.05em; margin-bottom:.25rem; }
 .biz-tel-hours { font-size:.88rem; color:var(--muted); }
 .biz-contact-box > * { min-width:0; }
-.biz-form-box .btn { white-space:normal; text-align:center; padding:.9rem 1.2rem; }
+.biz-form-box .btn { white-space:nowrap; text-align:center; padding:.9rem 1.4rem; font-size:1rem; }
 .biz-line-btn { display:flex; align-items:center; justify-content:center; padding:.9rem 1.5rem; border-radius:999px; background:#06C755; color:#fff; font-weight:700; text-decoration:none; }
 .biz-form-box p { font-size:1rem; color:var(--muted); margin-bottom:1rem; }
 @media (max-width:900px) {
@@ -362,4 +362,5 @@ const faqs = [
 .area-main p { font-size:.97rem; color:#6E5144; line-height:1.8; margin:0; }
 .area-note { text-align:center; font-size:.92rem; color:#6E5144; margin-top:1rem; }
 @media (max-width:720px) { .area-grid { grid-template-columns:1fr; } .track-record { gap:1.5rem; } }
+.biz-form-btn { justify-content: center; white-space: nowrap; padding-left: 1.4rem !important; padding-right: 1.4rem !important; }
 </style>
