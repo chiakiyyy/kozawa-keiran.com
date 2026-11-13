@@ -15,9 +15,9 @@ const gift = gifts[0];
 const yen = (n: number) => n.toLocaleString('ja-JP');
 
 const entries = [
-  { label: '法人のお客様', href: '/business/', img: '/images/business_hero.png', art: '/images/illust-biz.png', illus: `<svg viewBox="0 0 120 120" aria-hidden="true"><rect x="8" y="42" width="62" height="40" rx="4" fill="#fff" stroke="#643E2F" stroke-width="3"/><path d="M70 54h18l14 14v14H70z" fill="#CF470E" stroke="#643E2F" stroke-width="3" stroke-linejoin="round"/><path d="M77 58h10l8 9H77z" fill="#FFF6CC"/><circle cx="28" cy="86" r="9" fill="#643E2F"/><circle cx="88" cy="86" r="9" fill="#643E2F"/><circle cx="28" cy="86" r="3.5" fill="#fff"/><circle cx="88" cy="86" r="3.5" fill="#fff"/><ellipse cx="39" cy="61" rx="10" ry="12.5" fill="#FFE200" stroke="#643E2F" stroke-width="2.5"/><path d="M8 74h62" stroke="#CF470E" stroke-width="3"/></svg>`, bg: '#FBE7D5', desc: '飲食店・ホテル・給食施設・スーパーなどへ、業務用たまごを当日配達します。', go: '法人のお客様はこちら' },
-  { label: 'オンラインショップ', href: '/gift/', img: '/images/gift/tkg-set.webp', illus: `<svg viewBox="0 0 120 120" aria-hidden="true"><rect x="34" y="12" width="52" height="96" rx="10" fill="#fff" stroke="#643E2F" stroke-width="3"/><rect x="40" y="24" width="40" height="52" rx="3" fill="#FFF6CC"/><ellipse cx="60" cy="48" rx="10" ry="13" fill="#FFE200" stroke="#643E2F" stroke-width="2.5"/><rect x="42" y="82" width="36" height="14" rx="7" fill="#CF470E"/><path d="M52 89h16" stroke="#fff" stroke-width="3" stroke-linecap="round"/></svg>`, bg: '#FFF0C2', desc: 'ギフトや、ご家庭用のたまごを、オンラインでご注文いただけます。', go: 'ご注文はこちら' },
-  { label: '直売所のご案内', href: '/store/', img: '/images/shop/hero-family.jpg', illus: `<svg viewBox="0 0 120 120" aria-hidden="true"><rect x="20" y="56" width="80" height="48" fill="#fff" stroke="#643E2F" stroke-width="3"/><path d="M14 56l8-24h76l8 24z" fill="#CF470E" stroke="#643E2F" stroke-width="3" stroke-linejoin="round"/><path d="M42 32l-6 24M60 32v24M78 32l6 24" stroke="#fff" stroke-width="5"/><rect x="48" y="72" width="24" height="32" fill="#FFE200" stroke="#643E2F" stroke-width="3"/><ellipse cx="60" cy="19" rx="7" ry="9" fill="#FFE200" stroke="#643E2F" stroke-width="2.5"/><path d="M26 74h14v12H26z" fill="#FFF6CC" stroke="#643E2F" stroke-width="2"/></svg>`, bg: '#E6EEF2', desc: '富山市婦中町の店舗です。所在地と営業時間をご案内します。', go: 'アクセスを見る' },
+  { label: '法人のお客様', egg: '/images/entry/egg-biz.webp', href: '/business/', img: '/images/business_hero.png', art: '/images/illust-biz.png', illus: `<svg viewBox="0 0 120 120" aria-hidden="true"><rect x="8" y="42" width="62" height="40" rx="4" fill="#fff" stroke="#643E2F" stroke-width="3"/><path d="M70 54h18l14 14v14H70z" fill="#CF470E" stroke="#643E2F" stroke-width="3" stroke-linejoin="round"/><path d="M77 58h10l8 9H77z" fill="#FFF6CC"/><circle cx="28" cy="86" r="9" fill="#643E2F"/><circle cx="88" cy="86" r="9" fill="#643E2F"/><circle cx="28" cy="86" r="3.5" fill="#fff"/><circle cx="88" cy="86" r="3.5" fill="#fff"/><ellipse cx="39" cy="61" rx="10" ry="12.5" fill="#FFE200" stroke="#643E2F" stroke-width="2.5"/><path d="M8 74h62" stroke="#CF470E" stroke-width="3"/></svg>`, bg: '#FBE7D5', desc: '飲食店・ホテル・給食施設・スーパーなどへ、業務用たまごを当日配達します。', go: '法人のお客様はこちら' },
+  { label: 'オンラインショップ', egg: '/images/entry/egg-shop.webp', href: '/gift/', img: '/images/gift/tkg-set.webp', illus: `<svg viewBox="0 0 120 120" aria-hidden="true"><rect x="34" y="12" width="52" height="96" rx="10" fill="#fff" stroke="#643E2F" stroke-width="3"/><rect x="40" y="24" width="40" height="52" rx="3" fill="#FFF6CC"/><ellipse cx="60" cy="48" rx="10" ry="13" fill="#FFE200" stroke="#643E2F" stroke-width="2.5"/><rect x="42" y="82" width="36" height="14" rx="7" fill="#CF470E"/><path d="M52 89h16" stroke="#fff" stroke-width="3" stroke-linecap="round"/></svg>`, bg: '#FFF0C2', desc: 'ギフトや、ご家庭用のたまごを、オンラインでご注文いただけます。', go: 'ご注文はこちら' },
+  { label: '直売所のご案内', egg: '/images/entry/egg-store.webp', href: '/store/', img: '/images/shop/hero-family.jpg', illus: `<svg viewBox="0 0 120 120" aria-hidden="true"><rect x="20" y="56" width="80" height="48" fill="#fff" stroke="#643E2F" stroke-width="3"/><path d="M14 56l8-24h76l8 24z" fill="#CF470E" stroke="#643E2F" stroke-width="3" stroke-linejoin="round"/><path d="M42 32l-6 24M60 32v24M78 32l6 24" stroke="#fff" stroke-width="5"/><rect x="48" y="72" width="24" height="32" fill="#FFE200" stroke="#643E2F" stroke-width="3"/><ellipse cx="60" cy="19" rx="7" ry="9" fill="#FFE200" stroke="#643E2F" stroke-width="2.5"/><path d="M26 74h14v12H26z" fill="#FFF6CC" stroke="#643E2F" stroke-width="2"/></svg>`, bg: '#E6EEF2', desc: '富山市婦中町の店舗です。所在地と営業時間をご案内します。', go: 'アクセスを見る' },
 ];
 const storeRows = [
   ['所在地', '〒939-2716 富山県富山市婦中町下轡田25-1'],
@@ -68,7 +68,7 @@ const workImgs = ['/images/feature/feature-egg.jpg', '/images/hero_main.png', '/
         <div class="tp-entry-items">
           {entries.map(e => (
             <a href={e.href} class="tp-egg-link">
-              <span class="tp-egg tp-egg--illus" style={`background:${e.bg}`}>{e.art ? <span class="tp-egg-art tp-egg-art--img"><img src={e.art} alt="" loading="lazy" width="640" height="350"/></span> : <span class="tp-egg-art" set:html={e.illus}></span>}<span class="tp-egg-label">{e.label.split(/(?<=の|ン)/).map((s, i) => (<>{i > 0 && <wbr/>}{s}</>))}</span></span>
+              <span class="tp-egg tp-egg--img"><img src={e.egg} alt={e.label} loading="lazy" width="1127" height="1396"/></span>
             </a>
           ))}
         </div>
@@ -479,4 +479,11 @@ const workImgs = ['/images/feature/feature-egg.jpg', '/images/hero_main.png', '/
 .tp-card-contents { margin: 0 0 .4rem; text-align: center; font-size: .95rem; color: var(--muted); line-height: 1.7; }
 .tcy, .tp-about-ttl .tcy { display: inline; text-combine-upright: all; -webkit-text-combine: horizontal; }
 @media (max-width: 640px) { .tp-fv-cta { flex-direction: column; align-items: stretch; width: 100%; max-width: 320px; } .tp-fv-cta .tp-btn { min-width: 0; } }
+
+/* 入口：卵型イラスト（文字入りの画像）をそのまま表示 */
+.tp-egg--img { display: block; width: clamp(170px, 16vw, 220px); height: auto; aspect-ratio: auto; background: none; box-shadow: none; overflow: visible; transform-origin: 50% 90%; }
+.tp-egg--img img { width: 100%; height: auto; object-fit: contain; display: block; }
+.tp-egg-link:hover .tp-egg--img, .tp-egg-link:focus-visible .tp-egg--img { animation: egg-wobble .7s ease-in-out; }
+@media (prefers-reduced-motion: reduce) { .tp-egg-link:hover .tp-egg--img { animation: none; } }
+@media (max-width: 860px) { .tp-entry { padding: 1.6rem .4rem 1.8rem; } .tp-entry-items { gap: .2rem; } .tp-egg--img { width: 100%; max-width: none; } }
 </style>
