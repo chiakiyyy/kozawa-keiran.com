@@ -1,4 +1,5 @@
 ---
+import { dim } from '../../data/imgsize';
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import PageHero from '../../components/PageHero.astro';
@@ -10,7 +11,7 @@ const scenes = ['お中元', 'お歳暮', '内祝い', '誕生日・お祝い', 
 const yen = (g: { price: number; shippingFee: number }) =>
   `${g.price.toLocaleString('ja-JP')}円（${g.shippingFee ? '送料別' : '送料込み'}）`;
 ---
-<Layout title="ギフト・オンラインショップ｜小澤鶏卵" description="富山の鶏卵専門店・小澤鶏卵のギフト。お中元・お歳暮・内祝いに。卵かけご飯セットなどを、オンラインでご注文いただけます。">
+<Layout title="卵ギフト・オンラインショップ｜卵かけご飯セット・朝どれ卵｜小澤鶏卵" description="富山の鶏卵専門店・小澤鶏卵のオンラインショップ。卵かけご飯セットや、朝どれ卵20個入り（いずれも送料込み）を、チルドゆうパックでお届けします。お中元・お歳暮・内祝いに。">
   <Header/>
   <main>
     <PageHero en="Gift" ja="ギフト・オンラインショップ" img="/images/gift/tkg-set.webp" lead="お中元・お歳暮・内祝いに。富山のおいしいを、大切な方へお届けします。"><p style="text-align:center;margin:1.5rem 0 .5rem"><a href="#lineup" class="btn btn-primary">ギフトを選ぶ ↓</a></p></PageHero>
@@ -36,9 +37,9 @@ const yen = (g: { price: number; shippingFee: number }) =>
                 <span class="gift-badge">{g.badge}</span>
                 <div class="gift-track">
                   <div class="gift-img gift-slide">
-                    <img src={g.img} alt={g.name} loading="lazy"/>
+                    <img src={g.img} {...dim(g.img)} alt={g.name} loading="lazy"/>
                   </div>
-                  {g.img2 && <div class="gift-img gift-slide"><img src={g.img2} alt={`${g.name}の包装イメージ`} loading="lazy"/></div>}
+                  {g.img2 && <div class="gift-img gift-slide"><img src={g.img2} {...dim(g.img2)} alt={`${g.name}の包装イメージ`} loading="lazy"/></div>}
                 </div>
                 {g.img2 && (
                   <>
@@ -57,7 +58,7 @@ const yen = (g: { price: number; shippingFee: number }) =>
                 </dl>
                 <p class="gift-price">{yen(g)}</p>
                 <p class="gift-ship">{g.shippingNote}</p>
-                <a href={g.buyUrl || `/gift/order?item=${g.id}`} class="btn btn-primary gift-btn">注文する</a>
+                <a href={g.buyUrl || `/gift/order/?item=${g.id}`} class="btn btn-primary gift-btn">注文する</a>
               </div>
             </article>
           ))}
@@ -79,8 +80,8 @@ const yen = (g: { price: number; shippingFee: number }) =>
           {giftNotes.map(n => <li>{n}</li>)}
         </ul>
         <div style="text-align:center;margin-top:2.5rem">
-          <a href="/gift/order" class="btn-circle">注文フォームへ</a>
-          <a href="/delivery" class="btn-circle" style="margin-left:1rem">送料とお届けについて</a>
+          <a href="/gift/order/" class="btn-circle">注文フォームへ</a>
+          <a href="/delivery/" class="btn-circle" style="margin-left:1rem">送料とお届けについて</a>
         </div>
       </div>
     </section>
@@ -89,7 +90,7 @@ const yen = (g: { price: number; shippingFee: number }) =>
       <div class="container" style="text-align:center">
         <h2 class="sec-title">法人のお客様へ</h2>
         <p class="sec-lead">お取引先への贈答や記念品など、まとまった数のご注文は個別にご相談ください。</p>
-        <a href="/contact" class="btn btn-dark" style="margin-top:1.75rem">法人のご相談はこちら →</a>
+        <a href="/contact/" class="btn btn-dark" style="margin-top:1.75rem">法人のご相談はこちら →</a>
       </div>
     </section>
 

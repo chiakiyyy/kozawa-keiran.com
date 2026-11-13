@@ -6,28 +6,10 @@ import Footer from '../components/Footer.astro';
 import ContactSection from '../components/ContactSection.astro';
 import FeatureSections from '../components/FeatureSections.astro';
 
-const thoughts = [
-  {
-    icon: `<svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="#EA5514" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="16" cy="18" rx="9" ry="11"/><path d="M16 7V4"/></svg>`,
-    title: '安心・安全へのこだわり',
-    body: '鶏の健康を第一に考え、衛生管理を徹底した環境で育てています。毎日安心して食べていただける卵をお届けします。',
-  },
-  {
-    icon: `<svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="#EA5514" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 24c0-7 3-12 7-12s7 5 7 12"/><circle cx="16" cy="9" r="4.5"/></svg>`,
-    title: 'おいしさへの追求',
-    body: 'エサや水にこだわり、鶏がのびのびと育つ環境を整えています。コクがあり、味わい深い卵を目指しています。',
-  },
-  {
-    icon: `<svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="#EA5514" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="11" width="16" height="10" rx="1.5"/><path d="M18 13h6l4 5v3h-10v-8z"/><circle cx="8" cy="24" r="2.2"/><circle cx="24" cy="24" r="2.2"/></svg>`,
-    title: '地域に寄り添う存在へ',
-    body: '富山の食卓に新鮮な卵を届けるため、地元に根ざした配送体制で迅速・丁寧に対応しています。',
-  },
-];
-
 const history = [
   { year: '1945年', event: '小澤鶏卵 創業', body: '鶏卵の商いを始める' },
-  { year: 'それから80年以上', event: '鶏卵ひと筋に歩む', body: '富山の食卓と飲食店を支える' },
-  { year: '現在', event: '取引先 50社以上', body: '飲食店・菓子店・スーパー・施設などへお届け' },
+  { year: '80年以上', event: '鶏卵ひと筋に歩む', body: '富山の食卓と飲食店へ' },
+  { year: '現在', event: '富山の事業者様へお届け', body: '飲食店・菓子店・スーパー・施設など' },
   { year: 'これから', event: 'ギフトのオンライン注文を開始', body: 'より多くの食卓へ' },
 ];
 
@@ -45,29 +27,11 @@ const company = [
 ];
 const mapUrl = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent('富山県富山市婦中町下轡田25-1');
 ---
-<Layout title="私たちについて｜小澤鶏卵" description="小澤鶏卵は富山の自然とともに歩み、安心・安全・おいしいたまごをお届けしてきました。私たちの想い・5つのこだわり・出荷の流れ・代表あいさつ・沿革・会社概要をご紹介します。">
+<Layout title="私たちについて｜1945年創業・富山の鶏卵専門店｜小澤鶏卵" description="1945年創業、富山市婦中町の鶏卵専門店・小澤鶏卵の紹介ページです。5つのこだわり、採卵から出荷までの流れ、代表あいさつ、沿革、会社概要をご紹介します。">
   <Header/>
   <main>
-    <PageHero en="About us" ja="私たちについて" img="/images/shop/point1.jpg" lead="小澤鶏卵は、富山の自然とともに歩み、「安心・安全・おいしい」たまごをお届けしてきました。地域の食卓を支える存在でありたいという想いのもと、これからも誠実に、まっすぐに卵づくりに向き合っていきます。"/>
+    <PageHero en="About us" ja="私たちについて" img="/images/shop/point1.jpg" lead="小澤鶏卵は、富山市婦中町の鶏卵専門店です。飲食店や給食施設の厨房へ、ご家庭の食卓へ、毎日たまごをお届けしています。"/>
 
-    <!-- 小澤鶏卵の想い -->
-    <section class="ab-thoughts">
-      <div class="container">
-        <div class="ttl"><h2 class="ttl-en">小澤鶏卵の想い</h2></div>
-        <div class="ab-thoughts-grid">
-          {thoughts.map((t, i) => (
-            <>
-              <div class="ab-thought">
-                <div class="ab-thought-icon" set:html={t.icon}></div>
-                <h3>{t.title}</h3>
-                <p>{t.body}</p>
-              </div>
-              {i < thoughts.length - 1 && <div class="ab-thought-sep"></div>}
-            </>
-          ))}
-        </div>
-      </div>
-    </section>
 
 
     <FeatureSections/>
@@ -121,14 +85,14 @@ const mapUrl = 'https://www.google.com/maps/search/?api=1&query=' + encodeURICom
           </table>
         </div>
         <div class:list={["ab-company-img", { "img-fallback": false }]}>
-          <img src="/images/feature/feature-egg.jpg" alt="パック詰めされたたまご" loading="lazy" onerror="this.closest('.ab-company-img').classList.add('img-fallback')"/>
+          <img src="/images/feature/feature-egg.jpg" width="1000" height="667" alt="パック詰めされたたまご" loading="lazy" onerror="this.closest('.ab-company-img').classList.add('img-fallback')"/>
         </div>
       </div>
         <p style="text-align:center;margin:2rem 0 0"><a href={mapUrl} target="_blank" rel="noopener" class="btn-circle">地図で見る（Googleマップ）</a></p>
     </section>
 
     <!-- CONTACT -->
-    <ContactSection title="業務用たまごのご相談・お見積りはお気軽にお問い合わせください" lead=""/>
+    <ContactSection/>
   </main>
   <Footer/>
 </Layout>

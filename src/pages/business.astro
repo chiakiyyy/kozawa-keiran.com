@@ -11,9 +11,7 @@ const targets = [
   { icon: ic('<rect x="10" y="8" width="28" height="32" rx="2"/><path d="M17 16h4M27 16h4M17 24h4M27 24h4M20 40v-8h8v8"/>'), name:'ホテル' },
   { icon: ic('<path d="M6 10h6l5 20h20l4-14H14"/><circle cx="20" cy="38" r="2.5"/><circle cx="34" cy="38" r="2.5"/>'), name:'スーパー' },
   { icon: ic('<path d="M6 20L24 10l18 10-18 10z"/><path d="M14 25v9c0 3 20 3 20 0v-9"/>'), name:'給食施設' },
-  { icon: ic('<path d="M8 40V18l16-10 16 10v22"/><path d="M8 18h32M18 40V28h12v12"/>'), name:'イベント業者' },
-  { icon: ic('<path d="M14 6v14c0 3 6 3 6 0V6M17 20v22"/><path d="M34 42V6c-5 3-7 9-7 16h7"/>'), name:'飲食店全般' },
-  { icon: ic('<path d="M10 40l8-26 16 16z"/><path d="M30 10l1 3M38 16l-3 1M36 8l-2 3"/>'), name:'催事利用' },
+  { icon: ic('<path d="M8 40V18l16-10 16 10v22"/><path d="M8 18h32M18 40V28h12v12"/>'), name:'催事・イベント' },
 ];
 const concerns = [
   '毎日使うたまごを安定して仕入れたい',
@@ -24,17 +22,17 @@ const concerns = [
   '急な増減にも柔軟に対応してほしい',
 ];
 const flow = [
-  { step:'01', title:'お問い合わせ', body:'フォームまたはお電話にてお気軽にご連絡ください。' },
+  { step:'01', title:'お問い合わせ', body:'フォーム・お電話・LINEでご連絡ください。' },
   { step:'02', title:'ヒアリング', body:'ご要望・ご利用シーン・数量・配送希望などをお聞きします。' },
   { step:'03', title:'ご提案・お見積り', body:'最適な商品・納品プランをご提案し、お見積もりをご提示します。' },
   { step:'04', title:'納品開始', body:'合意後、ご希望の日程から定期納品を開始します。' },
 ];
 const faqs = [
-  { q:'最小発注量はどのくらいですか？', a:'1ケース（約10kg）から承ります。お気軽にご相談ください。' },
-  { q:'配送エリアはどこですか？', a:'富山市内に対応しています。市外はお気軽にご相談ください。' },
+  { q:'最小発注量はどのくらいですか？', a:'1ケース（約10kg）から承ります。' },
+  { q:'配送エリアはどこですか？', a:'富山市内は自社便で配達しています。富山市外・県内各地へのお届けは、ご相談ください。' },
   { q:'急な数量変更は可能ですか？', a:'できる限り柔軟に対応いたします。事前にご連絡いただければ幸いです。' },
   { q:'規格・サイズの指定はできますか？', a:'はい、10kg箱はLL・L・M・MS・Sの各サイズをご用意しています。赤玉などの指定もご相談ください。' },
-  { q:'請求書払いは可能ですか？', a:'法人・個人事業主様には掛け売りに対応しています。詳しくはご相談ください。' },
+  { q:'請求書払いは可能ですか？', a:'法人・個人事業主様には、掛け売り（請求書払い）に対応しています。' },
 ];
 ---
 <Layout title="富山の業務用卵・たまご卸｜飲食店・給食へ当日配達｜小澤鶏卵" description="富山の業務用卵なら小澤鶏卵。10kg箱（LL・L・M・MS・S）・パック卵を、飲食店・ホテル・給食施設・スーパーへ定期納品。月・水・金は9:30までのご注文で、富山市内へ当日夕方にお届け。請求書払い（掛け売り）にも対応。">
@@ -44,7 +42,7 @@ const faqs = [
   })}/>
   <Header/>
   <main>
-    <PageHero en="For Business" ja="富山の業務用たまご（法人のお客様）" img="/images/business_hero.png" lead="毎日使うたまごを安定してお届けします。富山市内・富山県を中心とした飲食店・食品事業者様へ。月〜金で注文を受け付けています。月・水・金は、午前9:30までのご注文で当日夕方の配達に対応します。"><p style="text-align:center;margin:1.5rem 0 .5rem"><a href="#contact-form" class="btn btn-primary">法人取引のご相談はこちら →</a></p></PageHero>
+    <PageHero en="For Business" ja="富山の業務用たまご（法人のお客様）" img="/images/business_hero.png" lead="富山市内・富山県の飲食店・食品事業者様へ、毎日使うたまごを安定してお届けします。"><p style="text-align:center;margin:1.5rem 0 .5rem"><a href="#contact-form" class="btn btn-primary">法人取引のご相談はこちら →</a></p></PageHero>
 
     <!-- お悩み -->
     <section class="sec">
@@ -59,7 +57,6 @@ const faqs = [
             </div>
           ))}
         </div>
-        <p class="concerns-cta-text">小澤鶏卵がそのお悩みを解決します！</p>
         <div class="track-record">
           <div class="track-item"><span class="track-num"><b>80</b><small>年以上</small></span><span class="track-label">1945年創業</span></div>
           <div class="track-item"><span class="track-num"><b>富山</b><small>市内</small></span><span class="track-label">当日配達対応エリア</span></div>
@@ -96,7 +93,6 @@ const faqs = [
             { name:'ブランド卵', note:'ヨード卵ほか', color:'#F5D080' },
             { name:'うずら卵', note:'お弁当・惣菜に', color:'#D0C098' },
             { name:'温泉卵', note:'パック', color:'#F5C0B0' },
-            { name:'10kg箱', note:'LL・L・M・MS・S', color:'#B0C8B0' },
           ].map(p => (
             <div class="biz-product-card">
               <div class="biz-product-circle" style={`background:${p.color}`}><svg viewBox="0 0 48 48" width="38" height="38" fill="rgba(255,255,255,.85)" stroke="#EA5514" stroke-width="2" aria-hidden="true"><path d="M24 6c-8 0-14 12-14 22a14 14 0 0 0 28 0C38 18 32 6 24 6z"/></svg></div>
@@ -105,7 +101,7 @@ const faqs = [
             </div>
           ))}
         </div>
-        <p class="products-note">※取り扱いサイズ・規格はお気軽にご相談ください。</p>
+        <p class="products-note">10kg箱はLL・L・M・MS・Sの各サイズがあります。商品の一覧は<a href="/products/">商品紹介</a>をご覧ください。</p>
       </div>
     </section>
 
@@ -144,15 +140,15 @@ const faqs = [
           <div class="area-main">
             <div class="area-badge area-badge--sub">応相談</div>
             <h3>富山市外・県内各地</h3>
-            <p>高岡市・射水市・砺波市など富山県内各地へも対応可能です。まずはご相談ください。</p>
+            <p>高岡市・射水市・砺波市など、富山県内各地へのお届けもご相談ください。</p>
           </div>
           <div class="area-main">
             <div class="area-badge area-badge--sub">応相談</div>
             <h3>催事・イベント配送</h3>
-            <p>お祭り・学園祭・催事などスポット配送も承ります。数量・日程はお気軽にご相談を。</p>
+            <p>お祭り・学園祭・催事などへの、スポットの配送も承ります。数量と日程をご相談ください。</p>
           </div>
         </div>
-        <p class="area-note">※配達エリアや時間帯は地域によって異なります。詳しくはお問い合わせください。</p>
+        <p class="area-note">※配達の時間帯は、地域によって異なります。</p>
       </div>
     </section>
 
@@ -162,7 +158,7 @@ const faqs = [
         <div class="ttl"><h2 class="ttl-en">富山で業務用卵をお探しの方へ</h2>
         </div>
         <ul class="seo-points">
-          <li><b>1945年創業の鶏卵専門店。</b>富山市を拠点に、ラーメン店・洋菓子店・ホテル・給食施設・スーパーなど、50社以上へ業務用たまごをお届けしています。</li>
+          <li><b>1945年創業の鶏卵専門店。</b>富山市を拠点に、ラーメン店・洋菓子店・ホテル・給食施設・スーパーなどへ、業務用たまごをお届けしています。</li>
           <li><b>10kg箱はLL・L・M・MS・Sの各サイズ。</b>とれたて・赤玉・ブランド卵・うずら卵・温泉卵まで、用途に合わせてお選びいただけます。</li>
           <li><b>富山市内は当日夕方にお届け。</b>月・水・金の午前9:30までのご注文が対象です。自社便で、温度を管理して配送します。</li>
           <li><b>請求書払い（掛け売り）に対応。</b>法人・個人事業主様は、1ケース（約10kg）からご相談いただけます。</li>
@@ -198,7 +194,7 @@ const faqs = [
     <section class="sec sec--cream" id="contact-form">
       <div class="container">
         <div class="ttl"><h2 class="ttl-en">法人取引のご相談</h2>
-          <p style="color:var(--muted);font-size:1.02rem;margin-top:.5rem">まずはお気軽にお問い合わせください。担当者よりご連絡いたします。</p>
+          <p style="color:var(--muted);font-size:1.02rem;margin-top:.5rem">お電話・フォーム・LINEで承ります。担当者より折り返しご連絡します。</p>
         </div>
         <div class="biz-contact-box">
           <div class="biz-tel-box">
@@ -208,7 +204,7 @@ const faqs = [
           </div>
           <div class="biz-form-box">
             <p>フォームからもご相談いただけます</p>
-            <a href="/contact?type=business" class="btn btn-primary biz-form-btn">フォームで相談する →</a>
+            <a href="/contact/?type=business" class="btn btn-primary biz-form-btn">フォームで相談する →</a>
           </div>
           <div class="biz-form-box biz-line-box">
             <p>LINEでもご相談いただけます</p>
@@ -246,12 +242,12 @@ const faqs = [
 .concern-check { color:var(--yellow); font-weight:700; font-size:1.1rem; flex-shrink:0; }
 .concerns-cta-text { text-align:center; font-family:'Noto Serif JP',serif; font-size:1.1rem; font-weight:700; color:var(--green); }
 /* Targets */
-.targets-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; }
+.targets-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; }
 .target-card { display:flex; flex-direction:column; align-items:center; gap:.5rem; padding:1.5rem 1rem; background:white; border-radius:12px; box-shadow:0 2px 12px rgba(90,64,26,.06); font-size:1rem; font-weight:700; color:var(--brown); text-align:center; transition:transform .2s,box-shadow .2s; }
 .target-card:hover { transform:translateY(-3px); box-shadow:0 8px 24px rgba(90,64,26,.1); }
 .target-icon { display:grid; place-items:center; width:72px; height:72px; border-radius:50%; background:#FFF6CC; color:#643E2F; }
 /* Products */
-.biz-products-grid { display:grid; grid-template-columns:repeat(6,1fr); gap:1rem; }
+.biz-products-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:1rem; }
 .biz-product-card { text-align:center; }
 .biz-product-circle { display:grid; place-items:center; width:80px; height:80px; border-radius:50%; margin:0 auto .75rem; border:2px solid rgba(90,64,26,.08); box-shadow:0 4px 16px rgba(90,64,26,.1); }
 .biz-product-card h3 { font-family:'Noto Serif JP',serif; font-size:1rem; font-weight:700; color:var(--brown); margin-bottom:.25rem; }
@@ -333,12 +329,12 @@ const faqs = [
 .biz-form-box p { font-size:1rem; color:var(--muted); margin-bottom:1rem; }
 @media (max-width:900px) {
   .concerns-grid { grid-template-columns:1fr 1fr; }
-  .targets-grid { grid-template-columns:repeat(4,1fr); }
+  .targets-grid { grid-template-columns:repeat(3,1fr); }
   .biz-products-grid { grid-template-columns:repeat(3,1fr); }
 }
 @media (max-width:600px) {
   .concerns-grid,.biz-contact-box { grid-template-columns:1fr; }
-  .targets-grid { grid-template-columns:repeat(4,1fr); }
+  .targets-grid { grid-template-columns:repeat(3,1fr); }
   .biz-products-grid { grid-template-columns:repeat(3,1fr); }
 }
 @media (max-width:480px) {

@@ -4,14 +4,14 @@ interface Props {
   lead?: string;
 }
 const {
-  title = 'ご注文・ご相談はお気軽に',
-  lead = 'まずはお電話・LINE・フォームのいずれかでお気軽にご連絡ください',
+  title = 'お問い合わせ',
+  lead = 'ご注文・ご相談は、お電話・LINE・フォームで承ります。',
 } = Astro.props;
 ---
 <section class="cta-sec">
   <div class="container" style="text-align:center">
-    <div class="ttl" style="margin-bottom:1.25rem"><h2 class="ttl-en" style="font-size:clamp(1.4rem,2.8vw,2rem)">{title}</h2></div>
-    <p style="color:var(--muted);font-size:1.02rem;margin-bottom:3rem">{lead}</p>
+    <div class="ttl" style={`margin-bottom:${lead ? "1.25rem" : "3rem"}`}><h2 class="ttl-en" style="font-size:clamp(1.4rem,2.8vw,2rem)">{title}</h2></div>
+    {lead && <p style="color:var(--muted);font-size:1.02rem;margin-bottom:3rem">{lead}</p>}
     <div class="contact-methods">
       <div class="method-card">
         <div class="method-icon">
@@ -32,7 +32,7 @@ const {
         </div>
         <h3>LINE</h3>
         <p class="method-line-id">@215bpskd</p>
-        <p>お気軽にメッセージください</p>
+        <p>トークでご相談いただけます</p>
         <a href="https://line.me/ti/p/@215bpskd" target="_blank" rel="noopener" class="method-btn method-btn--line">LINEで相談する</a>
       </div>
       <div class="method-card">
@@ -45,7 +45,7 @@ const {
         <h3>お問い合わせフォーム</h3>
         <p class="method-email">info@kozawa-keiran.com</p>
         <p>24時間受付・翌営業日返信</p>
-        <a href="/contact" class="method-btn">フォームを開く</a>
+        <a href="/contact/" class="method-btn">フォームを開く</a>
       </div>
     </div>
   </div>

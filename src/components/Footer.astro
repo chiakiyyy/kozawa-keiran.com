@@ -1,14 +1,14 @@
 ---
 const linksRow1 = [
-  { label: '私たちについて', href: '/about' },
-  { label: '商品紹介',       href: '/products' },
-  { label: '直売所のご案内', href: '/store' },
-  { label: 'オンラインショップ', href: '/gift' },
-  { label: '送料とお届け',   href: '/delivery' },
+  { label: '私たちについて', href: '/about/' },
+  { label: '商品紹介',       href: '/products/' },
+  { label: '直売所のご案内', href: '/store/' },
+  { label: 'オンラインショップ', href: '/gift/' },
+  { label: '送料とお届け',   href: '/delivery/' },
 ];
 const linksRow2 = [
-  { label: '法人のお客様',   href: '/business' },
-  { label: 'プライバシーポリシー', href: '/privacy' },
+  { label: '法人のお客様',   href: '/business/' },
+  { label: 'プライバシーポリシー', href: '/privacy/' },
 ];
 ---
 <footer class="ft">
@@ -16,7 +16,7 @@ const linksRow2 = [
     <div class="ft-in">
       <div class="ft-brand">
         <a href="/" class="ft-logo">
-          <span class="ft-blob"><img src="/images/logo-mark.png" alt="" aria-hidden="true" class="ft-logo-icon"/></span>
+          <span class="ft-blob"><img src="/images/logo-mark.png" width="330" height="330" alt="" aria-hidden="true" class="ft-logo-icon"/></span>
           <div>
             <span class="ft-jp">小澤鶏卵</span>
             <span class="ft-en">KOZAWA KEIRAN</span>
@@ -32,7 +32,7 @@ const linksRow2 = [
         </ul>
         <ul class="ft-nav-row">
           {linksRow2.map(l => <li><a href={l.href}>{l.label}</a></li>)}
-          <li><a href="/contact" class="ft-btn-primary">お問い合わせはこちら →</a></li>
+          <li><a href="/contact/" class="ft-btn-primary">お問い合わせはこちら →</a></li>
         </ul>
       </nav>
     </div>
@@ -66,7 +66,7 @@ const linksRow2 = [
   display: flex; flex-wrap: wrap; gap: .25rem 1.25rem; justify-content: center;
 }
 .ft-nav a {
-  font-size: .92rem; color: #643E2F;
+  font-size: 1rem; color: #643E2F;
   text-decoration: none; padding: .25rem 0;
   transition: color .15s;
   white-space: nowrap;

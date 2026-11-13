@@ -1,6 +1,5 @@
 ---
-// 実績（数字・納品事例・取引先の内訳）。法人のお客様ページに表示します。
-import { works } from '../data/works';
+// 実績（取引先の内訳）。法人のお客様ページに表示します。
 import { stores, storeCategories } from '../data/stores';
 
 const breakdown = storeCategories
@@ -10,20 +9,6 @@ const maxN = Math.max(...breakdown.map(b => b.n));
 ---
 <div id="works">
 
-  <section class="sec">
-    <div class="container">
-      <div class="ttl fade-up"><h2 class="ttl-en">納品事例</h2></div>
-      <div class="case-grid">
-        {works.map((w, i) => (
-          <article class={`card case-card fade-up fade-up-d${(i % 3) + 1}`}>
-            <span class="case-cat">{w.category}</span>
-            <h3>{w.title.split('|').map((s, i) => (<>{i > 0 && <wbr/>}{s}</>))}</h3>
-            <p>{w.body}</p>
-          </article>
-        ))}
-      </div>
-    </div>
-  </section>
 
   <section class="sec sec--pale" id="breakdown">
     <div class="container">

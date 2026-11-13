@@ -1,6 +1,8 @@
 @import "tailwindcss";
 
 @layer base {
+  /* img の width/height 属性は縦横比の目安。表示サイズはCSSで決める */
+  img { height: auto; }
   :root {
     --amber:      #EA5514;
     --brand:      #FFE200;

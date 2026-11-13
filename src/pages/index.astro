@@ -1,4 +1,5 @@
 ---
+import { dim } from '../data/imgsize';
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
@@ -14,9 +15,9 @@ const gift = gifts[0];
 const yen = (n: number) => n.toLocaleString('ja-JP');
 
 const entries = [
-  { label: '法人のお客様', href: '/business', img: '/images/business_hero.png', illus: `<svg viewBox="0 0 120 120" aria-hidden="true"><rect x="8" y="42" width="62" height="40" rx="4" fill="#fff" stroke="#643E2F" stroke-width="3"/><path d="M70 54h18l14 14v14H70z" fill="#CF470E" stroke="#643E2F" stroke-width="3" stroke-linejoin="round"/><path d="M77 58h10l8 9H77z" fill="#FFF6CC"/><circle cx="28" cy="86" r="9" fill="#643E2F"/><circle cx="88" cy="86" r="9" fill="#643E2F"/><circle cx="28" cy="86" r="3.5" fill="#fff"/><circle cx="88" cy="86" r="3.5" fill="#fff"/><ellipse cx="39" cy="61" rx="10" ry="12.5" fill="#FFE200" stroke="#643E2F" stroke-width="2.5"/><path d="M8 74h62" stroke="#CF470E" stroke-width="3"/></svg>`, bg: '#FFEE9C', desc: '飲食店・ホテル・給食施設・スーパーなどへ、業務用たまごを当日配達します。', go: '法人のお客様はこちら' },
-  { label: 'オンラインショップ', href: '/gift', img: '/images/gift/tkg-set.webp', illus: `<svg viewBox="0 0 120 120" aria-hidden="true"><rect x="34" y="12" width="52" height="96" rx="10" fill="#fff" stroke="#643E2F" stroke-width="3"/><rect x="40" y="24" width="40" height="52" rx="3" fill="#FFF6CC"/><ellipse cx="60" cy="48" rx="10" ry="13" fill="#FFE200" stroke="#643E2F" stroke-width="2.5"/><rect x="42" y="82" width="36" height="14" rx="7" fill="#CF470E"/><path d="M52 89h16" stroke="#fff" stroke-width="3" stroke-linecap="round"/></svg>`, bg: '#F8D6C4', desc: 'ギフトや、ご家庭用のたまごを、オンラインでご注文いただけます。', go: 'ご注文はこちら' },
-  { label: '直売所のご案内', href: '/store', img: '/images/shop/hero-family.jpg', illus: `<svg viewBox="0 0 120 120" aria-hidden="true"><rect x="20" y="56" width="80" height="48" fill="#fff" stroke="#643E2F" stroke-width="3"/><path d="M14 56l8-24h76l8 24z" fill="#CF470E" stroke="#643E2F" stroke-width="3" stroke-linejoin="round"/><path d="M42 32l-6 24M60 32v24M78 32l6 24" stroke="#fff" stroke-width="5"/><rect x="48" y="72" width="24" height="32" fill="#FFE200" stroke="#643E2F" stroke-width="3"/><ellipse cx="60" cy="19" rx="7" ry="9" fill="#FFE200" stroke="#643E2F" stroke-width="2.5"/><path d="M26 74h14v12H26z" fill="#FFF6CC" stroke="#643E2F" stroke-width="2"/></svg>`, bg: '#EBDDBE', desc: '富山市婦中町の店舗です。所在地と営業時間をご案内します。', go: 'アクセスを見る' },
+  { label: '法人のお客様', href: '/business/', img: '/images/business_hero.png', art: '/images/illust-biz.png', illus: `<svg viewBox="0 0 120 120" aria-hidden="true"><rect x="8" y="42" width="62" height="40" rx="4" fill="#fff" stroke="#643E2F" stroke-width="3"/><path d="M70 54h18l14 14v14H70z" fill="#CF470E" stroke="#643E2F" stroke-width="3" stroke-linejoin="round"/><path d="M77 58h10l8 9H77z" fill="#FFF6CC"/><circle cx="28" cy="86" r="9" fill="#643E2F"/><circle cx="88" cy="86" r="9" fill="#643E2F"/><circle cx="28" cy="86" r="3.5" fill="#fff"/><circle cx="88" cy="86" r="3.5" fill="#fff"/><ellipse cx="39" cy="61" rx="10" ry="12.5" fill="#FFE200" stroke="#643E2F" stroke-width="2.5"/><path d="M8 74h62" stroke="#CF470E" stroke-width="3"/></svg>`, bg: '#FBE7D5', desc: '飲食店・ホテル・給食施設・スーパーなどへ、業務用たまごを当日配達します。', go: '法人のお客様はこちら' },
+  { label: 'オンラインショップ', href: '/gift/', img: '/images/gift/tkg-set.webp', illus: `<svg viewBox="0 0 120 120" aria-hidden="true"><rect x="34" y="12" width="52" height="96" rx="10" fill="#fff" stroke="#643E2F" stroke-width="3"/><rect x="40" y="24" width="40" height="52" rx="3" fill="#FFF6CC"/><ellipse cx="60" cy="48" rx="10" ry="13" fill="#FFE200" stroke="#643E2F" stroke-width="2.5"/><rect x="42" y="82" width="36" height="14" rx="7" fill="#CF470E"/><path d="M52 89h16" stroke="#fff" stroke-width="3" stroke-linecap="round"/></svg>`, bg: '#FFF0C2', desc: 'ギフトや、ご家庭用のたまごを、オンラインでご注文いただけます。', go: 'ご注文はこちら' },
+  { label: '直売所のご案内', href: '/store/', img: '/images/shop/hero-family.jpg', illus: `<svg viewBox="0 0 120 120" aria-hidden="true"><rect x="20" y="56" width="80" height="48" fill="#fff" stroke="#643E2F" stroke-width="3"/><path d="M14 56l8-24h76l8 24z" fill="#CF470E" stroke="#643E2F" stroke-width="3" stroke-linejoin="round"/><path d="M42 32l-6 24M60 32v24M78 32l6 24" stroke="#fff" stroke-width="5"/><rect x="48" y="72" width="24" height="32" fill="#FFE200" stroke="#643E2F" stroke-width="3"/><ellipse cx="60" cy="19" rx="7" ry="9" fill="#FFE200" stroke="#643E2F" stroke-width="2.5"/><path d="M26 74h14v12H26z" fill="#FFF6CC" stroke="#643E2F" stroke-width="2"/></svg>`, bg: '#E6EEF2', desc: '富山市婦中町の店舗です。所在地と営業時間をご案内します。', go: 'アクセスを見る' },
 ];
 const storeRows = [
   ['所在地', '〒939-2716 富山県富山市婦中町下轡田25-1'],
@@ -24,51 +25,40 @@ const storeRows = [
   ['営業時間', '月〜土 8:00〜17:00（日曜・祝日は休業）'],
 ];
 const bizPoints = [
-  { title: '当日夕方にお届け', body: '<span class="nw">月・水・金の</span><span class="nw">午前9:30までの</span><span class="nw">ご注文で、</span><span class="nw">富山市内へ</span>' },
-  { title: '1ケース（約10kg）から', body: '<span class="nw">LL・L・M・MS・Sの</span><span class="nw">サイズを</span><span class="nw">選べます</span>' },
-  { title: '請求書払いに対応', body: '<span class="nw">掛け売りも</span><span class="nw">ご相談ください</span>' },
-  { title: '自社便で配達', body: '<span class="nw">温度を管理して</span><span class="nw">お届けします</span>' },
+  { title: '富山市内へ自社配送', body: '<span class="nw">温度を管理して、</span><span class="nw">自社便で</span><span class="nw">お届けします</span>' },
+  { title: '10kg箱などの業務用商品', body: '<span class="nw">LL〜Sのサイズや、</span><span class="nw">赤玉も</span><span class="nw">ご相談ください</span>' },
+  { title: '定期納品・数量のご相談', body: '<span class="nw">仕込みに合わせた</span><span class="nw">定期納品や、</span><span class="nw">数量の増減も</span><span class="nw">ご相談ください</span>' },
+  { title: '法人向け請求書払い', body: '<span class="nw">掛け売りに</span><span class="nw">対応しています</span>' },
 ];
 const mapUrl = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent('富山県富山市婦中町下轡田25-1');
 const workImgs = ['/images/feature/feature-egg.jpg', '/images/hero_main.png', '/images/shop/point4.jpg', '/images/feature/feature-factory.jpg', '/images/shop/hero-family.jpg', '/images/business_hero.png'];
 ---
-<Layout title="富山の業務用卵・たまご卸｜小澤鶏卵（富山市・当日配達）" description="富山の業務用卵なら小澤鶏卵。1945年創業、80年以上の鶏卵専門店。富山市を中心に飲食店・ホテル・給食施設・スーパーへ業務用たまご（10kg箱・パック卵）を当日配達。定期納品・催事対応、ギフトのオンライン注文も承ります。">
+<Layout title="富山の卵卸・業務用たまご・卵ギフト通販｜小澤鶏卵" description="富山の鶏卵専門店・小澤鶏卵。1945年創業。飲食店・洋菓子店・ホテル・給食施設へ業務用たまご（10kg箱・パック卵）を卸売・配達しています。卵かけご飯セットなどのたまごギフトも、オンラインでご注文いただけます。">
   <Header/>
   <main>
 
     <!-- HERO -->
     <section class="hero">
       <img src="/images/hero-top.webp" alt="小澤鶏卵のたまご" loading="eager" width="1672" height="941"/>
-      <h1 class="sr-only">富山の業務用卵・たまごは小澤鶏卵｜鶏卵専門店｜10kg箱・パック卵を富山市内へ当日配達</h1>
       <svg class="hero-wave" viewBox="0 0 1440 50" preserveAspectRatio="none" aria-hidden="true"><path d="M0 26C25 24 95 15 150 16C205 17 272 31 330 32C388 33 440 20 500 20C560 20 633 34 690 34C747 34 787 18 840 17C893 16 953 30 1010 30C1067 30 1128 19 1180 19C1232 19 1277 30 1320 31C1363 32 1420 25 1440 24V50H0Z"/></svg>
     </section>
 
-    <!-- CONCEPT（縦書き） -->
-    <section class="tp-concept">
+    <!-- 01 ファーストビュー -->
+    <section class="tp-concept tp-fv">
       <span class="cc-egg he1" aria-hidden="true"></span><span class="cc-egg he2" aria-hidden="true"></span><span class="cc-egg he3" aria-hidden="true"></span><span class="cc-egg he4" aria-hidden="true"></span>
+      <h1 class="tp-fv-h1 fade-up">富山の鶏卵専門店・小澤鶏卵<span>業務用たまごの卸売と、たまごギフトのお取り寄せ</span></h1>
       <div class="tp-vert fade-up">
-        <p><span class="ac">幸せ</span>は、</p>
-        <p>たまごのある</p>
-        <p>食卓にある。</p>
+        <p>富山の<span class="ac">食卓</span>と、</p>
+        <p><span class="ac">まちのお店</span>へ。</p>
       </div>
-      <p class="tp-concept-lead fade-up">おひさまを浴びる幸せ。新鮮なものを食べる幸せ。<br/>安心できるものを選べる幸せ。<br/><br/>1945年の創業から80年以上、<br/>富山の食卓と飲食店を、たまごで支えてきました。</p>
+      <p class="tp-concept-lead fade-up">1945年創業。<br/>富山でたまごを届け続ける、小澤鶏卵。</p>
+      <div class="tp-fv-cta fade-up">
+        <a href="/business/" class="tp-btn tp-btn--red"><i class="tp-ic tp-ic--arrow" aria-hidden="true"></i>法人のお客様へ</a>
+        <a href="/gift/" class="tp-btn tp-btn--gold">ギフト・ご自宅用はこちら</a>
+      </div>
     </section>
 
-    <!-- 色の帯＋写真 -->
-    <section class="tp-split">
-      <div class="tp-split-panel">
-        <div class="tp-vert tp-vert--sm">
-          <p>富山の食卓と、</p>
-          <p>まちのお店へ。</p>
-          <p>八十年、</p>
-          <p><span class="ac2">たまごひと筋。</span></p>
-        </div>
-        <svg class="tp-split-edge" viewBox="0 0 60 800" preserveAspectRatio="none" aria-hidden="true"><path d="M0 0H30C52 90 18 170 34 260S60 420 30 510 50 690 26 800H0Z"/></svg>
-      </div>
-      <div class="tp-split-photo"><img src="/images/top-intro-tkg.webp" alt="朝食の卵かけご飯" loading="lazy"/></div>
-    </section>
-
-    <!-- 入口（枠で囲んだ帯） -->
+    <!-- 02 目的別の3つの入口 -->
     <section class="tp-entry-wrap">
       <div class="tp-entry fade-up">
         <div class="tp-entry-head">
@@ -78,136 +68,103 @@ const workImgs = ['/images/feature/feature-egg.jpg', '/images/hero_main.png', '/
         <div class="tp-entry-items">
           {entries.map(e => (
             <a href={e.href} class="tp-egg-link">
-              <span class="tp-egg tp-egg--illus" style={`background:${e.bg}`}><span class="tp-egg-art" set:html={e.illus}></span><span class="tp-egg-label">{e.label.split(/(?<=の|ン)/).map((s, i) => (<>{i > 0 && <wbr/>}{s}</>))}</span></span>
+              <span class="tp-egg tp-egg--illus" style={`background:${e.bg}`}>{e.art ? <span class="tp-egg-art tp-egg-art--img"><img src={e.art} alt="" loading="lazy" width="640" height="350"/></span> : <span class="tp-egg-art" set:html={e.illus}></span>}<span class="tp-egg-label">{e.label.split(/(?<=の|ン)/).map((s, i) => (<>{i > 0 && <wbr/>}{s}</>))}</span></span>
             </a>
           ))}
         </div>
       </div>
     </section>
 
-    <!-- ご家庭・ギフト -->
-    <section class="tp-lineup" id="home">
-      <div class="tp-lineup-head fade-up">
-        <p class="tp-lineup-sub">富山のおいしいを、大切な方へ。</p>
-        <h2 class="tp-lineup-ttl">ご家庭・ギフトの方へ</h2>
-        <p class="tp-lineup-lead">ご自宅用にも、贈り物にもお選びいただけます。<br/>送料込みのセットもご用意しています。</p>
-      </div>
-      <div class="tp-grid">
-        {gifts.slice(0, 3).map(g => (
-          <article class="tp-card fade-up">
-            <a href="/gift" class="tp-card-img"><img src={g.img} alt={g.name} loading="lazy"/></a>
-            <h3>{g.name}</h3>
-            <p class="tp-card-price"><strong>{yen(g.price)}</strong>円<small>{g.shippingFee === 0 ? '（送料込み）' : ''}</small></p>
-            <div class="tp-card-btns">
-              <a href="/gift" class="tp-btn tp-btn--red"><i class="tp-ic tp-ic--arrow" aria-hidden="true"></i>商品の詳細へ</a>
-              <a href={`/gift/order?item=${g.id}`} class="tp-btn tp-btn--gold"><svg class="tp-ic-cart" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2 3h3l2.6 12.2a1.5 1.5 0 0 0 1.5 1.2h8.8a1.5 1.5 0 0 0 1.5-1.2L21 7H6"/></svg>注文する</a>
-            </div>
-          </article>
-        ))}
-      </div>
-      <div class="tp-more"><a href="/gift" class="tp-btn tp-btn--line">オンラインショップへ</a></div>
-    </section>
-
-    <!-- 業務用たまごについて -->
+    <!-- 03 業務用たまごのご案内 -->
     <section class="tp-biz">
       <div class="tp-biz-in">
         <div class="tp-biz-head fade-up">
-          <p class="tp-lineup-sub">飲食店・食品事業者のみなさまへ</p>
-          <h2 class="tp-lineup-ttl">業務用たまごについて</h2>
-          <p class="tp-lineup-lead">毎日使うたまごを、安定してお届けします。数量・規格・配送のご希望に合わせて、ご相談ください。</p>
+          <p class="tp-lineup-sub">業務用たまごのご案内</p>
+          <h2 class="tp-lineup-ttl">毎日使うたまごを、<br/>安心してお届け。</h2>
+          <p class="tp-lineup-lead">飲食店・洋菓子店・ホテル・給食施設・小売店など、富山の事業者様へ。用途や必要な数量に合わせて、業務用たまごのご相談を承っています。</p>
         </div>
         <div class="tp-biz-intro fade-up">
-          <div class="tp-biz-frame"><img src="/images/business_hero.png" alt="たまごを積み込む配送の様子" loading="lazy"/></div>
+          <div class="tp-biz-frame"><img src="/images/business_hero.png" width="1536" height="1024" alt="たまごを積み込む配送の様子" loading="lazy"/></div>
           <div class="tp-biz-intro-text">
-            <h3>毎日使うたまごを、<br/>安定してお届けします。</h3>
-            <p>飲食店・ホテル・給食施設・スーパーなど、富山の事業者のみなさまへ。10kg箱・パック卵を、自社便で配達しています。数量・規格・配送のご希望に合わせて、ご相談ください。</p>
+            <h3>富山の事業者様の、<br/>毎日の仕込みに。</h3>
+            <p>10kg箱やパック卵を、ご注文の数量に合わせてお届けしています。富山市内は、月・水・金の午前9:30までのご注文で、当日夕方に配達します。</p>
           </div>
         </div>
-        <p class="tp-biz-points-ttl fade-up">業務用たまご、<span>4つの安心</span></p>
+        <p class="tp-biz-points-ttl fade-up">小澤鶏卵の<span>業務用たまご</span></p>
         <ul class="tp-biz-circles">
           {bizPoints.map((p, i) => (
             <li class="fade-up"><span class="tp-biz-num">{String(i + 1).padStart(2, '0')}</span><h3>{p.title}</h3><p set:html={p.body}></p></li>
           ))}
         </ul>
-        <div class="tp-more"><a href="/business" class="tp-btn tp-btn--red"><i class="tp-ic tp-ic--arrow" aria-hidden="true"></i>業務用のご案内を見る</a></div>
+        <div class="tp-more"><a href="/business/" class="tp-btn tp-btn--red"><i class="tp-ic tp-ic--arrow" aria-hidden="true"></i>業務用たまごのご相談はこちら</a></div>
       </div>
     </section>
 
-    <!-- 法人のお客様 -->
+    <!-- 04 取扱商品 -->
     <section class="tp-lineup tp-lineup--biz">
       <div class="tp-lineup-head fade-up">
-        <p class="tp-lineup-sub">飲食店・ホテル・給食施設・スーパーへ</p>
-        <h2 class="tp-lineup-ttl">法人のお客様へ</h2>
-        <p class="tp-lineup-lead">用途に合わせた業務用たまごを、富山市内へ当日配達します。</p>
+        <p class="tp-lineup-sub">取扱商品</p>
+        <h2 class="tp-lineup-ttl">用途に合わせた、<br/>さまざまなたまご。</h2>
+        <p class="tp-lineup-lead">10kg箱からパック卵、ブランド卵、うずら卵まで。用途に合わせてお選びいただけます。</p>
       </div>
       <div class="tp-grid tp-grid--4">
         {productGroups.map(g => (
           <article class="tp-card fade-up">
-            <a href={`/products#${g.id}`} class="tp-card-img"><img src={g.img} alt={g.name} loading="lazy"/></a>
+            <a href={`/products/#${g.id}`} class="tp-card-img"><img src={g.img} {...dim(g.img)} alt={g.name} loading="lazy"/></a>
             <h3>{g.name}</h3>
             <p class="tp-card-desc">{g.lead}</p>
             <div class="tp-card-btns">
-              <a href={`/products#${g.id}`} class="tp-btn tp-btn--red"><i class="tp-ic tp-ic--arrow" aria-hidden="true"></i>詳しく見る</a>
+              <a href={`/products/#${g.id}`} class="tp-btn tp-btn--red"><i class="tp-ic tp-ic--arrow" aria-hidden="true"></i>詳しく見る</a>
             </div>
           </article>
         ))}
       </div>
-      <ul class="tp-metrics fade-up">
-        {metrics.map(m => (
-          <li><span class="tp-metric-num">{m.num}<small>{m.unit}</small></span><span class="tp-metric-label">{m.label}</span></li>
-        ))}
-      </ul>
-      <div class="tp-more"><a href="/business" class="tp-btn tp-btn--red"><i class="tp-ic tp-ic--arrow" aria-hidden="true"></i>法人のお客様はこちら</a></div>
+      <div class="tp-more"><a href="/products/" class="tp-btn tp-btn--red"><i class="tp-ic tp-ic--arrow" aria-hidden="true"></i>取扱商品を詳しく見る</a></div>
     </section>
 
-    <!-- NEWS -->
-    {news.length > 0 && (
-      <section class="sec sec--panel">
-        <div class="container">
-          <div class="ttl fade-up"><h2 class="ttl-en">お知らせ・ブログ</h2></div>
-          <ul class="news-list">
-            {news.slice(0, 3).map(n => (
-              <li><a href={n.href}><time>{n.date}</time><span class="news-cat">{n.category}</span><span class="news-title">{n.title}</span></a></li>
-            ))}
-          </ul>
-        </div>
-      </section>
-    )}
+    <!-- 05 個人向け・オンラインショップ -->
+    <section class="tp-lineup tp-lineup--cream" id="home">
+      <div class="tp-lineup-head fade-up">
+        <p class="tp-lineup-sub">個人のお客様・オンラインショップ</p>
+        <h2 class="tp-lineup-ttl">ご家庭にも、<br/>大切な方にも。</h2>
+        <p class="tp-lineup-lead">毎日の食卓に。大切な方への贈り物に。<br/>小澤鶏卵のたまごをお届けします。</p>
+      </div>
+      <div class="tp-grid">
+        {gifts.slice(0, 3).map(g => (
+          <article class="tp-card fade-up">
+            <a href="/gift/" class="tp-card-img"><img src={g.img} {...dim(g.img)} alt={g.name} loading="lazy"/></a>
+            <h3>{g.name}</h3>
+            <p class="tp-card-contents">{g.contents}</p>
+            <p class="tp-card-price"><strong>{yen(g.price)}</strong>円<small>{g.shippingFee === 0 ? '（送料込み）' : `（送料${yen(g.shippingFee)}円）`}</small></p>
+            <div class="tp-card-btns">
+              <a href="/gift/" class="tp-btn tp-btn--red"><i class="tp-ic tp-ic--arrow" aria-hidden="true"></i>商品の詳細へ</a>
+              <a href={`/gift/order/?item=${g.id}`} class="tp-btn tp-btn--gold"><svg class="tp-ic-cart" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2 3h3l2.6 12.2a1.5 1.5 0 0 0 1.5 1.2h8.8a1.5 1.5 0 0 0 1.5-1.2L21 7H6"/></svg>注文する</a>
+            </div>
+          </article>
+        ))}
+      </div>
+      <div class="tp-more"><a href="/gift/" class="tp-btn tp-btn--line">オンラインショップを見る</a></div>
+    </section>
 
-    <!-- 私たちについて -->
+    <!-- 06 私たちについて -->
     <section class="tp-about">
-      <div class="tp-about-photo fade-up"><img src="/images/shop/point1.jpg" alt="富山の風景" loading="lazy"/></div>
+      <div class="tp-about-photo fade-up"><img src="/images/shop/point1.jpg" width="1536" height="1024" alt="富山の風景" loading="lazy"/></div>
       <div class="tp-about-body">
         <div class="tp-about-text fade-up">
-          <p>小澤鶏卵は、1945年に富山で鶏卵の商いを始めました。飲食店・菓子店・スーパー・給食施設など、富山の暮らしのすぐそばへ、毎日たまごを届けています。</p>
-          <p>鶏の健康を第一に、衛生的な環境で育て、採卵から洗浄・検卵・選別まで、ひとつずつ丁寧に。新鮮なまま、食卓へお届けします。</p>
-          <a href="/about" class="tp-btn tp-btn--red"><i class="tp-ic tp-ic--arrow" aria-hidden="true"></i>私たちについて</a>
+          <p>富山の暮らしとともに歩んできた小澤鶏卵。飲食店の厨房へ、ご家庭の食卓へ、たまごをお届けしてきました。</p>
+          <p>これからも、富山の毎日のそばで、たまごをお届けします。</p>
+          <a href="/about/" class="tp-btn tp-btn--red"><i class="tp-ic tp-ic--arrow" aria-hidden="true"></i>小澤鶏卵について</a>
         </div>
-        <h2 class="tp-vert tp-about-ttl fade-up"><span>富山で八十年、</span><span class="ac">たまごひと筋。</span></h2>
+        <h2 class="tp-vert tp-about-ttl fade-up"><span class="ln">富山で<span class="tcy">80</span>年以上、</span><span class="ln ac">たまごひと筋。</span></h2>
       </div>
       <div class="tp-about-row">
-        {commitments.slice(0, 3).map(c => (<div class="tp-about-cell"><img src={c.img} alt={c.title} loading="lazy"/></div>))}
+        {commitments.slice(0, 3).map(c => (<div class="tp-about-cell"><img src={c.img} {...dim(c.img)} alt={c.title} loading="lazy"/></div>))}
         <svg class="tp-about-wave" viewBox="0 0 1440 50" preserveAspectRatio="none" aria-hidden="true"><path d="M0 26C25 24 95 15 150 16C205 17 272 31 330 32C388 33 440 20 500 20C560 20 633 34 690 34C747 34 787 18 840 17C893 16 953 30 1010 30C1067 30 1128 19 1180 19C1232 19 1277 30 1320 31C1363 32 1420 25 1440 24V50H0Z"/></svg>
       </div>
     </section>
 
-    <!-- STORE -->
-    <section class="sec blob">
-      <div class="container wide">
-        <div class="ttl fade-up"><h2 class="ttl-en">直売所のご案内</h2></div>
-        <div class="store-in fade-up">
-          <dl class="store-dl">
-            {storeRows.map(([dt, dd]) => (<><dt>{dt}</dt><dd>{dt === '電話番号' ? <a href="tel:076-466-3815">{dd}</a> : dd}</dd></>))}
-          </dl>
-          <div class="store-btns">
-            <a href="/store" class="btn-circle">直売所のご案内を見る</a>
-            <a href={mapUrl} class="btn-circle" target="_blank" rel="noopener">Googleマップで開く</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <ContactSection/>
+    <!-- 07 お問い合わせ -->
+    <ContactSection title="たまごのことなら、お気軽にご相談ください。" lead="法人のお取引のご相談、商品やギフトのお問い合わせは、お電話・LINE・フォームからどうぞ。"/>
   </main>
   <Footer/>
 </Layout>
@@ -289,7 +246,7 @@ const workImgs = ['/images/feature/feature-egg.jpg', '/images/hero_main.png', '/
 .tp-about-body { max-width: 1040px; margin: 4rem auto 5rem; padding: 0 1.5rem; display: grid; grid-template-columns: 1fr auto; gap: 4rem; align-items: start; }
 .tp-about-text p { margin: 0 0 1.6rem; line-height: 2.3; letter-spacing: .06em; }
 .tp-about-ttl { margin: 0; font-size: clamp(1.6rem, 2.8vw, 2.3rem); }
-.tp-about-ttl span { display: block; }
+.tp-about-ttl .ln { display: block; }
 .tp-about-row { position: relative; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px; }
 .tp-about-cell img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; }
 .tp-about-wave { position: absolute; left: 0; bottom: -1px; width: 100%; height: clamp(22px, 3.2vw, 46px); }
@@ -460,4 +417,66 @@ const workImgs = ['/images/feature/feature-egg.jpg', '/images/hero_main.png', '/
 @media (max-width: 860px) { .tp-egg--illus { width: 100%; max-width: 108px; } .tp-egg--illus .tp-egg-label { font-size: .7rem; letter-spacing: 0; white-space: normal; text-align: center; line-height: 1.3; padding: 0 .3rem; } }
 .tp-biz-circles :global(.nw) { display: inline-block; }
 @media (max-width: 860px) { .tp-egg--illus .tp-egg-label { word-break: keep-all; } }
+.tp-egg-art--img img { width: 100%; height: auto; display: block; }
+/* イラストの枠の高さをそろえて、文字の位置を3つとも同じにする */
+.tp-egg-art { width: 80%; height: 46%; display: flex; align-items: center; justify-content: center; }
+.tp-egg-art svg { width: auto; height: 100%; max-width: 100%; }
+.tp-egg-art--img img { width: 100%; height: auto; }
+/* お探しの内容：見本に合わせて、絵を大きく、文字を太く大きく */
+.tp-egg--illus { width: clamp(170px, 16vw, 210px); padding-top: 24%; }
+.tp-egg-art { width: 80%; height: 40%; }
+.tp-egg--illus .tp-egg-label { margin-top: 9%; font-size: 1.12rem; font-weight: 700; letter-spacing: .02em; color: var(--text); }
+@media (max-width: 860px) { .tp-egg--illus { max-width: 108px; padding-top: 22%; } .tp-egg--illus .tp-egg-label { font-size: .74rem; margin-top: 7%; } }
+.tp-entry { grid-template-columns: .8fr 2.2fr; padding: 2.2rem 2.2rem; }
+.tp-entry-items { justify-content: space-between; gap: 1rem; }
+.tp-egg-link { flex: 0 0 auto; }
+.tp-egg--illus { flex: none; width: clamp(160px, 14.5vw, 200px); }
+@media (max-width: 860px) { .tp-entry { grid-template-columns: 1fr; } .tp-egg-link { flex: 1 1 0; } .tp-egg--illus { width: 100%; } }
+.tp-egg--illus { aspect-ratio: auto; height: clamp(205px, 18vw, 250px); }
+.tp-entry-sub { white-space: nowrap; }
+@media (max-width: 860px) { .tp-egg--illus { height: auto; aspect-ratio: 4/5; } }
+
+/* 文字を大きく：本文は18px前後、補足も16px以上にする */
+.tp-concept-lead, .tp-lineup-lead, .tp-about-text p { font-size: 1.1rem; line-height: 2.2; }
+.tp-entry-sub { font-size: 1.02rem; }
+.tp-lineup-sub { font-size: 1.08rem; }
+.tp-card h3 { font-size: 1.2rem; }
+.tp-card-desc { font-size: 1.04rem; }
+.tp-card-price small { font-size: .92rem; }
+.tp-btn { font-size: 1.02rem; padding: .85rem 1.4rem; min-width: 9.5rem; }
+.tp-metric-label { font-size: 1rem; }
+.tp-egg--illus .tp-egg-label { font-size: 1.22rem; }
+.tp-biz-circles h3 { font-size: 1.12rem; }
+.tp-biz-circles p { font-size: .98rem; line-height: 1.75; }
+.tp-biz-intro-text p { font-size: 1.08rem; }
+.store-dl { font-size: 1.08rem; }
+.news-list a { font-size: 1.05rem; }
+@media (max-width: 860px) { .tp-egg--illus .tp-egg-label { font-size: .86rem; } }
+@media (max-width: 640px) {
+  .tp-concept-lead, .tp-lineup-lead, .tp-about-text p { font-size: 1.04rem; }
+  .tp-card-desc { font-size: .98rem; }
+  .tp-biz-circles h3 { font-size: 1.02rem; }
+  .tp-biz-circles p { font-size: .9rem; }
+  .tp-btn { font-size: 1rem; }
+}
+
+/* 縦書きを大きく */
+.tp-concept .tp-vert { font-size: clamp(1.9rem, 3.2vw, 2.7rem); }
+.tp-vert--sm { font-size: clamp(1.4rem, 2.2vw, 1.9rem); }
+.tp-about-ttl { font-size: clamp(1.9rem, 3.2vw, 2.7rem); }
+.tp-entry-ttl { font-size: clamp(1.8rem, 3vw, 2.4rem); }
+.tp-lineup-ttl { font-size: clamp(2rem, 3.6vw, 2.9rem); }
+@media (max-width: 640px) { .tp-concept .tp-vert { font-size: 1.8rem; } .tp-vert--sm { font-size: 1.35rem; } .tp-about-ttl { font-size: 1.8rem; } .tp-lineup-ttl { font-size: 1.75rem; } }
+@media (max-width: 560px) { .tp-grid > * { min-width: 0; } .tp-btn { min-width: 0; padding: .8rem 1rem; font-size: .95rem; } .tp-grid--4 .tp-card-btns { width: 100%; } .tp-grid--4 .tp-btn { width: 100%; } .tp-card h3 { font-size: 1.05rem; } }
+
+/* ---- TOP再構成（SEO・導線） ---- */
+.tp-fv { gap: 2.2rem; }
+.tp-fv-h1 { position: relative; z-index: 1; margin: 0; text-align: center; font-family: 'Zen Maru Gothic', 'Zen Kaku Gothic New', sans-serif; font-weight: 700; font-size: 1.05rem; letter-spacing: .1em; color: var(--text); }
+.tp-fv-h1 span { display: block; margin-top: .3rem; font-size: .9rem; font-weight: 500; color: var(--muted); letter-spacing: .06em; }
+.tp-fv-cta { position: relative; z-index: 1; display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+.tp-fv-cta .tp-btn { font-size: 1.05rem; padding: 1rem 1.8rem; min-width: 14rem; }
+.tp-lineup--cream { background: var(--bg); }
+.tp-card-contents { margin: 0 0 .4rem; text-align: center; font-size: .95rem; color: var(--muted); line-height: 1.7; }
+.tcy, .tp-about-ttl .tcy { display: inline; text-combine-upright: all; -webkit-text-combine: horizontal; }
+@media (max-width: 640px) { .tp-fv-cta { flex-direction: column; align-items: stretch; width: 100%; max-width: 320px; } .tp-fv-cta .tp-btn { min-width: 0; } }
 </style>

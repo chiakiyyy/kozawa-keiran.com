@@ -1,4 +1,5 @@
 ---
+import { dim } from '../data/imgsize';
 // 下層ページ共通のヒーロー（切り欠き付きの大きな写真）
 interface Props {
   en: string;          // 例: Service
@@ -13,7 +14,7 @@ const { en, ja, img, alt = '', pos = 'center', lead } = Astro.props;
 <section class="hf">
   {img ? (
     <div class="hf-img">
-      <img src={img} alt={alt} loading="eager" width="1536" height="1024" style={`object-position:${pos}`}/>
+      <img src={img} {...dim(img)} alt={alt} loading="eager" style={`object-position:${pos}`}/>
       <div class="hf-title">
         <h1>{ja}</h1>
       </div>
