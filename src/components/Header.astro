@@ -81,12 +81,14 @@ const path = Astro.url.pathname;
 .hdr-nav ul { display: flex; align-items: center; list-style: none; margin: 0; padding: .5rem .9rem; gap: .35rem; background: #fff; border-radius: 999px; box-shadow: 0 2px 10px rgba(90,64,26,.15); }
 .hdr-nav a { display: block; font-size: 15px; font-weight: 700; letter-spacing: .08em; padding: .3rem .8rem !important; color: #643E2F; text-decoration: none; padding: .3rem 0; border-bottom: 1.5px solid transparent; transition: border-color .2s, color .2s; white-space: nowrap; }
 .hdr-nav a { border-bottom: 0 !important; border-radius: 999px; padding: .55rem 1rem !important; }
-.hdr-nav a:hover { background: #FFF3C2; }
+.hdr-nav a:hover { background: #FFF8E4; }  /* ホバー：ごく淡い色 */
 .hdr-nav a { font-size: 16px !important; letter-spacing: .04em !important; }
 .hdr-nav a.gift { display: inline-flex; align-items: center; gap: .4rem; background: var(--cta); color: #fff; margin: 0 .25rem; box-shadow: 0 2px 6px rgba(90,64,26,.35); }
 .hdr-nav a.gift:hover { background: #C9440E; }
 .hdr-nav a.gift.act { background: var(--cta); outline: 3px solid var(--brand); outline-offset: -3px; }
-.hdr-nav a.act { background: radial-gradient(ellipse at 50% 40%, #FFF27A 0%, #FFE200 70%, #F0C800 100%); color: var(--on-brand); border-radius: 50% / 55%; padding: .35rem 1rem !important; box-shadow: 0 1px 3px rgba(150,105,0,.35); }
+.hdr-nav a { position: relative; }
+.hdr-nav a.act, .hdr-nav a.act:hover { background: transparent; box-shadow: none; }  /* 選択中：塗りなし＋下線（ホバーの淡い塗りと区別） */
+.hdr-nav a.act:not(.gift)::after { content: ''; position: absolute; left: 1.1rem; right: 1.1rem; bottom: .25rem; height: 3px; border-radius: 3px; background: #8A5A3B; }
 .hdr-biz { display: inline-flex; align-items: center; gap: .5rem; height: 46px; padding: 0 1.2rem; border-radius: 999px; background: var(--cta); color: #fff; text-decoration: none; font-weight: 700; font-size: 16px; letter-spacing: .06em; white-space: nowrap; box-shadow: 0 2px 6px rgba(150,30,20,.35); transition: background .2s; }
 .hdr-biz:hover, .hdr-biz.act { background: var(--cta-hv); }
 @media (min-width: 1261px) { .hdr-right { align-items: stretch; } .hdr-biz { height: auto; padding: 0 1.6rem; } }
@@ -149,7 +151,6 @@ const path = Astro.url.pathname;
 .hdr-right { padding: 0; gap: 1rem; }
 .hdr-nav ul { padding: .55rem 1rem; box-shadow: 0 4px 18px rgba(0,0,0,.12); }
 .hdr-nav a { padding: .85rem 1.35rem !important; font-size: 17px !important; }
-.hdr-nav a.act { padding: .5rem 1.4rem !important; }
 .hdr-biz { box-shadow: 0 4px 14px rgba(150,30,20,.3); font-size: 17px; }
 @media (min-width: 1261px) { .hdr-biz { padding: 0 2rem; } }
 .hdr-ham { background: #fff; border-color: transparent; box-shadow: 0 4px 14px rgba(0,0,0,.12); }
