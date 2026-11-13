@@ -93,7 +93,7 @@ const workImgs = ['/images/feature/feature-egg.jpg', '/images/hero_main.png', '/
         <p class="tp-biz-points-ttl fade-up">小澤鶏卵の<span>業務用たまご</span></p>
         <ul class="tp-biz-circles">
           {bizPoints.map((p, i) => (
-            <li class="fade-up"><span class="tp-biz-num">{String(i + 1).padStart(2, '0')}</span><h3>{p.title}</h3><p set:html={p.body}></p></li>
+            <li class="fade-up"><img class="tp-biz-ico" src={`/images/biz/num-${String(i + 1).padStart(2, '0')}.webp`} alt={`${String(i + 1).padStart(2, '0')}`} width="360" height="360" loading="lazy"/><h3>{p.title}</h3><p set:html={p.body}></p></li>
           ))}
         </ul>
         <div class="tp-more"><a href="/business/" class="tp-btn tp-btn--red"><i class="tp-ic tp-ic--arrow" aria-hidden="true"></i>業務用たまごのご相談はこちら</a></div>
@@ -105,14 +105,13 @@ const workImgs = ['/images/feature/feature-egg.jpg', '/images/hero_main.png', '/
       <div class="tp-lineup-head fade-up">
         <p class="tp-lineup-sub">取扱商品</p>
         <h2 class="tp-lineup-ttl">用途に合わせた、<br/>さまざまなたまご。</h2>
-        <p class="tp-lineup-lead">10kg箱からパック卵、ブランド卵、うずら卵まで。用途に合わせてお選びいただけます。</p>
+        <p class="tp-lineup-lead">10kg箱からパック卵、ブランド卵、うずら卵まで。<br/>用途に合わせてお選びいただけます。</p>
       </div>
       <div class="tp-grid tp-grid--4">
         {productGroups.map(g => (
           <article class="tp-card fade-up">
             <a href={`/products/#${g.id}`} class="tp-card-img"><img src={g.img} {...dim(g.img)} alt={g.name} loading="lazy"/></a>
             <h3>{g.name}</h3>
-            <p class="tp-card-desc">{g.lead}</p>
             <div class="tp-card-btns">
               <a href={`/products/#${g.id}`} class="tp-btn tp-btn--red"><i class="tp-ic tp-ic--arrow" aria-hidden="true"></i>詳しく見る</a>
             </div>
@@ -486,4 +485,12 @@ const workImgs = ['/images/feature/feature-egg.jpg', '/images/hero_main.png', '/
 .tp-egg-link:hover .tp-egg--img, .tp-egg-link:focus-visible .tp-egg--img { animation: egg-wobble .7s ease-in-out; }
 @media (prefers-reduced-motion: reduce) { .tp-egg-link:hover .tp-egg--img { animation: none; } }
 @media (max-width: 860px) { .tp-entry { padding: 1.6rem .4rem 1.8rem; } .tp-entry-items { gap: .2rem; } .tp-egg--img { width: 100%; max-width: none; } }
+
+/* 業務用たまごの番号：目玉焼きのイラスト（番号入り） */
+.tp-biz-circles .tp-biz-ico { width: 92px; height: 92px; display: block; flex-shrink: 0; object-fit: contain; margin-bottom: .2rem; }
+@media (max-width: 960px) { .tp-biz-circles .tp-biz-ico { width: 88px; height: 88px; } }
+@media (max-width: 560px) { .tp-biz-circles .tp-biz-ico { grid-row: 1 / 3; width: 64px; height: 64px; margin: 0; } }
+
+/* 取扱商品（TOP）：写真＋商品名＋ボタンだけにして、説明は商品紹介ページへ */
+.tp-grid--4 .tp-card h3 { margin: 1.1rem 0 1.2rem; }
 </style>

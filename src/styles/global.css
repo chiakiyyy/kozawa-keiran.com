@@ -3,6 +3,10 @@
 @layer base {
   /* img の width/height 属性は縦横比の目安。表示サイズはCSSで決める */
   img { height: auto; }
+  /* 日本語は文節の区切りで折り返し、1文字だけの行や不自然な改行を避ける */
+  p, li, dd, dt, h1, h2, h3, h4, summary { word-break: auto-phrase; line-break: strict; }
+  p, li, dd { text-wrap: pretty; }
+  h1, h2, h3 { text-wrap: balance; }
   :root {
     --amber:      #EA5514;
     --brand:      #FFE200;
