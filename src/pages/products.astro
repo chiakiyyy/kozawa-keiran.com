@@ -17,6 +17,9 @@ import ContactSection from '../components/ContactSection.astro';
     <section class="pd-lineup">
       <div class="container">
         <div class="ttl"><h2 class="ttl-en">取り扱い商品</h2></div>
+        <nav class="pd-chips" aria-label="商品の種類">
+          {productGroups.map(g => <a href={`#${g.id}`}>{g.name}</a>)}
+        </nav>
         <div class="pd-panel" id="tab-biz">
         <div class="pg-list">
           {productGroups.map(g => (
@@ -157,4 +160,8 @@ import ContactSection from '../components/ContactSection.astro';
 @media (max-width:560px) {
   .pd-grid { grid-template-columns:1fr; }
 }
+.pd-chips { display:flex; flex-wrap:wrap; gap:.7rem; justify-content:center; margin:0 auto 2.2rem; }
+.pd-chips a { padding:.55rem 1.3rem; border-radius:999px; background:#fff; border:1.5px solid var(--cta); color:var(--cta); font-weight:700; font-size:1rem; text-decoration:none; transition:background .2s,color .2s; }
+.pd-chips a:hover { background:var(--cta); color:#fff; }
+.pg { scroll-margin-top:110px; }
 </style>
